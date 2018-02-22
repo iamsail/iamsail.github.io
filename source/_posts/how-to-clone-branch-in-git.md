@@ -1,0 +1,43 @@
+---
+title: 如何克隆某个分支
+date: 2017-05-17 12:07:27
+categories: Git
+---
+
+#### ** 写在前面 **
+
+今天网易云音乐推送了刘德华的<mark>《十七岁》</mark>
+
+第一次听这歌还是当年尹力在寝室放。那时还在念初中,二外,南山巅。
+
+转眼尹力已经二十,我离二十岁也就半年罢了。
+
+似水流年,太匆匆。
+
+**************************
+
+#### ** 如何克隆仓库中的某一个分支 **
+```
+git clone -b <branch> <remote_repo>
+```
+例如： git clone -b 指定的分支名字 仓库地址
+
+**************************
+#### ** 拉取远程分支到本地 **
+```
+git fetch origin 远程分支名x:本地分支名x
+```
+**************************
+
+#### ** 参考 **
+
+- [如何克隆git仓库中某一个分支？](https://segmentfault.com/a/1190000006064850)
+- [Git -- 提交本地分支到远端分支/拉取远程分支](http://www.jianshu.com/p/bfeb43289ab3)
+
+**************************
+<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
+<p style="margin-top: 0.4em; text-align: center">
+      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
+      <b style="font-size: 1em;">未经授权，禁止转载</b>
+      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
+ </p>

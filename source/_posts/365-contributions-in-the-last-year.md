@@ -1,0 +1,55 @@
+---
+title: 365 contributions in the last year
+date: 2017-04-22 10:58:17
+categories: 杂文
+---
+
+前几天提交代码,意外发现
+
+![365-contributions-in-the-last-year](/img/prose/365-contributions-in-the-last-year.jpg)
+
+** 这是第一次contributions达到365,希望这也是最后一次。**
+
+会努力保持在365以上的水准。
+
+*********
+
+现在对前端也有了更深的理解,对页面布局的掌握较之前亦是有了不小的进步。
+
+看 <i> the Zen of CSS design</i>,亦是受益匪浅。
+
+** 虽然偏好前端,但不止步于前端，也不止步于WEB。 **
+
+比起社区中的大佬们,自己还是很渣。
+
+但可以想象自己也能达到那个高度,并非遥不可及。
+
+越来越多的时间放在了写代码上,多少是有些惶恐的。
+
+正如 顾城所说的** 技术是人生存所依赖的，却不是人的精神能依凭的；它是生存的方法，而不是生存的法则。科学是一个很小的东西，并不像人们所寄望的那样可以无所不能。**
+
+除了阅读些有意思的书,最近开始涉略设计。
+
+吉他上的进步十分缓慢,练习的时间太少了。
+
+正在练习C和弦,挺难的,还需要大量的练习。
+
+阿JAY在《手写的从前》中唱到
+
+** 我看着你的脸 轻刷着和弦 **
+
+我也要这样Orz
+
+********
+
+** 长路漫漫,慢慢进步 **
+
+**************************
+
+<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
+<script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
+<p style="margin-top: 0.4em; text-align: center">
+      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
+      <b style="font-size: 1em;">未经授权，禁止转载</b>
+      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
+ </p>

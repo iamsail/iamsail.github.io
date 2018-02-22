@@ -1,0 +1,83 @@
+---
+title: 煤球踩坑记
+date: 2017-04-19 13:17:40
+categories: 代码人生
+---
+
+** 最近不少心思都花在[coalball](https://github.com/iamsail/coalball)的推进和优化上。 **
+
+![coalball-mobile-1](/img/codelife/coalball-mobile-1.png)
+
+![coalball-mobile-1](/img/codelife/coalball-mobile-2.png)
+
+记录遇到的几个bug。
+
+** 有的花费了我不少(很多)时间。想想很是痛心,呜呼！ **
+
+会陆续写成文档，放在工作室wiki。
+
+项目完成后,亦会迁移到[工作室github](https://github.com/cumtflyingstudio)。
+
+### ** 路径问题 **
+
+我在PC和chrome的模拟器上都是能够看到图片加载的,在移动端却看不到图片。
+
+其实这本不是什么大问题，控制台看看就能发现了。
+
+问题在于,服务器上的文件都是从我本机传上去的,所以本来我在自己电脑上是不能看到图片,不过因为本地有份代码，以及对应的图片文件。所以我控制台没有给出报错信息。
+
+** 最后还是在他人电脑上看了看，才定位了bug所在。重新修改了路径。 **
+
+那可能会想,从网站上传图片,这样本地不就没有对应的文件了吗。
+
+看下一个问题
+
+### ** 网站上传图片失败 **
+
+在线上传文件失败。这个问题困惑了两三天。
+
+因为本地测试是一切ok的。路径也没有问题。
+
+今早睡醒,猛然意识到,是用户对存放文件的目录只有读权限。
+
+更改了权限就好了。
+
+** 如何更改权限,[轻戳这儿](http://man.linuxde.net/chmod) **
+
+### ** 天坑 **
+
+这个就是天坑了。血泪史。
+
+在移动端,QQ,chrome浏览器上看,一切正常。可是在手机自带,UC,手机百度之类的浏览器,没有数据。
+
+最后在[肖神](https://blog.xgy666.cn/)的帮助下定位了BUG。
+
+** 原来是前端开发人员写JS脚本的时候,定义变量用的let,而不是var。且没有转成ES5。**
+
+目前还有不少浏览器不支持ES6。
+
+肖神是在PC上从360浏览器定位到bug的。
+
+不得不感慨一下,有的浏览器虽然不好用,并且对标准的支持也很缓慢,但不是毫无用处,比如用来定位下BUG。
+
+最后使用[BABEL](https://babeljs.io/)将ES6的代码转成了ES5,就可以了。
+
+*************************
+
+#### ** 总结 **
+
+- 定位BUG,比修改BUG更重要
+
+- 有时候或许要换个设备看看情况
+
+- 多装几个浏览器总是好的,哪怕你不用。毕竟很多用户用的不是最新的浏览器，也不是人人都用chrome,firefox。
+
+**************************
+
+<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
+<script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
+<p style="margin-top: 0.4em; text-align: center">
+      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
+      <b style="font-size: 1em;">未经授权，禁止转载</b>
+      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
+ </p>
