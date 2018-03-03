@@ -34,7 +34,7 @@ var post = page;
 <% if (site.tags.length){ %>
     <h3><%= __('tags') %></h3>
     <div class="tagslist">
-        <% site.tags.sort('posts.length','desc').limit(100).each(function(item){ %>
+        <% site.tags.sort('posts.length','desc').limit(200).each(function(item){ %>
             <% if(item.posts.length){ %>
                 <span><a href="<%- config.root %><%- item.path %>" title="<%= item.name %>"><%= item.name %><sup><%= item.posts.length %></sup></a></span>
             <% } %>
