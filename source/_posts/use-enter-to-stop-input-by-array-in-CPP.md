@@ -81,11 +81,3 @@ int main()
 [c++输入一组整型数据 不知道长度 回车键结束 并将其存入数组当中](http://www.cnblogs.com/banyanqianmian/p/6241602.html)
 [学习C++ -> 向量(vector)](http://www.cnblogs.com/mr-wid/archive/2013/01/22/2871105.html)
 [c++中vector的用法详解](http://blog.csdn.net/hancunai0017/article/details/7032383)
-***********
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

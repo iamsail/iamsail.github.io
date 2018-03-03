@@ -3,7 +3,145 @@
   <component name="ChangeListManager">
     <list default="true" id="700cf80a-4d6d-4f6f-a4db-494eefdf81ed" name="默认" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/themes/huno/layout/page-archive.ejs" afterPath="$PROJECT_DIR$/themes/huno/layout/page-archive.ejs" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2016-summary.md" afterPath="$PROJECT_DIR$/source/_posts/2016-summary.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/2017-summary.md" afterPath="$PROJECT_DIR$/source/_posts/2017-summary.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/365-contributions-in-the-last-year.md" afterPath="$PROJECT_DIR$/source/_posts/365-contributions-in-the-last-year.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Activity-arrangement.md" afterPath="$PROJECT_DIR$/source/_posts/Activity-arrangement.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Anaconda.md" afterPath="$PROJECT_DIR$/source/_posts/Anaconda.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Array-like-to-Array-in-JavaScript.md" afterPath="$PROJECT_DIR$/source/_posts/Array-like-to-Array-in-JavaScript.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Box-Model.md" afterPath="$PROJECT_DIR$/source/_posts/Box-Model.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Code-indentation-style-settings-of-phpstorm.md" afterPath="$PROJECT_DIR$/source/_posts/Code-indentation-style-settings-of-phpstorm.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Constructor-Pattern.md" afterPath="$PROJECT_DIR$/source/_posts/Constructor-Pattern.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Description-butoon-of-vim.md" afterPath="$PROJECT_DIR$/source/_posts/Description-butoon-of-vim.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ENOSPC-Error(Linux)-in-hexo.md" afterPath="$PROJECT_DIR$/source/_posts/ENOSPC-Error(Linux)-in-hexo.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/FindInPartiallySortedMatrix.md" afterPath="$PROJECT_DIR$/source/_posts/FindInPartiallySortedMatrix.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/HTMLElement.md" afterPath="$PROJECT_DIR$/source/_posts/HTMLElement.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/HTTP-test-of-BE-Group.md" afterPath="$PROJECT_DIR$/source/_posts/HTTP-test-of-BE-Group.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/JSON1.md" afterPath="$PROJECT_DIR$/source/_posts/JSON1.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Matrix-continually-multiply.md" afterPath="$PROJECT_DIR$/source/_posts/Matrix-continually-multiply.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Merge-sort.md" afterPath="$PROJECT_DIR$/source/_posts/Merge-sort.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Mobile-debug.md" afterPath="$PROJECT_DIR$/source/_posts/Mobile-debug.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Multiple-github-count-in-one-system.md" afterPath="$PROJECT_DIR$/source/_posts/Multiple-github-count-in-one-system.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Non-Parent-Child-Communication-in-vue.md" afterPath="$PROJECT_DIR$/source/_posts/Non-Parent-Child-Communication-in-vue.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Observer-Pattern.md" afterPath="$PROJECT_DIR$/source/_posts/Observer-Pattern.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Operator-overload-of-reload.md" afterPath="$PROJECT_DIR$/source/_posts/Operator-overload-of-reload.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Optimal-loading.md" afterPath="$PROJECT_DIR$/source/_posts/Optimal-loading.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/PHPMailer-SMTP-connect-failed.md" afterPath="$PROJECT_DIR$/source/_posts/PHPMailer-SMTP-connect-failed.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Singleton-Pattern.md" afterPath="$PROJECT_DIR$/source/_posts/Singleton-Pattern.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/StringBuffer-and-StringBuilder.md" afterPath="$PROJECT_DIR$/source/_posts/StringBuffer-and-StringBuilder.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/Tab-Control-with-Vue-Router.md" afterPath="$PROJECT_DIR$/source/_posts/Tab-Control-with-Vue-Router.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/The-longest-common-subsequence.md" afterPath="$PROJECT_DIR$/source/_posts/The-longest-common-subsequence.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/a-removal.md" afterPath="$PROJECT_DIR$/source/_posts/a-removal.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/about-the-pin-ying-in-linux.md" afterPath="$PROJECT_DIR$/source/_posts/about-the-pin-ying-in-linux.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/add-to-docker-user-group.md" afterPath="$PROJECT_DIR$/source/_posts/add-to-docker-user-group.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/all-are-solanaceae.md" afterPath="$PROJECT_DIR$/source/_posts/all-are-solanaceae.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/alter-language-in-github.md" afterPath="$PROJECT_DIR$/source/_posts/alter-language-in-github.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/an-FE-interview-of-tencent-yuewen-in-my-sophomore-class.md" afterPath="$PROJECT_DIR$/source/_posts/an-FE-interview-of-tencent-yuewen-in-my-sophomore-class.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/array-duplicate.md" afterPath="$PROJECT_DIR$/source/_posts/array-duplicate.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/begin-of-eslint.md" afterPath="$PROJECT_DIR$/source/_posts/begin-of-eslint.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/border-radius.md" afterPath="$PROJECT_DIR$/source/_posts/border-radius.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/brace-match.md" afterPath="$PROJECT_DIR$/source/_posts/brace-match.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/can-not-load-css-in-webpack.md" afterPath="$PROJECT_DIR$/source/_posts/can-not-load-css-in-webpack.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/childNodes.md" afterPath="$PROJECT_DIR$/source/_posts/childNodes.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/click-event-delay-300ms-in-mobile-web.md" afterPath="$PROJECT_DIR$/source/_posts/click-event-delay-300ms-in-mobile-web.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/clock-with-CSS-and-JS.md" afterPath="$PROJECT_DIR$/source/_posts/clock-with-CSS-and-JS.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/cmd-command.md" afterPath="$PROJECT_DIR$/source/_posts/cmd-command.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/common-cmd-command.md" afterPath="$PROJECT_DIR$/source/_posts/common-cmd-command.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/contain.md" afterPath="$PROJECT_DIR$/source/_posts/contain.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/container-exited-with-code-0-created-by-docker-compose.md" afterPath="$PROJECT_DIR$/source/_posts/container-exited-with-code-0-created-by-docker-compose.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ctrl+c-cannot-kill-source.md" afterPath="$PROJECT_DIR$/source/_posts/ctrl+c-cannot-kill-source.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/dependencies-devDependencies.md" afterPath="$PROJECT_DIR$/source/_posts/dependencies-devDependencies.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/deviceorientation.md" afterPath="$PROJECT_DIR$/source/_posts/deviceorientation.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/don-not-show-image-when-use-drawImage.md" afterPath="$PROJECT_DIR$/source/_posts/don-not-show-image-when-use-drawImage.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/examine-the-disk-space-and-Directory-size-in-linux.md" afterPath="$PROJECT_DIR$/source/_posts/examine-the-disk-space-and-Directory-size-in-linux.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/first.md" afterPath="$PROJECT_DIR$/source/_posts/first.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/fix-the-bug-in-coalball.md" afterPath="$PROJECT_DIR$/source/_posts/fix-the-bug-in-coalball.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/from-small-star-star-to-skip-imooc-class.md" afterPath="$PROJECT_DIR$/source/_posts/from-small-star-star-to-skip-imooc-class.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/function-array-parameters-passed-of-C++.md" afterPath="$PROJECT_DIR$/source/_posts/function-array-parameters-passed-of-C++.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/gitignore.md" afterPath="$PROJECT_DIR$/source/_posts/gitignore.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/hexo-site-search.md" afterPath="$PROJECT_DIR$/source/_posts/hexo-site-search.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/how-to-clone-branch-in-git.md" afterPath="$PROJECT_DIR$/source/_posts/how-to-clone-branch-in-git.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/how-to-install-docker.md" afterPath="$PROJECT_DIR$/source/_posts/how-to-install-docker.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/how-to-open-index-html-of-vue-over-file.md" afterPath="$PROJECT_DIR$/source/_posts/how-to-open-index-html-of-vue-over-file.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ifconfig-command-not-found-in-docker-container.md" afterPath="$PROJECT_DIR$/source/_posts/ifconfig-command-not-found-in-docker-container.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ingenious-use-of-switch.md" afterPath="$PROJECT_DIR$/source/_posts/ingenious-use-of-switch.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/install-clion-in-ubuntu.md" afterPath="$PROJECT_DIR$/source/_posts/install-clion-in-ubuntu.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/install-dual-system.md" afterPath="$PROJECT_DIR$/source/_posts/install-dual-system.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/insufficient-space-in-drive-of-ubuntu.md" afterPath="$PROJECT_DIR$/source/_posts/insufficient-space-in-drive-of-ubuntu.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/irrigation.md" afterPath="$PROJECT_DIR$/source/_posts/irrigation.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/is-Palindrome-character-string.md" afterPath="$PROJECT_DIR$/source/_posts/is-Palindrome-character-string.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/is-Uglifyjs-cannot-work.md" afterPath="$PROJECT_DIR$/source/_posts/is-Uglifyjs-cannot-work.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/link-talk.md" afterPath="$PROJECT_DIR$/source/_posts/link-talk.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/local-or-global-variable.md" afterPath="$PROJECT_DIR$/source/_posts/local-or-global-variable.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/lsb_release.md" afterPath="$PROJECT_DIR$/source/_posts/lsb_release.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/maximum-subsegment.md" afterPath="$PROJECT_DIR$/source/_posts/maximum-subsegment.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/memory-allocation-of-C++.md" afterPath="$PROJECT_DIR$/source/_posts/memory-allocation-of-C++.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/miss.md" afterPath="$PROJECT_DIR$/source/_posts/miss.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/node-and-mysql-of-docker-compose.md" afterPath="$PROJECT_DIR$/source/_posts/node-and-mysql-of-docker-compose.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/one-div-about-the-layout.md" afterPath="$PROJECT_DIR$/source/_posts/one-div-about-the-layout.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/push-images-to-Docker-hub.md" afterPath="$PROJECT_DIR$/source/_posts/push-images-to-Docker-hub.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/quick-sort.md" afterPath="$PROJECT_DIR$/source/_posts/quick-sort.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/read-Steve-Jobs-By-Walter-Isaacson.md" afterPath="$PROJECT_DIR$/source/_posts/read-Steve-Jobs-By-Walter-Isaacson.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/read_Zsl.md" afterPath="$PROJECT_DIR$/source/_posts/read_Zsl.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/recover-starting-items.md" afterPath="$PROJECT_DIR$/source/_posts/recover-starting-items.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/relearn-git.md" afterPath="$PROJECT_DIR$/source/_posts/relearn-git.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/rename-git-branch.md" afterPath="$PROJECT_DIR$/source/_posts/rename-git-branch.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/resolve-conflict.md" afterPath="$PROJECT_DIR$/source/_posts/resolve-conflict.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/responsive-image.md" afterPath="$PROJECT_DIR$/source/_posts/responsive-image.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/retalk-use-docker-to-build-development-environment-of-php-mysql-nginx.md" afterPath="$PROJECT_DIR$/source/_posts/retalk-use-docker-to-build-development-environment-of-php-mysql-nginx.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/rotary-cube.md" afterPath="$PROJECT_DIR$/source/_posts/rotary-cube.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/shortcuts-not-know.md" afterPath="$PROJECT_DIR$/source/_posts/shortcuts-not-know.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/skip-class-all-the-time.md" afterPath="$PROJECT_DIR$/source/_posts/skip-class-all-the-time.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/solve-could-not-resolve-host-error-in-docker.md" afterPath="$PROJECT_DIR$/source/_posts/solve-could-not-resolve-host-error-in-docker.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/some-configs-in-webpack.md" afterPath="$PROJECT_DIR$/source/_posts/some-configs-in-webpack.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/some-interesting-command-in-linux.md" afterPath="$PROJECT_DIR$/source/_posts/some-interesting-command-in-linux.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/some-linux-command-one.md" afterPath="$PROJECT_DIR$/source/_posts/some-linux-command-one.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/something-about-tag-p.md" afterPath="$PROJECT_DIR$/source/_posts/something-about-tag-p.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ssh-Could-not-resolve-hostname-ssh-github-com.md" afterPath="$PROJECT_DIR$/source/_posts/ssh-Could-not-resolve-hostname-ssh-github-com.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/ssh-connect-server-in-linux.md" afterPath="$PROJECT_DIR$/source/_posts/ssh-connect-server-in-linux.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/steps-in-animation-timing-function.md" afterPath="$PROJECT_DIR$/source/_posts/steps-in-animation-timing-function.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/stylus-cannot-auto-complete-in-phpstorm.md" afterPath="$PROJECT_DIR$/source/_posts/stylus-cannot-auto-complete-in-phpstorm.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/talk-rotary-cube-again.md" afterPath="$PROJECT_DIR$/source/_posts/talk-rotary-cube-again.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-base-of-flex.md" afterPath="$PROJECT_DIR$/source/_posts/the-base-of-flex.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-basic-knowledge-of-Web-Sockets.md" afterPath="$PROJECT_DIR$/source/_posts/the-basic-knowledge-of-Web-Sockets.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-cascade-priority-in-style-sheet.md" afterPath="$PROJECT_DIR$/source/_posts/the-cascade-priority-in-style-sheet.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-explain-for-first-task-of-BE-17.md" afterPath="$PROJECT_DIR$/source/_posts/the-explain-for-first-task-of-BE-17.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-interview-of-Baidu.md" afterPath="$PROJECT_DIR$/source/_posts/the-interview-of-Baidu.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-learn-of-vector.md" afterPath="$PROJECT_DIR$/source/_posts/the-learn-of-vector.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-note-one-of-javascript-the-good-parts.md" afterPath="$PROJECT_DIR$/source/_posts/the-note-one-of-javascript-the-good-parts.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-parent-child-communication-in-vue.md" afterPath="$PROJECT_DIR$/source/_posts/the-parent-child-communication-in-vue.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-permutation-of-numbers.md" afterPath="$PROJECT_DIR$/source/_posts/the-permutation-of-numbers.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-posture-is-not-true.md" afterPath="$PROJECT_DIR$/source/_posts/the-posture-is-not-true.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-record-of-coalball-move.md" afterPath="$PROJECT_DIR$/source/_posts/the-record-of-coalball-move.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-setting-of-Character-encoding-format-about-mysql.md" afterPath="$PROJECT_DIR$/source/_posts/the-setting-of-Character-encoding-format-about-mysql.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-spring-in-2017.md" afterPath="$PROJECT_DIR$/source/_posts/the-spring-in-2017.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/the-weight-of-sand.md" afterPath="$PROJECT_DIR$/source/_posts/the-weight-of-sand.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/tow-kind-of-procrastination.md" afterPath="$PROJECT_DIR$/source/_posts/tow-kind-of-procrastination.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/two-sum.md" afterPath="$PROJECT_DIR$/source/_posts/two-sum.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/typing-animation.md" afterPath="$PROJECT_DIR$/source/_posts/typing-animation.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/update-node-version-in-linux.md" afterPath="$PROJECT_DIR$/source/_posts/update-node-version-in-linux.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/update-npm-in-win10.md" afterPath="$PROJECT_DIR$/source/_posts/update-npm-in-win10.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/use-AccessorProperties-makes-Maximum-call-stack-size-exceeded.md" afterPath="$PROJECT_DIR$/source/_posts/use-AccessorProperties-makes-Maximum-call-stack-size-exceeded.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/use-Vue-Devtools-over-file.md" afterPath="$PROJECT_DIR$/source/_posts/use-Vue-Devtools-over-file.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/use-docker-to-build-development-environment-of-php-mysql-nginx.md" afterPath="$PROJECT_DIR$/source/_posts/use-docker-to-build-development-environment-of-php-mysql-nginx.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/use-enter-to-stop-input-by-array-in-CPP.md" afterPath="$PROJECT_DIR$/source/_posts/use-enter-to-stop-input-by-array-in-CPP.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/use-js-to-keep-tow-decimal-digits.md" afterPath="$PROJECT_DIR$/source/_posts/use-js-to-keep-tow-decimal-digits.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/use-live-server-to-code.md" afterPath="$PROJECT_DIR$/source/_posts/use-live-server-to-code.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/use-module-in-nodejs.md" afterPath="$PROJECT_DIR$/source/_posts/use-module-in-nodejs.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/use-zsh-in-ubuntu.md" afterPath="$PROJECT_DIR$/source/_posts/use-zsh-in-ubuntu.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/vertical-center-by-flex.md" afterPath="$PROJECT_DIR$/source/_posts/vertical-center-by-flex.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/vue-warn-make-sure-to-declare-reactive-data-properties-in-the-data-option.md" afterPath="$PROJECT_DIR$/source/_posts/vue-warn-make-sure-to-declare-reactive-data-properties-in-the-data-option.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/why-backslash-at-end.md" afterPath="$PROJECT_DIR$/source/_posts/why-backslash-at-end.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/why-the-transform-cannot-work.md" afterPath="$PROJECT_DIR$/source/_posts/why-the-transform-cannot-work.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/why-tow-values-in-network-performance.md" afterPath="$PROJECT_DIR$/source/_posts/why-tow-values-in-network-performance.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/why-websotrm-can-not-set.md" afterPath="$PROJECT_DIR$/source/_posts/why-websotrm-can-not-set.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/workman-of-FaShiKang.md" afterPath="$PROJECT_DIR$/source/_posts/workman-of-FaShiKang.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/wsl-and-cmder.md" afterPath="$PROJECT_DIR$/source/_posts/wsl-and-cmder.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/yarn.md" afterPath="$PROJECT_DIR$/source/_posts/yarn.md" />
+      <change beforePath="$PROJECT_DIR$/source/_posts/yinyang.md" afterPath="$PROJECT_DIR$/source/_posts/yinyang.md" />
+      <change beforePath="$PROJECT_DIR$/themes/huno/layout/_partials/archive1111.ejs" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/themes/huno/layout/_partials/footer.ejs" afterPath="$PROJECT_DIR$/themes/huno/layout/_partials/footer.ejs" />
+      <change beforePath="$PROJECT_DIR$/themes/huno/layout/layout - 副本.ejs" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,13 +151,39 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="footer.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/footer.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-187">
+              <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/huno/layout/layout.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>img</find>
       <find>data_url</find>
+      <find>footer</find>
+      <find>layout</find>
     </findStrings>
+    <dirStrings>
+      <dir>D:\blog\themes\huno\layout</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,13 +191,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/source/_posts/skip-class-all-the-time.md" />
+        <option value="$PROJECT_DIR$/source/_posts/solve-could-not-resolve-host-error-in-docker.md" />
+        <option value="$PROJECT_DIR$/source/_posts/some-configs-in-webpack.md" />
+        <option value="$PROJECT_DIR$/source/_posts/some-interesting-command-in-linux.md" />
+        <option value="$PROJECT_DIR$/source/_posts/some-linux-command-one.md" />
+        <option value="$PROJECT_DIR$/source/_posts/something-about-tag-p.md" />
+        <option value="$PROJECT_DIR$/source/_posts/ssh-connect-server-in-linux.md" />
+        <option value="$PROJECT_DIR$/source/_posts/ssh-Could-not-resolve-hostname-ssh-github-com.md" />
+        <option value="$PROJECT_DIR$/source/_posts/steps-in-animation-timing-function.md" />
+        <option value="$PROJECT_DIR$/source/_posts/StringBuffer-and-StringBuilder.md" />
+        <option value="$PROJECT_DIR$/source/_posts/stylus-cannot-auto-complete-in-phpstorm.md" />
+        <option value="$PROJECT_DIR$/source/_posts/Tab-Control-with-Vue-Router.md" />
+        <option value="$PROJECT_DIR$/source/_posts/talk-rotary-cube-again.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-base-of-flex.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-basic-knowledge-of-Web-Sockets.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-cascade-priority-in-style-sheet.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-explain-for-first-task-of-BE-17.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-interview-of-Baidu.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-learn-of-vector.md" />
+        <option value="$PROJECT_DIR$/source/_posts/The-longest-common-subsequence.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-note-one-of-javascript-the-good-parts.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-parent-child-communication-in-vue.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-permutation-of-numbers.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-posture-is-not-true.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-record-of-coalball-move.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-spring-in-2017.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-weight-of-sand.md" />
+        <option value="$PROJECT_DIR$/source/_posts/tow-kind-of-procrastination.md" />
+        <option value="$PROJECT_DIR$/source/_posts/two-sum.md" />
+        <option value="$PROJECT_DIR$/source/_posts/typing-animation.md" />
+        <option value="$PROJECT_DIR$/source/_posts/update-node-version-in-linux.md" />
+        <option value="$PROJECT_DIR$/source/_posts/update-npm-in-win10.md" />
+        <option value="$PROJECT_DIR$/source/_posts/use-AccessorProperties-makes-Maximum-call-stack-size-exceeded.md" />
+        <option value="$PROJECT_DIR$/source/_posts/use-docker-to-build-development-environment-of-php-mysql-nginx.md" />
+        <option value="$PROJECT_DIR$/source/_posts/use-enter-to-stop-input-by-array-in-CPP.md" />
+        <option value="$PROJECT_DIR$/source/_posts/use-js-to-keep-tow-decimal-digits.md" />
+        <option value="$PROJECT_DIR$/source/_posts/use-live-server-to-code.md" />
+        <option value="$PROJECT_DIR$/source/_posts/use-module-in-nodejs.md" />
+        <option value="$PROJECT_DIR$/source/_posts/use-Vue-Devtools-over-file.md" />
+        <option value="$PROJECT_DIR$/source/_posts/use-zsh-in-ubuntu.md" />
+        <option value="$PROJECT_DIR$/source/_posts/vertical-center-by-flex.md" />
+        <option value="$PROJECT_DIR$/source/_posts/vue-warn-make-sure-to-declare-reactive-data-properties-in-the-data-option.md" />
+        <option value="$PROJECT_DIR$/source/_posts/why-backslash-at-end.md" />
+        <option value="$PROJECT_DIR$/source/_posts/why-the-transform-cannot-work.md" />
+        <option value="$PROJECT_DIR$/source/_posts/why-tow-values-in-network-performance.md" />
+        <option value="$PROJECT_DIR$/source/_posts/why-websotrm-can-not-set.md" />
+        <option value="$PROJECT_DIR$/source/_posts/workman-of-FaShiKang.md" />
+        <option value="$PROJECT_DIR$/source/_posts/wsl-and-cmder.md" />
+        <option value="$PROJECT_DIR$/source/_posts/yarn.md" />
+        <option value="$PROJECT_DIR$/source/_posts/yinyang.md" />
         <option value="$PROJECT_DIR$/themes/huno/layout/_partials/footer.ejs" />
-        <option value="$PROJECT_DIR$/source/_posts/read_Zsl.md" />
-        <option value="$PROJECT_DIR$/source/_posts/read-Steve-Jobs-By-Walter-Isaacson.md" />
-        <option value="$PROJECT_DIR$/source/_posts/the-setting-of-Character-encoding-format-about-mysql.md" />
-        <option value="$PROJECT_DIR$/themes/huno/layout/layout.ejs" />
-        <option value="$PROJECT_DIR$/source/_posts/hexo-site-search.md" />
-        <option value="$PROJECT_DIR$/themes/huno/layout/page-archive.ejs" />
       </list>
     </option>
   </component>
@@ -53,8 +261,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="271" />
-    <option name="y" value="10" />
+    <option name="x" value="618" />
+    <option name="y" value="53" />
     <option name="width" value="1382" />
     <option name="height" value="784" />
   </component>
@@ -75,6 +283,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -98,13 +307,27 @@
               <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="huno" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="languages" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="huno" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="layout" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="huno" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="layout" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="_partials" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -142,25 +365,28 @@
       <workItem from="1519696414861" duration="51000" />
       <workItem from="1520004590857" duration="12844000" />
       <workItem from="1520060593911" duration="4410000" />
+      <workItem from="1520082394453" duration="11071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45801000" />
+    <option name="totallyTimeSpent" value="57477000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22327965" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22327965" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -168,7 +394,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -183,303 +408,591 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/_posts/the-setting-of-Character-encoding-format-about-mysql.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/steps-in-animation-timing-function.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="3572">
-            <caret line="188" column="13" lean-forward="false" selection-start-line="188" selection-start-column="13" selection-end-line="188" selection-end-column="13" />
+          <first_editor relative-caret-position="404">
+            <caret line="244" column="0" lean-forward="false" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/StringBuffer-and-StringBuilder.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/stylus-cannot-auto-complete-in-phpstorm.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Tab-Control-with-Vue-Router.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="437">
+            <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
             <folding>
-              <marker date="1520050899284" expanded="true" signature="3025:3161" ph="SELECT SCHEM... SCHEMATA" />
-              <marker date="1520050899284" expanded="true" signature="3914:4056" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4057:4199" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4200:4342" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4343:4485" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4486:4628" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4629:4771" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4772:4817" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="5249:5823" ph="SELECT TABLE... TABLES" />
-              <marker date="1520050899284" expanded="true" signature="6237:6272" ph="alter table " />
-              <marker date="1520050899284" expanded="true" signature="6313:6366" ph="alter table `tablename`... " />
-              <marker date="1520050899284" expanded="true" signature="6404:6439" ph="alter table " />
-              <marker date="1520050899284" expanded="true" signature="6474:6533" ph="alter table " />
+              <marker date="1520088999730" expanded="true" signature="363:435" ph="..." />
+              <marker date="1520088999730" expanded="true" signature="479:550" ph="{&quot;el&quot;: '##app'...}" />
+              <marker date="1520088999730" expanded="true" signature="627:756" ph="..." />
+              <marker date="1520088999730" expanded="true" signature="801:989" ph="{...}" />
+              <marker date="1520088999730" expanded="true" signature="813:987" ph="[...]" />
+              <marker date="1520088999730" expanded="true" signature="819:895" ph="{&quot;name&quot;: 'header'...}" />
+              <marker date="1520088999730" expanded="true" signature="901:983" ph="{&quot;name&quot;: 'footer'...}" />
+              <marker date="1520088999730" expanded="true" signature="1052:1255" ph="..." />
+              <marker date="1520088999730" expanded="true" signature="1069:1243" ph="..." />
+              <marker date="1520088999730" expanded="true" signature="1303:1426" ph="{&quot;name&quot;: app...}" />
+              <marker date="1520088999730" expanded="true" signature="1340:1420" ph="{...}" />
+              <marker date="1520088999730" expanded="true" signature="1360:1410" ph="{&quot;msg&quot;: &quot;hello world&quot;...}" />
+              <marker date="1520088999730" expanded="true" signature="1513:1648" ph="..." />
+              <marker date="1520088999730" expanded="true" signature="1532:1636" ph="..." />
+              <marker date="1520088999730" expanded="true" signature="1693:1777" ph="{...}" />
+              <marker date="1520088999730" expanded="true" signature="1705:1772" ph="{...}" />
+              <marker date="1520088999730" expanded="true" signature="1719:1766" ph="{...}" />
+              <marker date="1520088999730" expanded="true" signature="2068:2223" ph="..." />
+              <marker date="1520088999730" expanded="true" signature="2089:2211" ph="..." />
+              <marker date="1520088999730" expanded="true" signature="2270:2376" ph="{...}" />
+              <marker date="1520088999730" expanded="true" signature="2286:2369" ph="{...}" />
+              <marker date="1520088999730" expanded="true" signature="2306:2359" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/huno/layout/layout.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2375">
-          <caret line="125" column="32" lean-forward="false" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1539">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/read-Steve-Jobs-By-Walter-Isaacson.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/talk-rotary-cube-again.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="1824">
-            <caret line="96" column="19" lean-forward="false" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
+          <first_editor relative-caret-position="423">
+            <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+            <folding>
+              <marker date="1520088999436" expanded="true" signature="677:688" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="698:786" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="797:883" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="894:980" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="991:1079" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="1090:1142" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="1346:1439" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="1451:1537" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="1549:1648" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="1660:1762" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="1774:1874" ph="{...}" />
+              <marker date="1520088999436" expanded="true" signature="1887:1999" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-base-of-flex.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="366">
+            <caret line="298" column="0" lean-forward="false" selection-start-line="298" selection-start-column="0" selection-end-line="298" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/read_Zsl.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-basic-knowledge-of-Web-Sockets.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="2033">
-            <caret line="107" column="28" lean-forward="false" selection-start-line="107" selection-start-column="12" selection-end-line="107" selection-end-column="28" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/read-Steve-Jobs-By-Walter-Isaacson.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="4522">
-            <caret line="238" column="74" lean-forward="false" selection-start-line="238" selection-start-column="74" selection-end-line="238" selection-end-column="74" />
+          <first_editor relative-caret-position="423">
+            <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/read_Zsl.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Code-indentation-style-settings-of-phpstorm.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-cascade-priority-in-style-sheet.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <first_editor relative-caret-position="437">
+            <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-contributions-of-github-donnot-appear-green.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-508">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-explain-for-first-task-of-BE-17.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/博客备份/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/source/_posts/Code-indentation-style-settings-of-phpstorm.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-interview-of-Baidu.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-learn-of-vector.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/The-longest-common-subsequence.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-note-one-of-javascript-the-good-parts.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <folding>
+              <marker date="1520088999539" expanded="true" signature="219:244" ph="{...}" />
+              <marker date="1520088999539" expanded="true" signature="287:312" ph="{...}" />
+              <marker date="1520088999539" expanded="true" signature="352:385" ph="{...}" />
+              <marker date="1520088999539" expanded="true" signature="436:534" ph="{...}" />
+              <marker date="1520088999539" expanded="true" signature="467:532" ph="{...}" />
+              <marker date="1520088999539" expanded="true" signature="581:644" ph="{...}" />
+              <marker date="1520088999539" expanded="true" signature="674:725" ph="{...}" />
+              <marker date="1520088999539" expanded="true" signature="772:801" ph="{...}" />
+              <marker date="1520088999539" expanded="true" signature="1190:1288" ph="{...}" />
+              <marker date="1520088999539" expanded="true" signature="1221:1286" ph="{...}" />
+              <marker date="1520088999539" expanded="true" signature="1324:1369" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-parent-child-communication-in-vue.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="437">
+            <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-permutation-of-numbers.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-posture-is-not-true.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="437">
+            <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-record-of-coalball-move.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="404">
+            <caret line="266" column="0" lean-forward="false" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-setting-of-Character-encoding-format-about-mysql.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-3491">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding>
+              <marker date="1520086479322" expanded="true" signature="3025:3161" ph="SELECT SCHEM... SCHEMATA" />
+              <marker date="1520086479322" expanded="true" signature="3914:4056" ph="select,inser... " />
+              <marker date="1520086479322" expanded="true" signature="4057:4199" ph="select,inser... " />
+              <marker date="1520086479322" expanded="true" signature="4200:4342" ph="select,inser... " />
+              <marker date="1520086479322" expanded="true" signature="4343:4485" ph="select,inser... " />
+              <marker date="1520086479322" expanded="true" signature="4486:4628" ph="select,inser... " />
+              <marker date="1520086479322" expanded="true" signature="4629:4771" ph="select,inser... " />
+              <marker date="1520086479322" expanded="true" signature="4772:4817" ph="select,inser... " />
+              <marker date="1520086479322" expanded="true" signature="5249:5823" ph="SELECT TABLE... TABLES" />
+              <marker date="1520086479322" expanded="true" signature="6237:6272" ph="alter table " />
+              <marker date="1520086479322" expanded="true" signature="6313:6366" ph="alter table `tablename`... " />
+              <marker date="1520086479322" expanded="true" signature="6404:6439" ph="alter table " />
+              <marker date="1520086479322" expanded="true" signature="6474:6533" ph="alter table " />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-spring-in-2017.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="138">
+            <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-weight-of-sand.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/tow-kind-of-procrastination.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="456">
+            <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/two-sum.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <folding>
+              <marker date="1520088999935" expanded="true" signature="461:642" ph="{...}" />
+              <marker date="1520088999935" expanded="true" signature="507:640" ph="{...}" />
+              <marker date="1520088999935" expanded="true" signature="555:636" ph="{...}" />
+              <marker date="1520088999935" expanded="true" signature="598:630" ph="{...}" />
+              <marker date="1520088999935" expanded="true" signature="731:1035" ph="{...}" />
+              <marker date="1520088999935" expanded="true" signature="831:1020" ph="{...}" />
+              <marker date="1520088999935" expanded="true" signature="899:992" ph="{...}" />
+              <marker date="1520088999935" expanded="true" signature="1154:1382" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/typing-animation.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <folding>
+              <marker date="1520088999484" expanded="true" signature="797:836" ph="..." />
+              <marker date="1520088999484" expanded="true" signature="871:926" ph="..." />
+              <marker date="1520088999484" expanded="true" signature="937:1206" ph="{...}" />
+              <marker date="1520088999484" expanded="true" signature="1318:1497" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/update-node-version-in-linux.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/update-npm-in-win10.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="342">
+            <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/use-AccessorProperties-makes-Maximum-call-stack-size-exceeded.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/use-docker-to-build-development-environment-of-php-mysql-nginx.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="271">
+            <caret line="362" column="0" lean-forward="false" selection-start-line="362" selection-start-column="0" selection-end-line="362" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/use-enter-to-stop-input-by-array-in-CPP.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="157">
+            <caret line="69" column="25" lean-forward="true" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/use-js-to-keep-tow-decimal-digits.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <folding>
+              <marker date="1520088999755" expanded="true" signature="594:896" ph="{...}" />
+              <marker date="1520088999755" expanded="true" signature="712:770" ph="{...}" />
+              <marker date="1520088999755" expanded="true" signature="794:894" ph="{...}" />
+              <marker date="1520088999755" expanded="true" signature="824:872" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/use-live-server-to-code.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/use-module-in-nodejs.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <folding>
+              <marker date="1520088999863" expanded="true" signature="1207:1815" ph="{...}" />
+              <marker date="1520088999863" expanded="true" signature="1388:1813" ph="{...}" />
+              <marker date="1520088999863" expanded="true" signature="1449:1606" ph="{...}" />
+              <marker date="1520088999863" expanded="true" signature="1475:1549" ph="{&quot;type&quot;: 'paren'...}" />
+              <marker date="1520088999863" expanded="true" signature="1631:1788" ph="{...}" />
+              <marker date="1520088999863" expanded="true" signature="1657:1731" ph="{&quot;type&quot;: 'paren'...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/use-Vue-Devtools-over-file.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="366">
+            <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/use-zsh-in-ubuntu.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="437">
+            <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/vertical-center-by-flex.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="418">
+            <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <folding>
+              <marker date="1520088999819" expanded="true" signature="442:488" ph="..." />
+              <marker date="1520088999819" expanded="true" signature="451:479" ph="..." />
+              <marker date="1520088999819" expanded="true" signature="529:639" ph="{...}" />
+              <marker date="1520088999819" expanded="true" signature="646:675" ph="{...}" />
+              <marker date="1520088999819" expanded="true" signature="735:883" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/vue-warn-make-sure-to-declare-reactive-data-properties-in-the-data-option.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/why-backslash-at-end.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="380">
-            <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/read_Zsl.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="236">
-            <caret line="107" column="28" lean-forward="false" selection-start-line="107" selection-start-column="12" selection-end-line="107" selection-end-column="28" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/read-Steve-Jobs-By-Walter-Isaacson.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="173">
-            <caret line="96" column="19" lean-forward="false" selection-start-line="96" selection-start-column="19" selection-end-line="96" selection-end-column="19" />
+            <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/hexo-site-search.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/why-the-transform-cannot-work.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="2565">
-            <caret line="276" column="15" lean-forward="false" selection-start-line="276" selection-start-column="15" selection-end-line="276" selection-end-column="15" />
+          <first_editor relative-caret-position="423">
+            <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/why-tow-values-in-network-performance.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/yinyang.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="437">
+            <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/yarn.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
             <folding>
-              <marker date="1520066990389" expanded="true" signature="1196:5124" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="1227:5120" ph="{&quot;url&quot;: path...}" />
-              <marker date="1520066990389" expanded="true" signature="1314:5114" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="1430:1647" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="1455:1632" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="1842:5102" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="2084:2131" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="2220:5006" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="2786:3526" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="2850:3502" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="3068:3148" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="3154:3476" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="3211:3301" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="3346:3446" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="3603:4988" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="3845:4926" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="4056:4130" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="4173:4247" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="4300:4385" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="4578:4805" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="5531:9577" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="5562:9573" ph="{&quot;url&quot;: path...}" />
-              <marker date="1520066990389" expanded="true" signature="5649:9567" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="5766:5990" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="5791:5975" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="6185:9555" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="6427:6474" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="6564:9459" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="7130:7870" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="7194:7846" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="7412:7492" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="7498:7820" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="7555:7645" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="7690:7790" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="7947:9441" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="8298:9379" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="8509:8583" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="8626:8700" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="8753:8838" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="9031:9258" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="9879:9920" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="9895:9918" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="9958:10521" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="9974:10066" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="10088:10202" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="10231:10304" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="10327:10451" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="10469:10519" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="10538:10649" ph="..." />
-              <marker date="1520066990389" expanded="true" signature="10544:10567" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="10574:10598" ph="{...}" />
-              <marker date="1520066990389" expanded="true" signature="10606:10647" ph="{...}" />
+              <marker date="1520088999526" expanded="true" signature="2182:2662" ph="{...}" />
+              <marker date="1520088999526" expanded="true" signature="2299:2323" ph="{...}" />
+              <marker date="1520088999526" expanded="true" signature="2327:2356" ph="{...}" />
+              <marker date="1520088999526" expanded="true" signature="2407:2487" ph="{...}" />
+              <marker date="1520088999526" expanded="true" signature="2518:2660" ph="{...}" />
+              <marker date="1520088999526" expanded="true" signature="2623:2654" ph="{...}" />
+              <marker date="1520088999526" expanded="true" signature="2679:2831" ph="{...}" />
+              <marker date="1520088999526" expanded="true" signature="2685:2756" ph="//..." />
+              <marker date="1520088999526" expanded="true" signature="2800:2823" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/the-setting-of-Character-encoding-format-about-mysql.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/wsl-and-cmder.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="0">
-            <caret line="188" column="13" lean-forward="false" selection-start-line="188" selection-start-column="13" selection-end-line="188" selection-end-column="13" />
-            <folding>
-              <marker date="1520050899284" expanded="true" signature="3025:3161" ph="SELECT SCHEM... SCHEMATA" />
-              <marker date="1520050899284" expanded="true" signature="3914:4056" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4057:4199" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4200:4342" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4343:4485" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4486:4628" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4629:4771" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="4772:4817" ph="select,inser... " />
-              <marker date="1520050899284" expanded="true" signature="5249:5823" ph="SELECT TABLE... TABLES" />
-              <marker date="1520050899284" expanded="true" signature="6237:6272" ph="alter table " />
-              <marker date="1520050899284" expanded="true" signature="6313:6366" ph="alter table `tablename`... " />
-              <marker date="1520050899284" expanded="true" signature="6404:6439" ph="alter table " />
-              <marker date="1520050899284" expanded="true" signature="6474:6533" ph="alter table " />
-            </folding>
+          <first_editor relative-caret-position="423">
+            <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/huno/source/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/source/_posts/workman-of-FaShiKang.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="423">
+            <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/archive.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="44" column="37" lean-forward="true" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/article.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/footer.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="52" lean-forward="false" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/list-posts.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/huno/layout/archive.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/source/_posts/why-websotrm-can-not-set.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="437">
+            <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -491,34 +1004,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/huno/layout/index.ejs">
+    <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/pagination.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/archive.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="40" column="70" lean-forward="false" selection-start-line="40" selection-start-column="69" selection-end-line="40" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/article.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="40" column="10" lean-forward="true" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/huno/layout/archive.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="38" lean-forward="false" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/huno/layout/layout.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2432">
-          <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
+        <state relative-caret-position="98">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/huno/layout/page.ejs">
+    <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/footer.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/huno/layout/page-archive.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        <state relative-caret-position="-187">
+          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
           <folding />
         </state>
       </provider>

@@ -168,10 +168,3 @@ function init(){
 [yarn, 不是又一个 npm 第三方客户端](https://zhuanlan.zhihu.com/p/22892675)
 [yarnpkg](https://yarnpkg.com/zh-Hans/)
 [npm和yarn更改为淘宝镜像](http://www.bubuko.com/infodetail-1919297.html)
-****************
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

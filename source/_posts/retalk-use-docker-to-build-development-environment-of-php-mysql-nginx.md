@@ -556,11 +556,3 @@ docker inspect --format='{{.NetworkSettings.IPAddress}}' $CONTAINER_ID
 [SQLSTATE[HY000] [2002] No such file or directory [duplicate]](https://stackoverflow.com/questions/22188026/sqlstatehy000-2002-no-such-file-or-directory)
 [宿主机上如何获得 docker container 容器的 ip 地址？](https://segmentfault.com/q/1010000001637726)
 [如何获取 docker 容器(container)的 ip 地址](https://mozillazg.github.io/2016/01/docker-get-containers-ip-address.html)
-***************
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

@@ -34,10 +34,3 @@ git fetch origin 远程分支名x:本地分支名x
 - [如何克隆git仓库中某一个分支？](https://segmentfault.com/a/1190000006064850)
 - [Git -- 提交本地分支到远端分支/拉取远程分支](http://www.jianshu.com/p/bfeb43289ab3)
 
-**************************
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

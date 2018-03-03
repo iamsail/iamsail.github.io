@@ -92,13 +92,3 @@ int main(){
 [【tyvj1055】沙子合并](http://hzwer.com/575.html)
 [动态规划和贪心的本质区别是什么](https://www.zhihu.com/question/32096465)
 [贪心法和动态规划法的区别](http://blog.csdn.net/yelbosh/article/details/7649717)
-
-****************
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>
- 

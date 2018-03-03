@@ -189,12 +189,4 @@ eslint xxx.js --fix
 [ESLint深入使用](http://blog.csdn.net/xueboren001/article/details/53389221)
 [Eslint 从入门到放弃](http://blog.csdn.net/walid1992/article/details/54633760)
 
-***********
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>
 

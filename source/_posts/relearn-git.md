@@ -208,10 +208,3 @@ hard  就是动repo还有staging还有working
 [ git add .和git add -u和git add -A的区别](http://blog.csdn.net/lcxywfe/article/details/53260338)
 [Git 如何删除本地分支和远程分支](http://blog.csdn.net/sub_lele/article/details/52289996)
 [Git本地从某个分支上创建新分支以及拉取远程分支到本地分支](http://blog.csdn.net/bin622/article/details/69948525)
-****************
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

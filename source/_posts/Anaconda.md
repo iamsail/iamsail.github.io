@@ -135,20 +135,9 @@ conda config --set show_channel_urls yes
 <span class="under0"> ** 删除了自己在系统里安装的python,使用Anaconda中的python。当然我使用的Pycharm中的`Project Interpreter`也是Anaconda中的python. **</span>
 
 ********
-
-
-
-
 ### ** 参考 **
 
 [Anaconda使用总结](http://python.jobbole.com/86236/)
 [Anaconda 入门安装教程](https://foofish.net/anaconda-install.html)
 [初学python者自学anaconda的正确姿势是什么？？](https://www.zhihu.com/question/58033789)
 
-****************
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

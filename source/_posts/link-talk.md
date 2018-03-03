@@ -148,10 +148,3 @@ a:link{
 
 PS:这个指向外部的链接,域名必须是已经解析的,否则与指向内部的链接是同等的效果。读者可以自行尝试验证。
 
-********************************
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

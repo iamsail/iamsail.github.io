@@ -123,10 +123,3 @@ categories: Javascript
 - [js将类数组转成数组](http://blog.csdn.net/liaozhongping/article/details/51075343)
 - [Array.prototype.slice应用和原理探析](http://blog.csdn.net/warhin/article/details/50922314)
 
-********************************
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

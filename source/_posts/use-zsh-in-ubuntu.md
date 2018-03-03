@@ -263,11 +263,3 @@ $ ps -ef | grep `echo $$` | grep -v grep | grep -v ps
 [自动补完不算什么，一键直达目录才是终极神器](https://linux.cn/article-3401-1.html)
 [Mac下的效率工具autojump](http://www.barretlee.com/blog/2015/03/30/autojump-in-mac/)
 [Autojump使用方法](http://oska874.cf/%E8%AF%B4%E6%98%8E/autojump%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html)
-***************
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

@@ -62,10 +62,3 @@ npm run server
 - [Markdown 语法手册 （完整整理版）](http://blog.csdn.net/witnessai1/article/details/52551362)
 - [live-server 快速搭建服务](https://juejin.im/post/5940dc1961ff4b006cb82c3d)
 
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

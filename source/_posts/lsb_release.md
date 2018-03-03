@@ -52,11 +52,3 @@ lsb_release -a
 [解决-bash: lsb_release: command not found](https://blog.slogra.com/post-338.html)
 [（原创）Linux下查看系统版本号信息的方法](http://www.ha97.com/2987.html)
 [Linux中 cat /etc/issue 和lsb_release命令显示的结果会不同么](https://zhidao.baidu.com/question/365547310.html)
-***************
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

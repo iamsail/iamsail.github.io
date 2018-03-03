@@ -48,13 +48,3 @@ categories: HTML&&CSS
 - [CSS样式表来源以及“！important”规则](http://blog.csdn.net/ruoyiqing/article/details/38959045)
 - [添加浏览器的用户样式表](http://www.cnblogs.com/xesam/archive/2011/12/08/2280707.html)
 
-
-**********************
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

@@ -126,10 +126,3 @@ categories: 阅读笔记
    所谓盲目不是说它放弃了目的，而是说它不断地制造目的。
    或者说它制造了一个个不真实的目的。
    将一切搞得极其复杂起来。
-
-<hr />
-    <p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
-    </p>

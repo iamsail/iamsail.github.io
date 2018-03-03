@@ -98,10 +98,3 @@ A与B的不同在于,<span class="under0">** A的具体实现的时候借助了`
 我的[websocket-animation](https://github.com/iamsail/websocket-animation)中立方体的旋转不在中心便是因为上述原因,因此只需要改下立方体的CSS实现代码即可。
 
 
-****************
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

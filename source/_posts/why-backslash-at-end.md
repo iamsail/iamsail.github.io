@@ -18,9 +18,3 @@ categories: 代码人生
 - 普通字符串(py中还有长字符串,用三个引号代替普通引号)可以跨行，如果一行之中最后一个字符是反斜线，那么，换行符本身就"转义"了，也就是被忽略了。
 
 所以字符串换行的时候，末尾有\，是因为，转义掉行末的换行符。
-<hr />
-    <p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
-    </p>
