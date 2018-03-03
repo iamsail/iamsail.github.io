@@ -47,10 +47,3 @@ v2.0.0与v1.0.0相比
 <span class="under0">** 我将44个时长为0.5的音频通过node脚本转码成了一个base64的数组。base64数组里面的内容本身间隙很小,几乎没有多余的空格,也就是没有压缩的空间了。**</span>
 
 有群友提到,可以使用mid格式进行优化。可以尝试下。
-********************************
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

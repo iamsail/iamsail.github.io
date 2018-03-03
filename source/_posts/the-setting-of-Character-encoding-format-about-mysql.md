@@ -204,10 +204,3 @@ mysql的`utf8`编码的一个字符最多3个字节，但是一个emoji表情为
 [MySQL中CREATE DATABASE和CREATE SCHEMA区别](http://blog.useasp.net/archive/2013/05/21/The-difference-between-create-database-and-create-schema-in-mysql.aspx)
 [mysql修改数据库表和表中的字段的编码格式的修改](http://blog.csdn.net/luo4105/article/details/50804148)
 [浅谈MySQL中utf8和utf8mb4的区别](http://blog.xieyc.com/utf8-and-utf8mb4/)
-****************
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

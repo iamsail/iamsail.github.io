@@ -65,9 +65,3 @@ CSS如下([效果预览](http://www.sail.name/CSS_Demo/%E9%98%B4%E9%98%B3%E5%85%
 
 ** 很多工作别人已经帮我们做好了，只是我们不知道。**
 
-<hr />
-    <p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
-    </p>

@@ -264,12 +264,4 @@ client_max_body_size xxm
 - [vim批量替换命令实践](http://www.cnblogs.com/beenoisy/p/4046074.html)
 - [ThinkPHP3.2.3完全开发](https://www.kancloud.cn/manual/thinkphp/1678)
 - [配置php.ini实现PHP文件上传功能](http://www.cnblogs.com/52php/p/5665419.html)
-*******************************
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>
 

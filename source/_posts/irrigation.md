@@ -112,12 +112,3 @@ int main() {
 ### ** 参考 **
 
 [普里姆算法](https://zh.wikipedia.org/wiki/%E6%99%AE%E6%9E%97%E5%A7%86%E7%AE%97%E6%B3%95)
-
-***************
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>
- 

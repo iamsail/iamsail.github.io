@@ -242,13 +242,4 @@ Specifies a stepping function, described above, taking two parameters. The first
 [深入理解CSS3 Animation 帧动画](http://www.cnblogs.com/aaronjs/p/4642015.html)
 [动画如何识别关键帧和中间帧？](https://www.zhihu.com/question/28962320)
 
-**************************
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>
 

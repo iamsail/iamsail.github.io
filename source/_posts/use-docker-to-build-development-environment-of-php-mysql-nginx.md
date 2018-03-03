@@ -75,7 +75,7 @@ Query OK, 1 row affected (0.03 sec)
 
 
 PHP 同样使用官方的php镜像，不过需要支持mysql扩展。所以我们这次用Dockerfile 来构建一个镜像，以下是Dockerfile
-````
+```
  FROM  php:5.6-fpm
  RUN apt-get update && apt-get install -y \
  libfreetype6-dev \
@@ -361,8 +361,6 @@ RUN apt-get update && apt-get install -y vim
 现在运行这三个容器只要使用命令 `docker-compose up -d`
 
 
-
-
 *********
 
 ### ** 参考 **
@@ -370,12 +368,3 @@ RUN apt-get update && apt-get install -y vim
 [Docker Compose 配置文件详解](http://www.jianshu.com/p/2217cfed29d7)
 [Docker docker-compose 配置Nginx+Php+Mysql开发环境](http://www.tanhui.bid/docker/2016/10/19/%E4%BD%BF%E7%94%A8Docker-docker-compose-%E6%90%AD%E5%BB%BAnginx+php+mysql-%E7%8E%AF%E5%A2%83)
 [Docker —— 从入门到实践](https://www.gitbook.com/book/yeasy/docker_practice/details)
-**********
-
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

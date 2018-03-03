@@ -79,12 +79,3 @@ docker push sail97/mysql:v0.0.1
 ### ** 参考 **
 
 [Docker学习小记——Docker的镜像和仓库](https://lucifaer.github.io/2017/01/18/Docker%E5%AD%A6%E4%B9%A0%E5%B0%8F%E8%AE%B0%E2%80%94%E2%80%94Docker%E7%9A%84%E9%95%9C%E5%83%8F%E5%92%8C%E4%BB%93%E5%BA%93/)
-
-***************
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

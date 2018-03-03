@@ -106,11 +106,3 @@ touch config
 [手把手教你同时使用多github帐号的SSH key](https://jingyan.baidu.com/article/948f592414ad67d80ef5f966.html)
 [git "Could not read from remote repository.Please make sure you have the correct access rights."解决方案](http://blog.csdn.net/u014343528/article/details/48787221)
 
-***************
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>

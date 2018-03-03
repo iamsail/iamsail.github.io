@@ -109,13 +109,3 @@ int main(){
 [归并排序](https://zh.wikipedia.org/wiki/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F)
 [白话经典算法系列之五 归并排序的实现（讲的真好）](http://blog.csdn.net/yuehailin/article/details/68961304)
 [【排序算法】归并排序(C++实现)](http://blog.csdn.net/left_la/article/details/8656953)
-
-****************
-
-<div width="100%" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div></div>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>
- 

@@ -66,9 +66,3 @@ categories: 杂文
 **********
 
 #### ** 手起键落，鸡年大吉吧 **
-<hr />
-    <p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
-    </p>

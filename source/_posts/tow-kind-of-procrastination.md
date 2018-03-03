@@ -22,9 +22,3 @@ categories: 杂文
 
 多少人,因为"舒适",一拖再拖,蹉跎了岁月,埋葬了种种可能。
 **让他们沮丧的不是没有实现梦想，而是他们甚至还没有开始追寻梦想。**
-<hr />
-    <p style="margin-top: 0em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
-    </p>

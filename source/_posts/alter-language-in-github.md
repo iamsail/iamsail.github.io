@@ -38,12 +38,3 @@ categories: github
 - [请教如何修改github上仓库的项目语言?](https://www.zhihu.com/question/47249333/answer/129215637)
 - [修改GitHub上项目语言显示的问题](http://www.tuicool.com/articles/bI7f6rE)
 
-***************
-
-<div width="100%" align="center"><div name="dashmain" id="dash-main-id-87905c" class="dash-main-2 87905c-3"></div></div>
-<script type="text/javascript" charset="utf-8" src="http://www.dashangcloud.com/static/ds.js"></script>
-<p style="margin-top: 0.4em; text-align: center">
-      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b>
-      <b style="font-size: 1em;">未经授权，禁止转载</b>
-      <b style="font-size: 1em;">通过支付宝 15262042918 赞助此文</b>
- </p>
