@@ -265,12 +265,7 @@ var path = "<%= config.root %>" + "search.xml";
 searchFunc(path, 'local-search-input', 'local-search-result');
 ```
 
-
-
 **********************
-
-
-
 
 将以上的搜索框和搜索函数放在适当的地方即可,我是放在`layout.ejs`文件中的。
 
