@@ -116,10 +116,10 @@ git stash
 # 查看现有的储藏
 git stash list
 
-# 应用指定的储藏
+# 应用指定的储藏  apply 选项只尝试应用储藏的工作——储藏的内容仍然在栈上。
 git stash apply stash@{n}
 
-# apply 选项只尝试应用储藏的工作——储藏的内容仍然在栈上。要移除它,运行
+# 要移除它,运行
 git stash drop  stash@{n}
 
 # 重新应用储藏，同时立刻将其从堆栈中移走
