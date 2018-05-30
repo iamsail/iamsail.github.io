@@ -176,9 +176,52 @@ Prints the maximum of two numbers.
 
 *******************
 
+###  ** Main **
+
+上面的文件`test.py`,在导入时也会被执行
+
+> 即使是一个打算被用作脚本的文件, 也应该是可导入的. 并且简单的导入不应该导致这个脚本的主功能(main functionality)被执行, 这是一种副作用. 主功能应该放在一个main()函数中.
+
+在Python中, pydoc以及单元测试要求模块必须是可导入的. **<span class="under0">你的代码应该在执行主程序前总是检查 if __name__ == '__main__' , 这样当模块被导入时主程序就不会被执行.</span>**
+ 
+```regexp
+def main():
+      ...
+
+if __name__ == '__main__':
+    main()
+```
+
+所有的顶级代码在模块导入时都会被执行. 要小心不要去调用函数, 创建对象, 或者执行那些不应该在使用pydoc时执行的操作.
+
+修改后的`test.py`
+
+```regexp
+def printMax(x, y):
+    '''Prints the maximum of two numbers.
+
+    The two values must be integers.'''
+    x = int(x) # convert to integers, if possible
+    y = int(y)
+
+    if x > y:
+        print (x, 'is maximum')
+    else:
+        print (y, 'is maximum')
+
+if __name__ == '__main__':
+	printMax(3, 5)
+	print (printMax.__doc__) 
+```
+
+这样在导入时不会被执行
+
+*******************
+
 ### ** 参考 **
 
 [Python3 注释](http://www.runoob.com/python3/python3-comment.html)
 [Python 风格指南 - 内容目录](http://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/contents/)
 [python中的文档字符串(docString)](http://www.cnblogs.com/jlsme/articles/1394003.html)
 [python中文档字符串与注释有什么区别？](https://www.zhihu.com/question/263349308/answer/270927715)
+[说说Python程序的执行过程](https://www.cnblogs.com/kym/archive/2012/05/14/2498728.html)
