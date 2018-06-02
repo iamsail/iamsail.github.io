@@ -4,11 +4,14 @@
     <list default="true" id="700cf80a-4d6d-4f6f-a4db-494eefdf81ed" name="默认" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/source/_posts/document-string-of-python.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/document-string-of-python.md" afterDir="false" />
 =======
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+>>>>>>> master
+=======
 >>>>>>> master
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,6 +25,7 @@
     <favorites_list name="blog" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <leaf>
       <file leaf-file-name="document-string-of-python.md" pinned="false" current-in-tab="true">
@@ -38,6 +42,27 @@
             <state split_layout="FIRST">
               <first_editor relative-caret-position="36">
                 <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+>>>>>>> master
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="the-second-week-homework-of-ML-Stanford.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/the-second-week-homework-of-ML-Stanford.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="151">
+                <caret line="208" column="21" selection-start-line="208" selection-start-column="21" selection-end-line="208" selection-end-column="21" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="the-thrid-week-homework-of-ML-Stanford.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/the-thrid-week-homework-of-ML-Stanford.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="576">
+                <caret line="50" selection-start-line="50" selection-end-line="50" />
 >>>>>>> master
               </first_editor>
               <second_editor />
@@ -70,6 +95,7 @@
     <option name="CHANGED_PATHS">
       <list>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/source/_posts/ssh-Could-not-resolve-hostname-ssh-github-com.md" />
         <option value="$PROJECT_DIR$/source/_posts/steps-in-animation-timing-function.md" />
         <option value="$PROJECT_DIR$/source/_posts/StringBuffer-and-StringBuilder.md" />
@@ -77,6 +103,8 @@
 >>>>>>> master
         <option value="$PROJECT_DIR$/source/_posts/stylus-cannot-auto-complete-in-phpstorm.md" />
         <option value="$PROJECT_DIR$/source/_posts/Tab-Control-with-Vue-Router.md" />
+=======
+>>>>>>> master
         <option value="$PROJECT_DIR$/source/_posts/talk-rotary-cube-again.md" />
         <option value="$PROJECT_DIR$/source/_posts/the-base-of-flex.md" />
         <option value="$PROJECT_DIR$/source/_posts/the-basic-knowledge-of-Web-Sockets.md" />
@@ -124,10 +152,18 @@
         <option value="$PROJECT_DIR$/source/_posts/reload-moudles-in-python.md" />
         <option value="$PROJECT_DIR$/source/_posts/document-string-of-python.md" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/source/_posts/use-mathjax-in-hexo.md" />
         <option value="$PROJECT_DIR$/source/_posts/the-code-and-explain-for-the-chapter-five-of-ml-in-action.md" />
+>>>>>>> master
+=======
+        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/source/_posts/use-mathjax-in-hexo.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-code-and-explain-for-the-chapter-five-of-ml-in-action.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-thrid-week-homework-of-ML-Stanford.md" />
+        <option value="$PROJECT_DIR$/source/_posts/the-second-week-homework-of-ML-Stanford.md" />
 >>>>>>> master
       </list>
     </option>
@@ -147,6 +183,7 @@
     <servers />
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="464" />
     <option name="y" value="165" />
@@ -159,6 +196,13 @@
     <option name="width" value="1380" />
     <option name="height" value="738" />
 >>>>>>> master
+=======
+  <component name="ProjectFrameBounds">
+    <option name="x" value="431" />
+    <option name="y" value="168" />
+    <option name="width" value="1380" />
+    <option name="height" value="738" />
+>>>>>>> master
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -166,6 +210,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+      <pane id="Scope" />
+>>>>>>> master
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,7 +226,10 @@
               <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="source" type="2a2b976b:PhpTreeStructureProvider$1" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> master
             </path>
             <path>
               <item name="blog" type="b2602c69:ProjectViewProjectNode" />
@@ -190,6 +241,9 @@
               <item name="blog" type="b2602c69:ProjectViewProjectNode" />
               <item name="blog" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
             </path>
             <path>
@@ -201,19 +255,25 @@
 =======
               <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="huno" type="2a2b976b:PhpTreeStructureProvider$1" />
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <property name="nodejs_package_manager_path" value="npm" />
+>>>>>>> master
 =======
     <property name="nodejs_package_manager_path" value="npm" />
 >>>>>>> master
@@ -254,8 +314,11 @@
       <workItem from="1520988180716" duration="541000" />
       <workItem from="1520988838337" duration="643000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1527653790962" duration="6969000" />
 =======
+=======
+>>>>>>> master
       <workItem from="1527653790962" duration="19574000" />
       <workItem from="1527751659112" duration="155000" />
       <workItem from="1527751836613" duration="7183000" />
@@ -264,15 +327,23 @@
       <workItem from="1527772914414" duration="7140000" />
       <workItem from="1527833496552" duration="1057000" />
       <workItem from="1527834923025" duration="1834000" />
+<<<<<<< HEAD
+>>>>>>> master
+=======
+      <workItem from="1527936853773" duration="1689000" />
 >>>>>>> master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="89076000" />
 =======
     <option name="totallyTimeSpent" value="124609000" />
+>>>>>>> master
+=======
+    <option name="totallyTimeSpent" value="128484000" />
 >>>>>>> master
   </component>
   <component name="TodoView">
@@ -286,14 +357,19 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="47" y="-6" width="1873" height="1086" extended-state="6" />
 =======
     <frame x="405" y="208" width="1380" height="738" extended-state="0" />
+>>>>>>> master
+=======
+    <frame x="431" y="168" width="1380" height="738" extended-state="0" />
 >>>>>>> master
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32913387" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50292826" side_tool="true" weight="0.3288889" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -314,6 +390,8 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
 =======
+=======
+>>>>>>> master
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32913387" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -332,6 +410,9 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="File Transfer" order="8" sideWeight="0.49707174" weight="0.32755905" />
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
@@ -339,6 +420,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info id="npm" order="2" side_tool="true" />
+<<<<<<< HEAD
 <<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -354,6 +436,8 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
 =======
+=======
+>>>>>>> master
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22327965" />
@@ -367,6 +451,9 @@
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -380,6 +467,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/source/_posts/the-permutation-of-numbers.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -428,6 +516,14 @@
             <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
           </first_editor>
 >>>>>>> master
+=======
+    <entry file="file://$PROJECT_DIR$/source/_posts/use-mathjax-in-hexo.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="1296">
+            <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+          </first_editor>
+>>>>>>> master
           <second_editor />
         </state>
       </provider>
@@ -435,9 +531,15 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/the-code-and-explain-for-the-chapter-five-of-ml-in-action.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state split_layout="FIRST">
           <first_editor relative-caret-position="138">
             <caret line="118" selection-start-line="118" selection-end-line="118" />
+=======
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="360">
+            <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="23" selection-end-column="8" />
+>>>>>>> master
 =======
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="360">
@@ -451,9 +553,15 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/use-mathjax-in-hexo.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state split_layout="FIRST">
           <first_editor relative-caret-position="423">
             <caret line="94" selection-start-line="94" selection-end-line="94" />
+=======
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="990">
+            <caret line="55" column="3" lean-forward="true" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
+>>>>>>> master
 =======
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="990">
@@ -695,9 +803,12 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/themes/huno/layout/category.ejs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+=======
+>>>>>>> master
 =======
 >>>>>>> master
     <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/pagination.ejs">
@@ -755,9 +866,12 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+=======
+>>>>>>> master
 =======
 >>>>>>> master
     <entry file="file://$PROJECT_DIR$/source/_posts/lrzsz.md">
@@ -778,9 +892,12 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/themes/landscape/layout/category.ejs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+=======
+>>>>>>> master
 =======
 >>>>>>> master
     <entry file="file://$PROJECT_DIR$/themes/landscape/layout/index.ejs">
@@ -806,12 +923,15 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/duoshuo.ejs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/disqus.ejs">
       <provider selected="true" editor-type-id="text-editor" />
 =======
+=======
+>>>>>>> master
     <entry file="file://$PROJECT_DIR$/themes/huno/layout/_partials/archive.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
@@ -850,8 +970,13 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/document-string-of-python.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
+<<<<<<< HEAD
           <first_editor relative-caret-position="351">
             <caret line="198" column="9" lean-forward="true" selection-start-line="198" selection-start-column="9" selection-end-line="198" selection-end-column="9" />
+=======
+          <first_editor relative-caret-position="625">
+            <caret line="204" column="14" lean-forward="true" selection-start-line="204" selection-start-column="14" selection-end-line="204" selection-end-column="14" />
+>>>>>>> master
           </first_editor>
           <second_editor />
         </state>
@@ -867,6 +992,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/source/_posts/the-thrid-week-homework-of-ML-Stanford.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -886,11 +1012,18 @@
         <state relative-caret-position="288">
           <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
 >>>>>>> master
+=======
+    <entry file="file://$PROJECT_DIR$/themes/huno/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+>>>>>>> master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state>
           <caret column="38" selection-start-column="38" selection-end-column="38" />
@@ -903,6 +1036,8 @@
           <first_editor relative-caret-position="373">
             <caret line="27" selection-start-line="27" selection-end-line="31" />
 =======
+=======
+>>>>>>> master
         <state relative-caret-position="794">
           <caret line="95" column="20" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
         </state>
@@ -913,6 +1048,9 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="54">
             <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
           </first_editor>
           <second_editor />
@@ -920,23 +1058,30 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/source/_posts/reload-moudles-in-python.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="270">
             <caret line="15" selection-start-line="15" selection-end-line="18" />
 =======
+=======
+>>>>>>> master
     <entry file="file://$PROJECT_DIR$/source/_posts/use-mathjax-in-hexo.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="805">
             <caret line="146" column="51" selection-start-line="146" selection-start-column="51" selection-end-line="146" selection-end-column="51" />
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/source/_posts/document-string-of-python.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -949,6 +1094,33 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="36">
             <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+>>>>>>> master
+=======
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-code-and-explain-for-the-chapter-five-of-ml-in-action.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="324">
+            <caret line="18" selection-start-line="18" selection-end-line="18" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-thrid-week-homework-of-ML-Stanford.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="576">
+            <caret line="50" selection-start-line="50" selection-end-line="50" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/the-second-week-homework-of-ML-Stanford.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="151">
+            <caret line="208" column="21" selection-start-line="208" selection-start-column="21" selection-end-line="208" selection-end-column="21" />
 >>>>>>> master
           </first_editor>
           <second_editor />
