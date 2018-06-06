@@ -94,3 +94,22 @@ math:
     js: custom_js_source # not used
     config:
       # KaTeX config
+
+# Security
+##
+encrypt:
+    enable: true
+    default_abstract: 我的秘密花园
+    default_message: 姿势,什么姿势?
+    default_template:
+                    <div id="security">
+                        <div class="orz-container">
+                            <input style="display:none">
+                            <input type="password" class="get-key" id="pass" autocomplete="new-password"  placeholder="解锁新知识" />
+				<div class="input-group-orz"> <button type="button" class="final-key" onclick="decryptAES()">O.O</button> </div>
+                            <div class="bottom-line"></div>
+                        </div>
+                    </div>
+                    <div id="encrypt-blog" style="display:none">
+                        {{content}}
+                    </div>

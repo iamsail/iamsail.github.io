@@ -1,7 +1,7 @@
 ---
 title: 在hexo使用mathjax
 date: 2018-5-31 14:03:45
-categories: hexo&&博客记录
+tags: hexo&&博客记录
 ---
 ### ** Preface **
 
