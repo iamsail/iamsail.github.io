@@ -24,6 +24,7 @@
     "hexo-renderer-mathjax": "^0.6.0",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
+    "hexo-blog-encrypt": "1.1.*",
     "swig": "^1.4.2"
   }
 }
