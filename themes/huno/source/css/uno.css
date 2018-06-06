@@ -1813,3 +1813,48 @@ th, td {
   }
 }
 /*============搜索栏样式封装=============*/
+
+
+/*============文章加密样式=============*/
+.orz-container {
+}
+
+.orz-container input[type="password"] {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  padding: 0 0;
+  border:none;
+  font-size: 18px;
+  text-indent: 4px;
+  color: deepskyblue;
+  border:2px salmon solid;
+}
+
+
+input:-webkit-autofill, input:-webkit-autofill:focus {
+  z-index: 4;
+  -webkit-box-shadow:0 0 0 100px white inset; /* Change the color to your own background color */
+}
+
+
+.orz-container .final-key {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  background: #FFFFFF;
+  border: 3px solid skyblue;
+  width: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50%;
+  height: 100px;
+}
+
+.orz-container .final-key:hover, .final-key:focus {
+  background: yellow;
+}
+/*============文章加密样式=============*/
