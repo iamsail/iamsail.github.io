@@ -7,7 +7,7 @@ tags: [Advice for Applying Machine Learning]
 
 ### ** Preface **
 
-本文是机器学习第六周部分课程内容,以及编程作业答案记录,完整题目以及代码见[github](https://github.com/iamsail/ML-Stanford/tree/master/homework/fif-week)
+本文是机器学习第六周部分课程内容,以及编程作业答案记录,完整题目以及代码见[github](https://github.com/iamsail/ML-Stanford/tree/master/homework/fifth-week)
 
 *****************
 ### ** 作业 **
