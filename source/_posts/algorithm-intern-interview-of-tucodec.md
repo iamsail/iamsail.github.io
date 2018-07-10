@@ -4,7 +4,6 @@ date: 2018-06-26 22:49:30
 tags: 面试
 password: 0algorithm6,
 ---
-
 ### ** Preface **
 
 昨天中午收到了灵犀科技笔试gg的邮件。然后中午又收到了图鸭信息科技hr的电话,约了面试,这边是做深度学习的。灵犀我是在拉勾上投的,图鸭是在实习僧上投的。
@@ -37,23 +36,105 @@ password: 0algorithm6,
 
 > PCA原理(背后的数理知识)
 
+[主成分分析（PCA）原理详解](https://blog.csdn.net/zhongkelee/article/details/44064401)
+[主成分分析（Principal components analysis）-最大方差解释](http://www.cnblogs.com/jerrylead/archive/2011/04/18/2020209.html)
+
 > 马尔科夫,　隐马尔科夫
 
 > C++,python怎么样
 
 > 编码中解耦合的方法,设计
+[代码耦合是怎么回事呢？](https://www.zhihu.com/question/21386172)
+[什么是耦合？解耦合的方法有哪几种？](https://blog.csdn.net/qq_24499615/article/details/77821896)
+[解耦合](https://blog.csdn.net/Alex1226/article/details/8840614)
+
 
 > 进程间通信有哪些方法
 
-> 一道算法dp题。有一个二维数组,找出一个子矩阵,使得和最大
+> 网络编程待学习
+[linux下C/C++网络编程基本：socket实现tcp和udp的例子](https://blog.csdn.net/u012234115/article/details/54142273)
+[有什么适合提高 C/C++ 网络编程能力的开源项目推荐？](https://www.zhihu.com/question/20124494)
+[C++网络编程(一)](http://www.cnblogs.com/hlxs/archive/2011/09/09/2172351.html)
 
+> 一道算法dp题。有一个二维数组,找出一个子矩阵,使得和最大
+[最大子矩阵和](http://www.sail.name/2018/06/29/Maximum-submatrix-sum/)
 
 ***********************
 学习过程中要多总结,梳理。面试也是查漏补缺的过程。
 
 继续加油!!
 
+
 ***********************
 
+### ** 其他笔试面试　**
+
+后面的笔试面试我就补充到这篇博客,不新开文章了
+
+******************
+
+### ** 大疆 **
+
+虽然投的是机器学习岗位,但是大部分内容都是深度学习相关的,CNN什么的涉及很多,我也需要抓紧补上相关的内容。
+
+#### ** 简答题　**
+
+简答题总共有五个
+
+> 请阐述Adagrad优化方法的优缺点
+
+> 请列举在训练深度学习模型中常用的防止过拟合的方法
+[深度学习中防止过拟合的方法？](https://zhuanlan.zhihu.com/p/30951658)
+[深度学习防止过拟合的方法](https://blog.csdn.net/taoyanqi8932/article/details/71101699)
+[机器学习中的范数规则化之（一）L0、L1与L2范数](https://blog.csdn.net/zouxy09/article/details/24971995)
+[机器学习中的范数规则化之（二）核范数与规则项参数选择](https://blog.csdn.net/zouxy09/article/details/24972869)
+
+> 请阐述梯度消失产生的原因以及如何解决梯度消失的问题
+
+> 写出Relu, sigmoid, tanh 的公式,谈谈各自的特点
+
+> 请写出LeakyReLU的激活函数的公式,并阐述其相对Sigmoid的激活函数的优缺点
+
+#### ** 选择题　**
+
+这里是对选择题(单选和多选)考点做的一点记录
+
+> RNN,梯度爆炸
+[详解机器学习中的梯度消失、爆炸原因及其解决方法](https://blog.csdn.net/qq_25737169/article/details/78847691)
+[机器学习总结（二）：梯度消失和梯度爆炸](https://blog.csdn.net/weixin_37933986/article/details/69255863)
+
+> 卷积NN,加入池化层,变换的不变性会保留吗？
+
+> 降维的方法有
+　PCA LDA SVD 最小二乘?
+[四大机器学习降维算法：PCA、LDA、LLE、Laplacian Eigenmaps](http://dataunion.org/13451.html)
+[【机器学习算法系列之三】简述多种降维算法](https://chenrudan.github.io/blog/2016/04/01/dimensionalityreduction.html)
+
+
+> Xavier
+
+#### **　编程题　**
+
+> 第一题是一个最大子段和
+[leetcode 55. Jump Game-贪心算法](https://blog.csdn.net/happyaaaaaaaaaaa/article/details/51636861)
+[LeetCode 55 [Jump Game]](https://www.jianshu.com/p/184428f7895c)
+
+> 第二题
+  n个数的序列a[0],a[1].....a[n-1]以及一个数M,从这个数组里面选择三个数,得三个数的和　<= M, 有多少种选择方法。n不超过1000
+
+
+***********************
 ### ** 参考 **
 [图鸭信息科技](http://tucodec.com/)
+[《编程之法：面试和算法心得》](https://legacy.gitbook.com/book/wizardforcel/the-art-of-programming-by-july/details)
+
+
+***********************
+### ** 优秀面经整理 **
+[机器学习算法工程师面试总结](https://blog.csdn.net/hemeinvyiqiluoben/article/details/78745596)
+[北美公司面试经验笔记](https://blog.csdn.net/stdcoutzyx/article/details/42041947)
+
+
+***********************
+### ** 大佬博客 **
+[zouxy09的专栏](https://blog.csdn.net/zouxy09)
