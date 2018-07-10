@@ -109,6 +109,124 @@ INFO: loading config from /etc/ss.json
 2018-06-24 18:46:43 INFO     starting local at 127.0.0.1:1080
 
 ```
+*******************
+### ** vultr搭建 **
+
+[vultr](https://www.vultr.com/)又恢复了,我对搭建的过程做个记录。学叔用的是水滴搭建的。
+
+******************
+
+### ** 安装SSR **
+
+执行以下命令
+
+`wget --no-check-certificate https://freed.ga/github/shadowsocksR.sh; bash shadowsocksR.sh`
+
+*************
+
+如提示
+
+`wget :command not found`
+
+*************
+
+请执行
+
+`yum install wget -y`
+
+******************
+
+### ** 破解版锐速安装 **
+一键更换内核脚本（Vultr需先执行此脚本）
+
+`wget -N --no-check-certificate https://freed.ga/kernel/ruisu.sh && bash ruisu.sh`
+
+脚本执行过程中，请勿进行任何操作。待服务器重启后，重新连接安装锐速即可。
+
+*************
+
+锐速安装脚本
+
+```
+wget -N --no-check-certificate https://github.com/91yun/serverspeeder/raw/master/serverspeeder.sh && bash serverspeeder.sh
+```
+
+若提示：The name of network interface is not eth0, please retry after changing the name.请使用备用脚本
+
+```
+`wget -N --no-check-certificate https://raw.githubusercontent.com/91yun/serverspeeder/master/serverspeeder-all.sh && bash serverspeeder-all.sh`
+```
+******************
+
+### ** Linux配置 **
+
+这是基于Ubuntu164.4系统版本教程，其他Linux系统亦可参考
+
+配置环境，python-m2crypto libsodium18
+```
+sudo apt-get install git python-m2crypto libsodium18
+```
+如果你想将SSR安装到Download目录下，请执行（非必需步骤）
+
+cd ~/Downloads
+从Github上获取ShadowSocksR
+
+````regexp
+git clone -b manyuser  https://github.com/qcgzxw/ssr.git
+
+````
+编辑配置文件（没配置文件的请移步->https://www.qcgzxw.cn/1640.html）
+```regexp
+sudo vi /etc/shadowsocks.json
+
+```
+将`shadowsocks.json`文件编辑成这样（IP 端口 密码等等配置请填你自己的）
+```
+{
+	"server":"12.34.56.78",
+	"server_ipv6":"::",
+	"server_port":8388,
+	"local_address":"127.0.0.1",
+	"local_port":1080,
+	"password":"www.qcgzxw.cn",
+	"timeout":300,
+	"udp_timeout":60,
+	"method": "chacha20",
+	"protocol": "auth_sha1_v4",
+	"protocol_param":"",
+	"obfs":"tls1.2_ticket_auth",
+	"obfs_param":"https://www.qcgzxw.cn/",
+	"fast_open":false,
+	"workers":1
+}
+```
+
+
+重要信息说明：
+```
+
+server：SSR IP
+server_port：SSR端口
+password：SSR密码
+method：SSR加密方法
+protocol：SSR协议
+obfs：SSR混淆方式
+obfs_param：SSR混淆参数
+
+```
+
+按ESC键后，依次按: w q后回车，退出编辑器并保存配置文件
+进入到ShadowSocksR根目录准备开始运行
+```regexp
+cd shadowsocksr/shadowsocks
+```
+
+启动SSR
+```regexp
+sudo python local.py -c /etc/shadowsocks.json -d start
+
+```
+
 ******************
 ### ** 参考 **
 
@@ -117,3 +235,5 @@ INFO: loading config from /etc/ss.json
 [vim x和wq的区别](https://www.cnblogs.com/GODYCA/archive/2013/05/09/3068895.html)
 [Linux中配置SS （非全局模式）](https://blog.csdn.net/qq_25978793/article/details/49870501)
 [linux命令后台运行](https://www.cnblogs.com/lwm-1988/archive/2011/08/20/2147299.html)
+[实战vultr搭建SSR+锐速——超速看youtube1080p](https://www.qcgzxw.cn/1640.html)
+[ShadowsocksR客户端下载及操作步骤](https://www.qcgzxw.cn/301.html)
