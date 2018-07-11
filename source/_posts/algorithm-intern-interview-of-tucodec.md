@@ -35,7 +35,6 @@ password: 0algorithm6,
 > 深度学习(我不会,尴尬)　
 
 > PCA原理(背后的数理知识)
-
 [主成分分析（PCA）原理详解](https://blog.csdn.net/zhongkelee/article/details/44064401)
 [主成分分析（Principal components analysis）-最大方差解释](http://www.cnblogs.com/jerrylead/archive/2011/04/18/2020209.html)
 
@@ -82,6 +81,8 @@ password: 0algorithm6,
 简答题总共有五个
 
 > 请阐述Adagrad优化方法的优缺点
+[梯度下降优化方法总结](http://wowx.info/posts/401226963/)
+[[Machine Learning] 梯度下降法的三种形式BGD、SGD以及MBGD](http://www.cnblogs.com/maybe2030/p/5089753.html)
 
 > 请列举在训练深度学习模型中常用的防止过拟合的方法
 [深度学习中防止过拟合的方法？](https://zhuanlan.zhihu.com/p/30951658)
@@ -113,7 +114,7 @@ password: 0algorithm6,
 
 > Xavier
 
-#### **　编程题　**
+#### ** 编程题　**
 
 > 第一题是一个最大子段和
 [leetcode 55. Jump Game-贪心算法](https://blog.csdn.net/happyaaaaaaaaaaa/article/details/51636861)
@@ -121,6 +122,136 @@ password: 0algorithm6,
 
 > 第二题
   n个数的序列a[0],a[1].....a[n-1]以及一个数M,从这个数组里面选择三个数,得三个数的和　<= M, 有多少种选择方法。n不超过1000
+
+
+******************
+
+### ** 第四范式 **
+
+昨天中午(7.10)去食堂吃饭的时候收到了第四范式hr的电话,然后约了今天(7.11)下午3点的面试。
+
+**********************
+
+#### ** 一面 **
+
+面经:
+
+>自我介绍
+
+>了解Linux吗
+
+>linux　杀死任务
+	kill 9 杀
+
+>查看pid
+       ps -aux | grep "name"
+
+>了解hadoop 和　spark 吗
+
+
+>用程序实现下面的清洗小程序：假设输入文件每行有5列，要求对输入文件的每一行的第一列加1，对第4列去除空白字符，并输出到文件中。请注意异常处理，如有异常，请直接丢弃，并在标准错误中输出丢弃的总行数。其中：输入和输出都是文件，并且都是按照逗号分隔列，\n分隔行。例如：
+```regexp
+输入文件内容：
+3,string,0,  3 ,2
+2,star,9,1,3,5
+3,more,2,1,3
+
+输出文件内容
+4,string,0,3,2
+4,more,2,1,3
+
+标准错误内容
+1 error lines.
+```
+
+
+```c++
+
+#include<iostream>
+#include<fstream> 
+#include<string>
+#include <iostream>
+#define Max 1002
+using namespace std;
+
+int errorLines = 0;
+
+string& trim(string &s)
+{
+    if (s.empty()) 
+    {
+        return s;
+    }
+    s.erase(0,s.find_first_not_of(" "));
+    s.erase(s.find_last_not_of(" ") + 1);
+    return s;
+}
+
+
+bool handle_error(datas) {
+    bool error = false;
+    (datas.length != 5)?(error = true):(error = false);
+    return error; 
+}
+
+string handle_files(string lineData) {
+    string datas[] = {};
+    datas = lineData.split(',');
+    if (!handle_error(datas)) {
+        for (int index = 0; index < datas.length; index++ ) {
+             if (index == 0) {
+                int tempFirstCol = 0;
+                try {
+                  tempFirstCol = (int)datas[index]++;  
+                } catch(int tempFirstCol) {
+                  errorLines++;
+                  break;
+                }
+             }
+             
+             if (index == 3) {
+                 trim(datas[index]);
+             }
+        }
+    } else {
+        errorLines++;
+    }  
+    return datas;
+}
+
+int main() { 
+    string data;
+    ifstream file("row.txt"); 
+    if (!file.is_open()) { 
+        cout << "未成功打开文件" << endl; 
+    } 
+    
+    string result[];
+    int i = 0;
+    while(getline(myfile,data)) {
+       result[i++] = handle_files(data);  
+    }  
+    string errorInfo = "标准错误内容\n"+ errorLines +"error lines."
+    ofstream outfile("data.txt",ios::trunc);
+    cout << errorInfo << endl;
+    return 0;
+}
+
+```
+
+
+
+>这个写代码异常处理没做,就是那个int如果不能转成功，不是int
+ 然后让我改了改
+
+>有什么要问的吗
+
+
+
+整个面试大概持续了50分钟左右吧,大部分时间都是我在写代码。 写代码用的这个网站[collabedit](http://collabedit.com/) 。代码写完,整个面试差不多就结束了。面试的是数据智能部的数据挖掘组,估计一面就挂了。
+
+<span class="under0"> ** 这个面试也给我提了醒,要时刻做好面试的准备啊!已经7月了,时间很紧张了。接下来多刷算法题,加强机器学习的公式推导,多看书,多面试总结,记得时常调整简历。　**</span>
+
 
 
 ***********************
@@ -138,3 +269,7 @@ password: 0algorithm6,
 ***********************
 ### ** 大佬博客 **
 [zouxy09的专栏](https://blog.csdn.net/zouxy09)
+
+***********************
+### ** 刷算法 **
+[牛客-在线编程专题](https://www.nowcoder.com/activity/oj)
