@@ -93,6 +93,10 @@ password: 0algorithm6,
 > 请阐述梯度消失产生的原因以及如何解决梯度消失的问题
 
 > 写出Relu, sigmoid, tanh 的公式,谈谈各自的特点
+[深度学习：激活函数的比较和优缺点，sigmoid，tanh，relu](https://blog.csdn.net/u011684265/article/details/78039280)
+[人工神经网络有哪些常用的激活函数？](http://sofasofa.io/forum_main_post.php?postid=1000701)
+[双曲正切函数](https://baike.baidu.com/item/%E5%8F%8C%E6%9B%B2%E6%AD%A3%E5%88%87%E5%87%BD%E6%95%B0/15469414?fr=aladdin)
+
 
 > 请写出LeakyReLU的激活函数的公式,并阐述其相对Sigmoid的激活函数的优缺点
 
