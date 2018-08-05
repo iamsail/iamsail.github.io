@@ -2,7 +2,7 @@
 title: mixed_one
 date: 2018-06-09 21:18:02
 categories: mixed
-password: 0mixed_one9,
+password: 0mixed6,
 ---
 
 ### ** Preface **
