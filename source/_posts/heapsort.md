@@ -13,87 +13,49 @@ categories: [算法]
 
 ```c++
 #include <iostream>
+
 using namespace std;
+int arrs[] = { 23, 65, 12, 3, 8, 76, 345, 90, 21, 75, 34, 61 };
+int arrLen = sizeof(arrs) / sizeof(arrs[0]);
 
-void build_heap(int arr[], int index, int len) {
-    int curParent = arr[index];
-    int lChild = 2 * index + 1;
-    int rChild = 2 * index + 2;
-    int largeIndex = lChild;
-
-    while (lChild < len) { // 有子节点的情况
-        if (rChild < len && arr[lChild] < arr[rChild]) {
-            largeIndex++;  // 较大孩子的下标
+void adjustHeap(int * arrs, int p, int len){
+    int curParent = arrs[p];
+    int child = 2* p + 1;   //左孩子
+    while(child < len){     //没有孩子
+        if(child+1<len&&arrs[child]<arrs[child+1]){
+            child++;    //较大孩子的下标
         }
-
-        if (curParent < arr[largeIndex]) {
+        if(curParent<arrs[child]){
+            arrs[p]=arrs[child];
             //没有将curParent赋值给孩子是因为还要迭代子树，
             //如果其孩子中有大的，会上移，curParent还要继续下移。
-            arr[index] = arr[largeIndex];
-
-            index = largeIndex;
-            lChild = index * 2 + 1;
-            largeIndex = lChild;
-        } else {
-            lChild = largeIndex;
-            break;
+            p=child;
+            child=2*p+1;
         }
+        else
+            break;
     }
-
-    arr[index] = curParent;
+    arrs[p]=curParent;
 }
 
+void heapSort(int * arrs, int len){
+    //建立堆，从最底层的父节点开始
+    for(int i = arrLen /2 -1; i>=0; i--)
+        adjustHeap(arrs, i, arrLen);
+    for(int i = arrLen -1; i>=0; i--){
+        int maxEle = arrs[0];
+        arrs[0] = arrs[i];
+        arrs[i] = maxEle;
 
-
-//void build_heap(int arr[], int index, int len) {
-//    int curParent = arr[index];
-//    int lChild = 2 * index + 1;
-//    int rChild = 2 * index + 2;
-//
-//    while (lChild < len) { // 有子节点的情况
-//        if (rChild < len && arr[lChild] < arr[rChild]) {
-//            lChild++;  // 较大孩子的下标
-//        }
-//
-//        if (curParent < arr[lChild]) {
-//            //没有将curParent赋值给孩子是因为还要迭代子树，
-//            //如果其孩子中有大的，会上移，curParent还要继续下移。
-//            arr[index] = arr[lChild];
-//
-//            index = lChild;
-//            lChild = index * 2 + 1;
-//        } else {
-//            break;
-//        }
-//    }
-//
-//    arr[index] = curParent;
-//}
-
-
-void heapsort(int a[], int len) {
-    for (int i = len / 2; i >= 0; i--) {
-        build_heap(a, i, len);
-    }
-
-    for (int i = len -1; i >= 0; i--) {
-        swap(a[0], a[i]);
-
-        build_heap(a, 0, i);
+        adjustHeap(arrs, 0, i);
     }
 }
 
-
-int main() {
-    int a[101], len;
-    cin >> len;
-    for (int i = 0; i < len; i++) {
-        cin >> a[i];
-    }
-    heapsort(a,len);
-    for (int i = 0; i < len; i++) {
-        cout << a[i] << " ";
-    }
+int main()
+{
+    heapSort(arrs, arrLen );
+    for (int i = 0; i < arrLen; i++)
+        cout << arrs[i] << endl;
     return 0;
 }
 

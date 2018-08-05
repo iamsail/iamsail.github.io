@@ -1,8 +1,8 @@
 ---
 title: 机器学习(coursera 斯坦福)第五周编程作业
 date: 2018-6-06 09:07:45
-categories: 机器学习
 tags: [Neural Networks]
+categories: 机器学习
 ---
 
 ### ** Preface **
