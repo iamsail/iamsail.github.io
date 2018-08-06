@@ -138,6 +138,9 @@ function reverse_string(str) {
 [js数组方法 改变原数组和不改变原数组的方法整理](https://blog.csdn.net/love07070707/article/details/79888566)
 [js中那些方法不改变原来的数组对象](https://blog.csdn.net/liangklfang/article/details/49300417)
 [细说JS数组](https://segmentfault.com/a/1190000008211717)
+
+> 还问题了webpack
+　我应该了解一下了,一些常用的loader,以及当初用到的一些性能优化的插件
     
     
 >es6 常用的有哪些
