@@ -1,5 +1,5 @@
 ---
-title: 《机器学习实战》第五周(Logistic回归)代码实现以及讲解
+title: 《机器学习实战》第五章(Logistic回归)代码实现以及讲解
 date: 2018-6-01 17:28:45
 categories: 机器学习
 tags: [Logistic Regression,机器学习实战]
@@ -9,7 +9,7 @@ mathjax: true
 
 本文是对《机器学习实战》第五章Logistic回归的实践以及一些细节的讲解记录.
 
-完整代码以及数据集见[github]()
+完整代码以及数据集见[github](https://github.com/iamsail/machine-learning-in-action)
 
 ****************
 
