@@ -20,16 +20,6 @@ mathjax: true
 ### ** 核心代码 **
 
 ```python
-"""　k-近邻算法
-   
-Args:
-   inX: 用于分类的输入向量
-   dataSet:　输入的训练样本集
-   labels:　标签向量
-   k: k表示用于选择的最近邻居数目
-Returns：
-   
-"""
 def classify0(inX, dataSet, labels, k):
     dataSetsize = dataSet.shape[0]
     
@@ -53,7 +43,7 @@ def classify0(inX, dataSet, labels, k):
 
 计算向量xA和xB之间的距离
 
-$d =  \sqrt[2]{(xA_0 - xB_0)^2 + (xA_1 - xB_1)^2} $
+$d = \sqrt[2]{(xA_0 - xB_0)^2 + (xA_1 - xB_1)^2} $
 
 **************
 ### ** 归一化 **
@@ -76,7 +66,7 @@ def autoNorm(dataSet):
     return normDataSet, ranges, minVals
 ```
 
-这面这个方法叫做** 极差变化法 **。归一化可以提升模型的收敛速度和精度,更多可以看以下链接
+这面这个方法叫做极差变化法。归一化可以提升模型的收敛速度和精度,更多可以看以下链接
 
 [数据标准化/归一化normalization](https://blog.csdn.net/pipisorry/article/details/52247379)
 [机器学习中常见的几种归一化方法以及原因](https://blog.csdn.net/UESTC_C2_403/article/details/75804617)
@@ -84,7 +74,6 @@ def autoNorm(dataSet):
 
 ****************
 ![4.png](/img/机器学习/the-record-for-the-chapter-tow-of-ml-in-action/4.png)
-
 ****************
 ### ** 参考 **
 
