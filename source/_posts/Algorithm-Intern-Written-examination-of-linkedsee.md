@@ -518,6 +518,200 @@ xhr.setRequestHeader(‘Content-Type’, ‘application/json’);
 
 > 有什么想问的
 
+******************************
+
+### ** 有赞(8.13 下午 40分钟+60分钟视频面试) **
+
+
+
+
+
+> 跨域
+图像ping
+jsonp可以post吗,为什么
+[详解跨域请求的两种方式，支持post请求](http://www.01happy.com/two-ways-of-cross-domain-request/)
+[jsonp为什么不支持post请求？](https://www.zhihu.com/question/28890257)
+jsonp的callback可以写在全局还是可以写在模块里,写在模块里可以吗
+除了script还有什么也可以吗　img
+
+> a.bom b.com
+a.com 向b.com请求　跨域前会先发其他请求吗,还是直接发送请求,然后被告诉不能跨域or?
+预检请求（option）:在 CORS 中，可以使用 OPTIONS 方法发起一个预检请求(一般都是浏览检测到请求跨域时，会自动发起)，以检测实际请求是否可以被服务器所接受。预检请求报文中的 Access-Control-Request-Method 首部字段告知服务器实际请求所使用的 HTTP 方法；Access-Control-Request-Headers 首部字段告知服务器实际请求所携带的自定义首部字段。服务器基于从预检请求获得的信息来判断，是否接受接下来的实际请求。
+[cors跨域之简单请求与预检请求（发送请求头带令牌token）](https://segmentfault.com/a/1190000009971254)
+Cross-Origin Resource Sharing (CORS)
+Access-Control-Allow-Methods 
+
+
+> tcp协议和http协议主要是做什么
+[彻底搞懂HTTP协议](http://www.akathink.com/2016/07/28/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82HTTP%E5%8D%8F%E8%AE%AE/)
+[HTTP,HTTP协议的作用是什么?](http://www.elecfans.com/baike/tongxingjishu/chungshuwang/20100322201699.html)
+js基础类型
+array是类型吗
+function是类型吗
+如何判断类型
+如何查找对象属性 for in   object.key   getownpropery
+call ,apply,bind
+
+>浏览器输入一个url
+三次握手最后一次握手可以发数据吗
+[三次握手的第三次握手发送ACK能携带数据吗？如何携带？怎样体现的呢](https://www.zhihu.com/question/66407996)
+
+
+>linux　查找3000 端口 ps  -aux | grep
+linux chmod 权限分配　
+777
+[chmod命令](http://man.linuxde.net/chmod)
+
+>盒子模型
+如何指定盒子模型 box-sizing
+    box-sizing: content-box;
+    box-sizing: border-box;
+backgrpund会应用到哪些部分
+[background---背景颜色和背景图片填充的范围](https://blog.csdn.net/qq_35809245/article/details/53638986?locationNum=5&fps=1)
+填充 :content+padding+ border
+
+>position
+
+
+
+
+>这道题要看看有没有更高效的做法,两次for循环了,以及xxx有没有替代方案
+[JS两个数组比较,删除重复值的巧妙方法(推荐)  ](https://www.teakki.com/p/57dfb1add3a7507f975e7038)
+[JS中实现字符串和数组的相互转化](https://blog.csdn.net/erlian1992/article/details/50561452)
+
+
+
+```javascript
+/**
+ * 从两个数组中找出重复的元素，连连看
+ * 
+ * @param {array} arr1 数组1
+ * @param {array} arr2 数组2
+ * @returns {array} 重复的数组
+ * @example 
+ * findCommon([ 1, 2, 1, 2], [1, 5, 2, 3])
+ * // [1, 2]
+ */
+
+function findCommon(arr1, arr2, is) {
+　　 let result = [];
+    for (let i = 0; i < arr1.length; i++) {
+        let is_go = true;
+        for (let j = 0; j < arr2.length && is_go; j++) {
+             if (arr1[i] === arr2[j] && arr1[i]  !== 'xxx') {
+                //  console.log(arr1[i]);
+                 is_go = false;
+                 result.push(arr1[i]);
+                 arr1[i] = 'xxx'; 
+                 arr2[j] = 'xxx';
+             }    
+        }  
+        // console.log(arr1, arr2);
+    }
+    // console.log(result);
+    // let temp = new Set(result);
+    // console.log(temp);
+
+    result = Array.from(new Set(result));
+    return result;
+}
+
+const res = findCommon([ { a: 1 }, 2, 'xxx', [2]], [{ a: 1 }, 5, 2, 3]);
+// [1, 2]
+console.log(res)
+```
+
+
+>[js 驼峰命名和下划线互换](https://blog.csdn.net/luzhongk/article/details/78918489)
+[js驼峰命名和下划线转换](https://blog.csdn.net/zjw0742/article/details/78567291)
+[String.prototype.replace()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+[javaScript中String.replace()的第二个参数为函数时的用法介绍](https://blog.csdn.net/LinBilin_/article/details/57094602)
+
+```javascript
+// 下划线转换驼峰
+function toHump(name) {
+    return name.replace(/\_(\w)/g, function(all, letter){
+        return letter.toUpperCase();
+    });
+}
+
+// 驼峰转换下划线
+function toLine(name) {
+  return name.replace(/([A-Z])/g,"_$1").toLowerCase();
+}
+```
+
+>[js 判断一个 object 对象是否为空](https://blog.csdn.net/FungLeo/article/details/78113661)
+1.最常见的思路，for...in... 遍历属性，为真则为“非空数组”；否则为“空数组”
+2.通过 JSON 自带的 stringify() 方法来判断:
+3.ES6 新增的方法 Object.keys():
+Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组。
+
+*********************
+
+
+
+```javascript
+/**
+ * 将一个对象的所有key从下划线改为驼峰
+ * 
+ * @param {object} value 待处理对象
+ * @returns {object} 处理后的对象
+ * @example 
+ * mapKeysToCamelCase({ yz_key: { yz_a: { yz_b: 2 } } })
+ * // { yzKey: 1 }
+ */
+
+ function isObjectNUll () {
+
+ } 
+
+ function mapKeysToCamelCase(value) {
+     if (typeof value !== 'object') {
+         throw "这不是一个对象"
+     }
+
+    //  if (isObjectNUll()) {
+    //      return;
+    //  }
+
+        //  console.log(Object.keys(value));
+     let keys =  Object.keys(value)
+     keys.forEach((key_val)=> {
+         let temp = key_val.split('_');
+         let result = null;
+
+         if (temp.length > 0) {
+            temp.forEach((val, index) => {
+                let temp_first;
+                let temp_str;
+
+                if (index === 0) {
+                    temp_first = null;
+                    temp_str = null;
+                    result = val;
+                }
+
+                if(index > 0) {
+                   temp_first = val[0].toUpperCase();
+                   temp_str = `${temp_first}${val.substr(1)}`;
+                   result += `${temp_str}`
+                } 
+            })
+         } 
+        console.log(result);
+     })
+ }
+
+ let test = { yz_key: 1, xz_key: 2 };
+
+ mapKeysToCamelCase (test);
+```
+
+
+
+
+
 
 
 
