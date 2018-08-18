@@ -1,10 +1,12 @@
 ---
-title: 灵犀联云算法实习生笔试
+title: tow
 date: 2018-06-24 21:04:30
 tags: 笔试
 password: 0Algorithm6,
 ---
+
 ### ** Preface **
+灵犀联云算法实习生笔试
 
 昨天中午收到了[灵犀联云](https://www.linkedsee.com/)hr的电话,聊了快十分钟。hr很专业也很nice.
 
@@ -82,7 +84,11 @@ password: 0Algorithm6,
 [【有赞2019秋招前端内推面经】一面顺利通过 ](https://www.nowcoder.com/discuss/90535?type=2&order=0&pos=119&page=1)
 [更新了的腾讯IEG前端一面+二面 ](https://www.nowcoder.com/discuss/89155?type=2&order=0&pos=102&page=2)
 [腾讯前端一面 ](https://www.nowcoder.com/discuss/90243?type=2&order=0&pos=171&page=1)
-
+[猿辅导前端面筋 ](https://www.nowcoder.com/discuss/93354?type=2&order=0&pos=52&page=1)
+[前端的校招总结，结束秋招](https://www.nowcoder.com/discuss/51738?type=2&order=0&pos=108&page=1)
+[有赞前端一面 ](https://www.nowcoder.com/discuss/93642?type=2&order=0&pos=130&page=1)
+[有赞前端js面经一面 ](https://www.nowcoder.com/discuss/93681?type=2&order=0&pos=131&page=1)
+[猿辅导前端一面 ](https://www.nowcoder.com/discuss/95432?type=0&order=0&pos=44&page=1)
 
 ********************
 ### ** 我从面经总结的问题 **
@@ -134,6 +140,7 @@ JavaScript 中，普通的函数调用方式有三种：直接调用、方法调
 [get和post区别？](https://www.zhihu.com/question/28586791)
 [HTTP协议中GET和POST方法的区别](https://sunshinevvv.coding.me/blog/2017/02/09/HttpGETv.s.POST/)
 [HTTP幂等性及GET、POST、PUT、DELETE的区别](https://blog.csdn.net/zjkC050818/article/details/78799386)
+[DNS正向解析分为递归和迭代。 通常是用递归，还是迭代呢？](https://www.zhihu.com/question/53882349)
 
 >三次握手,四次挥手
 [从输入url到页面展示到底发生了什么](https://mp.weixin.qq.com/s/7eY3XIhLXeCMqBYIQh6WwA)
@@ -171,6 +178,15 @@ vue的生命周期
 [解析vue2.0的diff算法](https://github.com/aooy/blog/issues/2)
 [Vue原理解析之Virtual Dom](https://segmentfault.com/a/1190000008291645)
 [剖析Vue实现原理 - 如何实现双向绑定mvvm](https://github.com/DMQ/mvvm)
+[VirtualDOM与diff(Vue实现)](https://juejin.im/post/59bfbd736fb9a00a52065ec7)
+[如何理解虚拟DOM?](https://www.zhihu.com/question/29504639)
+[深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)
+[界面之下：还原真实的MV*模式 ](https://github.com/livoras/blog/issues/11)
+[Vue2.0 源码阅读：模板渲染](http://zhouweicsu.github.io/blog/2017/04/21/vue-2-0-template/)
+[Edit distance](https://en.wikipedia.org/wiki/Edit_distance)
+[最短编辑距离算法（字符串比较）](https://blog.csdn.net/fouy_yun/article/details/46423753)
+[最小编辑距离问题：递归与动态规划 ](https://github.com/youngwind/blog/issues/106)
+[算法题解：最小编辑距离（动态规划算法）](https://segmentfault.com/a/1190000012769863)
 
 
 >怎么判断一个对象为空对象呢，回答了JSON方法，还有吗 
@@ -379,6 +395,7 @@ width 和 height 属性包括内容，内边距和边框，但不包括外边距
 >js GC机制
 
 >cookie localstorage sessionstorage
+[cookie、 sessionStorage 、localStorage之间的区别和使用](http://www.cnblogs.com/caiyezi/p/5619506.html)
 
 >cookie安全问题,加密篡改啥的
 待更新
@@ -521,10 +538,6 @@ xhr.setRequestHeader(‘Content-Type’, ‘application/json’);
 ******************************
 
 ### ** 有赞(8.13 下午 40分钟+60分钟视频面试) **
-
-
-
-
 
 > 跨域
 图像ping
@@ -708,22 +721,401 @@ Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性
  mapKeysToCamelCase (test);
 ```
 
+*************************************
+
+### ** 百度智能云事业部提前批前端面试 **
+
+之前陈林给我内推了百度,不过我投的是机器学习,至今没收到面试邀请,投了大概十天了吧。
+
+昨天去丁香园面试,去丁香园面试的路上,收到了百度大商业的hr,也是提前批,约了明天上午十一点面试。今天去物流园给丁香园寄报销车票的时候收到了智能云的面试,下午面了一面。
+
+#### **  一面(8.16) **
+一面面了70分钟,先是面试,然后写代码,又是`collabedit.com`。
+
+面试问的问题太多了,大概记录下
+
+> 自我介绍
+
+> 然后问了我一些个人相关信息,就业意向,手上的offer之类的
+
+> 然后聊了项目,先是聊得实习项目
+
+> 有用过vue和echarts吗
+
+> 然后开始聊了我的智能对话系统项目,面试官对这个项目很感兴趣啊,聊了很久
+
+css部分
+
+> 布局。页面有一个弹框,想要垂直居中怎么做
+
+> 盒子模型
+
+> BFC
+
+> 响应式布局
+
+> js数据类型,存储方式的不同
+
+> 继承
+
+> webpack特点,使用场景,原理
+[Webpack 常用配置总结](https://toutiao.io/posts/fiq8wd/preview)
+[webpack Loader的使用教程及常用的loader[入门篇]](https://github.com/lengziyu/learn-webpack/issues/2)
+[webpack原理与实战](http://imweb.io/topic/59324940b9b65af940bf58ae)
+[webpack 打包JS 的运行原理](https://zhuanlan.zhihu.com/p/32093510)
+[细说 webpack 之流程篇](http://taobaofed.org/blog/2016/09/09/webpack-flow/)
+[Webpack模块化原理简析](https://segmentfault.com/a/1190000010409465)
+
+> 跨域,cors具体字段怎么设置
 
 
 
+>前端安全csrf,xss
+[XSS 和 CSRF 攻击的一些非常规防御方法](https://www.imooc.com/article/18069)
+事实上现代浏览器为我们带来了一个全新的安全策略，叫作内容安全策略，Content Security Policy，简称CSP。CSP的思路跟转义不一样，它的着手点是，如果一段代码变成了程序，我们是否应该运行它。或者更准确一点说，它实际上是定义页面上哪一些内容是可被信任的，哪一些内容是不被信任的。
+[Content-Security-Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Security-Policy__by_cnvoid)
+[浅谈CSRF攻击方式](http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html)
+[CSRF 攻击的应对之道](https://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/index.html)
+[程序猿必读-防范CSRF跨站请求伪造](https://segmentfault.com/a/1190000008505616)
+[XSS攻击及防御](https://blog.csdn.net/ghsau/article/details/17027893)
+[web安全测试之XSS](http://www.cnblogs.com/TankXiao/archive/2012/03/21/2337194.html#urlencode)
+XSS 漏洞修复
+原则：　不相信客户输入的数据
+注意:  攻击代码不一定在<script></script>中
+将重要的cookie标记为http only,   这样的话Javascript 中的document.cookie语句就不能获取到cookie了.
+只允许用户输入我们期望的数据。 例如：　年龄的textbox中，只允许用户输入数字。 而数字之外的字符都过滤掉。
+对数据进行Html Encode 处理
+过滤或移除特殊的Html标签， 例如:` <script>, <iframe> ,  &lt; for <, &gt; for >, &quot for`
+过滤JavaScript 事件的标签
+
+
+> 模块化,这里问了很多问题,也是我的漏洞
+commonjs和cmd的区别
+[Javascript模块化编程（二）：AMD规范](http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html)
+[Javascript模块化编程（三）：require.js的用法](http://www.ruanyifeng.com/blog/2012/11/require_js.html)
+[前端模块化：CommonJS,AMD,CMD,ES6](https://juejin.im/post/5aaa37c8f265da23945f365c)
+[CommonJS规范](http://javascript.ruanyifeng.com/nodejs/module.html)
+[Module 的语法](http://es6.ruanyifeng.com/#docs/module)
+[Module 的加载实现](http://es6.ruanyifeng.com/#docs/module-loader)
+CommonJS模块的加载机制是，输入的是被输出的值的拷贝。也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。
+CommonJS模块的特点如下。
+所有代码都运行在模块作用域，不会污染全局作用域。
+模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。
+模块加载的顺序，按照其在代码中出现的顺序。
+
+>ES6 模块与 CommonJS 模块的差异
+ 讨论 Node 加载 ES6 模块之前，必须了解 ES6 模块与 CommonJS 模块完全不同。
+ 它们有两个重大差异。
+ CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。
+ CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。
+ 第二个差异是因为 CommonJS 加载的是一个对象（即module.exports属性），该对象只有在脚本运行完才会生成。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。
+
+
+> https的原理 
+[https原理：证书传递、验证和数据加密、解密过程解析](https://blog.csdn.net/clh604/article/details/22179907)
+[HTTPS的工作原理](https://www.cnblogs.com/ttltry-air/archive/2012/08/20/2647898.html)
+[白话解释 对称加密算法 VS 非对称加密算法](https://segmentfault.com/a/1190000004461428)
+[白话解释 电子签名，电子证书，根证书，HTTPS，PKI 到底是什么](https://segmentfault.com/a/1190000012466003)
+[白话解释 OSI模型，TLS/SSL 及 HTTPS](https://segmentfault.com/a/1190000004467714)
+[HTTP是一个无状态的协议。这句话里的无状态是什么意思？](https://www.zhihu.com/question/23202402)
+[主题:请问https是有状态协议还是无状态协议啊](http://m.newsmth.net/article/NetPRG/34850)
 
 
 
+> 算法题,一个数组,有重复的元素,找出重复次数最多的元素,以及下表
+
+```javascript
+function find_max_ele(arr) {
+    if (!Object.isArray(arr) && arr.length === 0) {
+        return
+    }
+    
+    let tempObj = {};
+    let indexArr = [];
+    let max = 0;   
+    arr.forEach((val, index)=> {
+        if (!tempObj[val]) {
+            tempObj[val] = 1;
+        } else {
+            tempObj[val]++;
+        }
+    })
+    
+    for (ele in tempObj) {
+        if(max < tempObj[ele]) {
+            max = tempObj[ele];
+        }
+    }
+    
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] === max) {
+            indexArr.push(i);
+        }
+    } 
+    return max,indexArr;
+}
 
 
+function find_max_ele(arr) {
+   if (!Object.isArray(arr) && arr.length === 0) {
+        return
+   }
+   
+   let tempArr = [];
+   tempArr.fill(0);
+   for (let i = 0; i < arr.length; i++) {
+       tempArr[arr[i]]++;
+   }
+   
+   for () {}
+}
+
+```
+
+#### ** 二面(8.16) **
+
+##### **　这是面经看的整理的　**
+
+[算法系列—— 输出所有的笛卡尔积组合](https://blog.csdn.net/ylyg050518/article/details/78787432)
+[百度面试的一道题-笛卡尔积？](https://www.zhihu.com/question/28867645)
+[每天一道算法题](https://hiblacker.github.io/stydy-note/day-day-up.html)
+[c++求若干个集合的笛卡尔积](https://blog.csdn.net/pangjiuzala/article/details/52982521)
+
+写一个方法，求任意长度数组的笛卡尔积。例如
+
+`cartesian([[1,2],['a','b']]) = [[1,'a'],[1,'b'],[2,'a'],[2,'b']]`
+
+```javascript
+function cartesion(...arys) {
+    if (arys.length == 0) return []
+    if (arys.length == 1) return arys
+    return arys.reduce((prev, item) => {
+        let t = []
+        for (let i of prev) {
+            for (let j of item) {
+                t.push(Array.isArray(i) ? [...i, j] : [i, j])
+            }
+        }
+        return t
+    })
+}
+console.log(cartesion([1, 2, 3], ['a', 'b'], ['x', 'y']))
+```
+
+##### **　正式二面内容　**
 
 
+自我介绍
+聊项目，聊了好久好久，聊我遇到的难点
+学校的项目,也聊了很久
+问题的话
+主要有浏览器缓存
+cookie session localstorage
+
+>然后就是经典问题,输入一个url 23333333333,大概就是这么多吧
+这里服务端返回资源后,是先解析dom树(html),html中有link,script标签,再去请求新的资源
+
+然后邮件发了一道算法题,半个小时做完
+[一天内时针和分针重叠的次数](https://blog.csdn.net/liurenyou/article/details/78445009)
+[钟表的时针和分针一天之内会重合多少次](https://www.nowcoder.com/questionTerminal/9c857e6ba7a7409daea914e837094d60)
+[一天时间内，时针与分针会重合几次？](https://blog.csdn.net/Zidane_2014/article/details/45081531)
+[代码中简单实现四舍五入（加上0.5取整）适用于所有语言](https://blog.csdn.net/longshenlmj/article/details/17020911)
+[C语言，用0.5进行四舍五入](https://zhidao.baidu.com/question/1180293093053491299.html)
+
+```c++
+#include <iostream>
+using namespace std;
+
+// 系统ubuntu16
+// 开发工具Clion
+
+int main() {
+    int one_catch_time_by_minute = 30;
+
+    for(int hour = 0; hour < 11; hour++)
+    {
+        // 时针的速度 360度 / (12 * 60)分 = 0.5度/分
+        // 分针的速度 360度/ 60分 = 6度/分
+        // 且分针跑得比时针块
+        int minute = (hour * one_catch_time_by_minute) / (6-0.5) + 0.5;
+        cout<< hour << ":" << minute <<endl;
+        cout<< hour + 12 << ":" << minute <<endl;
+    }
+
+    // 程序打印结果为
+    // 0:0
+    // 12:0
+    // 1:5
+    // 13:5
+    // 2:11
+    // 14:11
+    // 3:16
+    // 15:16
+    // 4:22
+    // 16:22
+    // 5:27
+    // 17:27
+    // 6:33
+    // 18:33
+    // 7:38
+    // 19:38
+    // 8:44
+    // 20:44
+    // 9:49
+    // 21:49
+    // 10:55
+    // 22:55
+    return 0;
+}
+```
 
 
+*************************************
+### ** 百度大商业提前批前端面试 **
 
+下周一上午一面,还面试途中网易广州给我打电话了,没接到gg,希望还能给打过来
 
+#### ** 一面 **
 
+>清楚浮动bfc  position absolute?
+[css清除浮动float的七种常用方法总结和兼容性处理](https://blog.csdn.net/promiseCao/article/details/52771856)
 
+>三栏布局
+calc
+flex
+[CSS_Demo](https://github.com/iamsail/CSS_Demo)
+[双飞翼布局](https://www.sail.name/CSS_Demo/flying-wing-layout.html)
+[圣杯布局](https://www.sail.name/CSS_Demo/grail-layout.html)
+
+>0.1+0.2 0.29999999 0.30000001 底层原理　js 和 c++ 会出现　　java和php会出现吗 会
+IEEE 754 Floating-point　　　　　　　　　　　　　
+[从0.1+0.2=0.30000000000000004再看JS中的Number类型](https://juejin.im/post/5a6fce10f265da3e261c3c71)
+[JS魔法堂：彻底理解0.1 + 0.2 === 0.30000000000000004的背后](https://www.cnblogs.com/fsjohnhuang/p/5115672.html)
+[0.30000000000000004.com](http://0.30000000000000004.com/)
+
+>tf-idf　项目相关
+
+>原型链的理解
+
+>高阶函数
+
+>函数节流
+
+>websocket的一些参数
+>websocket传数据,在控制台请求里面看到的是二进制还是什么？
+>ws和wss的区别
+>ssl层出了问题,去哪一层修改
+
+>树的掌握 这里出了一道题,文件夹,怎么查找节点　　节点命名如何设计　修改节点会有哪些冲突
+
+>有一篇文章,如何找出出现次数最多的词语
+
+>快速排序
+[【啊哈！算法】算法3：最常用的排序——快速排序](http://bbs.codeaha.com/thread-4419-1-1.html)
+
+>flex
+
+>计算机网络的七层模型，五层模型　这里gg
+[计算机网络七层模型和五层模型](https://blog.csdn.net/wx19950101/article/details/77120473)
+[计算机网络五层（七层）协议](https://blog.csdn.net/qq_26927285/article/details/54426657)
+[SSL协议到底工作在OSI模型中的那一层？](https://blog.csdn.net/better2326/article/details/48371241)
+OSI七层模型
+1 应用层  2 表示层  3 会话层  4 传输层（其中之一：TCP） 5 网络层（其中之一：IP） 6 数据链路层 7 物理层
+五层模型
+1 应用层 （应用层+表示层+会话层）2 传输层 3 网络层 4 数据链路层 5 物理层
+
+> OSI七个层次的功能：
+  物理层
+  为数据链路层提供物理连接，在其上串行传送比特流，即所传送数据的单位是比特。此外，该层中还具有确定连接设备的电气特性和物理特性等功能。 
+  数据链路层
+  负责在网络节点间的线路上通过检测、流量控制和重发等手段，无差错地传送以帧为单位的数据。为做到这一点，在每一帧中必须同时带有同步、地址、差错控制及流量控制等控制信息。 
+  网络层
+  为了将数据分组从源（源端系统）送到目的地（目标端系统），网络层的任务就是选择合适的路由和交换节点，使源的传输层传下来的分组信息能够正确无误地按照地址找到目的地，并交付给相应的传输层，即完成网络的寻址功能。 
+  传输层
+  传输层是高低层之间衔接的接口层。数据传输的单位是报文，当报文较长时将它分割成若干分组,然后交给网络层进行传输。传输层是计算机网络协议分层中的最关键一层，该层以上各层将不再管理信息传输问题。 
+  会话层
+  该层对传输的报文提供同步管理服务。在两个不同系统的互相通信的应用进程之间建立、组织和协调交互。例如，确定是双工还是半双工工作。 
+  表示层
+  该层的主要任务是把所传送的数据的抽象语法变换为传送语法，即把不同计算机内部的不同表示形式转换成网络通信中的标准表示形式。此外，对传送的数据加密（或解密）、正文压缩（或还原）也是表示层的任务。 
+  应用层
+  该层直接面向用户，是OSI中的最高层。它的主要任务是为用户提供应用的接口，即提供不同计算机间的文件传送、访问与管理，电子邮件的内容处理，不同计算机通过网络交互访问的虚拟终端功能等。
+   
+
+>echarts有改过底层源码吗
+
+>es6
+
+>let 和　const的区别
+
+>function和箭头函数
+
+>promise有多个请求  all race
+
+>git
+
+>webpack用过哪些插件和loader　　我都记不得插件的名字,看来要多记几个了233333333
+
+>还有一些问题,记不清了
+
+*************************************
+### ** IBM一面 **
+
+IBM一面,42分钟　那边好像有三个还是四个面试官　主要还是结合简历上的内容来问,还有一个英语面试,大概有五分钟的样子,说我英语还不错 233333333
+
+自我介绍
+用到了哪些前端技术
+
+> 响应式布局,媒体查询
+媒体查询断点怎么打的
+[CSS媒体查询](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries)
+[响应式小demo(主要是媒体查询)](https://www.sail.name/CSS_Demo/smallDemo.html)
+[快捷提示：别忘记Viewport Meta标签](https://webdesign.tutsplus.com/zh-hans/articles/quick-tip-dont-forget-the-viewport-meta-tag--webdesign-5972)
+[CSS || @media媒体查询](https://segmentfault.com/a/1190000008745305)
+
+主要是流式布局还是栅格布局
+响应式布局用在了你的哪些项目中
+实习项目
+介绍下什么是流量波动分析
+在工作室，做项目都担任了哪些角色，做了哪些工作
+项目管理怎么做的
+需求变动
+websocket　channel怎么建立的
+websocket项目怎么做判断的
+学了这么多技术,求职意向
+如果非要在前端和机器学习选一个呢
+
+> docker　虚拟机 有哪些区别
+[docker容器与虚拟机有什么区别？](https://www.zhihu.com/question/48174633)
+[Docker容器与虚拟机区别](https://www.cnblogs.com/pangguoping/articles/5515286.html)
+
+> 有写过shell吗
+
+> linux你常用的命令
+
+> 如何设置hostname
+
+> mysql数据引擎
+[mysql 数据库引擎](https://www.cnblogs.com/0201zcr/p/5296843.html)
+
+```
+mysql> show engines;
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| Engine             | Support | Comment                                                        | Transactions | XA   | Savepoints |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+| MyISAM             | YES     | MyISAM storage engine                                          | NO           | NO   | NO         |
+| MRG_MYISAM         | YES     | Collection of identical MyISAM tables                          | NO           | NO   | NO         |
+| CSV                | YES     | CSV storage engine                                             | NO           | NO   | NO         |
+| BLACKHOLE          | YES     | /dev/null storage engine (anything you write to it disappears) | NO           | NO   | NO         |
+| InnoDB             | DEFAULT | Supports transactions, row-level locking, and foreign keys     | YES          | YES  | YES        |
+| PERFORMANCE_SCHEMA | YES     | Performance Schema                                             | NO           | NO   | NO         |
+| ARCHIVE            | YES     | Archive storage engine                                         | NO           | NO   | NO         |
+| MEMORY             | YES     | Hash based, stored in memory, useful for temporary tables      | NO           | NO   | NO         |
+| FEDERATED          | NO      | Federated MySQL storage engine                                 | NULL         | NULL | NULL       |
++--------------------+---------+----------------------------------------------------------------+--------------+------+------------+
+```
+
+还问了些问题，忘了
+面试官说看了我的博客和github，所以都是问的些相关的内容把
 
 
 
