@@ -4,9 +4,9 @@ date: 2018-06-24 21:04:30
 tags: 笔试
 password: 0Algorithm6,
 ---
+灵犀联云算法实习生笔试
 
 ### ** Preface **
-灵犀联云算法实习生笔试
 
 昨天中午收到了[灵犀联云](https://www.linkedsee.com/)hr的电话,聊了快十分钟。hr很专业也很nice.
 
@@ -89,6 +89,15 @@ password: 0Algorithm6,
 [有赞前端一面 ](https://www.nowcoder.com/discuss/93642?type=2&order=0&pos=130&page=1)
 [有赞前端js面经一面 ](https://www.nowcoder.com/discuss/93681?type=2&order=0&pos=131&page=1)
 [猿辅导前端一面 ](https://www.nowcoder.com/discuss/95432?type=0&order=0&pos=44&page=1)
+[前端面试一般会问什么问题？](https://www.zhihu.com/question/63692106)
+[2017前端实习面经之腾讯、阿里、360、IBM、美团、Daocloud](http://zyy1217.com/2017/04/30/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/)
+
+********************
+[阿里天猫 前端js面经一面 ](https://www.nowcoder.com/discuss/93504?type=2&order=0&pos=49&page=1)
+[阿里前端一面 ](https://www.nowcoder.com/discuss/92258?type=2&order=0&pos=51&page=1)
+[阿里前端三面 ](https://www.nowcoder.com/discuss/95473?type=2&order=0&pos=65&page=1)
+
+
 
 ********************
 ### ** 我从面经总结的问题 **
@@ -126,6 +135,7 @@ JavaScript 中，普通的函数调用方式有三种：直接调用、方法调
 [前端阶段性总结之「理解HTTP协议」](https://godbasin.github.io/2017/05/20/front-end-notes-7-init-http/)
 [关于 HTTP 协议，一篇就够了](https://juejin.im/entry/57ff5c5b0bd1d00058e5b2aa)
 [《图解HTTP》读书笔记](https://sunshinevvv.coding.me/blog/2017/01/26/%E5%9B%BE%E8%A7%A3HTTP-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/)
+[HTTP请求头详解](https://blog.csdn.net/kfanning/article/details/6062118)
 
 >为什么dns要快，要用udp
 [DNS使用的是TCP协议还是UDP协议](http://benbenxiongyuan.iteye.com/blog/1088085)
@@ -141,14 +151,21 @@ JavaScript 中，普通的函数调用方式有三种：直接调用、方法调
 [HTTP协议中GET和POST方法的区别](https://sunshinevvv.coding.me/blog/2017/02/09/HttpGETv.s.POST/)
 [HTTP幂等性及GET、POST、PUT、DELETE的区别](https://blog.csdn.net/zjkC050818/article/details/78799386)
 [DNS正向解析分为递归和迭代。 通常是用递归，还是迭代呢？](https://www.zhihu.com/question/53882349)
+[HTTP中GET与POST的区别](http://www.zyy1217.com/2017/03/02/HTTP%E4%B8%ADGET%E4%B8%8EPOST%E7%9A%84%E5%8C%BA%E5%88%AB/)
+[HTTP请求方法：GET、HEAD、POST、PUT、DELETE、CONNECT、OPTIONS、TRACE](https://itbilu.com/other/relate/EkwKysXIl.html)
+[Programming.log - a place to keep my thoughts on programming](https://www.cnblogs.com/weidagang2046/archive/2011/06/04/idempotence.html)
 
 >三次握手,四次挥手
 [从输入url到页面展示到底发生了什么](https://mp.weixin.qq.com/s/7eY3XIhLXeCMqBYIQh6WwA)
+[DNS原理总结及其解析过程详解（递归查询+迭代查询）](https://mp.weixin.qq.com/s/7eY3XIhLXeCMqBYIQh6WwA)
+[从点击到呈现 — 详解一次HTTP请求](http://www.zyy1217.com/2017/03/01/%E4%BB%8E%E7%82%B9%E5%87%BB%E5%88%B0%E5%91%88%E7%8E%B0%20%E2%80%94%20%E8%AF%A6%E8%A7%A3%E4%B8%80%E6%AC%A1HTTP%E8%AF%B7%E6%B1%82/)
+[TCP/IP协议三次握手与四次握手流程解析](http://www.zyy1217.com/2017/04/16/TCP-IP%E5%8D%8F%E8%AE%AE%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8F%A1%E6%89%8B%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/)
 
 
+>性能优化
 [雅虎网站页面性能优化的34条黄金守则](http://www.cnblogs.com/li0803/archive/2009/09/20/1570581.html)
 [reflow（回流）和repaint（重绘）及其优化](https://blog.csdn.net/ClaireKe/article/details/51375622)
-[前端精选文摘：BFC 神奇背后的原理](http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html)
+[高性能滚动 scroll 及页面渲染优化原理与实例](http://www.zyy1217.com/2017/03/16/%E9%AB%98%E6%80%A7%E8%83%BD%E6%BB%9A%E5%8A%A8%20scroll%20%E5%8F%8A%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96/)
 
 
 >如何判断js数据类型 
@@ -166,6 +183,8 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用�
 state，驱动应用的数据源；
 view，以声明方式将 state 映射到视图；
 actions，响应在 view 上的用户输入导致的状态变化。
+[Vuex框架原理与源码分析](https://tech.meituan.com/vuex_code_analysis.html)
+[简单解析vuex的工作流程](https://juejin.im/post/5a08088c5188251c11401aa8)
 
 
 >对vuex和[vue-router](https://router.vuejs.org/zh/)了解吗？那么请说一下vuex的store分为哪几部分？分别代表什么意思
@@ -240,11 +259,9 @@ xhr.setRequestHeader('Content-Type', 'application/json');
 [旋转的立方体](http://www.sail.name/2017/02/16/rotary-cube/)
 [再谈旋转的立方体](http://www.sail.name/2017/07/28/talk-rotary-cube-again/)
 
-
 >js 浅拷贝，深拷贝
 [JavaScript中的浅拷贝和深拷贝](https://segmentfault.com/a/1190000008637489)
 [javascript中的深拷贝和浅拷贝？](https://www.zhihu.com/question/23031215)
-
 
 >事件代理
 [JavaScript 事件委托详解](https://zhuanlan.zhihu.com/p/26536815?refer=qiutc)
@@ -258,12 +275,28 @@ xhr.setRequestHeader('Content-Type', 'application/json');
 >git merge 和git merge --no--ff有什么区别 
 [git merge 跟 git merge -no-ff](https://blog.csdn.net/pzhtpf/article/details/52151320)
 
+>event loop
+[Event Loop的规范和实现](https://zhuanlan.zhihu.com/p/33087629)
+[JavaScript 运行机制详解：再谈Event Loop](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)
+
+> 背包问题
+[C++ 实现01背包动态规划](http://ju.outofmemory.cn/entry/133789)
+[动态规划之：让你轻松理解背包算法](https://blog.csdn.net/a784586/article/details/63262080)
+[动态规划之01背包问题（最易理解的讲解）](https://blog.csdn.net/mu399/article/details/7722810)
+[01背包问题吐血详解](https://blog.csdn.net/mu399/article/details/7722810)
+[C++ 实现 0-1 背包问题](https://blog.csdn.net/chengonghao/article/details/51915753)
+
+
+>动态规划——5 输入两个整数 n 和 m，从数列1，2，3.......n 中 随意取几个数, 使其和等于 m
+[从数列1, 2, 3, ... , n 中 随意取几个数,使其和等于sum. [No. 24]](https://blog.csdn.net/beiyeqingteng/article/details/7107636)
 
 异步的解决方案有哪些呢 
 
 >Promise怎么执行一个串行的请求，并行呢？ 
 怎么自己实现一个promise （懵逼二连）
 [大白话讲解Promise（一）](https://www.cnblogs.com/lvdabao/p/es6-promise-1.html)
+[解读Promise内部实现原理](https://juejin.im/post/5a30193051882503dc53af3c)
+[自己动手实现ES6 Promise](https://www.jianshu.com/p/48e193c4662e)
 
 >有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise对象提供统一的接口，使得控制异步操作更加容易。
 Promise也有一些缺点。首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。
@@ -328,10 +361,6 @@ async/await怎么实现上述请求呢，generator呢
 generator的自动化执行怎么实现的呢，co实现generator自执行的条件 
 
 
->模块化 amd cmd mudule
-[理解CommonJS、AMD、CMD三种规范](https://zhuanlan.zhihu.com/p/26625636)
-[JS - CommonJS、ES2015、AMD、CMD模块规范对比与介绍（附样例）](http://www.hangge.com/blog/cache/detail_1686.html)
-
 >prototype 属性和__proto__属性
 [js中__proto__和prototype的区别和关系](https://www.zhihu.com/question/34183746)
 [从__proto__和prototype来深入理解JS对象和原型链](https://github.com/creeperyang/blog/issues/9)
@@ -349,18 +378,52 @@ generator的自动化执行怎么实现的呢，co实现generator自执行的条
 >进程和线程的区别
 [腾讯面试题04.进程和线程的区别？](https://blog.csdn.net/mxsgoden/article/details/8821936)
 [进程和线程的区别](https://www.cnblogs.com/lmule/archive/2010/08/18/1802774.html)
+[面试题：1,进程和线程的区别？什么时候用进程？什么时候用线程？为什么你的项目中用的是线程？为什么不用进程？如果只有进程，对你这个项目有没有影响？](https://blog.csdn.net/linux12121/article/details/51786233)
+[Linux 下多线程和多进程程序的优缺点，各自适合什么样的业务场景？](https://www.zhihu.com/question/24485648)
 
 >各种排序算法的时间复杂度 
 [常用排序算法稳定性、时间复杂度分析（转，有改动）](https://www.cnblogs.com/nannanITeye/archive/2013/04/11/3013737.html)
 [各种排序算法比较(2):时间复杂度,空间复杂度](https://blog.csdn.net/weiwenhp/article/details/8622728)
 [常用几种排序算法的时间复杂度和空间复杂度](https://blog.csdn.net/yhd0916/article/details/48207167)
 
+[Javascript 严格模式详解](http://www.zyy1217.com/2017/04/20/Javascript%20%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3/)
 
 堆和栈，为什么有的放堆有的放栈 
 mvc是什么，mvvm是什么，react是哪种 
 
 字符串匹配算法(kmp?)
 
+>[前端算法面试题汇总](http://www.zyy1217.com/2017/04/26/%E5%89%8D%E7%AB%AF%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/)
+
+> 实现一个calendar组件
+[[前端教程]HTML+JavaScript自己动手做日历](https://zhuanlan.zhihu.com/p/26401052)
+
+>前端监控
+[前端代码异常日志收集与监控](http://www.cnblogs.com/hustskyking/p/fe-monitor.html)
+[把前端监控做到极致](https://zhuanlan.zhihu.com/p/32262716)
+[如何做前端异常监控？](https://www.zhihu.com/question/29953354)
+[JSTracker：前端异常数据采集](http://taobaofed.org/blog/2015/10/28/jstracker-how-to-collect-data/)
+
+> H5拖拽 
+[HTML 5 拖放](http://www.w3school.com.cn/html5/html_5_draganddrop.asp)
+[HTML5 拖放实现](https://juejin.im/entry/59eebc39f265da431c6f7bdb)
+
+> resize和scroll事件的性能优化
+
+> vue和react区别 
+[[译] 2017 年比较 Angular、React、Vue 三剑客](https://juejin.im/post/5a0d5df1f265da43062a542f)
+[Vue和React的使用场景和深度有何不同？](https://www.zhihu.com/question/31585377)
+[Vue与React两个框架的区别和优势对比](http://caibaojian.com/vue-vs-react.html)
+
+
+> 负载均衡
+[负载均衡（Load Balancing）学习笔记(一)](https://blog.csdn.net/lihao21/article/details/53900447)
+
+> [搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop](http://imweb.io/topic/57c5409e808fd2fb204eef52)
+[Js的ClientHeight,ScrollHeight,OffsetHeight区别](http://www.javacoder.cn/?p=901)
+[js实现一个图片懒加载插件](http://www.zyy1217.com/2017/03/20/js%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6/)
+
+> [CSS：区别 px、em、rem](https://segmentfault.com/a/1190000005936910)
 
 ********************
 
@@ -475,6 +538,8 @@ function reverse_string(str) {
 > repaint,reflow
 
 > 动画硬件加速,原理
+[CSS3动画的硬件加速的问题](https://segmentfault.com/q/1010000006931411)
+[用CSS开启硬件加速来提高网站性能（转）](https://www.cnblogs.com/rubylouvre/p/3471490.html)
 
 > http-options
 [HTTP的请求方法OPTIONS - CSDN博客](https://blog.csdn.net/leikezhu1981/article/details/7402272)
@@ -585,14 +650,9 @@ backgrpund会应用到哪些部分
 
 >position
 
-
-
-
 >这道题要看看有没有更高效的做法,两次for循环了,以及xxx有没有替代方案
 [JS两个数组比较,删除重复值的巧妙方法(推荐)  ](https://www.teakki.com/p/57dfb1add3a7507f975e7038)
 [JS中实现字符串和数组的相互转化](https://blog.csdn.net/erlian1992/article/details/50561452)
-
-
 
 ```javascript
 /**
@@ -765,10 +825,9 @@ css部分
 [webpack 打包JS 的运行原理](https://zhuanlan.zhihu.com/p/32093510)
 [细说 webpack 之流程篇](http://taobaofed.org/blog/2016/09/09/webpack-flow/)
 [Webpack模块化原理简析](https://segmentfault.com/a/1190000010409465)
+[webpack之Plugins和Loaders简介及常用插件清单](https://www.arayzou.com/2016/08/16/webpack%E4%B9%8BPlugins%E5%92%8CLoaders%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E6%B8%85%E5%8D%95/)
 
 > 跨域,cors具体字段怎么设置
-
-
 
 >前端安全csrf,xss
 [XSS 和 CSRF 攻击的一些非常规防御方法](https://www.imooc.com/article/18069)
@@ -802,6 +861,10 @@ CommonJS模块的特点如下。
 所有代码都运行在模块作用域，不会污染全局作用域。
 模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。
 模块加载的顺序，按照其在代码中出现的顺序。
+模块化 amd cmd mudule
+[理解CommonJS、AMD、CMD三种规范](https://zhuanlan.zhihu.com/p/26625636)
+[JS - CommonJS、ES2015、AMD、CMD模块规范对比与介绍（附样例）](http://www.hangge.com/blog/cache/detail_1686.html)
+
 
 >ES6 模块与 CommonJS 模块的差异
  讨论 Node 加载 ES6 模块之前，必须了解 ES6 模块与 CommonJS 模块完全不同。
@@ -909,7 +972,12 @@ console.log(cartesion([1, 2, 3], ['a', 'b'], ['x', 'y']))
 聊项目，聊了好久好久，聊我遇到的难点
 学校的项目,也聊了很久
 问题的话
-主要有浏览器缓存
+
+>主要有浏览器缓存
+[浏览器缓存知识小结及应用](https://www.cnblogs.com/lyzg/p/5125934.html)
+[九种浏览器端缓存机制概览](http://www.zyy1217.com/2017/05/13/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%AF%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/)
+[《HTTP权威指南》之缓存详解](http://www.zyy1217.com/2017/05/14/HTTP%E7%BC%93%E5%AD%98%E8%AF%A6%E8%A7%A3/)
+
 cookie session localstorage
 
 >然后就是经典问题,输入一个url 23333333333,大概就是这么多吧
@@ -941,7 +1009,6 @@ int main() {
         cout<< hour << ":" << minute <<endl;
         cout<< hour + 12 << ":" << minute <<endl;
     }
-
     // 程序打印结果为
     // 0:0
     // 12:0
@@ -979,6 +1046,17 @@ int main() {
 
 >清楚浮动bfc  position absolute?
 [css清除浮动float的七种常用方法总结和兼容性处理](https://blog.csdn.net/promiseCao/article/details/52771856)
+[CSS深入理解流体特性和BFC特性下多栏自适应布局](https://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/)
+[[布局概念] 关于CSS-BFC深入理解](https://juejin.im/post/5909db2fda2f60005d2093db)
+[前端精选文摘：BFC 神奇背后的原理](http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html)
+什么时候会触发BFC呢？常见的如下：
+float的值不为none。
+overflow的值为auto,scroll或hidden。
+display的值为table-cell, table-caption, inline-block中的任何一个。
+position的值不为relative和static。
+
+> 两栏布局
+[七种实现左侧固定，右侧自适应两栏布局的方法](https://zhuqingguang.github.io/2017/08/16/adapting-two-layout/)
 
 >三栏布局
 calc
@@ -986,6 +1064,8 @@ flex
 [CSS_Demo](https://github.com/iamsail/CSS_Demo)
 [双飞翼布局](https://www.sail.name/CSS_Demo/flying-wing-layout.html)
 [圣杯布局](https://www.sail.name/CSS_Demo/grail-layout.html)
+[详解 CSS 七种三栏布局技巧](https://zhuanlan.zhihu.com/p/25070186)
+[CSS || 三栏布局，两边固定，中间自适应](https://segmentfault.com/a/1190000008705541)
 
 >0.1+0.2 0.29999999 0.30000001 底层原理　js 和 c++ 会出现　　java和php会出现吗 会
 IEEE 754 Floating-point　　　　　　　　　　　　　
@@ -1000,6 +1080,7 @@ IEEE 754 Floating-point　　　　　　　　　　　　　
 >高阶函数
 
 >函数节流
+[函数节流（throttle）与函数去抖（debounce）](http://www.zyy1217.com/2017/06/21/js%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81throttle%E4%B8%8E%E5%8E%BB%E6%8A%96debounce/)
 
 >websocket的一些参数
 >websocket传数据,在控制台请求里面看到的是二进制还是什么？
@@ -1040,7 +1121,6 @@ OSI七层模型
   应用层
   该层直接面向用户，是OSI中的最高层。它的主要任务是为用户提供应用的接口，即提供不同计算机间的文件传送、访问与管理，电子邮件的内容处理，不同计算机通过网络交互访问的虚拟终端功能等。
    
-
 >echarts有改过底层源码吗
 
 >es6
@@ -1056,6 +1136,48 @@ OSI七层模型
 >webpack用过哪些插件和loader　　我都记不得插件的名字,看来要多记几个了233333333
 
 >还有一些问题,记不清了
+
+#### ** 二面 **
+
+一个小时,57分钟　电话＋视频
+
+自我介绍
+问了些工作室的情况
+项目(实习项目),reflow
+数据结构
+你们数据结构里面都讲了哪些数据结构
+图和树有什么区别
+图怎么存储
+树呢,二叉树呢
+计算机网络
+TCP/IP HTTP 三次握手
+你算法怎么样
+快速排序　时间复杂度
+你还了解哪些排序
+那你讲讲桶排吧
+桶排优化
+然后忘了,暂时写这么多吧.....
+
+*************************************
+#### ** 三面 **
+
+二面完了差不多五分钟吧就在QQ上告诉我下午三点到六点之间安排面试,结果一直等到七点多钟才面到,那边老大在开会什么的
+
+今天中午百度智能云那边也联系我了,说是安排三面,然后说下午大商业也给我安排了三面...结果过了不到半个小时吧,面试官告诉我他有事,让我好好准备大商业,听说话的语气,应该是不会给三面了。唉...
+
+然后为了面大商业还推了今天的三角兽的算法面试,调到了明天
+
+************************************
+三面没问多少技术问题,一些比较宽泛的点吧,面了三十多分钟,小四十分钟
+
+自我介绍
+实习项目介绍
+prototype
+如果让你设计一个计算器加减乘除,你会怎么做
+家乡是哪儿的,未来的规划
+
+*************************************
+本来以为要拿两个offer,现在估计一个offer也没有了,真的心累。加油吧!
 
 *************************************
 ### ** IBM一面 **
@@ -1079,8 +1201,11 @@ IBM一面,42分钟　那边好像有三个还是四个面试官　主要还是�
 在工作室，做项目都担任了哪些角色，做了哪些工作
 项目管理怎么做的
 需求变动
-websocket　channel怎么建立的
+
+>websocket　channel怎么建立的
 websocket项目怎么做判断的
+[WebSocket 是什么原理？为什么可以实现持久连接？](https://www.zhihu.com/question/20215561)
+
 学了这么多技术,求职意向
 如果非要在前端和机器学习选一个呢
 
