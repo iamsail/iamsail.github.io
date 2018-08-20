@@ -4,7 +4,6 @@ date: 2018-06-26 22:49:30
 tags: 面试
 password: 0algorithm6,
 ---
-
 图鸭信息科技算法实习生面试
 ### ** Preface **
 
@@ -408,10 +407,7 @@ int main() {
 
 #### ** 一面 **
 
-
-
 > [ACL 2017 录用论文整理（长文）](http://friskit.me/author/botian/)
-
 
 > 自我介绍
 
@@ -451,6 +447,62 @@ int main() {
 #### ** 二面 **
 今天(8.15)去杭州丁香园去了现场终面。挂了,不过还是很有收获,而且车费也给报销
   
+> LDA
+
+> 马尔可夫
+
+> 随机场
+
+> textcnn结构
+[基于CNN的句子分类TensorFlow实现（上）](https://zhuanlan.zhihu.com/p/38962611)
+[[NLP] 秒懂词向量Word2vec的本质](https://zhuanlan.zhihu.com/p/26306795)
+[自己动手写word2vec (一):主要概念和流程](https://blog.csdn.net/u014595019/article/details/51884529)
+[基于CNN的句子分类TensorFlow实现（下）](https://zhuanlan.zhihu.com/p/39354947)
+[Word2Vec的簡易教學與參數調整指南](https://www.kaggle.com/jerrykuo7727/word2vec)
+[word2vec 笔记](https://blog.csdn.net/zhangxb35/article/details/74716245)
+
+>[基于tensorflow的cnn文本分类](https://blog.csdn.net/u013713117/article/details/55049808)
+[Implementing a CNN for Text Classification in TensorFlow](http://www.wildml.com/2015/12/implementing-a-cnn-for-text-classification-in-tensorflow/)
+
+> LR推导
+
+> 如何得到一段文本的主题
+
+> 搜索方向有做过吗
+
+> EM,用在哪些方面
+
+> 神经网络防止过拟合有哪些方法
+
+> dropout为什么能防止过拟合
+
+> 卷积设计
+
+> relu,求导,间断点如何处理
+
+> 分词的算法原理
+
+> 序列有了解过吗
+
+> 还有一些和技术无关的问题,给了些建议
+
+**********************
+
+### ** 贝壳算法笔试 **
+
+知识点记录
+
+>Dijkstra算法
+堆排序最坏时间复杂度
+哈希表
+prim　最小生成树
+银行家算法
+delete truncate table
+哈夫曼编码
+求字符串字串个数
+无向图
+平衡二叉树
+k-means lvq
 
 
 **********************
