@@ -4,6 +4,9 @@ date: 2018-06-26 22:49:30
 tags: 面试
 password: 0algorithm6,
 ---
+
+[机器学习大神迈克尔 · 乔丹：我讨厌将机器学习称为AI](https://36kr.com/p/5125021.html)
+
 图鸭信息科技算法实习生面试
 ### ** Preface **
 
@@ -448,6 +451,13 @@ int main() {
 今天(8.15)去杭州丁香园去了现场终面。挂了,不过还是很有收获,而且车费也给报销
   
 > LDA
+如何得到一段文本的主题
+[隐含狄利克雷分布](https://zh.wikipedia.org/wiki/%E9%9A%90%E5%90%AB%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%88%86%E5%B8%83)
+[通俗理解LDA主题模型](https://blog.csdn.net/v_july_v/article/details/41209515)
+[一文详解LDA主题模型](https://zhuanlan.zhihu.com/p/31470216)
+[文本主题模型之LDA(一) LDA基础](https://www.cnblogs.com/pinard/p/6831308.html)
+[隐式狄利克雷分布](https://github.com/endymecy/spark-ml-source-analysis/blob/master/%E8%81%9A%E7%B1%BB/LDA/lda.md)
+
 
 > 马尔可夫
 
@@ -465,8 +475,6 @@ int main() {
 [Implementing a CNN for Text Classification in TensorFlow](http://www.wildml.com/2015/12/implementing-a-cnn-for-text-classification-in-tensorflow/)
 
 > LR推导
-
-> 如何得到一段文本的主题
 
 > 搜索方向有做过吗
 

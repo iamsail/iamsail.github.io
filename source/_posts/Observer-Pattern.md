@@ -204,6 +204,133 @@ function set(target, key, value, receiver) {
 
 ****************
 
+### ** 以下是18年8月21更新 **
+
+#### ** 观察者模式实践 **
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>观察者模式</title>
+</head>
+<body>
+<h1>观察者模式</h1>
+<script>
+    var salesOffices = {};
+    salesOffices.clientList = []; //　缓存
+
+    salesOffices.listen = function (key, fn) {
+        if (!this.clientList[key]) {
+            this.clientList[key] = [];
+        }
+
+        this.clientList[key].push(fn); //增加订阅者
+    };
+
+    salesOffices.trigger = function () {
+        var key = Array.prototype.shift.call(arguments),
+            fns = this.clientList[key];
+
+        if (!fns || fns.length === 0) {
+            return false;
+        }
+
+        for (var i = 0, fn; fn = fns[i++];) {
+            fn.apply(this, arguments);
+        }
+    };
+
+    // 小明订阅88平方米房子的消息
+    salesOffices.listen('squareMeter88', function (price) {
+        console.log('价格= ' + price);
+    });
+
+    // 小红订阅110平方米房子的消息
+    salesOffices.listen('squareMeter110', function (price) {
+        console.log('价格= ' + price);
+    });
+
+    salesOffices.trigger('squareMeter88', 88);
+    salesOffices.trigger('squareMeter110', 110);
+</script>
+</body>
+</html>
+```
+*****************
+
+** 把发布--订阅功能提取出来,放在一个独立的对象 **
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>观察者模式</title>
+</head>
+<body>
+<h1>观察者模式</h1>
+<script>
+    var event = {
+        clientList: [],
+        listen: function (key, fn) {
+            if (!this.clientList[key]) {
+                this.clientList[key] = [];
+            }
+
+            this.clientList[key].push(fn); //增加订阅者
+        },
+        trigger: function () {
+            var key = Array.prototype.shift.call(arguments),
+                fns = this.clientList[key];
+
+            if (!fns || fns.length === 0) {
+                return false;
+            }
+
+            for (var i = 0, fn; fn = fns[i++];) {
+                fn.apply(this, arguments);
+            }
+        }
+    };
+
+    var installEvent = function (obj) {
+      for (var i in event) {
+          obj[i] = event[i];
+      }
+    };
+
+    var salesOffices = {};
+    installEvent(salesOffices); //　缓存
+
+    // 小明订阅88平方米房子的消息
+    salesOffices.listen('squareMeter88', function (price) {
+        console.log('价格= ' + price);
+    });
+
+    // 小红订阅110平方米房子的消息
+    salesOffices.listen('squareMeter110', function (price) {
+        console.log('价格= ' + price);
+    });
+
+    salesOffices.trigger('squareMeter88', 88);
+    salesOffices.trigger('squareMeter110', 110);
+</script>
+</body>
+</html>
+```
+
+
+
+****************
+
 ### ** 参考 **
 
 JavaScript设计模式

@@ -96,7 +96,7 @@ password: 0Algorithm6,
 [阿里天猫 前端js面经一面 ](https://www.nowcoder.com/discuss/93504?type=2&order=0&pos=49&page=1)
 [阿里前端一面 ](https://www.nowcoder.com/discuss/92258?type=2&order=0&pos=51&page=1)
 [阿里前端三面 ](https://www.nowcoder.com/discuss/95473?type=2&order=0&pos=65&page=1)
-
+[记十分坎坷的腾讯深圳前端面试经历](https://www.nowcoder.com/discuss/96602?type=0&order=0&pos=45&page=0)
 
 
 ********************
