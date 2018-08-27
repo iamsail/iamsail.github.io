@@ -75,6 +75,105 @@ console.log(Object.is(leader, leader1));    // true
 ```
 **************
 
+### ** 18年8月21更新 **
+
+***************
+
+#### ** 单例模式实践　**
+
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单例模式</title>
+</head>
+<body>
+<h1>单例模式</h1>
+<button id="loginBtn">登录</button>
+<script>
+    var createLoginLayer = (function () {
+        var div;
+        return function () {
+            if(!div) {
+                div = document.createElement('div');
+                div.innerHTML = '我是登录悬浮窗';
+                div.style.display = 'none';
+                document.body.appendChild(div);
+            }
+            return div;
+        }
+    })();
+
+    document.getElementById('loginBtn').onclick = function () {
+        console.log('inner');
+        var loginLayer = createLoginLayer();
+        loginLayer.style.display = 'block';
+    };
+</script>
+</body>
+</html>
+```
+**************
+** 优化=>把创建实例对象的职责和管理单例的职责分别放置在两个方法里 **
+
+```javascript
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单例模式</title>
+</head>
+<body>
+<h1>单例模式</h1>
+<button id="loginBtn">登录</button>
+<script>
+    var getSingle = function (fn) {
+       var result;
+       return function () {
+           return result || (result = fn.apply(this, arguments));
+       }
+    };
+
+    var createLoginLayer = function () {
+        var div = document.createElement('div');
+        div.innerHTML = '我是登录悬浮窗';
+        div.style.display = 'none';
+        document.body.appendChild(div);
+        return div;
+    };
+
+    var createSingleLoginLayer = getSingle(createLoginLayer);
+
+    var createSingleIframe = getSingle(function () {
+       var iframe = document.createElement('iframe');
+       document.body.appendChild(iframe);
+       return iframe;
+    });
+
+    // document.getElementById('loginBtn').onclick = function () {
+    //     var loginLayer = createSingleLoginLayer();
+    //     loginLayer.style.display = 'block';
+    // };
+
+
+    document.getElementById('loginBtn').onclick = function () {
+        var loginLayer = createSingleIframe();
+        loginLayer.src = 'http://baidu.com';
+    };
+</script>
+</body>
+</html>
+```
+
+
+**************
 ### ** 推荐阅读 **
 
 [怎么使用es6 的class 优雅地写出单例模式？](https://segmentfault.com/q/1010000007116553/a-1020000007117024)

@@ -1,67 +1,10 @@
 ---
 title: tow
-date: 2018-06-24 21:04:30
+date: 2015-06-24 21:04:30
 tags: 笔试
 password: 0Algorithm6,
 ---
-灵犀联云算法实习生笔试
 
-### ** Preface **
-
-昨天中午收到了[灵犀联云](https://www.linkedsee.com/)hr的电话,聊了快十分钟。hr很专业也很nice.
-
-还是蛮激动的,毕竟投了3天算法的简历,总算有一家有反馈的了。
-
-有意思的是这家公司的创始团队全是从百度运维那边出来的,这家公司业务就是做智能运维的,今年还拿到了百度的投资。
-
-电话结束过后,hr给我发了笔试邮件,今天上午做了。本文记录下。为了防止泄题,所以我加密了。
-
-其实还是蛮想去的,不过我太菜了,应该是凉了。
-
-*********************
-
-### ** 第一题　**
-
-> 返回第二大的元素,不可以调用sort
-
-本题快排就可以解决
-
-*********************
-
-### ** 第二题　**
-
-> 判断两颗二叉树是否相等(结构和值)
-
-```regexp
-
-```
-*********************
-
-### ** 第三题　**
-
-> 非负整数，数字加和到只有一位数，打印值
-
-```regexp
-
-```
-这题我是递归解决的,后面补下代码
-
-*********************
-
-### ** 第四题　**
-> 两个人，石头，每次只能拿一到三块，我先拿，最后一个有石头拿的人为赢？两个人足够聪明，设计算法，根据石头数量，是否能赢
-
-```regexp
-
-```
-*********************
-### ** 第五题　**
-
->股票，每天只能交易一次，k天，有一个数组，股票每天的价格，交易前必须卖完？求最大利润
-
-```regexp
-
-```
 
 *********************
 
@@ -81,13 +24,10 @@ password: 0Algorithm6,
 [奇虎360 前端实习面经 ](https://www.nowcoder.com/discuss/91338?type=2&order=0&pos=67&page=1)
 [阿里前端一面凉凉 ](https://www.nowcoder.com/discuss/91197?type=2&order=0&pos=86&page=1)
 [更新了的腾讯IEG前端一面+二面 ](https://www.nowcoder.com/discuss/89155?type=2&order=0&pos=102&page=2)
-[【有赞2019秋招前端内推面经】一面顺利通过 ](https://www.nowcoder.com/discuss/90535?type=2&order=0&pos=119&page=1)
 [更新了的腾讯IEG前端一面+二面 ](https://www.nowcoder.com/discuss/89155?type=2&order=0&pos=102&page=2)
 [腾讯前端一面 ](https://www.nowcoder.com/discuss/90243?type=2&order=0&pos=171&page=1)
 [猿辅导前端面筋 ](https://www.nowcoder.com/discuss/93354?type=2&order=0&pos=52&page=1)
 [前端的校招总结，结束秋招](https://www.nowcoder.com/discuss/51738?type=2&order=0&pos=108&page=1)
-[有赞前端一面 ](https://www.nowcoder.com/discuss/93642?type=2&order=0&pos=130&page=1)
-[有赞前端js面经一面 ](https://www.nowcoder.com/discuss/93681?type=2&order=0&pos=131&page=1)
 [猿辅导前端一面 ](https://www.nowcoder.com/discuss/95432?type=0&order=0&pos=44&page=1)
 [前端面试一般会问什么问题？](https://www.zhihu.com/question/63692106)
 [2017前端实习面经之腾讯、阿里、360、IBM、美团、Daocloud](http://zyy1217.com/2017/04/30/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/)
@@ -96,10 +36,33 @@ password: 0Algorithm6,
 [阿里天猫 前端js面经一面 ](https://www.nowcoder.com/discuss/93504?type=2&order=0&pos=49&page=1)
 [阿里前端一面 ](https://www.nowcoder.com/discuss/92258?type=2&order=0&pos=51&page=1)
 [阿里前端三面 ](https://www.nowcoder.com/discuss/95473?type=2&order=0&pos=65&page=1)
-
-
+[记十分坎坷的腾讯深圳前端面试经历](https://www.nowcoder.com/discuss/96602?type=0&order=0&pos=45&page=0)
 
 ********************
+[有赞前端一面 ](https://www.nowcoder.com/discuss/93642?type=2&order=0&pos=130&page=1)
+[有赞前端js面经一面 ](https://www.nowcoder.com/discuss/93681?type=2&order=0&pos=131&page=1)
+[【有赞2019秋招前端内推面经】一面顺利通过 ](https://www.nowcoder.com/discuss/90535?type=2&order=0&pos=119&page=1)
+
+********************
+[快手前端一面面经](https://zhuanlan.zhihu.com/p/35423178)
+[快手前端面试题，北京已拿OFFER](http://www.bslxx.com/a/mianshiti/bijingmianjing/2018/0528/1983.html)
+[快手前端面试题](https://blog.csdn.net/weixin_41644419/article/details/80418575)
+[我遇到的前端面试题2017](https://segmentfault.com/a/1190000011091907)
+[18届校招求职面经及总结](https://segmentfault.com/a/1190000011172965)
+[快手前端面经](https://www.nowcoder.com/discuss/79219)
+
+*********************
+
+[美团点评校招面试经验（成都）](https://www.jianshu.com/p/55c5a0a79525)
+[美团点评前端岗三面面经/已拿 offer](https://www.nowcoder.com/discuss/41902)
+[美团前端面试小结](https://blog.csdn.net/vivianhope/article/details/46933485)
+[【美团前端1.2面】美团凉经 ](https://www.nowcoder.com/discuss/99057?type=0&order=0&pos=119&page=0)
+[老虎证券前端一面 ](https://www.nowcoder.com/discuss/99056?type=0&order=0&pos=120&page=0)
+[秋招基本结束，现献上面筋回馈一波牛客](https://www.nowcoder.com/discuss/98880?type=0&order=0&pos=127&page=1)
+[贝壳前端一面 二面 hr面凉面筋 ](https://www.nowcoder.com/discuss/99003?type=0&order=0&pos=194&page=1)
+
+********************
+
 ### ** 我从面经总结的问题 **
 >let const区别 
 [let 和 const 命令](http://es6.ruanyifeng.com/#docs/let)
@@ -136,6 +99,8 @@ JavaScript 中，普通的函数调用方式有三种：直接调用、方法调
 [关于 HTTP 协议，一篇就够了](https://juejin.im/entry/57ff5c5b0bd1d00058e5b2aa)
 [《图解HTTP》读书笔记](https://sunshinevvv.coding.me/blog/2017/01/26/%E5%9B%BE%E8%A7%A3HTTP-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/)
 [HTTP请求头详解](https://blog.csdn.net/kfanning/article/details/6062118)
+[服务器常见错误代码500、501、502、503、504、505](https://blog.csdn.net/hj7jay/article/details/72518027)
+[服务器500，501，502，503，504，505](https://segmentfault.com/a/1190000010269520)
 
 >为什么dns要快，要用udp
 [DNS使用的是TCP协议还是UDP协议](http://benbenxiongyuan.iteye.com/blog/1088085)
@@ -177,6 +142,7 @@ Object.prototype.toString()
 >vue相比jQ?
 vue v-dom
 vue 双向数据绑定
+[learnVue](https://github.com/answershuto/learnVue)
 
 >[vuex](https://vuex.vuejs.org/zh/)
 Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化
@@ -190,6 +156,10 @@ actions，响应在 view 上的用户输入导致的状态变化。
 >对vuex和[vue-router](https://router.vuejs.org/zh/)了解吗？那么请说一下vuex的store分为哪几部分？分别代表什么意思
 vue的生命周期
 [生命周期图示](https://cn.vuejs.org/v2/guide/instance.html#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%BE%E7%A4%BA)
+beforecreated：el 和 data 并未初始化 
+created:完成了 data 数据的初始化，el没有
+beforeMount：完成了 el 和 data 初始化 
+mounted ：完成挂载
 [Vue2.0 探索之路——生命周期和钩子函数的一些理解](https://segmentfault.com/a/1190000008010666)
 虚拟dom具体怎么对比的，为什么它性能好
 怎么创建动态路由？
@@ -197,6 +167,8 @@ vue的生命周期
 [解析vue2.0的diff算法](https://github.com/aooy/blog/issues/2)
 [Vue原理解析之Virtual Dom](https://segmentfault.com/a/1190000008291645)
 [剖析Vue实现原理 - 如何实现双向绑定mvvm](https://github.com/DMQ/mvvm)
+[从源码角度再看数据绑定.MarkDown](https://github.com/answershuto/learnVue/blob/master/docs/%E4%BB%8E%E6%BA%90%E7%A0%81%E8%A7%92%E5%BA%A6%E5%86%8D%E7%9C%8B%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A.MarkDown)
+[VirtualDOM与diff(Vue实现).MarkDown](https://github.com/answershuto/learnVue/blob/master/docs/VirtualDOM%E4%B8%8Ediff(Vue%E5%AE%9E%E7%8E%B0)
 [VirtualDOM与diff(Vue实现)](https://juejin.im/post/59bfbd736fb9a00a52065ec7)
 [如何理解虚拟DOM?](https://www.zhihu.com/question/29504639)
 [深度剖析：如何实现一个 Virtual DOM 算法](https://github.com/livoras/blog/issues/13)
@@ -206,6 +178,7 @@ vue的生命周期
 [最短编辑距离算法（字符串比较）](https://blog.csdn.net/fouy_yun/article/details/46423753)
 [最小编辑距离问题：递归与动态规划 ](https://github.com/youngwind/blog/issues/106)
 [算法题解：最小编辑距离（动态规划算法）](https://segmentfault.com/a/1190000012769863)
+[全面理解虚拟DOM，实现虚拟DOM](https://foio.github.io/virtual-dom/)
 
 
 >怎么判断一个对象为空对象呢，回答了JSON方法，还有吗 
@@ -262,6 +235,42 @@ xhr.setRequestHeader('Content-Type', 'application/json');
 >js 浅拷贝，深拷贝
 [JavaScript中的浅拷贝和深拷贝](https://segmentfault.com/a/1190000008637489)
 [javascript中的深拷贝和浅拷贝？](https://www.zhihu.com/question/23031215)
+
+```javascript
+// 递归实现一个深拷贝
+function deepClone(source){
+   if(!source || typeof source !== 'object'){
+     throw new Error('error arguments', 'shallowClone');
+   }
+   var targetObj = source.constructor === Array ? [] : {};
+   for(var keys in source){
+      if(source.hasOwnProperty(keys)){
+         if(source[keys] && typeof source[keys] === 'object'){
+           targetObj[keys] = source[keys].constructor === Array ? [] : {};
+           targetObj[keys] = deepClone(source[keys]);
+         }else{
+           targetObj[keys] = source[keys];
+         }
+      } 
+   }
+   return targetObj;
+}
+// test example
+var o1 = {
+  arr: [1, 2, 3],
+  obj: {
+    key: 'value'
+  },
+  func: function(){
+    return 1;
+  }
+};
+var o3 = deepClone(o1);
+console.log(o3 === o1); // => false
+console.log(o3.obj === o1.obj); // => false
+console.log(o2.func === o1.func); // => true
+  
+```
 
 >事件代理
 [JavaScript 事件委托详解](https://zhuanlan.zhihu.com/p/26536815?refer=qiutc)
@@ -425,6 +434,88 @@ mvc是什么，mvvm是什么，react是哪种
 
 > [CSS：区别 px、em、rem](https://segmentfault.com/a/1190000005936910)
 
+> nextTick-vue 
+在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。
+$nextTick它跟全局方法 Vue.nextTick 一样，不同的是回调的 this 自动绑定到调用它的实例上
+[简单理解Vue中的nextTick](https://juejin.im/post/5a6fdb846fb9a01cc0268618)
+[Vue里的nextTick方法](https://www.jianshu.com/p/4f84bc054908)
+[vm.$nextTick( [callback] )](https://cn.vuejs.org/v2/api/#vm-nextTick)
+[Vue.nextTick( [callback, context] )](https://cn.vuejs.org/v2/api/#Vue-nextTick)
+
+> display：table和本身的table有什么区别
+[CSS display 属性](http://www.w3school.com.cn/css/pr_class_display.asp)
+[display:table与本身的table的区别](https://www.cnblogs.com/xiaoan0705/p/8921559.html)
+[HTML Table 和 CSS Table 之间的真正区别](https://www.jianshu.com/p/aae7ad2b595c)
+
+> defer async
+[defer和async的区别](https://segmentfault.com/q/1010000000640869)
+
+> 变量提升函数提升学习下
+[JavaScript系列文章：变量提升和函数提升](https://www.cnblogs.com/liuhe688/p/5891273.html)
+[函数声明提升](https://dancon.gitbooks.io/git-books/content/js/essay/function_hoisting.html)
+[关于Javascript的函数声明和函数表达式 ](https://github.com/Wscats/Good-text-Share/issues/73)
+[]()
+
+> [用一条线将梯形分成面积相等的两部分](https://wenku.baidu.com/view/56d967808762caaedd33d45d.html)
+[图形的分割](http://blog.sina.com.cn/s/blog_614325f10100jv8q.html)
+
+>10进制转16进制,最好用位运算
+[如何把十进制数转换为十六进制数](https://zh.wikihow.com/%E6%8A%8A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0)
+[二、八、十、十六进制转换（图解篇）](http://www.cnblogs.com/gaizai/p/4233780.html)
+[位运算的妙用](http://www.importnew.com/22378.html)
+
+>[DOM的默认事件、事件模型、事件委托、阻止默认事件、冒泡事件的方式等。](https://blog.csdn.net/u013194113/article/details/52027275)
+
+>任意大的数的阶乘。编程。
+[另一种求大数阶乘的算法](https://blog.csdn.net/u012027907/article/details/14156915)
+[编程之美系列之一——阶乘的运算](https://www.cnblogs.com/jy02414216/archive/2011/02/27/1966068.html)
+[大数阶乘的实现](https://blog.csdn.net/u012027907/article/details/12443335)
+
+> js轮播图
+[原生js实现轮播图](https://www.cnblogs.com/zhuzhenwei918/p/6416880.html)
+
+> [css优先级计算规则](http://www.cnblogs.com/wangmeijian/p/4207433.html)
+[CSS中的层叠优先级](http://www.sail.name/2017/05/18/the-cascade-priority-in-style-sheet/)
+
+> [ES6的Set和Map数据结构，由你制造](https://juejin.im/post/5acc57eff265da237f1e9f7c)
+
+> [深度优先与广度优先方法对DOM树的遍历](https://felxy.github.io/blog/2017/06/01/DFS-BFS/)
+```javascript
+const DFS = function(node) {
+    if (!node) {
+        return
+    }
+    let deep = arguments[1] || 1
+    console.log(`${node.nodeName}.${node.classList}  ${deep}`)
+    if (!node.children.length) {
+        return
+    }
+    Array.from(node.children).forEach((item) => DFS(item, deep + 1))
+}
+
+
+const BFS = (root) => {
+    if (!root) { return }
+    let queue = [{
+        item: root,
+        depth: 1
+    }]
+    while (queue.length) {
+        let node = queue.shift()
+        console.log(`${node.item.nodeName}.${node.item.classList}  ${node.depth}`)
+        if (!node.item.children.length) {
+            continue;
+        }
+        Array.from(node.item.children).forEach((item, index, arr) => {
+            queue.push({
+                item: item,
+                depth: node.depth + 1
+            })
+        })
+    }
+}
+```
+
 ********************
 
 ### ** 老虎证券　**
@@ -491,7 +582,7 @@ function reverse_string(str) {
   join方法
 
 >3.数组哪些方法是会改变数组本身的
-    
+[JavaScript数组的十八般武艺](https://mp.weixin.qq.com/s?__biz=MzA5NzkwNDk3MQ==&mid=2650587876&idx=1&sn=639fd7c1c414fa58cb2fb9119d03a504&chksm=8891d2c0bfe65bd66d7e361a93ad1abeccc735353ef3f4b1a5ff988a0e17851450508df3c4cf&scene=0&pass_ticket=l6iSWTK8kfqtSxqRi%2B8whhaZZsXE9aS3Ijj03zoSNJ3spQ4c%2FFx%2BD7sTQnGjyirP#rd)
 [js数组方法 改变原数组和不改变原数组的方法整理](https://blog.csdn.net/love07070707/article/details/79888566)
 [js中那些方法不改变原来的数组对象](https://blog.csdn.net/liangklfang/article/details/49300417)
 [细说JS数组](https://segmentfault.com/a/1190000008211717)
@@ -499,6 +590,24 @@ function reverse_string(str) {
 > 还问题了webpack
 　我应该了解一下了,一些常用的loader,以及当初用到的一些性能优化的插件
     
+>会改变原数组的方法
+1. push() 方法在数组的尾部添加一个或多个元素，并返回数组的长度
+2. pop() 方法删除数组的最后一个元素，减小数组长度并返回它删除的值。
+3. unshift() 方法在数组的头部添加一个或多个元素，并将已存在的元素移动到更高索引的位置来获得足够的空间，最后返回数组新的长度。
+4. shift() 方法删除数组的第一个元素并将其返回，然后把所有随后的元素下移一个位置来填补数组头部的空缺，返回值是删除的元素
+5. splice() 方法是在数组中插入或删除元素的通用方法
+6. sort() 方法将数组中的元素排序并返回排序后的数组
+7. reverse() 方法将数组中的元素颠倒顺序，返回逆序的数组。
+8. copyWithin() 方法浅复制数组的一部分到同一数组中的另一个位置，并返回它，而不修改其大小。 (ES6新增)
+9. fill() 方法用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。 (ES6新增)
+
+>不改变原数组的方法
+1. slice() 方法返回一个从开始到结束（不包括结束）选择的数组的一部分浅拷贝到一个新数组对象。且原始数组不会被修改。    
+2. join() 方法将数组（或一个类数组对象）中所有元素都转化为字符串并连接在一起，返回最后生成的字符串。
+3. toString() 方法将数组的每个元素转化为字符串(如有必要将调用元素的toString()方法)并且输出用逗号分割的字符串列表。返回一个字符串表示数组中的元素
+4. toLocaleString() 数组中的元素将使用各自的 toLocaleString 方法转成字符串，这些字符串将使用一个特定语言环境的字符串（例如一个逗号 ","）隔开。
+5. concat() 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。
+6. isArray() 用于确定传递的值是否是一个 Array。
     
 >es6 常用的有哪些
     深入下异步和class部分
@@ -612,6 +721,10 @@ xhr.setRequestHeader(‘Content-Type’, ‘application/json’);
 jsonp可以post吗,为什么
 [详解跨域请求的两种方式，支持post请求](http://www.01happy.com/two-ways-of-cross-domain-request/)
 [jsonp为什么不支持post请求？](https://www.zhihu.com/question/28890257)
+[HTML5 postMessage 跨域交换数据](http://www.cnblogs.com/zichi/p/4638096.html)
+[html5 postMessage解决跨域、跨窗口消息传递](https://www.cnblogs.com/dolphinX/p/3464056.html)
+[window.postMessage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage)
+[HTML5 跨域通信 API - window.postMessage](https://juejin.im/entry/57d7c8005bbb50005bd0de1e)
 jsonp的callback可以写在全局还是可以写在模块里,写在模块里可以吗
 除了script还有什么也可以吗　img
 
@@ -822,6 +935,10 @@ css部分
 > 继承
 
 > webpack特点,使用场景,原理
+[webpack承担了哪些工作？原理？功能？](https://segmentfault.com/q/1010000007581542)
+[webpack打包原理](https://www.jianshu.com/p/e24ed38d89fd)
+[webpack打包-模块分布解析 ](https://cnodejs.org/topic/5867bb575eac96bb04d3e301)
+[浅谈webpack打包原理](https://blog.csdn.net/osdfhv/article/details/79017515)
 [Webpack 常用配置总结](https://toutiao.io/posts/fiq8wd/preview)
 [webpack Loader的使用教程及常用的loader[入门篇]](https://github.com/lengziyu/learn-webpack/issues/2)
 [webpack原理与实战](http://imweb.io/topic/59324940b9b65af940bf58ae)
@@ -829,6 +946,19 @@ css部分
 [细说 webpack 之流程篇](http://taobaofed.org/blog/2016/09/09/webpack-flow/)
 [Webpack模块化原理简析](https://segmentfault.com/a/1190000010409465)
 [webpack之Plugins和Loaders简介及常用插件清单](https://www.arayzou.com/2016/08/16/webpack%E4%B9%8BPlugins%E5%92%8CLoaders%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E6%B8%85%E5%8D%95/)
+[webpack打包原理](https://hamger.github.io/2018/03/20/webpack%E6%89%93%E5%8C%85%E5%8E%9F%E7%90%86/)
+[webpack系列之-原理篇](https://juejin.im/post/5adab998f265da0ba5671cea)
+[webpack打包原理和manifest文件分析](https://blog.csdn.net/lancewu0907/article/details/76513231)
+[简单易懂的 webpack 打包后 JS 的运行过程](https://juejin.im/post/5a34bcf9f265da43070355f8)
+[摇树优化之webpack（4.6.0） tree shaking](https://blog.csdn.net/u011068996/article/details/80079533)
+
+
+
+>[编写一个 loader](https://webpack.docschina.org/contribute/writing-a-loader/)
+[编写一个插件](https://webpack.docschina.org/contribute/writing-a-plugin/)
+[编写自己的Webpack Loader](https://juejin.im/post/59df06e6f265da430d5701d0)
+[如何写一个webpack插件（一）](https://github.com/lcxfs1991/blog/issues/1)
+[如何开发一个 Webpack Loader ( 一 ) | AlloyTeam](http://www.alloyteam.com/2016/01/webpack-loader-1/)
 
 > 跨域,cors具体字段怎么设置
 
@@ -841,6 +971,8 @@ css部分
 [程序猿必读-防范CSRF跨站请求伪造](https://segmentfault.com/a/1190000008505616)
 [XSS攻击及防御](https://blog.csdn.net/ghsau/article/details/17027893)
 [web安全测试之XSS](http://www.cnblogs.com/TankXiao/archive/2012/03/21/2337194.html#urlencode)
+[SameSite Cookie，防止 CSRF 攻击](http://www.cnblogs.com/ziyunfei/p/5637945.html)
+[再见，CSRF：讲解set-cookie中的SameSite属性](https://www.anquanke.com/post/id/83773)
 XSS 漏洞修复
 原则：　不相信客户输入的数据
 注意:  攻击代码不一定在<script></script>中
@@ -1082,8 +1214,120 @@ IEEE 754 Floating-point　　　　　　　　　　　　　
 
 >高阶函数
 
+```javascript
+// 函数柯里化
+
+
+     var currying = function (fn) {
+         var args = [];
+         return function () {
+             if (arguments.length === 0) {
+                 return fn.apply(this, args);
+             }else {
+                 [].push.apply(args, arguments);
+                 return arguments.callee;
+             }
+         }
+     };
+     var cost = (function () {
+         var money = 0;
+         return function () {
+             for(var i = 0, l = arguments.length; i < l; i++) {
+                 money += arguments[i];
+             }
+             return money;
+         }
+     })();
+     var cost = currying(cost);
+     cost(100);
+     cost(200);
+     cost(300);
+     alert(cost());
+```
+
 >函数节流
 [函数节流（throttle）与函数去抖（debounce）](http://www.zyy1217.com/2017/06/21/js%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81throttle%E4%B8%8E%E5%8E%BB%E6%8A%96debounce/)
+
+```javascript
+//　下面throttle函数的原理是,将即将被执行的函数用setTimeout延迟一段时间执行。如果该次延迟执行还没有完成,则忽略下来调用该函数的请求。
+// throttle函数接受两个参数,第一个参数为需要被延迟执行的函数,第二个参数为延迟执行的时间
+<script>
+    var throttle = function (fn, interval) {
+        var __self = fn, //保存需要被延迟执行的函数的引用
+            timer,　//　定时器
+            firstTime = true; //　是否第一次调用
+
+        return function () {
+            var args = arguments,
+                __me = this;
+
+            // 如果是第一次调用,不需延迟执行
+            if(firstTime) {
+                __self.apply(__me, args);
+                return firstTime = false;
+            }
+
+            // 如果定时器还在,说明前一次延迟执行还没有完成
+            if (timer) {
+                return false;
+            }
+
+             
+            timer = setTimeout(function () {
+                clearTimeout(timer);
+                timer = null;
+                __self.apply(__me, args);
+            }, interval || 500);
+        }
+    }
+
+    window.onresize = throttle(function () {
+        console.log(1);
+    }, 500)
+</script>
+```
+
+>分时函数
+
+```javascript
+    var timeChunk = function (ary, fn, count) {
+        var obj,
+            t;
+
+        var len = ary.length;
+
+        var start = function () {
+            for(var i = 0; i < Math.min(count || 1, ary.length); i++) {
+                var obj = ary.shift();
+                fn(obj);
+            }
+        };
+
+        return function () {
+            t = setInterval(function () {
+                if (ary.length === 0) {
+                    return clearInterval(t);
+                }
+                start();
+            }, 200);
+        };
+    }
+
+    var ary = [];
+    for (var i = 1; i <= 1000; i++) {
+        ary.push(i);
+
+    }
+
+    var renderFriendList = timeChunk(ary, function (n) {
+        var div = document.createElement('div');
+        div.innerHTML = n;
+        document.body.appendChild(div);
+    }, 8);
+
+    renderFriendList();
+```
+
 
 >websocket的一些参数
 >websocket传数据,在控制台请求里面看到的是二进制还是什么？
@@ -1245,10 +1489,259 @@ mysql> show engines;
 还问了些问题，忘了
 面试官说看了我的博客和github，所以都是问的些相关的内容把
 
+### ** IBM二面(8.21) **
+
+都没问技术,三个面试官,聊了四十分钟
+
+希望能过,等一个offer
 
 
+*******************************************************
+### ** 网易(8.23) **
+
+前两天去了广州参加面试,这是一座充满了回忆的城市。
+
+还见了多年没见的同学,李世琳。
+
+一面纯技术,面了接近一个小时,53分钟。一面技术面得还不错,二面也就没有面技术了,聊人生,面了整整一个小时,然后挂了2333333
+
+也是我自己作死,面试官问了我最想去的城市,我说了北京。问了大厂还是创业公司,也表达了创业的想法23333,然后挂了
+
+#### ** 一面 **
+
+webpack打包原理
+
+>设计一个vue的组件,弹窗,props应该设计哪些值
+[如何使用vue.js构造modal(弹窗)组件?](https://www.zhihu.com/question/35820643)
+[两种方式lu一个vue弹窗组件(v-model与promise方式)](https://juejin.im/post/5afe42a4f265da0b873abc23)
+[聊聊vue组件开发的“边界把握”和“状态驱动”](https://www.cnblogs.com/lvdabao/p/vue-component.html)
+[用vue实现模态框组件](https://segmentfault.com/a/1190000006971054)
+
+>设计一个操作cookie的库,会设计哪些方法
+[JavaScript Cookie](http://www.runoob.com/js/js-cookies.html)
+[Cookie封装 - js经典封装（高级篇）](http://itdatacenter.iteye.com/blog/2376059)
+[源码分析之：cookies.js](https://juejin.im/)
+
+>用前端技术实现加载进度的圆圈
+[使用CSS3实现圆形进度条](https://www.xiabingbao.com/css/2015/07/27/css3-animation-circle.html)
+[纯CSS3实现小圆盘无限loading效果](https://blog.csdn.net/as645788/article/details/73773905)
+
+简历,会用到哪些html标签
+表示强调的标签有哪些
+两栏布局,三栏布局
+自我介绍
+> vue的生命周期,slot
+[slot](https://cn.vuejs.org/v2/api/#slot)
+
+组件通信
+正则表达式熟悉吗
+
+#### ** 二面 **
+
+人生面,以后一定不要作死了,要表现出去这家公司的强烈意愿
+
+*******************************************************
+### ** 快手(8.26) **
+这是我面得最尬的面试了吧23333,估计没有二面。视频面试,面了40多分钟
+
+#### ** 一面 **
+
+视频面试40多分钟 gg
+
+做项目vue有遇到什么问题吗
+es6
+
+>手写实现一个bind 可以用apply
+[深入学习JavaScript之一：bind函数的实现](https://github.com/shhdgit/blogs/issues/1)
+[javascript原生一步步实现bind分析](https://segmentfault.com/a/1190000007342882)
+[JavaScript深入之call和apply的模拟实现](https://github.com/mqyqingfeng/Blog/issues/11)
+[JavaScript深入之bind的模拟实现 ](https://github.com/mqyqingfeng/Blog/issues/12)
+[也来实现一个Apply()方法](https://zhuanlan.zhihu.com/p/26722748)
+[JavaScript实现call、apply和bind](https://blog.csdn.net/qq_27626333/article/details/78794376)
+
+```javascript
+function bind (that) {
+  var target = this
+  var bindArgs = Array.prototype.slice.call(arguments, 1)
+
+  function bound () {
+    var callArgs = Array.prototype.slice.call(arguments)
+    if (this instanceof bound) {
+      return target.apply(this, callArgs.concat(bindArgs))
+    } else {
+      return target.apply(that, callArgs.concat(bindArgs))
+    }
+  }
+
+  // 实现继承，让bound函数生成的实例通过原型链能追溯到target函数
+  // 即 实例可以获取/调用target.prototype上的属性/方法
+  var Empty = function () {}
+  Empty.prototype = target.prototype
+  bound.prototype = new Empty()  // 这里如果不加入Empty，直接bound.prototype = target.prototype的话
+                                 // 改变bound.prototype则会影响到target.prototype，原型继承基本都会加入这么一个中间对象做屏障
+
+  return bound
+}
+```
+
+```javascript
+// 第三版
+Function.prototype.call2 = function (context) {
+    var context = context || window;
+    context.fn = this;
+
+    var args = [];
+    for(var i = 1, len = arguments.length; i < len; i++) {
+        args.push('arguments[' + i + ']');
+    }
+
+    var result = eval('context.fn(' + args +')');
+
+    delete context.fn
+    return result;
+}
+
+// 测试一下
+var value = 2;
+
+var obj = {
+    value: 1
+}
+
+function bar(name, age) {
+    console.log(this.value);
+    return {
+        value: this.value,
+        name: name,
+        age: age
+    }
+}
+
+bar.call2(null); // 2
+
+console.log(bar.call2(obj, 'kevin', 18));
+// 1
+// Object {
+//    value: 1,
+//    name: 'kevin',
+//    age: 18
+// }
+```
 
 
+数组扁平化
+
+>反转字符串
+直接for循环倒着循环
+
+
+>项目路由怎么做的
+前端路由主要由两种方式实现：
+location.hash+hashchange事件
+history.pushState()+popState事件
+[路由](https://cn.vuejs.org/v2/guide/routing.html)
+[原生 js 实现前端路由](https://juejin.im/entry/5887833d8d6d81006cf781b4)
+[前端路由简介以及vue-router实现原理](https://zhuanlan.zhihu.com/p/37730038)
+[JS原生一步步实现前端路由和单页面应用](https://segmentfault.com/a/1190000007422616)
+[hash和history两种模式的区别](https://www.jianshu.com/p/3fcae6a4968f)
+[HTML5 History 模式](https://router.vuejs.org/zh/guide/essentials/history-mode.html#%E5%90%8E%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BE%8B%E5%AD%90)
+
+
+*******************************************************
+### ** 有赞(8.26) **
+
+去网易面试前几天突然一天晚上接到有赞面试官的电话,当时简单的面了20多分钟,约了今天下午3点的视频面试,面了76分钟
+
+两道算法题,一道二叉树遍历,一道去重json.stringlyfy,然后让优化
+
+其他的问题感觉都比较常见,就不写了
+
+
+******************************************************
+### ** 美团 **
+
+#### ** 电话一面(8.27) **
+
+一面面了50分钟
+
+先是自我介绍,然后介绍了实习项目
+
+问了一些问题,比如表单多个检测条件的检测,有哪些检测的库,对我介绍中提出的难点,进一步问了下
+
+然后介绍了我最近做的智能对话系统的项目
+
+一个vue组件,打包生成html,的过程
+
+计算机网络,发送一个ajax请求的过程
+
+vue diff原理
+
+问了对node的了解
+
+后端api设计　restful graphQ
+
+大致就是这些.希望能过啊,这是最想拿的offer了!
+
+*******************************************************
+
+灵犀联云算法实习生笔试
+
+### ** Preface **
+
+昨天中午收到了[灵犀联云](https://www.linkedsee.com/)hr的电话,聊了快十分钟。hr很专业也很nice.
+
+还是蛮激动的,毕竟投了3天算法的简历,总算有一家有反馈的了。
+
+有意思的是这家公司的创始团队全是从百度运维那边出来的,这家公司业务就是做智能运维的,今年还拿到了百度的投资。
+
+电话结束过后,hr给我发了笔试邮件,今天上午做了。本文记录下。为了防止泄题,所以我加密了。
+
+其实还是蛮想去的,不过我太菜了,应该是凉了。
+
+*********************
+
+### ** 第一题　**
+
+> 返回第二大的元素,不可以调用sort
+
+本题快排就可以解决
+
+*********************
+
+### ** 第二题　**
+
+> 判断两颗二叉树是否相等(结构和值)
+
+```regexp
+
+```
+*********************
+
+### ** 第三题　**
+
+> 非负整数，数字加和到只有一位数，打印值
+
+```regexp
+
+```
+这题我是递归解决的,后面补下代码
+
+*********************
+
+### ** 第四题　**
+> 两个人，石头，每次只能拿一到三块，我先拿，最后一个有石头拿的人为赢？两个人足够聪明，设计算法，根据石头数量，是否能赢
+
+```regexp
+
+```
+*********************
+### ** 第五题　**
+
+>股票，每天只能交易一次，k天，有一个数组，股票每天的价格，交易前必须卖完？求最大利润
+
+```regexp
+
+```
 
 
 
