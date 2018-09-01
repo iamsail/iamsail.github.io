@@ -5,7 +5,6 @@ tags: 笔试
 password: 0Algorithm6,
 ---
 
-
 *********************
 
 ### ** 秋招前端面试更新　**
@@ -60,7 +59,16 @@ password: 0Algorithm6,
 [老虎证券前端一面 ](https://www.nowcoder.com/discuss/99056?type=0&order=0&pos=120&page=0)
 [秋招基本结束，现献上面筋回馈一波牛客](https://www.nowcoder.com/discuss/98880?type=0&order=0&pos=127&page=1)
 [贝壳前端一面 二面 hr面凉面筋 ](https://www.nowcoder.com/discuss/99003?type=0&order=0&pos=194&page=1)
-
+[【老虎证券前端一面】等二面通知 ](https://www.nowcoder.com/discuss/99625?type=2&order=0&pos=29&page=1)
+[美团前端一面 凉面 ](https://www.nowcoder.com/discuss/99289?type=2&order=0&pos=65&page=1)
+[拼多多前端二面 ](https://www.nowcoder.com/discuss/98470?type=2&order=0&pos=70&page=1)
+[老虎证券前端一面 ](https://www.nowcoder.com/discuss/99056?type=2&order=0&pos=76&page=1)
+[美团前端面经 ](https://www.nowcoder.com/discuss/97562?type=2&order=0&pos=109&page=1)
+[美团一面二面 ](https://www.nowcoder.com/discuss/81222?type=2&order=0&pos=227&page=1)
+[腾讯MIG前端一面 ](https://www.nowcoder.com/discuss/96724?type=2&order=0&pos=214&page=1)
+[8.25号9点猿辅导前端一面 ](https://www.nowcoder.com/discuss/98604?type=2&order=0&pos=197&page=1)
+[2017秋招提前批前端BATW全offer面经 ](https://www.nowcoder.com/discuss/38031?type=2&order=0&pos=266&page=2)
+[腾讯前端一面凉经 ](https://www.nowcoder.com/discuss/98475?type=2&order=0&pos=259&page=1)
 ********************
 
 ### ** 我从面经总结的问题 **
@@ -126,12 +134,17 @@ JavaScript 中，普通的函数调用方式有三种：直接调用、方法调
 [从点击到呈现 — 详解一次HTTP请求](http://www.zyy1217.com/2017/03/01/%E4%BB%8E%E7%82%B9%E5%87%BB%E5%88%B0%E5%91%88%E7%8E%B0%20%E2%80%94%20%E8%AF%A6%E8%A7%A3%E4%B8%80%E6%AC%A1HTTP%E8%AF%B7%E6%B1%82/)
 [TCP/IP协议三次握手与四次握手流程解析](http://www.zyy1217.com/2017/04/16/TCP-IP%E5%8D%8F%E8%AE%AE%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8F%A1%E6%89%8B%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/)
 
-
 >性能优化
 [雅虎网站页面性能优化的34条黄金守则](http://www.cnblogs.com/li0803/archive/2009/09/20/1570581.html)
 [reflow（回流）和repaint（重绘）及其优化](https://blog.csdn.net/ClaireKe/article/details/51375622)
 [高性能滚动 scroll 及页面渲染优化原理与实例](http://www.zyy1217.com/2017/03/16/%E9%AB%98%E6%80%A7%E8%83%BD%E6%BB%9A%E5%8A%A8%20scroll%20%E5%8F%8A%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96/)
 
+>fetch和ajax的区别
+[fetch和ajax的区别](https://segmentfault.com/a/1190000011019618)
+[AJAX 之 XHR, jQuery, Fetch 的对比](https://zhuanlan.zhihu.com/p/24594294)
+[fetch简介: 新一代Ajax API](https://blog.csdn.net/renfufei/article/details/51494396)
+[ajax、axios、fetch之间的详细区别以及优缺点](https://blog.csdn.net/twodogya/article/details/80223508)
+[传统 Ajax 已死，Fetch 永生](https://github.com/camsong/blog/issues/2)
 
 >如何判断js数据类型 
 [如何正确判断js数据类型](https://segmentfault.com/q/1010000000464600)
@@ -151,7 +164,9 @@ view，以声明方式将 state 映射到视图；
 actions，响应在 view 上的用户输入导致的状态变化。
 [Vuex框架原理与源码分析](https://tech.meituan.com/vuex_code_analysis.html)
 [简单解析vuex的工作流程](https://juejin.im/post/5a08088c5188251c11401aa8)
-
+[Vuex 2.0 源码分析](https://github.com/DDFE/DDFE-blog/issues/8)
+[vuex中为什么把把异步操作封装在action，把同步操作放在mutations？](https://www.zhihu.com/question/48759748)
+[为什么Vuex异步方法在mutations中仍然起作用？](https://segmentfault.com/q/1010000014733271)
 
 >对vuex和[vue-router](https://router.vuejs.org/zh/)了解吗？那么请说一下vuex的store分为哪几部分？分别代表什么意思
 vue的生命周期
@@ -179,6 +194,8 @@ mounted ：完成挂载
 [最小编辑距离问题：递归与动态规划 ](https://github.com/youngwind/blog/issues/106)
 [算法题解：最小编辑距离（动态规划算法）](https://segmentfault.com/a/1190000012769863)
 [全面理解虚拟DOM，实现虚拟DOM](https://foio.github.io/virtual-dom/)
+[vue-router原理剖析](https://juejin.im/post/5b08c9ccf265da0dd527d98d)
+[【源码拾遗】从vue-router看前端路由的两种实现](https://zhuanlan.zhihu.com/p/27588422)
 
 
 >怎么判断一个对象为空对象呢，回答了JSON方法，还有吗 
@@ -621,6 +638,34 @@ function reverse_string(str) {
 
 >有什么想问的
 
+************************
+#### ** 二面　**
+
+8.29去北京参加了老虎证券的现场面试,下午两点半开始的,二面加上hr面也就一个小时吧,二面是leader面
+
+可能是一面对我评价很好的缘故,二面挺轻松的,可以说是一个技术问题也没有
+
+> 自我介绍
+
+> 聊了下不读研究生吗
+
+> 讲了下实习项目,我讲了下遇到的难点,　　有个我优化的地方,面试官提到了pipeline
+
+> 其实问题我都记不得了,反正没问技术问题,哈哈哈,面试途中就算让我过了
+
+> 然后问我有没有什么想问的
+  我问了好几个问题,然后问我还有没有什么想问的
+
+> 给我就那边的团队,以及福利啥的
+
+等了几分钟,hr面
+
+> hr面没什么好写的,很爽快的给了offer,今天已经收到录用意向书了(8.31),然后后面9月底谈薪资
+
+**<span class="under0"> 老虎还是让我挺感动的,那天到了公司,面试前hr问我今晚住哪儿,住酒店也是可以报销300的,而且面试来回的高铁票也是可以报销的啦。这也是第一个正式offer! </span>**
+
+
+
 
 ********************
 
@@ -835,8 +880,6 @@ Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性
 
 *********************
 
-
-
 ```javascript
 /**
  * 将一个对象的所有key从下划线改为驼峰
@@ -948,7 +991,6 @@ css部分
 [webpack打包原理和manifest文件分析](https://blog.csdn.net/lancewu0907/article/details/76513231)
 [简单易懂的 webpack 打包后 JS 的运行过程](https://juejin.im/post/5a34bcf9f265da43070355f8)
 [摇树优化之webpack（4.6.0） tree shaking](https://blog.csdn.net/u011068996/article/details/80079533)
-
 
 
 >[编写一个 loader](https://webpack.docschina.org/contribute/writing-a-loader/)
@@ -1326,6 +1368,7 @@ IEEE 754 Floating-point　　　　　　　　　　　　　
 ```
 
 
+
 >websocket的一些参数
 >websocket传数据,在控制台请求里面看到的是二进制还是什么？
 >ws和wss的区别
@@ -1653,6 +1696,8 @@ history.pushState()+popState事件
 
 其他的问题感觉都比较常见,就不写了
 
+面完一点资讯出来的时候收到hr的电话,问我什么时候可以去实习,说我之前面的是实习岗位,呵呵呵....我直接表达了不去了
+
 
 ******************************************************
 ### ** 美团 **
@@ -1675,9 +1720,159 @@ vue diff原理
 
 问了对node的了解
 
-后端api设计　restful graphQ
+>后端api设计　restful graphQ
+[graphql.cn](https://graphql.cn/)
+[阻碍你使用 GraphQL 的十个问题](http://jerryzou.com/posts/10-questions-about-graphql/)
 
 大致就是这些.希望能过啊,这是最想拿的offer了!
+
+*******************************************************
+### ** 一点资讯 **
+
+八月30号从老虎面试完,给一点资讯的hr发了微信,约了第二天下午的面试。当时老虎给了offer,心里也比较开心,第二天面试心态比较放松,也拿了offer。
+
+一点的面试强度是我经历的所有面试中,强度最大的,从两点面到六点。共四轮,技术面共三轮,从两点面到了五点二十二分,然后hr面。
+
+面试结束已经结束两天,很多细节都忘了,大概记录下
+
+#### ** 一面 **
+一面面了差不多80分钟,面到15:21
+
+>自我介绍
+　自我介绍就直接写代码了,一直搞到面试结束,用了3张A4纸
+
+> 求一个数组中的最大值,　可以用js　API,　　ES6与非ES6
+
+> 手写原型链继承,面了这么多次,第一次被要求手写这个,而且还要写寄生组合式继承。这个刚好我没怎么看过23333
+
+> 上面我写的继承都是函数继承,有构造函数的。他接着问,如果字面量形式的继承呢
+   然后我想了想,用__prototype__实现的
+   
+> 然后就开始了__prototype__之旅
+
+> 手写函数去抖
+
+> 手写二叉树深度求解
+
+> BFC margin塌陷问题,　父子margin 和平级节点的塌陷　面试官让我回来看看
+
+> 其他还有没有什么问题我都忘了
+
+一面面试官挺强的,后来三面leader告诉我,我的一面也是16年校招进来的,北邮的一个老哥,现在也承担了很多业务。真的很强!   
+
+#### ** 二面 **
+二面面到16:28
+
+二面就是前端什么的各个方面的问题都问到了,在纸张写一个个问题,我进行回答,这一面问了几十个问题吧,现在记录下还记得的
+
+> 自我介绍
+
+> typeof有哪些值
+
+> typeof和instanceof有哪些区别
+
+> :: : 有什么区别　(伪类,伪元素)
+
+> 移动端1px的问题
+　其实我没接触过 给了scale和图片的解决方案
+
+> meta viewport里面我们会指定哪些值
+
+> 响应式开发,我应该把检测屏幕旋转方向这些API再看看
+
+> css属性优先级
+
+> input disable 和 readonly的区别
+
+> __prototype__和prototype这个连续问了好多个问题
+　大部分都答对了,说我掌握得很不错了
+
+> 手写ajax
+
+> fetch 和 ajax的区别
+
+> 三栏布局
+
+> flex布局
+
+> 跨域
+
+> 手写map函数的实现
+
+> requsetanimation settimeout
+
+> 好些问题我记不得了,然后我问了下他一些问题
+
+#### ** 三面 **
+三面面到17:22
+
+这一面就是leader面,也是大佬,和我一样也在百度待过,他还在雅虎，阿里待过。然后老大还加了我微信,想让我加入他们,其实我也挺心动的,一点那边氛围什么的,员工配置都不错.
+
+问的问题就比较广了
+
+> 自我介绍
+
+> 上线一个大型项目,会做哪些优化,前断后端的角度都讲讲
+
+> webpack,laravel
+
+> python怎么样
+
+> cdn原理
+
+> 你们工作室的技术栈都是怎么选型的
+
+> 小程序开发过吗,快应用呢
+
+> node有哪些进程管理器
+
+> nginx有用过吗,都是怎么用的
+
+> nginx负载均衡算法
+
+> 决策树
+
+> 随机森林
+
+> react
+
+> 什么时候服务器cpu会占用过高,什么时候内存会占用过后
+
+> 上线部署都是怎么做的
+
+> 还问了一些框架,好多我都没听说过,三面问得太广了
+
+#### ** 四面(hr) **
+
+hr面没什么好写的,就是那些问题
+
+#### ** 面基贯宇 **
+
+面试完了发了朋友圈,贯宇也在附近,嘿嘿,面基了!总算见面了,还喝了第一杯星巴克2333
+
+#### ** 杂 **
+
+** 第二天(8.31)我在回学校的高铁上,hr又给我打了电话,说他们已经面了几十个人了,我是很好很好的那种,面试官评价都很高,十分希望我加入,想重点争取我。因为他们也没把握我会加入他们。后面什么的福利待遇都可以和他们谈,嘿嘿有什么问题随时问她和三面。**
+
+真的诚意很足!
+
+*******************************************************
+### ** 腾讯模拟笔试-题型记录 **
+
+** 总的说来,多刷牛客!! **
+
+不定项选择十来道
+
+>数据库索引
+　进程通信
+　操作系统　生产者-消费者
+　计网
+　数据结构
+　二叉树特性
+　各种排序算法
+　哈希,哈希表　
+
+编程题一道
 
 *******************************************************
 
