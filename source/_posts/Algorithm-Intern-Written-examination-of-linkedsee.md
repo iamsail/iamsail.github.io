@@ -4,9 +4,7 @@ date: 2015-06-24 21:04:30
 tags: 笔试
 password: 0Algorithm6,
 ---
-
 *********************
-
 ### ** 秋招前端面试更新　**
 
 关于算法的面经我都更新到了[图鸭信息科技算法实习生面试](http://www.sail.name/2018/06/26/algorithm-intern-interview-of-tucodec/),那前端就更新在这篇博客吧,所有的面经等我最终工作搞定后再解封。
@@ -14,28 +12,40 @@ password: 0Algorithm6,
 这里我多说一句吧,算是对我自己的提醒,在最终工作敲定前,都不要松懈
 
 ********************
-
 ### ** 我看的面经 **
 
 [腾讯前端一面凉经](https://www.nowcoder.com/discuss/91201?type=2&order=0&pos=9&page=1)
 [昨天投今天面，令人窒息的腾讯前端一面(更新了) ](https://www.nowcoder.com/discuss/88698?type=2&order=0&pos=15&page=2)
-[百度智能云前端面经 ](https://www.nowcoder.com/discuss/91112?type=2&order=0&pos=19&page=1)
-[奇虎360 前端实习面经 ](https://www.nowcoder.com/discuss/91338?type=2&order=0&pos=67&page=1)
-[阿里前端一面凉凉 ](https://www.nowcoder.com/discuss/91197?type=2&order=0&pos=86&page=1)
-[更新了的腾讯IEG前端一面+二面 ](https://www.nowcoder.com/discuss/89155?type=2&order=0&pos=102&page=2)
+[记十分坎坷的腾讯深圳前端面试经历](https://www.nowcoder.com/discuss/96602?type=0&order=0&pos=45&page=0)
 [更新了的腾讯IEG前端一面+二面 ](https://www.nowcoder.com/discuss/89155?type=2&order=0&pos=102&page=2)
 [腾讯前端一面 ](https://www.nowcoder.com/discuss/90243?type=2&order=0&pos=171&page=1)
-[猿辅导前端面筋 ](https://www.nowcoder.com/discuss/93354?type=2&order=0&pos=52&page=1)
 [前端的校招总结，结束秋招](https://www.nowcoder.com/discuss/51738?type=2&order=0&pos=108&page=1)
-[猿辅导前端一面 ](https://www.nowcoder.com/discuss/95432?type=0&order=0&pos=44&page=1)
 [前端面试一般会问什么问题？](https://www.zhihu.com/question/63692106)
+[腾讯前端一面凉经 ](https://www.nowcoder.com/discuss/98475?type=2&order=0&pos=259&page=1)
+[腾讯MIG前端一面 ](https://www.nowcoder.com/discuss/96724?type=2&order=0&pos=214&page=1)
+
+
+[2018年腾讯前端二面总结（面向2019届学生）](https://segmentfault.com/a/1190000013793235)
+[腾讯前端面试题集锦](https://blog.csdn.net/xiangzhihong8/article/details/78441626)
+[2016校招内推 -- 腾讯SNG前端 -- 面试经历](https://www.bbsmax.com/A/rV57MvWGzP/)
+[2017腾讯实习经验总结](https://earthsplitter.github.io/2017/03/31/2017%E8%85%BE%E8%AE%AF%E5%AE%9E%E4%B9%A0%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/)
+[2018年1月23日腾讯SNG-IMWeb前端工程师 电话远程面试记录](https://blog.csdn.net/qq_20264891/article/details/79158495)
+[前端面试/思考题第五弹](http://imweb.io/topic/596af5935be3c3a04377508c)
+[前端作业-经典面试题](http://imweb.io/topic/59662a6effbab06255141097)
+********************
 [2017前端实习面经之腾讯、阿里、360、IBM、美团、Daocloud](http://zyy1217.com/2017/04/30/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/)
+[2017秋招提前批前端BATW全offer面经 ](https://www.nowcoder.com/discuss/38031?type=2&order=0&pos=266&page=2)
+[校招前端面试需要准备的有哪些知识点](https://www.zhihu.com/question/36357873/answer/206531321)
+[Front-end-Web-Development-Interview-Question](https://github.com/paddingme/Front-end-Web-Development-Interview-Question)
+[我的美团前端校招面试了解一下 | 掘金技术征文](https://juejin.im/post/5ad8c6746fb9a07aa349caeb)
+********************
+[百度智能云前端面经 ](https://www.nowcoder.com/discuss/91112?type=2&order=0&pos=19&page=1)
 
 ********************
 [阿里天猫 前端js面经一面 ](https://www.nowcoder.com/discuss/93504?type=2&order=0&pos=49&page=1)
 [阿里前端一面 ](https://www.nowcoder.com/discuss/92258?type=2&order=0&pos=51&page=1)
 [阿里前端三面 ](https://www.nowcoder.com/discuss/95473?type=2&order=0&pos=65&page=1)
-[记十分坎坷的腾讯深圳前端面试经历](https://www.nowcoder.com/discuss/96602?type=0&order=0&pos=45&page=0)
+[阿里前端一面凉凉 ](https://www.nowcoder.com/discuss/91197?type=2&order=0&pos=86&page=1)
 
 ********************
 [有赞前端一面 ](https://www.nowcoder.com/discuss/93642?type=2&order=0&pos=130&page=1)
@@ -51,24 +61,48 @@ password: 0Algorithm6,
 [快手前端面经](https://www.nowcoder.com/discuss/79219)
 
 *********************
-
 [美团点评校招面试经验（成都）](https://www.jianshu.com/p/55c5a0a79525)
 [美团点评前端岗三面面经/已拿 offer](https://www.nowcoder.com/discuss/41902)
 [美团前端面试小结](https://blog.csdn.net/vivianhope/article/details/46933485)
 [【美团前端1.2面】美团凉经 ](https://www.nowcoder.com/discuss/99057?type=0&order=0&pos=119&page=0)
-[老虎证券前端一面 ](https://www.nowcoder.com/discuss/99056?type=0&order=0&pos=120&page=0)
 [秋招基本结束，现献上面筋回馈一波牛客](https://www.nowcoder.com/discuss/98880?type=0&order=0&pos=127&page=1)
-[贝壳前端一面 二面 hr面凉面筋 ](https://www.nowcoder.com/discuss/99003?type=0&order=0&pos=194&page=1)
-[【老虎证券前端一面】等二面通知 ](https://www.nowcoder.com/discuss/99625?type=2&order=0&pos=29&page=1)
 [美团前端一面 凉面 ](https://www.nowcoder.com/discuss/99289?type=2&order=0&pos=65&page=1)
-[拼多多前端二面 ](https://www.nowcoder.com/discuss/98470?type=2&order=0&pos=70&page=1)
-[老虎证券前端一面 ](https://www.nowcoder.com/discuss/99056?type=2&order=0&pos=76&page=1)
 [美团前端面经 ](https://www.nowcoder.com/discuss/97562?type=2&order=0&pos=109&page=1)
 [美团一面二面 ](https://www.nowcoder.com/discuss/81222?type=2&order=0&pos=227&page=1)
-[腾讯MIG前端一面 ](https://www.nowcoder.com/discuss/96724?type=2&order=0&pos=214&page=1)
+[美团前端一面面经 ](https://www.nowcoder.com/discuss/101756?type=2&order=0&pos=26&page=1)
+[美团前端一面面经](https://www.nowcoder.com/discuss/101756?type=2&order=0&pos=26&page=1)
+[美团北京前端一面面筋 ](https://www.nowcoder.com/discuss/101547?type=2&order=0&pos=101&page=1)
+[美团前端一面 ](https://www.nowcoder.com/discuss/101547?type=2&order=0&pos=101&page=1)
+[腾讯云前端一面凉经 ](https://www.nowcoder.com/discuss/101093?type=2&order=0&pos=127&page=1)
+
+********************
+[猫眼前端面试，一面～三面，不知道，能通过不 ](https://www.nowcoder.com/discuss/101321?type=0&order=0&pos=112&page=1)
+[猫眼电影----电话面试（前端）](https://www.jianshu.com/p/bcdf69047cbb)
+
+
+********************
+[老虎证券前端一面 ](https://www.nowcoder.com/discuss/99056?type=0&order=0&pos=120&page=0)
+[老虎证券前端一面 ](https://www.nowcoder.com/discuss/99056?type=2&order=0&pos=76&page=1)
+[【老虎证券前端一面】等二面通知 ](https://www.nowcoder.com/discuss/99625?type=2&order=0&pos=29&page=1)
+
+********************
+
+[JS版剑指offer](https://www.nowcoder.com/discuss/101711?type=0&order=0&pos=94&page=1)
+
+********************
+[贝壳前端一面 二面 hr面凉面筋 ](https://www.nowcoder.com/discuss/99003?type=0&order=0&pos=194&page=1)
+
+
+********************
+[拼多多前端二面 ](https://www.nowcoder.com/discuss/98470?type=2&order=0&pos=70&page=1)
+[奇虎360 前端实习面经 ](https://www.nowcoder.com/discuss/91338?type=2&order=0&pos=67&page=1)
+
+********************
+
+[猿辅导前端面筋 ](https://www.nowcoder.com/discuss/93354?type=2&order=0&pos=52&page=1)
+[猿辅导前端一面 ](https://www.nowcoder.com/discuss/95432?type=0&order=0&pos=44&page=1)
 [8.25号9点猿辅导前端一面 ](https://www.nowcoder.com/discuss/98604?type=2&order=0&pos=197&page=1)
-[2017秋招提前批前端BATW全offer面经 ](https://www.nowcoder.com/discuss/38031?type=2&order=0&pos=266&page=2)
-[腾讯前端一面凉经 ](https://www.nowcoder.com/discuss/98475?type=2&order=0&pos=259&page=1)
+
 ********************
 
 ### ** 我从面经总结的问题 **
@@ -1741,12 +1775,32 @@ vue diff原理
 >自我介绍
 　自我介绍就直接写代码了,一直搞到面试结束,用了3张A4纸
 
+> 替换元素与非替换元素
+CSS 里，可替换元素（replaced element）的展现不是由CSS来控制的。这些元素是一类 外观渲染独立于CSS的 外部对象。 典型的可替换元素有
+
+ `<img>、 <object>、 <video> 和 表单元素，如<textarea>、 <input>`
+>[可替换元素](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Replaced_element)
+[可替换元素和非可替换元素](https://segmentfault.com/a/1190000006835284)
+[CSS知识点——可替换元素vs不可替换元素](http://blog.51cto.com/jiangtian/1694074)
+
 > 求一个数组中的最大值,　可以用js　API,　　ES6与非ES6
+```javascript
+let arr = [233, 10, 55 , 966];
+console.log(Math.max(...arr));
+console.log(Math.max.apply(null,arr));
+```
 
 > 手写原型链继承,面了这么多次,第一次被要求手写这个,而且还要写寄生组合式继承。这个刚好我没怎么看过23333
 
 > 上面我写的继承都是函数继承,有构造函数的。他接着问,如果字面量形式的继承呢
    然后我想了想,用__prototype__实现的
+   
+> vue.js(完整版) vue.runtime.js(运行时) 这几个有什么区别,记得看官网了解下,都忘了   
+[直接用script引入](https://cn.vuejs.org/v2/guide/installation.html#%E7%9B%B4%E6%8E%A5%E7%94%A8-lt-script-gt-%E5%BC%95%E5%85%A5)
+[对不同构建版本的解释](https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A)
+完整版：同时包含编译器和运行时的版本。
+编译器：用来将模板字符串编译成为 JavaScript 渲染函数的代码。
+运行时：用来创建 Vue 实例、渲染并处理虚拟 DOM 等的代码。基本上就是除去编译器的其它一切。   
    
 > 然后就开始了__prototype__之旅
 
@@ -1755,10 +1809,29 @@ vue diff原理
 > 手写二叉树深度求解
 
 > BFC margin塌陷问题,　父子margin 和平级节点的塌陷　面试官让我回来看看
+  经验证: 同级节点的margin才会有塌陷,父子级别的节点不会有塌陷  
+
+>BFC 定义
+BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。
+BFC布局规则：
+内部的Box会在垂直方向，一个接一个地放置。
+Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠
+每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
+BFC的区域不会与float box重叠。
+BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
+计算BFC的高度时，浮动元素也参与计算
+
+```javascript
+<section>
+    <div class="one">一</div>
+    <div class="tow">二</div>
+</section>
+```
+
 
 > 其他还有没有什么问题我都忘了
 
-一面面试官挺强的,后来三面leader告诉我,我的一面也是16年校招进来的,北邮的一个老哥,现在也承担了很多业务。真的很强!   
+** 一面面试官挺强的,后来三面leader告诉我,我的一面也是16年校招进来的,北邮的一个老哥,现在也承担了很多业务。真的很强! **   
 
 #### ** 二面 **
 二面面到16:28
@@ -1768,15 +1841,31 @@ vue diff原理
 > 自我介绍
 
 > typeof有哪些值
-
-> typeof和instanceof有哪些区别
+typeof和instanceof有哪些区别
+[typeof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof)
+[ECMAScript 原始类型](http://www.w3school.com.cn/js/pro_js_primitivetypes.asp)
+[typeof 和 instanceOf的区别](https://segmentfault.com/a/1190000000730982)
 
 > :: : 有什么区别　(伪类,伪元素)
+[总结伪类与伪元素](http://www.alloyteam.com/2016/05/summary-of-pseudo-classes-and-pseudo-elements/)
+[伪类和伪元素](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/Pseudo-classes_and_pseudo-elements)
+伪类用于当已有元素处于的某个状态时，为其添加对应的样式，这个状态是根据用户行为而动态变化的。
+伪元素用于创建一些不在文档树中的元素，并为其添加样式
+CSS3规范中的要求使用双冒号(::)表示伪元素，以此来区分伪元素和伪类
 
 > 移动端1px的问题
 　其实我没接触过 给了scale和图片的解决方案
+[移动前端开发之viewport的深入理解](http://www.cnblogs.com/2050/p/3877280.html)
+[移动端1px细线解决方案总结](https://www.cnblogs.com/lunarorbitx/p/5287309.html)
 
 > meta viewport里面我们会指定哪些值
+width=device-width
+initial-scale=1.0
+maximum-scale=1.0
+user-scalabel=0
+```javascript
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalabel=0">
+```
 
 > 响应式开发,我应该把检测屏幕旋转方向这些API再看看
 
@@ -1786,6 +1875,12 @@ vue diff原理
 
 > __prototype__和prototype这个连续问了好多个问题
 　大部分都答对了,说我掌握得很不错了
+
+> 盒子模型
+
+> AMD
+
+> 动画的3D加速
 
 > 手写ajax
 
@@ -1819,16 +1914,27 @@ vue diff原理
 > python怎么样
 
 > cdn原理
+[深度剖析：CDN内容分发网络技术原理](https://my.oschina.net/pooz/blog/95654)
+[CDN的基本原理和基础架构](https://yq.aliyun.com/articles/104041)
+[CDN工作原理](https://segmentfault.com/a/1190000000538796)
 
 > 你们工作室的技术栈都是怎么选型的
 
 > 小程序开发过吗,快应用呢
 
 > node有哪些进程管理器
-
-> nginx有用过吗,都是怎么用的
-
-> nginx负载均衡算法
+ nginx有用过吗,都是怎么用的
+ nginx负载均衡算法
+[负载均衡](https://github.com/moonbingbing/openresty-best-practices/blob/master/ngx/balancer.md)
+[浅谈 Node.js 和 PHP 进程管理](http://taobaofed.org/blog/2015/11/24/nodejs-php-process-manager/)
+[使用 pm2 躺着实现负载均衡](https://juejin.im/entry/5879a7201b69e600582da9b2)
+[nodejs 进程管理器](https://zhuanlan.zhihu.com/p/23612546)
+[Child Process](https://nodejs.org/dist/latest-v8.x/docs/api/child_process.html)
+[child_process - 子进程](http://nodejs.cn/api/child_process.html)
+[Cluster](https://nodejs.org/dist/latest-v8.x/docs/api/cluster.html)
+[cluster (集群)](http://nodejs.cn/api/cluster.html)
+[当我们谈论 cluster 时我们在谈论什么(上)](http://taobaofed.org/blog/2015/11/03/nodejs-cluster/)
+[当我们谈论 cluster 时我们在谈论什么（下）](http://taobaofed.org/blog/2015/11/10/nodejs-cluster-2/)
 
 > 决策树
 
@@ -1837,6 +1943,10 @@ vue diff原理
 > react
 
 > 什么时候服务器cpu会占用过高,什么时候内存会占用过后
+[服务器cpu过高该怎么处理？](https://www.zhihu.com/question/271494687)
+[Linux服务器CPU占用率较高问题排查思路](https://www.centos.bz/2017/08/linux-cpu-high-cost/)
+[正确理解Linux内存占用过高的问题](http://blog.licess.com/linux-memory/)
+
 
 > 上线部署都是怎么做的
 
