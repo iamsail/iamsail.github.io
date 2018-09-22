@@ -1,8 +1,8 @@
 ---
 title: tow
 date: 2015-02-24 21:04:30
----
 password: xixihaha
+---
 *********************
 ### ** 秋招前端面试更新　**
 
@@ -37,10 +37,12 @@ password: xixihaha
 [我的美团前端校招面试了解一下 | 掘金技术征文](https://juejin.im/post/5ad8c6746fb9a07aa349caeb)
 [前端面经(阿里,腾讯,网易,头条,京东等)(待更) ](https://www.nowcoder.com/discuss/105439?type=0&order=0&pos=297&page=1)
 [【前端面筋】终于等到你！！！ ](https://www.nowcoder.com/discuss/63151?type=2&order=0&pos=311&page=1)
-
+[不带劲的前端烤面筋 ](https://www.nowcoder.com/discuss/114699?type=2&order=0&pos=75&page=1)
 ********************
 [百度智能云前端面经 ](https://www.nowcoder.com/discuss/91112?type=2&order=0&pos=19&page=1)
 [百度fex面经 ](https://www.nowcoder.com/discuss/103817?type=2&order=0&pos=360&page=1)
+[2019百度校招前端面经（成都 两面） ](https://www.nowcoder.com/discuss/114370?type=2&order=0&pos=250&page=1)
+
 
 ********************
 [阿里天猫 前端js面经一面 ](https://www.nowcoder.com/discuss/93504?type=2&order=0&pos=49&page=1)
@@ -79,11 +81,18 @@ password: xixihaha
 [美团前端一面 ](https://www.nowcoder.com/discuss/101547?type=2&order=0&pos=101&page=1)
 [美团前端二面 ](https://www.nowcoder.com/discuss/99736?type=2&order=0&pos=49&page=1)
 [美团前端一二三面 ](https://www.nowcoder.com/discuss/105621?type=2&order=0&pos=96&page=1)
+[美团终面+图森未来现场面 ](https://www.nowcoder.com/discuss/107489?type=0&order=0&pos=199&page=1)
+[接到了人生中第一个offer call---美团 ](https://www.nowcoder.com/discuss/114405?type=2&order=0&pos=244&page=1)
+[美团offer call，特来还愿](https://www.nowcoder.com/discuss/105272?type=2&order=0&pos=158&page=1)
+[get美团offer 分享面经祝各位也能get offer](https://www.nowcoder.com/discuss/113679?type=2&order=0&pos=157&page=1)
+[美团前端四面](https://www.nowcoder.com/discuss/107601?type=2&order=0&pos=137&page=1)
+
 
 ********************
 
 [今日头条前端三轮面试面经](https://www.nowcoder.com/discuss/105513?type=2&order=0&pos=102&page=1)
-
+[头条前端一面凉经 ](https://www.nowcoder.com/discuss/110004?type=0&order=0&pos=69&page=1)
+[头条前端一面凉经](https://www.nowcoder.com/discuss/110004?type=2&order=0&pos=237&page=1)
 
 ********************
 [猫眼前端面试，一面～三面，不知道，能通过不 ](https://www.nowcoder.com/discuss/101321?type=0&order=0&pos=112&page=1)
@@ -169,7 +178,6 @@ password: xixihaha
 [从点击到呈现 — 详解一次HTTP请求](http://www.zyy1217.com/2017/03/01/%E4%BB%8E%E7%82%B9%E5%87%BB%E5%88%B0%E5%91%88%E7%8E%B0%20%E2%80%94%20%E8%AF%A6%E8%A7%A3%E4%B8%80%E6%AC%A1HTTP%E8%AF%B7%E6%B1%82/)
 [TCP/IP协议三次握手与四次握手流程解析](http://www.zyy1217.com/2017/04/16/TCP-IP%E5%8D%8F%E8%AE%AE%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E4%B8%8E%E5%9B%9B%E6%AC%A1%E6%8F%A1%E6%89%8B%E6%B5%81%E7%A8%8B%E8%A7%A3%E6%9E%90/)
 
-
 >知道POST方法吗，POST方法如何设置传输的数据的格式 
 [理解HTTP之Content-Type](http://homeway.me/2015/07/19/understand-http-about-content-type/)
 [四种常见的 POST 提交数据方式](https://imququ.com/post/four-ways-to-post-data-in-http.html)
@@ -181,7 +189,6 @@ application/json
 text/xml
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // 或
 xhr.setRequestHeader('Content-Type', 'application/json');
-
 
 > HTTP协议中chunk
 Facebook为了减少页面的响应时间，发明了一种他们称之为“BigPipe”的技术，这个技术的核心原理就是 Http 的 Chunk 编码。据Facebook的测试表明“BigPipe”技术使其页面响应时间减少了约 50% 
@@ -1865,8 +1872,10 @@ console.log(bar.call2(obj, 'kevin', 18));
 // }
 ```
 
-
-数组扁平化
+> 数组扁平化
+[JavaScript专题之数组扁平化](https://github.com/mqyqingfeng/Blog/issues/36)
+[Javascript多维数组扁平化](http://www.jstips.co/zh_cn/javascript/flattening-multidimensional-arrays-in-javascript/)
+[js数组扁平化,可以降维多层](https://segmentfault.com/q/1010000008504467)
 
 >反转字符串
 直接for循环倒着循环
@@ -1895,6 +1904,12 @@ history.pushState()+popState事件
 
 面完一点资讯出来的时候收到hr的电话,问我什么时候可以去实习,说我之前面的是实习岗位,呵呵呵....我直接表达了不去了
 
+***********
+#### ** 9.12 **
+
+今天面试管联系了我,说我之前已经面过一面了,我说之前hr给我说面的是实习岗,我现在要找的是秋招的工作,他说知道,说问一些问题,了解下情况,发录用意向书
+
+然后面了小半个小时吧,都是些开发性的问题
 
 ******************************************************
 ### ** 美团 **
@@ -2525,7 +2540,7 @@ hr面没什么好写的,就是那些问题
 
 > 讲一个你的项目
 
-#### ** 9.10 **
+#### ** 猫眼二面(9.10) **
 
 猫眼二面也是共享屏幕写代码,写得挺尴尬的。因为我本身不是很想去,又有点随意。面得不是很好,面试管说待定,我让他给我挂了
 
@@ -2590,8 +2605,6 @@ let A = (function () {
 })();
 
 ```
-
-
 *******************************************************
 ### **  阿里模拟笔试题型记录 **
 
@@ -2599,8 +2612,149 @@ let A = (function () {
 两个不定项
 两个程序设计题,一个是CSS选择器实现,一个是排序题设计,sort原生API了解下
 *******************************************************
+### ** 小米 **
+
+#### ** 小米一面(9.12) **
+面了这么多次,这是面试体验最差的,没有之一!本来约了11号晚上8点的面试,然后等了很久都没有电话,给他发消息也没回复,电话也打不通。快到8点50才打过来,然后也没说为什么迟到,就面试了。
+
+但是需要视频面试,我操作系统是linux,就改约了第二天早上十点,结果这个面试官又迟到了半个小时,也没提前告诉我他需要迟到下,真的坑啊,一点礼貌都没有。
+
+然后面试开始qq视频,共享平面,卡顿得一笔。主要是这个面试官不守时.
+
+面了50分钟,估计一面凉,体验很不好。记录下
+
+>自我介绍
+盒子模型
+写一个动画,1s向右移动200Px
+一个ajax请求,怎么计算请求的时间
+如果有几个百个请求,怎么处理呢。面试官的意思是重载。
+写快排
+写一个check函数,检查ajax回调的数据,比如返回一个对象,有a.b.c.name,如何判断key name的值是不是null or undefined
+
+*******************************************************
+### ** 猿辅导 **
+
+#### ** 猿辅导(9.15) **
+
+最近都在忙人工智能的补考,昨天晚上考完了,easy。上学期没去上课被老师挂了2333
+
+然后前几天猿辅导这家公司给我安排了面试,时间是在周六上午9点,我觉得是真的有毒!!!还好佛系面试,记录下
+
+面试官是后端狗2333,视频面试,石墨文档写代码
+
+>自我介绍
+项目介绍,然后面试官提问
+实习项目
+智能对话系统
+聊项目的时候,他提到了elasticsearch。这个以前就看一些朋友在用,后面了解下
+
+>对操作系统还是计算机网络熟悉
+>输入一个url
+>tcp报文的标志位
+>如果tcp链接复用的标志位
+[TCP协议之<你好——再见>](http://blog.51cto.com/jk6627/1962051)
+[HTTP复用](http://blog.zhanglun.me/2017/10/10/HTTP%E5%A4%8D%E7%94%A8/)
+
+算法题
+> 反转字符串
+用O(1)的空间复杂度怎么写
+
+```javascript
+let str = 'abcdef';
+
+function reverse_str(str) {
+  if (!str || typeof str !== 'string') {
+      return '';
+  }  
+  let len = str.length;
+  let left = 0, right = len - 1;
+  let arr = [];
+  while(left <= right) {
+    arr[left] = str[right];
+    arr[right] = str[left];
+    left++;
+    right--;
+  }
+  arr.join('');
+  return arr;
+}
+```
+
+>3个升序链表，combine升序链表
+[合并两个排序的链表](http://wiki.jikexueyuan.com/project/for-offer/question-senenteen.html)
+[【LeetCode021】合并有序链表](https://zhuanlan.zhihu.com/p/39274660)
+[Leetcode 23:合并K个排序链表（最详细的解法！！！）](https://blog.csdn.net/qq_17550379/article/details/81151977)
+[算法题解：合并k个已排序的链表](http://www.voidcn.com/article/p-dwtrkxdm-bnw.html)
+[leetCode刷题 23. 合并K个排序链表](https://juejin.im/post/5ad30f286fb9a028d5678e4a)
+[23 - 合并K个元素的有序链表](https://github.com/Rosevil1874/LeetCode/tree/master/Python-Solution/23_Merge-k-Sorted-Lists)
+[Rosevil1874/LeetCode](https://github.com/Rosevil1874/LeetCode)
 
 
+*******************************************************
+### ** 百度 **
 
+#### ** 一面(9.19) **
 
+本来昨天约了晚上去练吉他,下午5点在食堂吃饭的时候收到了上海百度大数据部的电话,约了晚上8点电话面试,就没去面试了。面了20多分钟
 
+>百度实习项目
+项目难点
+项目里的状态管理和组件是怎么设计的,怎么做的
+
+>变量提升,函数提升
+
+>echart
+
+>http状态码
+
+>etag
+
+>盒子模型
+
+>settimeout setinterval两种异步状态哪种先执行 microtask
+
+>手上有哪些offer
+
+自我介绍和你有什么想问的这两个环节都没有2333,也只面了20多分钟,一面过了,等二面
+
+*******************************************************
+### ** 58转转 **
+
+周三约的今天下午的面试,总共两面,视频面试,持续到8点10
+有些问题忘了,记个大概
+
+一面
+自我介绍一分钟
+webpack compile
+vue印象深刻的三个特性
+10个常用的数组方法,5个改变自身,5个不变,es6
+isArray实现原理
+2个大数组，相得到唯一的交集 set 桶排
+es class extend
+graphQL
+
+二面
+二面面了70分钟,好多问题都忘了,就这样吧
+手上没我简历
+自我介绍
+pwa
+ssr
+微信小程序
+promise原理实现
+内部开发上线流程
+写过webpack吗
+php用什么框架
+移动端rem em
+async原理 沃日这个我没印象了!!
+网页性能优化(重点讲了实习项目)
+vue-router 模式
+双向绑定原理
+虚拟dom原理，vue和react的异同
+url有哪些部分,相应的api,参数怎么查key,正则
+aabbacc => abac 正则应该怎么做
+网页性能优化
+正则分组 ?: ?=
+四个硬币,随机的,最少反转几次,才能相同 百度面试题
+正则啊！！！
+
+两轮面试评级都很高,给了offer,后面和hr聊

@@ -327,10 +327,7 @@ function set(target, key, value, receiver) {
 </html>
 ```
 
-
-
 ****************
-
 ### ** 参考 **
 
 JavaScript设计模式
