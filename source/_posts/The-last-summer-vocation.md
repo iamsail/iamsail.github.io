@@ -2,8 +2,8 @@
 title: 最后一个暑假
 date: 2018-09-02 19:01:00
 categories: 杂文
+password: bukeyikan
 ---
-
 ### ** Preface **
 
 今天是暑假的最后一天,也是学生时代的最后一个暑假。这个假期是比较短暂的,只有约摸45天。

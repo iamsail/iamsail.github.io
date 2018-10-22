@@ -99,8 +99,8 @@ math:
 ##
 encrypt:
     enable: true
-    default_abstract: 我的秘密花园
-    default_message: 姿势,什么姿势?
+    default_abstract: 不能说的秘密
+    default_message: 不能说的秘密
     default_template:
                     <div id="security">
                         <div class="orz-container">

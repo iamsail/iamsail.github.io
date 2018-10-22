@@ -9,6 +9,8 @@ title: About
 
 ## 友情链接
 
-微博:
-[反向北(自由爱摄影爱绘画的疯癫女子)](http://weibo.com/fanxiangbei)
+
+[翔工作室](https://blog.atcumt.com/)
+[Siya](https://siyali.github.io/)
+[反向北](http://weibo.com/fanxiangbei)
 [左岸读书](http://www.zreading.cn/)

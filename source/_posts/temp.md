@@ -3,6 +3,8 @@ title: tow
 date: 2015-02-24 21:04:30
 password: xixihaha
 ---
+
+
 *********************
 ### ** 秋招前端面试更新　**
 
@@ -38,6 +40,7 @@ password: xixihaha
 [前端面经(阿里,腾讯,网易,头条,京东等)(待更) ](https://www.nowcoder.com/discuss/105439?type=0&order=0&pos=297&page=1)
 [【前端面筋】终于等到你！！！ ](https://www.nowcoder.com/discuss/63151?type=2&order=0&pos=311&page=1)
 [不带劲的前端烤面筋 ](https://www.nowcoder.com/discuss/114699?type=2&order=0&pos=75&page=1)
+[分享下暑期实习到现在的秋招经历，顺便求offer比较，谢谢~ ](https://www.nowcoder.com/discuss/112117?type=2&order=0&pos=37&page=1)
 ********************
 [百度智能云前端面经 ](https://www.nowcoder.com/discuss/91112?type=2&order=0&pos=19&page=1)
 [百度fex面经 ](https://www.nowcoder.com/discuss/103817?type=2&order=0&pos=360&page=1)
@@ -86,7 +89,7 @@ password: xixihaha
 [美团offer call，特来还愿](https://www.nowcoder.com/discuss/105272?type=2&order=0&pos=158&page=1)
 [get美团offer 分享面经祝各位也能get offer](https://www.nowcoder.com/discuss/113679?type=2&order=0&pos=157&page=1)
 [美团前端四面](https://www.nowcoder.com/discuss/107601?type=2&order=0&pos=137&page=1)
-
+[【前端】美团 ](https://www.nowcoder.com/discuss/101449?type=2&order=0&pos=35&page=1)
 
 ********************
 
@@ -129,6 +132,9 @@ password: xixihaha
 [CVTE前端一面 ](https://www.nowcoder.com/discuss/103225?type=2&order=0&pos=21&page=1)
 [途牛前端一面 ](https://www.nowcoder.com/discuss/103224?type=2&order=0&pos=28&page=0)
 
+*****************************
+[小米前端视频一面](https://www.nowcoder.com/discuss/109130?type=2&order=0&pos=66&page=1)
+[京东2面之强行加戏](https://www.nowcoder.com/discuss/112465?type=2&order=0&pos=104&page=1)
 *****************************
 
 [网易互联网 前端 面经 ](https://www.nowcoder.com/discuss/103248?type=2&order=0&pos=16&page=1)
@@ -430,7 +436,6 @@ it.next();
 async/await怎么实现上述请求呢，generator呢 
 generator的自动化执行怎么实现的呢，co实现generator自执行的条件 
 
-
 >prototype 属性和__proto__属性
 [js中__proto__和prototype的区别和关系](https://www.zhihu.com/question/34183746)
 [从__proto__和prototype来深入理解JS对象和原型链](https://github.com/creeperyang/blog/issues/9)
@@ -495,7 +500,6 @@ const BFS = (root) => {
 > [css优先级计算规则](http://www.cnblogs.com/wangmeijian/p/4207433.html)
 [CSS中的层叠优先级](http://www.sail.name/2017/05/18/the-cascade-priority-in-style-sheet/)
 
-
 >CSS实现一个旋转的动画如何实现，animation和transition有什么区别 
 [CSS animation 与 CSS transition 有何区别？](https://www.zhihu.com/question/19749045)
 [CSS3 Transition 和Animation区别及比较](https://blog.csdn.net/cddcj/article/details/53582334)
@@ -512,8 +516,10 @@ const BFS = (root) => {
 [display:table与本身的table的区别](https://www.cnblogs.com/xiaoan0705/p/8921559.html)
 [HTML Table 和 CSS Table 之间的真正区别](https://www.jianshu.com/p/aae7ad2b595c)
 
-************************
+>[BEM思想之彻底弄清BEM语法](https://www.w3cplus.com/css/mindbemding-getting-your-head-round-bem-syntax.html)
+[如何看待 CSS 中 BEM 的命名方式](https://www.zhihu.com/question/21935157)
 
+************************
 
 ### ** 框架 **
 
@@ -594,6 +600,10 @@ $nextTick它跟全局方法 Vue.nextTick 一样，不同的是回调的 this 自
 > 所谓的跨域问题只是浏览器强加给js的规则而已，世界本无跨域限制。是浏览器强制不允许js访问别的域，但是浏览器却没有限制它自己。比如说img标签可以加载任何域的图片，script可以加载任何域的js。再比如说你不能从前端js去调淘宝的接口获取ip对应的城市地址信息，，但是你可以手敲在浏览器地址栏，直接打开。
   
 > ajax跨域是因为浏览器需要保护用户的安全和隐私而给js设定的限制。如果你自己写个浏览器去掉这个限制那js就可以任意跨域访问了.form表单可以跨域一个是历史原因要保持兼容性，一个是form表单会刷新页面不会把结果返回给js，所以相对安全.用jsonp跨域其实也是利用了浏览器的历史兼容性，而最新的font资源就不允许直接跨域引用
+
+
+> 被劫持,比如被运营商劫持的原理是什么???
+
 ************************
 
 
@@ -640,8 +650,12 @@ $nextTick它跟全局方法 Vue.nextTick 一样，不同的是回调的 this 自
 
 
 ************************
+### ** 场景题总结 **
 
 
+
+
+************************
 ### ** 其他 **
 
 >git merge 和git merge --no--ff有什么区别 
@@ -1935,6 +1949,7 @@ vue diff原理
 >后端api设计　restful graphQ
 [graphql.cn](https://graphql.cn/)
 [阻碍你使用 GraphQL 的十个问题](http://jerryzou.com/posts/10-questions-about-graphql/)
+[GraphQL 入门](https://graphql.cn/learn/)
 
 大致就是这些.希望能过啊,这是最想拿的offer了!
 
@@ -2717,6 +2732,52 @@ function reverse_str(str) {
 
 自我介绍和你有什么想问的这两个环节都没有2333,也只面了20多分钟,一面过了,等二面
 
+
+#### ** 二面(9.26) **
+
+电话面试,面了接近90(88分钟)分钟,可能很多记不得了,做下记录
+
+自我介绍
+>vue
+vue双向绑定,setter,getter
+observer的作用是什么,已经有了setter
+对数组是怎么做的,没有setter,getter
+vue虚拟dom的考察,比较灵活,通过场景来考察的
+vue组件通信
+除了父子,平级组件通信,其他组件是怎么通信的!=》你们两个页面之间的数据传输是怎么做的,这里是不是想考察vuex啊2333333333
+
+>css position
+
+>判断一个元素在可视范围内/相应的api
+[Element.getBoundingClientRect()](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect)
+[如何快速判断 DOM 元素位于 viewport 以外?](https://www.zhihu.com/question/23657255)
+[visible_area.js](https://gist.github.com/simplelife7/5954021)
+
+>promise all
+
+>缓存
+
+>cookie和session的区别
+
+>xss
+>我说了转义和过滤,他说数据库里期望存放的数据是用户最初输入的数据,应该怎么做,而且前端有用户编辑的需求,如果我在拿出数据库后用函数去做转义的话,用户拿到的数据
+[[Web 安全] 了解XSS与防范](https://segmentfault.com/a/1190000003874852)
+这个现在想想或许是伪需求,下次我开发可以try下
+
+>cookie的安全怎么保证
+[如何保证cookie的安全性](https://blog.csdn.net/shuidinaozhongyan/article/details/78155444)
+[提高cookie的安全性的几个建议](https://my.oschina.net/u/2428791/blog/548607)
+[关于cookie的安全性问题](https://segmentfault.com/q/1010000007347730)
+
+>增加dom的API
+[JS总结篇--[总结]JS操作DOM常用API详解](https://segmentfault.com/a/1190000009588427)
+
+>场景题:瀑布流布局
+
+>实习项目的性能优化,那个分时函数,现在看来我也觉得很诡异
+
+心累,感觉面得比较凉,面了这么久
+
 *******************************************************
 ### ** 58转转 **
 
@@ -2725,36 +2786,109 @@ function reverse_str(str) {
 
 一面
 自我介绍一分钟
-webpack compile
-vue印象深刻的三个特性
-10个常用的数组方法,5个改变自身,5个不变,es6
-isArray实现原理
-2个大数组，相得到唯一的交集 set 桶排
-es class extend
-graphQL
+>webpack compile
+
+>vue印象深刻的三个特性
+
+>10个常用的数组方法,5个改变自身,5个不变,es6
+
+>isArray实现原理
+[Array.isArray()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
+
+>2个大数组，相得到唯一的交集 set 桶排
+
+>es class extend
+
+>graphQL
 
 二面
-二面面了70分钟,好多问题都忘了,就这样吧
-手上没我简历
-自我介绍
-pwa
-ssr
-微信小程序
-promise原理实现
-内部开发上线流程
-写过webpack吗
-php用什么框架
-移动端rem em
-async原理 沃日这个我没印象了!!
-网页性能优化(重点讲了实习项目)
-vue-router 模式
-双向绑定原理
-虚拟dom原理，vue和react的异同
-url有哪些部分,相应的api,参数怎么查key,正则
-aabbacc => abac 正则应该怎么做
-网页性能优化
-正则分组 ?: ?=
-四个硬币,随机的,最少反转几次,才能相同 百度面试题
-正则啊！！！
+
+>二面面了70分钟,好多问题都忘了,就这样吧
+
+>手上没我简历
+
+>自我介绍
+
+>pwa
+[Progressive Web Apps(PWA)](https://developer.mozilla.org/zh-CN/docs/Web/Apps/Progressive)
+[饿了么的 PWA 升级实践](https://huangxuan.me/2017/07/12/upgrading-eleme-to-pwa/)
+[简单介绍一下Progressive Web App(PWA)](https://juejin.im/post/5a6c86e451882573505174e7)
+[什么是 PWA](https://lavas.baidu.com/pwa)
+
+>SSR
+Vue.js 是构建客户端应用程序的框架。默认情况下，可以在浏览器中输出 Vue 组件，进行生成 DOM 和操作 DOM。然而，也可以将同一个组件渲染为服务器端的 HTML 字符串，将它们直接发送到浏览器，最后将这些静态标记"激活"为客户端上完全可交互的应用程序。
+服务器渲染的 Vue.js 应用程序也可以被认为是"同构"或"通用"，因为应用程序的大部分代码都可以在服务器和客户端上运行
+[Vue.js 服务器端渲染指南](https://ssr.vuejs.org/zh/)
+[基于vue-ssr服务端渲染入门详解](https://juejin.im/post/5a50f208f265da3e5132ed91)
+[vue SSR 服务端渲染记录](https://segmentfault.com/a/1190000012294822)
+
+>你应该问的第一个问题是，是否真的需要它。这主要取决于内容到达时间(time-to-content)对应用程序的重要程度。例如，如果你正在构建一个内部仪表盘，初始加载时的额外几百毫秒并不重要，这种情况下去使用服务器端渲染(SSR)将是一个小题大作之举。然而，内容到达时间(time-to-content)要求是绝对关键的指标，在这种情况下，服务器端渲染(SSR)可以帮助你实现最佳的初始加载性能
+
+>微信小程序
+
+>promise原理实现
+[Promises/A+](https://promisesaplus.com/)
+[25.6.1Promise Abstract Operations](https://tc39.github.io/ecma262/#sec-promise-objects)
+
+>内部开发上线流程
+
+>写过webpack吗
+
+>php用什么框架
+
+>移动端rem em
+[移动web适配利器-rem | AlloyTeam](http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/)
+[简单粗暴的移动端适配方案 - REM](http://imweb.io/topic/5a523cc0a192c3b460fce3a5)
+
+>async原理 沃日这个我没印象了!!
+[async 函数的实现原理](http://es6.ruanyifeng.com/#docs/async#async-%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86)
+async 函数的实现原理，就是将 Generator 函数和自动执行器，包装在一个函数里。
+
+>网页性能优化(重点讲了实习项目)
+
+>vue-router 模式
+
+>双向绑定原理
+
+>虚拟dom原理，vue和react的异同
+
+>url有哪些部分,相应的api,参数怎么查key,正则
+[Location](https://developer.mozilla.org/zh-CN/docs/Web/API/Location)
+[js中window.location.search的用法和作用。](https://blog.csdn.net/qq_27093465/article/details/50731087)
+[String.prototype.replace()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+[RegExp.prototype[@@replace]()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/@@replace)
+[JavaScript获取URL参数的正则的区别？](https://segmentfault.com/q/1010000005804944)
+[RegExp.prototype.exec()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)
+[JavaScript exec() 方法](http://www.w3school.com.cn/jsref/jsref_exec_regexp.asp)
+[JavaScript match() 方法](http://www.w3school.com.cn/js/jsref_match.asp)
+[通过Javascript得到URL中的参数(query string)](https://www.cnblogs.com/season-huang/p/3322561.html)
+[HTML DOM search 属性](http://www.w3school.com.cn/htmldom/prop_loc_search.asp)
+[js中window.location.search的用法和作用](https://blog.csdn.net/qq_27093465/article/details/50731087)
+
+>aabbacc => abac 正则应该怎么做
+[正则表达式巧妙实现字符串去重](http://www.voidcn.com/article/p-mbcbvgcd-wm.html)
+
+>网页性能优化
+
+>正则分组 ?: ?=
+>正则啊！！！
+[正则表达式30分钟入门教程](http://www.cnblogs.com/deerchao/archive/2006/08/24/zhengzhe30fengzhongjiaocheng.html#grouping)
+[正则表达式中的(?:exp)这样匹配表达式，有什么意义](https://blog.csdn.net/Jacketinsysu/article/details/38639701)
+[正则 ?<= 和 ?= 用法](https://www.cnblogs.com/whaozl/p/5462865.html)
+后向引用
+零宽断言
+(?:exp)	匹配exp,不捕获匹配的文本，也不给此分组分配组号   非捕获组，匹配exp的内容，但不捕获到组里
+(?=exp)	匹配exp前面的位置
+
+>四个硬币,随机的,最少反转几次,才能相同 百度面试题
+[面试智力题：硬币问题](https://blog.csdn.net/Hackbuteer1/article/details/6728411)
+
 
 两轮面试评级都很高,给了offer,后面和hr聊
+
+
+
+*********************
+[怎么跟 HR 谈薪资？](https://www.zhihu.com/question/34557602)
+[如何优雅、机智地和新公司谈薪水？](https://36kr.com/p/5098094.html)
+[面试谈工资的时候，对方问你的期望薪资，如果反问对方「根据自己的能力能给多少」，合适吗？](https://www.zhihu.com/question/20890139)
