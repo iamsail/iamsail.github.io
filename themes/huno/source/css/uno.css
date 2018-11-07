@@ -937,7 +937,9 @@ body {
   /*font-family: "Raleway", sans-serif;*/
   font-family:  "Raleway",Verdana,sans-serif,宋体, serif, "Droid Serif", Helvetica Neue, Helvetica, Arial;
   font-size: 1em;
-  color: #666666; }
+  color: #666666;
+  /*color: #0F1717;*/
+}
 
 ::selection {
   background: #fae3df; }
@@ -1215,7 +1217,7 @@ hr {
   max-width: none;
   height: 100%;
   /*background: url(../images/background-cover.jpg) top left no-repeat #666666;*/
-  background: linear-gradient(90deg,black,black 46%,white 50%,black 54%,black);
+  background: linear-gradient(90deg,black,black 49%,white 50%,black 51%,black);
   background-size: cover; }
 
 
