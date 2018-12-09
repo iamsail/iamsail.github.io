@@ -1,0 +1,50 @@
+
+<div width="100%" id="__one" align="center" style="border-bottom:1px solid #DDDDDD;margin-bottom:15px;"></div>
+<div width="100%" id="__tow" align="center"><img src="/img/wx.png" alt="微信赞助二维码"></div>
+<p id="__three" style="margin-top: 0.4em; text-align: center">
+      <b style="font-size: 1em;">讨论请发邮件到 lichanghangcumt@gmail.com</b> <br>
+      <b style="font-size: 1em;">未经授权，禁止转载</b> <br>
+      <b style="font-size: 1em;">通过支付宝 15262042918 或二维码赞助此文</b>
+ </p>
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 </span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
