@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      再谈docker搭建nginx+php+mysql开发环境 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content="写在前面 前几天我写了一篇博客docker搭建nginx+php+mysql开发环境。当时主要是参考一片博文搭建记录的。 可是这样搭建出来是有一些问题的,具体的原因我还没找出。当然那篇文章还是有一些参考价值。 于是我又自己重新搭建了一个,踩了很多很多的坑,好在都解决了。 本文就是记录我的搭建过程,踩的坑,以及结合thinkphp项目存在的一些问题解决方案。 docker的好处我就不说了,和git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="再谈docker搭建nginx+php+mysql开发环境 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/09/26/retalk-use-docker-to-build-development-environment-of-php-mysql-nginx/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="写在前面 前几天我写了一篇博客docker搭建nginx+php+mysql开发环境。当时主要是参考一片博文搭建记录的。 可是这样搭建出来是有一些问题的,具体的原因我还没找出。当然那篇文章还是有一些参考价值。 于是我又自己重新搭建了一个,踩了很多很多的坑,好在都解决了。 本文就是记录我的搭建过程,踩的坑,以及结合thinkphp项目存在的一些问题解决方案。 docker的好处我就不说了,和git">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.sail.name/img/docker/phpNgxinMysql/phpinfo.png">
+<meta property="og:image" content="http://www.sail.name/img/docker/phpNgxinMysql/pdo.png">
+<meta property="og:image" content="http://www.sail.name/img/docker/phpNgxinMysql/mysql.png">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="再谈docker搭建nginx+php+mysql开发环境 | Sail">
+<meta name="twitter:description" content="写在前面 前几天我写了一篇博客docker搭建nginx+php+mysql开发环境。当时主要是参考一片博文搭建记录的。 可是这样搭建出来是有一些问题的,具体的原因我还没找出。当然那篇文章还是有一些参考价值。 于是我又自己重新搭建了一个,踩了很多很多的坑,好在都解决了。 本文就是记录我的搭建过程,踩的坑,以及结合thinkphp项目存在的一些问题解决方案。 docker的好处我就不说了,和git">
+<meta name="twitter:image" content="http://www.sail.name/img/docker/phpNgxinMysql/phpinfo.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">再谈docker搭建nginx+php+mysql开发环境</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-09-26" class="post-meta__date date">2017-09-26</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Docker/">Docker</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="写在前面"><a href="#写在前面" class="headerlink" title=" 写在前面 "></a><strong> 写在前面 </strong></h2><p>前几天我写了一篇博客<a href="http://www.sail.name/2017/09/23/use-docker-to-build-development-environment-of-php-mysql-nginx/">docker搭建nginx+php+mysql开发环境</a>。当时主要是参考一片博文搭建记录的。</p>
+<p>可是这样搭建出来是有一些问题的,具体的原因我还没找出。当然那篇文章还是有一些参考价值。</p>
+<p>于是我又自己重新搭建了一个,踩了很多很多的坑,好在都解决了。</p>
+<p>本文就是记录我的搭建过程,踩的坑,以及结合<code>thinkphp</code>项目存在的一些问题解决方案。</p>
+<p><code>docker</code>的好处我就不说了,和<code>git</code>一样,谁用谁知道。</p>
+<p>本文参考的文章,会放在文末的参考。部分参考内容会在文中给出参考链接。</p>
+<hr>
+<h2 id="搭建"><a href="#搭建" class="headerlink" title=" 搭建 "></a><strong> 搭建 </strong></h2><h3 id="环境介绍"><a href="#环境介绍" class="headerlink" title=" 环境介绍 "></a><strong> 环境介绍 </strong></h3><p>操作系统<br><code>Ubuntu 16.04 LTS</code><br>docker版本<br><code>Docker version 17.05.0-ce</code></p>
+<hr>
+<h3 id="项目结构参考"><a href="#项目结构参考" class="headerlink" title=" 项目结构参考 "></a><strong> 项目结构参考 </strong></h3><p>这里先给出项目结构参考树形图,有的内容是在搭建中产生的,故仅供参考,与后文内容结合看。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sail@codeBetter:~$ tree www -L 1</span><br><span class="line">www</span><br><span class="line">├── default.conf   </span><br><span class="line">├── Dockerfile</span><br><span class="line">├── html</span><br><span class="line">├── mysql</span><br><span class="line">├── php.ini</span><br><span class="line">└── www.conf</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">sail@codeBetter:~$ tree www -L 2</span><br><span class="line">www</span><br><span class="line">├── default.conf</span><br><span class="line">├── Dockerfile</span><br><span class="line">├── html</span><br><span class="line">│   ├── coalball</span><br><span class="line">│   ├── index.html</span><br><span class="line">│   ├── index.php</span><br><span class="line">│   └── mysql.php</span><br><span class="line">├── mysql</span><br><span class="line">│   ├── auto.cnf</span><br><span class="line">│   ├── ca-key.pem</span><br><span class="line">│   ├── ca.pem</span><br><span class="line">│   ├── client-cert.pem</span><br><span class="line">│   ├── client-key.pem</span><br><span class="line">│   ├── coalball</span><br><span class="line">│   ├── coalball.sql</span><br><span class="line">│   ├── ib_buffer_pool</span><br><span class="line">│   ├── ibdata1</span><br><span class="line">│   ├── ib_logfile0</span><br><span class="line">│   ├── ib_logfile1</span><br><span class="line">│   ├── ibtmp1</span><br><span class="line">│   ├── mysql</span><br><span class="line">│   ├── performance_schema</span><br><span class="line">│   ├── private_key.pem</span><br><span class="line">│   ├── public_key.pem</span><br><span class="line">│   ├── server-cert.pem</span><br><span class="line">│   ├── server-key.pem</span><br><span class="line">│   ├── sys</span><br><span class="line">│   └── test_db</span><br><span class="line">├── php.ini</span><br><span class="line">└── www.conf</span><br><span class="line"></span><br><span class="line">### 去掉一些无关内容</span><br><span class="line"></span><br><span class="line">www</span><br><span class="line">├── default.conf </span><br><span class="line">├── Dockerfile</span><br><span class="line">├── html</span><br><span class="line">│   ├── coalball</span><br><span class="line">│   ├── index.html</span><br><span class="line">│   ├── index.php</span><br><span class="line">│   └── mysql.php</span><br><span class="line">├── mysql</span><br><span class="line">│   ├── coalball.sql</span><br><span class="line">├── php.ini</span><br><span class="line">└── www.conf</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title=" MySQL "></a><strong> MySQL </strong></h3><p>从 <a href="https://hub.docker.com/" target="_blank" rel="noopener">Dockerhub</a>拉取 <code>MySQL</code> 镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull mysql</span><br></pre></td></tr></table></figure></p>
+<p>实例容器,启动数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -p 3306:3306 --name mysql -v ~/www/mysql/:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d --privileged=true mysql</span><br><span class="line"></span><br><span class="line">### 命令说明：</span><br><span class="line">-p 3306:3306：将容器的3306端口映射到主机的3306端口</span><br><span class="line">-v ~/www/mysql/:/var/lib/mysql：将主机当前用户目录下的mysql文件夹挂载到容器的/var/lib/mysql 下，在mysql容器中产生的数据就会保存在本机mysql目录下</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456：初始化root用户的密码</span><br><span class="line">-d 后台运行容器</span><br><span class="line">--name 给容器指定别名</span><br><span class="line">--privileged=true  可能会碰到权限问题，需要加参数</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title=" Nginx "></a><strong> Nginx </strong></h3><p>从 <a href="https://hub.docker.com/" target="_blank" rel="noopener">Dockerhub</a>拉取 <code>Nginx</code> 镜像：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull nginx</span><br></pre></td></tr></table></figure></p>
+<p>实例容器,启动Nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --name nginx -p 80:80 -d nginx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">运行成功后，终端会返回容器的ID号，上面的命令中，</span><br><span class="line"></span><br><span class="line">run：创建一个新的容器</span><br><span class="line">--name：指定容器的名称（如果留空，docker会自动分配一个名称）</span><br><span class="line">-p：导出容器端口到本地服务器，格式：-p &lt;local-port&gt;:&lt;container-port&gt;。在本例中，我们映射容器的80端口到本地服务器的80端口。</span><br><span class="line">nginx：是 Dockerhub 上下载nginx镜像名称（如果本地没有可用的镜像，Docker会自动下载一个）</span><br><span class="line">-d：后台启动。</span><br></pre></td></tr></table></figure></p>
+<p>通过浏览器浏览：<code>http://localhost</code> 就会看到<code>Nginx</code>欢迎界面。</p>
+<p>几个命令介绍<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ docker ps -a                       # 查看正在运行的容器</span><br><span class="line">$ docker ps                          # 查看容器</span><br><span class="line">$ docker stop nginx                  # 停止正在运行的容器</span><br><span class="line">$ docker start nginx                 # 启动一个已经停止的容器</span><br><span class="line">$ docker start nginx                 # 重启一个容器</span><br><span class="line">$ docker rm nginx                    # 删除容器</span><br></pre></td></tr></table></figure></p>
+<h4 id="映射HTML路径"><a href="#映射HTML路径" class="headerlink" title=" 映射HTML路径 "></a><strong> 映射HTML路径 </strong></h4><p>默认情况下，<code>Docker nginx</code>服务器的<code>HTML</code>路径（网站根目录）在容器<code>/usr/share/nginx/html</code>目录下，现在需要把这个目录映射到本地服务器的<code>~/www/html</code>目录。在上面命令的基础上加上-v参数，具体如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 先删除之前的容器</span><br><span class="line">$ docker rm nginx    </span><br><span class="line"></span><br><span class="line">$ docker run --name nginx -p 80:80 -d -v ~/www/html:/usr/share/nginx/html nginx</span><br></pre></td></tr></table></figure></p>
+<p> -v的参数格式为：<code>&lt;local-volumes&gt;:&lt;container-volumes&gt;</code>。</p>
+<p>在<code>~/www/html</code>下创建一个<code>index.html</code>文件，内容随意</p>
+<p>比如 <code>hello world</code></p>
+<p>在浏览器上访问 <code>http://localhost</code>，刷新一下就可以看到新的内容了。</p>
+<h4 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title=" 配置 Nginx "></a><strong> 配置 Nginx </strong></h4><p><code>Nginx</code>的强大很大部分体现在配置文件上，对于一些高级的应用来说，自定义<code>Nginx</code>非常重要。所以，我们需要把<code>Nginx</code>的配置文件复制到本地服务器目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/www</span><br><span class="line">$ docker cp nginx:/etc/nginx/conf.d/default.conf default.conf</span><br></pre></td></tr></table></figure>
+<p>再加一个-v参数，把本地的配置文件映射到容器上，在重启容器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ docker stop nginx</span><br><span class="line"></span><br><span class="line">$ docker rm nginx</span><br><span class="line"></span><br><span class="line">$ docker run --name nginx -p 80:80 -v ~/www/html:/usr/share/nginx/html -v ~/www/default.conf:/etc/nginx/conf.d/default.conf -d nginx</span><br></pre></td></tr></table></figure></p>
+<p>如果配置文件有修改，需要重启容器生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker restart nginx</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以直接在本地修改配置文件了。</p>
+<hr>
+<h3 id="PHP-FPM"><a href="#PHP-FPM" class="headerlink" title=" PHP-FPM "></a><strong> PHP-FPM </strong></h3><p>从 <a href="https://hub.docker.com/" target="_blank" rel="noopener">Dockerhub</a>拉取 <code>PHP-FPM</code> 镜像：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull php:fpm</span><br></pre></td></tr></table></figure>
+<p>实例容器,启动<code>php:fpm</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run --name php-fpm -p 9000:9000 -d php:fpm</span><br></pre></td></tr></table></figure>
+<p>把配置文件复制到本地：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/www</span><br><span class="line"></span><br><span class="line">$ docker cp php-fpm:/usr/local/etc/php-fpm.d/www.conf www.conf</span><br><span class="line">$ docker cp php-fpm:/usr/src/php/php.ini-production php.ini</span><br></pre></td></tr></table></figure>
+<p>这里要特别注意一下,<code>php-fpm:/usr/src/php/php.ini-production</code>,在实例出的容器中,不一定是路径<code>src/php</code>,拉取的<code>php:fpm</code>版本镜像不同,<code>php.ini</code>路径不同。</p>
+<p>可以这样查看<code>php.ini</code>路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 先进入容器</span><br><span class="line">$ docker exec -it php-fpm bash</span><br><span class="line"></span><br><span class="line">$ cd /usr/src/ &amp;&amp; ls</span><br><span class="line"></span><br><span class="line"># 有以下两个文件</span><br><span class="line">php.tar.xz   php.tar.xz.asc</span><br><span class="line"></span><br><span class="line"># 这里我们需要解压php.tar.xz文件,因为php.ini-production就在其中</span><br><span class="line">//先解压xz</span><br><span class="line"> xz -d php.tar.xz  </span><br><span class="line">//再解压tar</span><br><span class="line"># tar -xvf  php.tar</span><br></pre></td></tr></table></figure>
+<p>解压完毕后, <code>php.ini-production</code>便出现了，我当时的路径是<code>/usr/src/php-7.1.9/php.ini-production</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">即,前文中的</span><br><span class="line"></span><br><span class="line">$ docker cp php-fpm:/usr/src/php/php.ini-production php.ini</span><br><span class="line"></span><br><span class="line">改为</span><br><span class="line"></span><br><span class="line">$ docker cp php-fpm:/usr/src/php-7.1.9/php.ini-production php.ini</span><br></pre></td></tr></table></figure>
+<p>在本地服务器修改 <code>php.ini</code> 的内容，设置<code>cgi.fix_pathinfo=1</code>（要先删除前面的;注释符）。</p>
+<hr>
+<p>前面关于php-fpm的一系列操作主要是为了获得配置文件,并没有挂载本地目录到容器中,所以接下来需要删除容器,重新实例一个容器出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker stop php-fpm</span><br><span class="line">$ docker rm php-fpm</span><br><span class="line"></span><br><span class="line">$ docker run --name php-fpm -p 9000:9000 --link mysql:mysql -v ~/www/html:/var/www/html -v ~/www/www.conf:/usr/local/etc/php-fpm.d/www.conf -v ~/www/php.ini:/usr/local/etc/php/php.ini -d php:fpm</span><br></pre></td></tr></table></figure>
+<h3 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title=" 配置Nginx "></a><strong> 配置Nginx </strong></h3><p>修改<code>Nginx</code>的配置文件，也就是前面我们从容器中复制出的<code>default.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  _;</span><br><span class="line">    root /usr/share/nginx/html;</span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line"></span><br><span class="line">    #charset koi8-r;</span><br><span class="line">    #access_log  /var/log/nginx/log/host.access.log  main;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        #root   /usr/share/nginx/html;</span><br><span class="line">        #index  index.php index.html index.htm;</span><br><span class="line">	try_files $uri $uri/ =404;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page  404  /404.html;</span><br><span class="line">    location = /40x.html &#123;</span><br><span class="line">        root    /user/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # redirect server error pages to the static page /50x.html</span><br><span class="line">    #</span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # proxy the PHP scripts to Apache listening on 127.0.0.1:80</span><br><span class="line">    #</span><br><span class="line">    #location ~ \.php$ &#123;</span><br><span class="line">    #    proxy_pass   http://127.0.0.1;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line">    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span><br><span class="line">    #</span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">        root           /var/www/html/;</span><br><span class="line">        fastcgi_pass   php-fpm:9000;</span><br><span class="line">        fastcgi_index  index.php;</span><br><span class="line">#        fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span><br><span class="line">        include        fastcgi_params;</span><br><span class="line">        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # deny access to .htaccess files, if Apache&apos;s document root</span><br><span class="line">    # concurs with nginx&apos;s one</span><br><span class="line">    #</span><br><span class="line">    location ~ /\.ht &#123;</span><br><span class="line">        deny  all;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于配置文件,有个需要注意的地方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">        root           /var/www/html/;</span><br><span class="line">        fastcgi_pass   php-fpm:9000;</span><br><span class="line">        fastcgi_index  index.php;</span><br><span class="line">#        fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span><br><span class="line">        include        fastcgi_params;</span><br><span class="line">        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">include        fastcgi_params;  </span><br><span class="line">要放在</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">的前面</span><br></pre></td></tr></table></figure></p>
+<p>删除刚才的nginx容器,重新生成一个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ docker stop nginx</span><br><span class="line">$ docker rm nginx</span><br><span class="line"></span><br><span class="line">$ docker run --name nginx -p 80:80 --link php-fpm -v ~/www/html:/usr/share/nginx/html -v ~/www/default.conf:/etc/nginx/conf.d/default.conf -d nginx</span><br></pre></td></tr></table></figure>
+<p>在 <code>~/www/html</code> 下创建 <code>index.php</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    phpinfo();</span><br></pre></td></tr></table></figure></p>
+<p>浏览器访问<code>http://localhost</code></p>
+<p><img src="/img/docker/phpNgxinMysql/phpinfo.png" alt="phpinfo"></p>
+<hr>
+<p>上面的讲述基本描述了如何搭建一个基本的<code>php+nginx+mysql</code>的开发环境。</p>
+<p>然而在实际开发中,还是有问题的,比如php需要安装的一系列的扩展,比如<code>pdo_mysql</code>，我们可以通过编写<code>Dockerfile</code>的方式来定制镜像</p>
+<h2 id="编写Dockerfile"><a href="#编写Dockerfile" class="headerlink" title=" 编写Dockerfile "></a><strong> 编写Dockerfile </strong></h2><p>这里我们再看一下前面展示的项目结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">www</span><br><span class="line">├── default.conf </span><br><span class="line">├── Dockerfile</span><br><span class="line">├── html</span><br><span class="line">│   ├── coalball</span><br><span class="line">│   ├── index.html</span><br><span class="line">│   ├── index.php</span><br><span class="line">│   └── mysql.php</span><br><span class="line">├── mysql</span><br><span class="line">│   ├── coalball.sql</span><br><span class="line">├── php.ini</span><br><span class="line">└── www.conf</span><br></pre></td></tr></table></figure>
+<p><code>Dockerfile</code>如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">FROM php:5.6-fpm</span><br><span class="line"></span><br><span class="line">ADD www.conf   /usr/local/etc/php-fpm.d/www.conf</span><br><span class="line">ADD php.ini    /usr/src/php/php.ini</span><br><span class="line"></span><br><span class="line">RUN apt-get update &amp;&amp; apt-get install -y \</span><br><span class="line">        libfreetype6-dev \</span><br><span class="line">        libjpeg62-turbo-dev \</span><br><span class="line">        libmcrypt-dev \</span><br><span class="line">        libpng12-dev \</span><br><span class="line">    &amp;&amp; docker-php-ext-install -j$(nproc) iconv mcrypt \</span><br><span class="line">    &amp;&amp; docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \</span><br><span class="line">    &amp;&amp; docker-php-ext-install -j$(nproc) gd \</span><br><span class="line">    &amp;&amp; docker-php-ext-install pdo_mysql</span><br><span class="line"></span><br><span class="line">EXPOSE 9000</span><br></pre></td></tr></table></figure>
+<p>依旧先删除之前的<code>php-fpm</code>容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ docker stop php-fpm</span><br><span class="line">$ docker rm php-fpm</span><br><span class="line"></span><br><span class="line"># 构建 运行</span><br><span class="line"># 进入项目的目录,比如我的www文件夹就是建在/home/username下的</span><br><span class="line"></span><br><span class="line">$ cd ~/www</span><br><span class="line">$ docker build -t php-fpm:v1 ./</span><br><span class="line">$ docker run --name php-fpm -p 9000:9000 --link mysql:mysql -v ~/www/html:/var/www/html -v ~/www/www.conf:/usr/local/etc/php-fpm.d/www.conf -v ~/www/php.ini:/usr/local/etc/php/php.ini -d php:fpm</span><br><span class="line"></span><br><span class="line">即可</span><br></pre></td></tr></table></figure>
+<p>当然具体需要哪些扩展还是根据自己的需求来编写<code>Dockerfile</code>。</p>
+<hr>
+<h3 id="结合thinkphp"><a href="#结合thinkphp" class="headerlink" title=" 结合thinkphp "></a><strong> 结合thinkphp </strong></h3><p>前面的内容就基本搭建好了开发环境,这里我仅仅谈跑tp项目遇到一些坑(包括一些容器内的坑),做些记录与分享</p>
+<p><strong> <span class="under0">因为这部分踩的坑比较多,或许记得不太清楚,仅作参考,文末会留下一些参考链接</span> </strong></p>
+<h4 id="How-to-install-the-locate-command"><a href="#How-to-install-the-locate-command" class="headerlink" title=" How to install the locate command? "></a><strong> How to install the locate command? </strong></h4><p>如果<strong><span class="under0"> 在容器中 </span></strong>下载东西失败,且提示没有<code>locate</code>命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get update</span><br><span class="line">$ apt-get install mlocate</span><br></pre></td></tr></table></figure>
+<p>然而此时执行<code>locate</code>寻找一些文件还会有些问题</p>
+<h4 id="locate-can-not-stat-var-lib-mlocate-mlocate-db’-No-such-file-or-directory"><a href="#locate-can-not-stat-var-lib-mlocate-mlocate-db’-No-such-file-or-directory" class="headerlink" title=" locate: can not stat () `/var/lib/mlocate/mlocate.db’: No such file or directory "></a><strong> locate: can not stat () `/var/lib/mlocate/mlocate.db’: No such file or directory </strong></h4><p>更新下数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ updatedb</span><br><span class="line"></span><br><span class="line"># 一次不行的话，多执行几次该命令</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="Undefined-class-constant-‘MYSQL-ATTR-INIT-COMMAND’"><a href="#Undefined-class-constant-‘MYSQL-ATTR-INIT-COMMAND’" class="headerlink" title=" Undefined class constant ‘MYSQL_ATTR_INIT_COMMAND’ "></a><strong> Undefined class constant ‘MYSQL_ATTR_INIT_COMMAND’ </strong></h4><p>修改配置文件<code>php.ini</code></p>
+<p>把以下这几项配置都开启,如果你的配置文件(php.ini)中没有,自行添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">extension=php_mysqli.dll</span><br><span class="line">extension=php_pdo.dll</span><br><span class="line">extension=php_pdo_mysql.dll</span><br><span class="line">extension=pdo.so</span><br><span class="line">extension=pdo_mysql.so</span><br><span class="line"></span><br><span class="line"># 如果pdo_mysql扩展安装失败 </span><br><span class="line">可以执行 </span><br><span class="line">docker-php-ext-install pdo_mysql</span><br></pre></td></tr></table></figure></p>
+<h4 id="No-such-file-or-directory"><a href="#No-such-file-or-directory" class="headerlink" title=" No such file or directory "></a><strong> No such file or directory </strong></h4><p>如果访问站点,出现这个错误,可以看看你的phpinfo页面,是否</p>
+<p><img src="/img/docker/phpNgxinMysql/pdo.png" alt="pdo"></p>
+<p><code>pdo_mysql.default_socket</code>是否有<code>Ｌocal Value</code> 和 <code>Ｍaster Value</code></p>
+<p>没有的话,先进入mysql容器中的mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ docker exec -it mysql bash</span><br><span class="line">$ mysql -u root -p</span><br><span class="line"># enter your password</span><br></pre></td></tr></table></figure>
+<p>执行<br><code>mysql&gt; STATUS;</code></p>
+<p><img src="/img/docker/phpNgxinMysql/mysql.png" alt="mysql"></p>
+<p>记录下<code>UNIX socket</code>的值</p>
+<p>在你的<code>php.ini</code>文件将以下的几项配置为<code>UNIX socket</code>的值,没有自行添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pdo_mysql.default_socket</span><br><span class="line">mysql.default_socket</span><br><span class="line">mysqli.default_socket</span><br><span class="line"></span><br><span class="line">## 示范</span><br><span class="line">mysqli.default_socket = /var/run/mysqld/mysqld.sock</span><br></pre></td></tr></table></figure></p>
+<p>倘若还有问题,可以参考下<a href="https://stackoverflow.com/questions/22188026/sqlstatehy000-2002-no-such-file-or-directory" target="_blank" rel="noopener">stackoverflow上的这个问题</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">### 这里可以跳过,个人记录</span><br><span class="line">creating a symbolic link in: /var/mysql (create the directory if it does not exist)</span><br><span class="line">cd /var/mysql &amp;&amp; sudo ln -s /Applications/MAMP/tmp/mysql/mysql.sock</span><br><span class="line"></span><br><span class="line">This fixed it for me. I&apos;m not using MAMP though, so it was cd /var/mysql &amp;&amp; sudo ln -s /tmp/mysql.sock</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="SQLSTATE-HY000-General-error"><a href="#SQLSTATE-HY000-General-error" class="headerlink" title=" SQLSTATE[HY000]: General error "></a><strong> SQLSTATE[HY000]: General error </strong></h3><h3 id="SQLSTATE-HY000-2002"><a href="#SQLSTATE-HY000-2002" class="headerlink" title=" SQLSTATE[HY000] [2002] "></a><strong> SQLSTATE[HY000] [2002] </strong></h3><h3 id="SQLSTATE-HY000-2002-Connection-refused"><a href="#SQLSTATE-HY000-2002-Connection-refused" class="headerlink" title=" SQLSTATE[HY000] [2002] Connection refused "></a><strong> SQLSTATE[HY000] [2002] Connection refused </strong></h3><p>最后如果项目出现了这类问题,还需要修改项目配置文件的有关数据的配置</p>
+<p><code>&#39;DB_HOST&#39;=&gt;&#39;xxx&#39;,//数据服务器地址</code></p>
+<p><strong> <span class="under0">如果用的是虚拟主机,容器的话，’DB_HOST’ =&gt; ‘’,这一项应该填数据库的主机地址，而不是本机地址的localhost或者127.0.0.1 </span></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">执行</span><br><span class="line">docker inspect --format=&apos;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&apos; $CONTAINER_ID</span><br><span class="line"></span><br><span class="line">即可获得容器IP</span><br><span class="line"></span><br><span class="line">但是容器的ip每次启动都会改变，知道容器ip没什么意义！ </span><br><span class="line">但是容器的ip每次启动都会改变，知道容器ip没什么意义！ </span><br><span class="line">但是容器的ip每次启动都会改变，知道容器ip没什么意义！</span><br></pre></td></tr></table></figure>
+<p>这样配置即可,前提是你的容器命名为mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;DB_HOST&apos;=&gt;&apos;mysql&apos;,//数据服务器地址</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title=" 写在最后 "></a><strong> 写在最后 </strong></h3><p>以上就是搭建的大致记录。</p>
+<p>当然可以自己写一份<code>docker-compose.yml</code>使整个搭建过程自动化起来,只需要敲击几个命令即可,必行每次写shell也挺麻烦的。因为时间原因,这儿我就没写了。</p>
+<p>也可以发布成镜像,这样就可以一次搭建环境,永久使用了,下次重装了系统,拉取下即可。</p>
+<hr>
+<p><a href="https://www.awaimai.com/728.html" target="_blank" rel="noopener">Docker部署LNMP完整教程</a><br><a href="http://avnpc.com/pages/build-php-develop-env-by-docker" target="_blank" rel="noopener">Docker在PHP项目开发环境中的应用</a><br><a href="http://www.169it.com/article/9024845268002546255.html" target="_blank" rel="noopener">tar.xz如何解压:linux和windows下tar.xz解压命令介绍</a><br><a href="http://blog.csdn.net/w13770269691/article/details/6987384" target="_blank" rel="noopener">locate: can not stat () `/var/lib/mlocate/mlocate.db’: No such file or directory</a><br><a href="http://www.linuxidc.com/Linux/2012-12/76150.htm" target="_blank" rel="noopener">Mac下PHP连接MySQL报错＂No such file or directory＂的解决办法</a><br><a href="https://stackoverflow.com/questions/22188026/sqlstatehy000-2002-no-such-file-or-directory" target="_blank" rel="noopener">SQLSTATE[HY000] [2002] No such file or directory [duplicate]</a><br><a href="https://segmentfault.com/q/1010000001637726" target="_blank" rel="noopener">宿主机上如何获得 docker container 容器的 ip 地址？</a><br><a href="https://mozillazg.github.io/2016/01/docker-get-containers-ip-address.html" target="_blank" rel="noopener">如何获取 docker 容器(container)的 ip 地址</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

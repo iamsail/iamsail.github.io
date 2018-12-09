@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      MySQL缓存处理 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content="Preface 缓存可以加快我们的查询速度,但是在做性能优化的时候,通常需要关闭缓存,避免缓存给性能优化带来的影响。本文做些记录。   基础 sql_cache，将查询结果放入查询缓存中。sql_no_cache，查询的时候不缓存查询结果。sql_buffer_result，在查询语句中，将查询结果缓存到临时表中。 FLUSH QUERY CACHE，可以整理查询缓存，以更好的利用它的内存。这个">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL缓存处理 | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/05/03/the-cache-of-mysql/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 缓存可以加快我们的查询速度,但是在做性能优化的时候,通常需要关闭缓存,避免缓存给性能优化带来的影响。本文做些记录。   基础 sql_cache，将查询结果放入查询缓存中。sql_no_cache，查询的时候不缓存查询结果。sql_buffer_result，在查询语句中，将查询结果缓存到临时表中。 FLUSH QUERY CACHE，可以整理查询缓存，以更好的利用它的内存。这个">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL缓存处理 | Sail">
+<meta name="twitter:description" content="Preface 缓存可以加快我们的查询速度,但是在做性能优化的时候,通常需要关闭缓存,避免缓存给性能优化带来的影响。本文做些记录。   基础 sql_cache，将查询结果放入查询缓存中。sql_no_cache，查询的时候不缓存查询结果。sql_buffer_result，在查询语句中，将查询结果缓存到临时表中。 FLUSH QUERY CACHE，可以整理查询缓存，以更好的利用它的内存。这个">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">MySQL缓存处理</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-05-03" class="post-meta__date date">2018-05-03</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/数据库/">数据库</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/MySQL/">MySQL</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>缓存可以加快我们的查询速度,但是在做性能优化的时候,通常需要关闭缓存,避免缓存给性能优化带来的影响。本文做些记录。</p>
+<hr>
+<h4 id="基础"><a href="#基础" class="headerlink" title=" 基础 "></a><strong> 基础 </strong></h4><p><code>sql_cache</code>，将查询结果放入查询缓存中。<br><code>sql_no_cache</code>，查询的时候不缓存查询结果。<br><code>sql_buffer_result</code>，在查询语句中，将查询结果缓存到临时表中。</p>
+<p><code>FLUSH QUERY CACHE</code>，可以整理查询缓存，以更好的利用它的内存。这个命令不会从缓存中移除任何查询。<br><code>FLUSH TABLES</code>， 会转储清除查询缓存。<br><code>RESET QUERY CACHE</code>， 使命从查询缓存中移除所有的查询结果,重置查询缓存。</p>
+<h4 id="show-variables-like-‘-query-cache-’"><a href="#show-variables-like-‘-query-cache-’" class="headerlink" title=" show variables like ‘%query_cache%’; "></a><strong> show variables like ‘%query_cache%’; </strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; show variables like &apos;%query_cache%&apos;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">+------------------------------+----------+</span><br><span class="line">| Variable_name                | Value    |</span><br><span class="line">+------------------------------+----------+</span><br><span class="line">| have_query_cache             | YES      |</span><br><span class="line">| query_cache_limit            | 1048576  |</span><br><span class="line">| query_cache_min_res_unit     | 4096     |</span><br><span class="line">| query_cache_size             | 16777216 |</span><br><span class="line">| query_cache_type             | OFF      |</span><br><span class="line">| query_cache_wlock_invalidate | OFF      |</span><br><span class="line">+------------------------------+----------+</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">系统变量</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>have_query_cache</code></td>
+<td style="text-align:center">表示当前版本的MYSQL是否支持Query Cache.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>query_cache_limit</code></td>
+<td style="text-align:center">表示单个结果集所被允许缓存的最大值.默认是 1MB，超过此参数设置的 Query 结果集将不会被 Cache</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>query_cache_min_res_unit</code></td>
+<td style="text-align:center">每个被缓存的结果集要占用的最小内存.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>query_cache_type</code></td>
+<td style="text-align:center">mysql就是根据这个变量的值来决定到底要不要把查询结果放到查询缓存中. 有三个取值：0,1,2，分别代表了off、on、demand。</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>query_cache_size</code></td>
+<td style="text-align:center">使用的内存大小，默认值为 16M，大小必须是 1024 的整数倍，如果不是整数倍，MySQL 会自动调整降低最小量以达到 1024 的倍数</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>query_cache_wlock_invalidate</code></td>
+<td style="text-align:center">控制当有写锁加在表上的时候，是否先让该表相关的 Query Cache 失效</td>
+</tr>
+</tbody>
+</table>
+<h5 id="query-cache-type"><a href="#query-cache-type" class="headerlink" title=" query_cache_type "></a><strong> query_cache_type </strong></h5><table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0(OFF)</td>
+<td style="text-align:center">关闭 Query Cache 功能，任何情况下都不会使用 Query Cache</td>
+</tr>
+<tr>
+<td style="text-align:center">1(ON)</td>
+<td style="text-align:center">开启 Query Cache 功能，但是当 SELECT 语句中使用的 SQL_NO_CACHE 提示后，将不使用 Query Cache</td>
+</tr>
+<tr>
+<td style="text-align:center">2(DEMAND)</td>
+<td style="text-align:center">开启 Query Cache 功能，但是只有当 SELECT 语句中使用了 SQL_CACHE 提示后，才使用 Query Cache</td>
+</tr>
+</tbody>
+</table>
+<h5 id="query-cache-wlock-invalidate-值选项"><a href="#query-cache-wlock-invalidate-值选项" class="headerlink" title=" query_cache_wlock_invalidate 值选项 "></a><strong> query_cache_wlock_invalidate 值选项 </strong></h5><table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1(TRUE)</td>
+<td style="text-align:center">在写锁定的同时将使该表相关的所有 Query Cache 失效</td>
+</tr>
+<tr>
+<td style="text-align:center">0(FALSE)</td>
+<td style="text-align:center">在锁定时刻仍然允许读取该表相关的 Query Cache</td>
+</tr>
+</tbody>
+</table>
+<h4 id="SQL-NO-CACHE"><a href="#SQL-NO-CACHE" class="headerlink" title=" SQL_NO_CACHE "></a><strong> SQL_NO_CACHE </strong></h4><p>select 语句中使用 <code>SQL_NO_CACHE</code> 的意义为 这次查询的结果不会被缓存，如果这条语句的结果之前已经被缓存过，那么还有可能将会之前的缓存结果返回。即使<code>query_cache_type</code> 为 ON 或 1 。</p>
+<p>如果要重新测试，就在查询前先执行一下<code>FLUSH QUERY CACHE</code> or <code>RESET QUERY CACHE</code>。然后再带上SQL_NO_CACHE选项.</p>
+<p>当然将<code>query_cache_size</code>设置为0,也是可以使查询结果不被缓存的。如果需要禁止缓存最好将<code>query_cache_type</code>与<code>query_cache_size</code>调整为0.参考这篇文章<a href="http://www.ywnds.com/?p=7386" target="_blank" rel="noopener">MySQL为什么要关闭Query Cache？</a></p>
+<hr>
+<h4 id="show-status-like-‘-Qcache-’"><a href="#show-status-like-‘-Qcache-’" class="headerlink" title=" show status like ‘%Qcache%’; "></a><strong> show status like ‘%Qcache%’; </strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show status like &apos;%Qcache%&apos;;</span><br><span class="line">+-------------------------+----------+</span><br><span class="line">| Variable_name           | Value    |</span><br><span class="line">+-------------------------+----------+</span><br><span class="line">| Qcache_free_blocks      | 1        |</span><br><span class="line">| Qcache_free_memory      | 16760152 |</span><br><span class="line">| Qcache_hits             | 0        |</span><br><span class="line">| Qcache_inserts          | 0        |</span><br><span class="line">| Qcache_lowmem_prunes    | 0        |</span><br><span class="line">| Qcache_not_cached       | 1        |</span><br><span class="line">| Qcache_queries_in_cache | 0        |</span><br><span class="line">| Qcache_total_blocks     | 1        |</span><br><span class="line">+-------------------------+----------+</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">系统变量</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Qcache_free_blocks</td>
+<td style="text-align:center">表示查询缓存中目前还有多少剩余的blocks，如果该值显示较大，则说明查询缓存中的内存碎片过多了，可能在一定的时间进行整理。</td>
+</tr>
+<tr>
+<td style="text-align:center">Qcache_free_memory</td>
+<td style="text-align:center">查询缓存的内存大小，通过这个参数可以很清晰的知道当前系统的查询内存是否够用，是多了，还是不够用，DBA可以根据实际情况做出调整。</td>
+</tr>
+<tr>
+<td style="text-align:center">Qcache_hits</td>
+<td style="text-align:center">表示有多少次命中缓存。我们主要可以通过该值来验证我们的查询缓存的效果。数字越大，缓存效果越理想。</td>
+</tr>
+<tr>
+<td style="text-align:center">Qcache_inserts</td>
+<td style="text-align:center">表示多少次未命中然后插入，意思是新来的SQL请求在缓存中未找到，不得不执行查询处理，执行查询处理后把结果insert到查询缓存中。这样的情况的次数，次数越多，表示查询缓存应用到的比较少，效果也就不理想。当然系统刚启动后，查询缓存是空的，这很正常。</td>
+</tr>
+<tr>
+<td style="text-align:center">Qcache_lowmem_prunes</td>
+<td style="text-align:center">该参数记录有多少条查询因为内存不足而被移除出查询缓存。通过这个值，用户可以适当的调整缓存大小。</td>
+</tr>
+<tr>
+<td style="text-align:center">Qcache_not_cached</td>
+<td style="text-align:center">表示因为query_cache_type的设置而没有被缓存的查询数量</td>
+</tr>
+<tr>
+<td style="text-align:center">Qcache_queries_in_cache</td>
+<td style="text-align:center">当前缓存中缓存的查询数量</td>
+</tr>
+<tr>
+<td style="text-align:center">Qcache_total_blocks</td>
+<td style="text-align:center">当前缓存的block数量</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="是否需要缓存"><a href="#是否需要缓存" class="headerlink" title=" 是否需要缓存 "></a><strong> 是否需要缓存 </strong></h3><h5 id="在实际生产中-是否需要开启QC-是根据业务决定的-不过很多场景下都是不需要开启的。"><a href="#在实际生产中-是否需要开启QC-是根据业务决定的-不过很多场景下都是不需要开启的。" class="headerlink" title=" 在实际生产中,是否需要开启QC,是根据业务决定的,不过很多场景下都是不需要开启的。"></a><strong> 在实际生产中,是否需要开启QC,是根据业务决定的,不过很多场景下都是不需要开启的。</strong></h5><p>Query Cache有如下规则，如果数据表被更改，那么和这个数据表相关的全部Cache全部都会无效，并删除之。这里“数据表更改”包括: INSERT, UPDATE, DELETE, TRUNCATE, ALTER TABLE, DROP TABLE, or DROP DATABASE等。举个例子，如果数据表posts访问频繁，那么意味着它的很多数据会被QC缓存起来，但是每一次posts数据表的更新，无论更新是不是影响到了cache的数据，都会将全部和posts表相关的cache清除。如果你的数据表更新频繁的话，那么Query Cache将会成为系统的负担。有实验表明，糟糕时，QC会降低系统13%的处理能力。</p>
+<p>如果你的应用对数据库的更新很少，那么QC将会作用显著。比较典型的如博客系统，一般博客更新相对较慢，数据表相对稳定不变，这时候QC的作用会比较明显。如果数据库一共往QC中写入了约800W次缓存，但是实际命中的只有约500W次。也就是说，每一个缓存的使用率约为0.66次。很难说，该缓存的作用是否大于QC系统所带来的开销。但是有一点是很肯定的，QC缓存的作用是很微小的，如果应用层能够实现缓存，将可以忽略QC的效果。</p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="https://blog.csdn.net/jshuanghua/article/details/53858490" target="_blank" rel="noopener">MySQL高速缓存启动方法及参数详解(query_cache_size)</a><br><a href="http://www.dewen.net.cn/q/5149/Mysql" target="_blank" rel="noopener">Mysql SQL_NO_CACHE不生效的问题</a><br><a href="http://www.liaodiantec.com/a/news/9665" target="_blank" rel="noopener">你真的会用mysql 的SQL_NO_CACHE吗？</a><br><a href="https://cloud.tencent.com/developer/ask/43726" target="_blank" rel="noopener">MySQL-强制不使用缓存来测试查询速度？</a><br><a href="https://www.cnblogs.com/JiangLe/p/5337383.html" target="_blank" rel="noopener">MySQL query_cache_type 详解</a><br><a href="https://blog.csdn.net/wmsjlihuan/article/details/16337685" target="_blank" rel="noopener">mysql 查询缓存 query_cache_type</a><br><a href="https://segmentfault.com/a/1190000003039232" target="_blank" rel="noopener">MySql | 查询缓存笔记</a><br><a href="http://www.ywnds.com/?p=7386" target="_blank" rel="noopener">MySQL为什么要关闭Query Cache？</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

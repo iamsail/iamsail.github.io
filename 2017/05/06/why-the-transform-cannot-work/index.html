@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      transform失效了? | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content=".underline{         border-bottom:2px ridge red;     }     问题背景: 昨晚在某个群，看到一个问题: 大概是CSS动画,color属性能够生效，transform属性却没能生效。   作者写了个demo,重现了一下问题, 更多请戳demo  123456789101112131415161718192021222324.tow&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="transform失效了? | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/05/06/why-the-transform-cannot-work/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content=".underline{         border-bottom:2px ridge red;     }     问题背景: 昨晚在某个群，看到一个问题: 大概是CSS动画,color属性能够生效，transform属性却没能生效。   作者写了个demo,重现了一下问题, 更多请戳demo  123456789101112131415161718192021222324.tow&amp;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.sail.name/img/htmlcss/inlines.png">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="transform失效了? | Sail">
+<meta name="twitter:description" content=".underline{         border-bottom:2px ridge red;     }     问题背景: 昨晚在某个群，看到一个问题: 大概是CSS动画,color属性能够生效，transform属性却没能生效。   作者写了个demo,重现了一下问题, 更多请戳demo  123456789101112131415161718192021222324.tow&amp;">
+<meta name="twitter:image" content="http://www.sail.name/img/htmlcss/inlines.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">transform失效了?</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-05-06" class="post-meta__date date">2017-05-06</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/HTML-CSS/">HTML&&CSS</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <style>
+
+    .underline{
+        border-bottom:2px ridge red;
+    }
+
+</style>
+
+<h4 id="问题背景"><a href="#问题背景" class="headerlink" title=" 问题背景: "></a><strong> 问题背景: </strong></h4><p>昨晚在某个群，看到一个问题:<strong> 大概是CSS动画,color属性能够生效，transform属性却没能生效。 </strong></p>
+<hr>
+<p>作者写了个demo,重现了一下问题,<strong> 更多请戳<a href="http://www.sail.name/CSS_Demo/why-the-transform-cannot-work-test.html">demo</a> </strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">.tow&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    border-radius: 50%;</span><br><span class="line">    background-color: red;</span><br><span class="line">    /*display: inline-block;*/</span><br><span class="line">    animation: test 5s 1s infinite;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height:200px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes test &#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        transform: translateX(0px);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    100%&#123;</span><br><span class="line">        background-color: darkturquoise;</span><br><span class="line">        transform: translateX(500px);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;span class=&quot;tow&quot;&gt;tow&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>上面这段代码只能看到背景颜色的转变,却看不到transform的变化</p>
+<p>最后这位同学在样式中设置了<code>display:inline-block</code>就搞定了</p>
+<hr>
+<p>当时我正在复习概率论。今天查阅了些资料,大致弄明白其中的道理。</p>
+<p><a href="https://www.w3.org/TR/css-transforms-1/#transform-property" target="_blank" rel="noopener">规范中有这样一段描述:</a></p>
+<p><strong> transformable element </strong><br><strong> A transformable element is an element in one of these categories: </strong><br>an element whose layout is governed by the CSS box model<span class="underline"> which is either a block-level or atomic inline-level element,</span>or whose display property computes to table-row, table-row-group, table-header-group, table-footer-group, table-cell, or table-caption [CSS21]<br>an element in the SVG namespace and not governed by the CSS box model which has the attributes transform, ‘patternTransform‘ or gradientTransform [SVG11].</p>
+<p>注意到下划线部分:<strong> which is either a block-level or atomic inline-level element </strong></p>
+<p>transform适用的范围包括但不限于a block-level or atomic inline-level element</p>
+<p>block-level本文并不讨论。这里我想谈谈Inline-level elements , inline boxes ,Inline-level boxes</p>
+<p><strong> 依旧先看看规范 </strong></p>
+<p><strong> Inline-level elements and inline boxes </strong></p>
+<p><span class="underline">Inline-level elements are those elements of the source document that do not form new blocks of content; </span>the content is distributed in lines (e.g., emphasized pieces of text within a paragraph, inline images, etc.). <span class="underline">The following values of the ‘display’ property make an element inline-level: ‘inline’, ‘inline-table’, and ‘inline-block’. </span>Inline-level elements generate inline-level boxes, which are boxes that participate in an inline formatting context.</p>
+<p>An inline box is one that is both inline-level and whose contents participate in its containing inline formatting context.<span class="underline"> A <strong> non-replaced </strong> element with a ‘display’ value of ‘inline’ generates an inline box. Inline-level boxes that are not inline boxes (such as replaced inline-level elements, inline-block elements, and inline-table elements) are called <strong> atomic inline-level boxes </strong> because they participate in their inline formatting context as a single opaque box.</span></p>
+<hr>
+<p>上面这两段我反复读了数十次,一直翻译不好。</p>
+<p>最后在<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model" target="_blank" rel="noopener">MDN</a>上看到一段翻译,如下</p>
+<p>行内级元素生成行内级盒(inline-level boxes)，参与行内格式化上下文(inline formatting context)。同时参与生成行内格式化上下文的行内级盒称为行内盒(Inline boxes)。所有display:inline 的非替换元素生成的盒是行内盒。而不参与生成行内格式化上下文的行内级盒称为原子行内级盒(atomic inline-level boxes)。这些盒由可替换行内元素，或 display 值为 inline-block 或 inline-table 的元素生成，不能拆分成多个盒</p>
+<p><strong> 或许你会有些疑惑,为什么和你的翻译不一样。文末会进行解答 </strong></p>
+<p>看看下图加深理解</p>
+<p><img src="/img/htmlcss/inlines.png" alt="inlines.png"></p>
+<p>当一个元素的display的值为inline,inline-table,inline-block时,这个元素是行内级元素/内联级元素(Inline-level elements)。这些行内级元素会生成一个行内级盒,即inline-level boxes。倘若这个盒子还同时参与生成行内格式化上下文(IFC),该行内级盒称为行内盒(Inline boxes)。而用inline-level boxes集合减去Inline boxes集合便是atomic inline-level boxes(原子行内级盒)。即是不参与生成行内格式化上下文的行内级盒。<strong> 这些盒由可替换行内元素，或 display 值为 inline-block 或 inline-table 的元素生成，不能拆分成多个盒。</strong></p>
+<p>至于什么是可替换元素,什么是不可替换元素,<a href="https://www.w3.org/TR/CSS21/conform.html" target="_blank" rel="noopener">戳这儿</a></p>
+<hr>
+<p>回到最初,这位同学之所以在样式中设置了<code>display:inline-block</code>就解决了问题。</p>
+<p><strong> 是因为transform作用于transformable element(作者在这里译为可变元素), </strong>有以下两种</p>
+<p>1.an element whose layout is governed by the CSS box model<span class="underline"> which is either a block-level or atomic inline-level element, </span>or whose display property computes to table-row, table-row-group, table-header-group, table-footer-group, table-cell, or table-caption [CSS21]</p>
+<p>2.an element in the SVG namespace and not governed by the CSS box model which has the attributes transform, ‘patternTransform‘ or gradientTransform [SVG11].</p>
+<p><strong> span会形成inline boxes,而不会形成atomic inline-level boxes。span本身并不是可变元素,在设置<code>display:inline-block</code>就是atomic inline-level boxes。</strong></p>
+<hr>
+<p>在查阅文档过程中遇到几个问题</p>
+<p>1.规范在对atomic inline-level boxes出现了 a single opaque box。single比较好理解,单个的,不可拆分的。而opaque是不透明的意思,MDN上的翻译,直接忽略了这个词。规范中确乎有一处进行了描述,<a href="https://www.w3.org/2009/07/B-and-B/border-image-shadow-combine.html" target="_blank" rel="noopener">戳这儿</a>。这里作者的理解就是从字面意思理解,不透明的。如果你有更好的理解,可以告诉我。</p>
+<p>2.第二个问题,是规范中有处错误,导致我的走了一些弯路。这里指出</p>
+<p><span class="underline">Inline-level boxes </span> that are not <span class="underline"> inline boxes </span>  (such as replaced inline-level elements, inline-block elements, and inline-table elements) are called atomic inline-level boxes because they participate in their inline formatting context as a single opaque box.</p>
+<p>在上面这段中,有两处下滑线和一对括号。<strong> 括号是应该紧放在需要进行形容,具体说明的词的后方。 </strong>按照这段文字的表达,括号中的内容是对inline boxes进行说明的。而实际上括号中的内容是对inline-boxes的具体诠释。</p>
+<p>作者便是在这儿疑惑不已,耽误了几个小时。<strong> 最后在高中同桌答谋锐的帮助下理清了思路。 </strong></p>
+<hr>
+<h4 id="写在最后"><a href="#写在最后" class="headerlink" title=" 写在最后 "></a><strong> 写在最后 </strong></h4><ul>
+<li><strong> 感谢小志的赞赏 </strong>,虽然我只是提出了一个问题而已。</li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

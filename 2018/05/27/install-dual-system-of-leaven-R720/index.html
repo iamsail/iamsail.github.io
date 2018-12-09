@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      联想R720安装双系统问题记录 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content="Preface 昨晚帮同学装了双系统,是新买的电脑,联想拯救者R720。记录下遇到几个问题,或许以后还会碰到。 这个本子是512G的ssd,是在这个硬盘里装win10+Ubuntu16。一个磁盘win10,一个磁盘Ubuntu16。 我自己电脑是ssd装的ubuntu,机械装的win10。因为之前给自己装的时候,全部装在ssd始终没成功,以后或许可以再试试。   分区 因为我们Ubuntu是单独">
+<meta property="og:type" content="article">
+<meta property="og:title" content="联想R720安装双系统问题记录 | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/05/27/install-dual-system-of-leaven-R720/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 昨晚帮同学装了双系统,是新买的电脑,联想拯救者R720。记录下遇到几个问题,或许以后还会碰到。 这个本子是512G的ssd,是在这个硬盘里装win10+Ubuntu16。一个磁盘win10,一个磁盘Ubuntu16。 我自己电脑是ssd装的ubuntu,机械装的win10。因为之前给自己装的时候,全部装在ssd始终没成功,以后或许可以再试试。   分区 因为我们Ubuntu是单独">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="联想R720安装双系统问题记录 | Sail">
+<meta name="twitter:description" content="Preface 昨晚帮同学装了双系统,是新买的电脑,联想拯救者R720。记录下遇到几个问题,或许以后还会碰到。 这个本子是512G的ssd,是在这个硬盘里装win10+Ubuntu16。一个磁盘win10,一个磁盘Ubuntu16。 我自己电脑是ssd装的ubuntu,机械装的win10。因为之前给自己装的时候,全部装在ssd始终没成功,以后或许可以再试试。   分区 因为我们Ubuntu是单独">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">联想R720安装双系统问题记录</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-05-27" class="post-meta__date date">2018-05-27</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/代码人生/">代码人生</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>昨晚帮同学装了双系统,是新买的电脑,<strong>联想拯救者R720</strong>。记录下遇到几个问题,或许以后还会碰到。</p>
+<p><strong>这个本子是512G的ssd,是在这个硬盘里装win10+Ubuntu16</strong>。一个磁盘win10,一个磁盘Ubuntu16。</p>
+<p>我自己电脑是ssd装的ubuntu,机械装的win10。因为之前给自己装的时候,全部装在ssd始终没成功,以后或许可以再试试。</p>
+<hr>
+<h3 id="分区"><a href="#分区" class="headerlink" title=" 分区 "></a><strong> 分区 </strong></h3><p>因为我们Ubuntu是单独装在一个磁盘里的,安装的时候会涉及到一个分区的问题。</p>
+<p>这是我以前看的一篇博文的建议如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">安装的过程中需要涉及到分区，为了以免日后重装，我的建议是如下分区：</span><br><span class="line">1）、20G,主分区,空间起始位置,Ext4日志文件系统,挂载点/</span><br><span class="line">2）、内存的大小,8G,逻辑分区,空间起始位置,swap交换空间,无挂载点</span><br><span class="line">3）、200MB,逻辑分区,空间起始位置,Ext4日志文件系统,/boot</span><br><span class="line">4）、剩余的空间,逻辑分区,空间起始位置,Ext4日志文件系统,/home</span><br></pre></td></tr></table></figure></p>
+<p><strong> 图表展示 </strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">大小(MB)</th>
+<th style="text-align:center">新分区类型</th>
+<th style="text-align:center">新分区的位置</th>
+<th style="text-align:center">用于</th>
+<th style="text-align:center">挂载点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">20000</td>
+<td style="text-align:center">主分区</td>
+<td style="text-align:center">空间起始位置</td>
+<td style="text-align:center">Ext4日志文件系统</td>
+<td style="text-align:center">/</td>
+</tr>
+<tr>
+<td style="text-align:center">8000</td>
+<td style="text-align:center">逻辑分区</td>
+<td style="text-align:center">空间起始位置</td>
+<td style="text-align:center">交换空间</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:center">逻辑分区</td>
+<td style="text-align:center">空间起始位置</td>
+<td style="text-align:center">Ext4日志文件系统</td>
+<td style="text-align:center">/boot</td>
+</tr>
+<tr>
+<td style="text-align:center">剩余的空间</td>
+<td style="text-align:center">逻辑分区</td>
+<td style="text-align:center">空间起始位置</td>
+<td style="text-align:center">Ext4日志文件系统</td>
+<td style="text-align:center">/home</td>
+</tr>
+</tbody>
+</table>
+<p>当然空间充足的话,可以给8000,200MB调大些,我一般都会多加几个G。</p>
+<hr>
+<h3 id="BIOS设置"><a href="#BIOS设置" class="headerlink" title=" BIOS设置 "></a><strong> BIOS设置 </strong></h3><p>这里我是用U盘做的Ubuntu的启动盘,因为PC本身就是win10。但是这个本子却检测不了,不能进入安装界面。</p>
+<p>需要对BIOS(F2进入BIOS)进行如下修改</p>
+<p>1.进入<code>Configuration</code>选项，将<code>SATA Controller Mode</code>选为<code>ACHI</code>模式（不选为这个模式的话安装的时候ubuntu读不出来硬盘）。<br>2.进入<code>Security</code>选项将<code>Secure Boot</code>选为<code>disabled</code>。</p>
+<p>当然需要自己修改为优先U盘启动电脑(F12).<br>如果后面不能进入windows,就将刚才那两个BIOS修改的地方改回之前的值即可。 </p>
+<hr>
+<h3 id="无线网卡问题-搜不到wifi"><a href="#无线网卡问题-搜不到wifi" class="headerlink" title=" 无线网卡问题(搜不到wifi) "></a><strong> 无线网卡问题(搜不到wifi) </strong></h3><p>装好系统过后,发现搜索不到WiFi,后来定位到是无线网卡问题。最终在贴吧找到了解决方法(贴吧真的大神多),<strong>这里做下搬运工,链接已经放在了文末</strong>。</p>
+<p>之前，在本吧发了一篇《亲测 联想r720 双硬盘+win10+Ubuntu16.04双系统安装》的帖子。在装好Ubuntu16.04后，发现联想R720的无线网卡（RTL8821AE）存在hard blocked问题（即“Enable Wi-Fi”不起作用）以及wifi信号易断开问题。故在次将我的解决方法写出来，供大家参考。</p>
+<h4 id="问题一"><a href="#问题一" class="headerlink" title=" 问题一 "></a><strong> 问题一 </strong></h4><p><strong> 1.1 问题描述 </strong><br>笔记本型号：Lenovo r720笔记本（i5-7300hq，gtx1060 maxq 6g），默认装入Win10系统，然而当装入Ubuntu16.04双系统时，会出现无线网卡（型号：RTL8821AE）被hard blocked问题。<br>即：<br>在终端敲入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rfkill list all</span><br></pre></td></tr></table></figure></p>
+<p>会出现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">0:ideapad_wlan: Wireless LAN</span><br><span class="line">Soft blocked: no</span><br><span class="line">Hard blocked:yes</span><br><span class="line">1:ideapad_bluetooth: Bluetooth</span><br><span class="line">Soft blocked: no</span><br><span class="line">Hard blocked: yes</span><br><span class="line">2:phy0: Wireless LAN</span><br><span class="line">Soft blocked: no</span><br><span class="line">Hard blocked:no</span><br><span class="line">3:hci0: Bluetooth</span><br><span class="line">Soft blocked: yes</span><br><span class="line">Hard blocked: no</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，优先级前的<code>ideapad_wlan</code>的<code>Hard blocked</code>默认为<code>yes</code>，<strong> <span class="under0">即ubuntu默认关闭了硬件wifi开关，而联想R720的wifi只有软件开关，没有硬件开关的启动，所以引起了wifi无法开启的问题。</span> </strong></p>
+<p><strong> 1.2 解决方法 </strong><br>从无线模块的显示列表可以看出，序号2的wifi模块是软硬件是可以启动的，所以，只要将前面默认的模块移出即可。</p>
+<h4 id="a）方法一："><a href="#a）方法一：" class="headerlink" title="  a）方法一： "></a><strong> <span class="under0"> a）方法一：</span> </strong></h4><p>1）移出ideapad无线模块：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe -r ideapad_laptop</span><br></pre></td></tr></table></figure></p>
+<p>2）使用命令查看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rfkill list all</span><br></pre></td></tr></table></figure></p>
+<p>如下提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2:phy0: Wireless LAN</span><br><span class="line">Soft blocked: no</span><br><span class="line">Hard blocked:no</span><br><span class="line">3:hci0: Bluetooth</span><br><span class="line">Soft blocked: yes</span><br><span class="line">Hard blocked: no</span><br></pre></td></tr></table></figure></p>
+<p>即wifi模块工作正常，然而每次重启ubuntu系统都要重新进行模块移出，故可将该命令设置为开机自启动。<br>3）在<code>/etc/rc.local</code>文件中添加命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#!/bin/sh -e</span><br><span class="line">#</span><br><span class="line"># rc.local</span><br><span class="line">#</span><br><span class="line"># This script is executed at the end of each multiuser runlevel.</span><br><span class="line"># Make sure that the script will &quot;exit 0&quot; on success or any other</span><br><span class="line"># value on error.</span><br><span class="line">#</span><br><span class="line"># In order to enable or disable this script just change the execution</span><br><span class="line"># bits.</span><br><span class="line">#</span><br><span class="line"># By default this script does nothing.</span><br><span class="line">#因为使用的是非管理员登录，故在执行sudo命令时要输入密码，方可自动化执行，</span><br><span class="line">#此处假设用户密码为123，命令一定要在exit 0之前运行，该文件如果没有修改权限</span><br><span class="line">#修改前使用 chmod 命令修改权限即可！</span><br><span class="line">echo &quot;123&quot; |sudo modprobe -r ideapad_laptop</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure></p>
+<p>开机启动后系统会自动执行改脚本文件，完成wifi模块的自动移出操作。</p>
+<h4 id="b）方法二（推荐）："><a href="#b）方法二（推荐）：" class="headerlink" title=" b）方法二（推荐）： "></a><strong><span class="under0"> b）方法二（推荐）：</span> </strong></h4><p>通过列入黑名单的方式来实现自动移出<code>ideapad_laptop</code>设备。<br>1）创建<code>/etc/modprobe.d/ideapad.conf</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/modprobe.d/ideapad.conf</span><br></pre></td></tr></table></figure></p>
+<p>2）编辑<code>ideapad.conf</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit ideapad.conf</span><br></pre></td></tr></table></figure></p>
+<p>3) 在<code>ideapad.conf</code>文件中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blacklist ideapad_laptop</span><br></pre></td></tr></table></figure></p>
+<p>4) 关闭并保存<code>ideapad.conf</code>文件，移除<code>ideapad_laptop</code>设备：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe -r ideapad_laptop</span><br></pre></td></tr></table></figure></p>
+<p>5) 注销重启Ubuntu系统，可以看到无线设备能够被打开，并能搜索到WiFi信号。</p>
+<h4 id="问题二"><a href="#问题二" class="headerlink" title=" 问题二 "></a><strong> 问题二 </strong></h4><p>2.1 问题描述<br>在解决以上无线网卡开启问题后，发现已连接的wifi容易断开并且信号强度较差</p>
+<p>2.2 解决方法<br>1）插上有线网<br>2）打开终端<br>3）在终端依次执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git build-essential linux-headers-$(uname -r)</span><br><span class="line"></span><br><span class="line">git clone https://github.com/lwfinger/rtlwifi_new.git</span><br><span class="line"></span><br><span class="line">cd rtlwifi_new</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>4）重启计算机</p>
+<hr>
+<h3 id="宽带连接问题"><a href="#宽带连接问题" class="headerlink" title=" 宽带连接问题 "></a><strong> 宽带连接问题 </strong></h3><p>这个本子在网线连接宽带的时候，也出现了一个错误,如下</p>
+<p><strong> 抱歉,扫描了2个接口,但供应商的访问集中器没有响应。请检查您的网线以及调制解调器的线缆是否接好。导致扫描失败的另一个可能原因是其他的pppoe进程正在占用调制解调器。 </strong></p>
+<p>据同学反馈,解决如下</p>
+<p>编辑<code>/etc/NetworkManager/NetworkManager.conf</code>，将<code>managed=false</code>改成<code>managed=true</code> 然后重启.</p>
+<hr>
+<p>Linux里面有两套管理网络连接的方案：</p>
+<p>1、/etc/network/interfaces（/etc/init.d/networking）<br>2、Network-Manager</p>
+<p>两套方案是冲突的，不能同时共存。</p>
+<p><strong><span class="under0"> 第一个方案适用于没有X的环境，如：服务器；或者那些完全不需要改动连接的场合。 第二套方案使用于有桌面的环境，特别是笔记本，搬来搬去，网络连接情况随时会变的。 </span></strong></p>
+<p>他们两个为了避免冲突，又能共享配置，就有了下面的解决方案：</p>
+<p>1、当<code>Network-Manager</code>发现<code>/etc/network/interfaces</code>被改动的时候，则关闭自己（显示为未托管），除非<code>managed</code>设置成真。</p>
+<p>2、当<code>managed</code>设置成真时，<code>/etc/network/interfaces</code>，则不生效。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/NetworkManager/NetworkManager.conf</span><br></pre></td></tr></table></figure>
+<p>将<code>managed=false</code>改成<code>true</code>，重启一下就可以了。</p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="https://blog.csdn.net/fesdgasdgasdg/article/details/54183577" target="_blank" rel="noopener">Ubuntu 16.04与Win10双系统双硬盘安装图解</a><br><a href="https://blog.csdn.net/u013036495/article/details/75043228?locationNum=5&amp;fps=1" target="_blank" rel="noopener">联想拯救者r720自带win10安装linux（ubuntu）双系统</a><br><a href="http://tieba.baidu.com/p/5281696783" target="_blank" rel="noopener">解决Ubuntu16.04下联想R720的无线网卡开启问题及信号不稳定问…</a><br><a href="https://www.cnblogs.com/zhaiyf/p/8979975.html" target="_blank" rel="noopener">Ubuntu：未找到合法的活动链接</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

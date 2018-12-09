@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      MySQL性能分析 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content="Preface 本文是对MySQL中性能分析的EXPLAIN和PROFILE的介绍   EXPLAIN EXPLAIN语句提供了有关SELECT语句的执行计划的信息。完整的EXPLAIN用法见官方文档 EXPLAIN返回SELECT语句中使用的每个表的一行信息。 它按照MySQL在处理语句时读取它们的顺序列出输出中的表。 MySQL使用嵌套循环连接方法解析所有连接。 这意味着MySQL从第一个表">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL性能分析 | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/05/06/Performance-analysis-of-mysql/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 本文是对MySQL中性能分析的EXPLAIN和PROFILE的介绍   EXPLAIN EXPLAIN语句提供了有关SELECT语句的执行计划的信息。完整的EXPLAIN用法见官方文档 EXPLAIN返回SELECT语句中使用的每个表的一行信息。 它按照MySQL在处理语句时读取它们的顺序列出输出中的表。 MySQL使用嵌套循环连接方法解析所有连接。 这意味着MySQL从第一个表">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL性能分析 | Sail">
+<meta name="twitter:description" content="Preface 本文是对MySQL中性能分析的EXPLAIN和PROFILE的介绍   EXPLAIN EXPLAIN语句提供了有关SELECT语句的执行计划的信息。完整的EXPLAIN用法见官方文档 EXPLAIN返回SELECT语句中使用的每个表的一行信息。 它按照MySQL在处理语句时读取它们的顺序列出输出中的表。 MySQL使用嵌套循环连接方法解析所有连接。 这意味着MySQL从第一个表">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">MySQL性能分析</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-05-06" class="post-meta__date date">2018-05-06</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/数据库/">数据库</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/MySQL/">MySQL</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>本文是对MySQL中性能分析的<code>EXPLAIN</code>和<code>PROFILE</code>的介绍</p>
+<hr>
+<h3 id="EXPLAIN"><a href="#EXPLAIN" class="headerlink" title=" EXPLAIN "></a><strong> EXPLAIN </strong></h3><p>EXPLAIN语句提供了有关SELECT语句的执行计划的信息。完整的EXPLAIN用法见<a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html" target="_blank" rel="noopener">官方文档</a></p>
+<p>EXPLAIN返回SELECT语句中使用的每个表的一行信息。 它按照MySQL在处理语句时读取它们的顺序列出输出中的表。 MySQL使用嵌套循环连接方法解析所有连接。 这意味着MySQL从第一个表中读取一行，然后在第二个表，第三个表等中找到匹配的行。 处理完所有表后，MySQL将通过表列表输出所选列和回溯，直到找到有更多匹配行的表。 下一行从该表中读取，并且该过程继续下一个表.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; explain select * from help_category;</span><br><span class="line">+----+-------------+---------------+------------+------+---------------+------+---------+------+------+----------+-------+</span><br><span class="line">| id | select_type | table         | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |</span><br><span class="line">+----+-------------+---------------+------------+------+---------------+------+---------+------+------+----------+-------+</span><br><span class="line">|  1 | SIMPLE      | help_category | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   40 |   100.00 | NULL  |</span><br><span class="line">+----+-------------+---------------+------------+------+---------------+------+---------+------+------+----------+-------+</span><br><span class="line">1 row in set, 1 warning (0.00 sec)</span><br><span class="line"></span><br><span class="line">&lt;=====&gt;</span><br><span class="line"></span><br><span class="line">mysql&gt; explain select * from help_category\G;</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">           id: 1</span><br><span class="line">  select_type: SIMPLE</span><br><span class="line">        table: help_category</span><br><span class="line">   partitions: NULL</span><br><span class="line">         type: ALL</span><br><span class="line">possible_keys: NULL</span><br><span class="line">          key: NULL</span><br><span class="line">      key_len: NULL</span><br><span class="line">          ref: NULL</span><br><span class="line">         rows: 40</span><br><span class="line">     filtered: 100.00</span><br><span class="line">        Extra: NULL</span><br><span class="line">1 row in set, 1 warning (0.00 sec)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">列</th>
+<th style="text-align:center">北京</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">查询标识符</td>
+</tr>
+<tr>
+<td style="text-align:center">select_type</td>
+<td style="text-align:center">查询类型</td>
+</tr>
+<tr>
+<td style="text-align:center">table</td>
+<td style="text-align:center">显示这一行的数据是关于哪张表</td>
+</tr>
+<tr>
+<td style="text-align:center">partitions</td>
+<td style="text-align:center">使用的哪个分区</td>
+</tr>
+<tr>
+<td style="text-align:center">type</td>
+<td style="text-align:center"><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain-join-types" target="_blank" rel="noopener">the join type</a>,描述这些表是如何连接的</td>
+</tr>
+<tr>
+<td style="text-align:center">possible_keys</td>
+<td style="text-align:center">可能用到的索引</td>
+</tr>
+<tr>
+<td style="text-align:center">key</td>
+<td style="text-align:center">实际用到的索引</td>
+</tr>
+<tr>
+<td style="text-align:center">key_len</td>
+<td style="text-align:center">实际用到的索引的长度</td>
+</tr>
+<tr>
+<td style="text-align:center">ref</td>
+<td style="text-align:center">引用索引对应的表中哪些行</td>
+</tr>
+<tr>
+<td style="text-align:center">rows</td>
+<td style="text-align:center">该查询遍历了多少行数据</td>
+</tr>
+<tr>
+<td style="text-align:center">filtered</td>
+<td style="text-align:center">通过过滤条件之后对比总数的百分比</td>
+</tr>
+<tr>
+<td style="text-align:center">Extra</td>
+<td style="text-align:center">额外信息</td>
+</tr>
+</tbody>
+</table>
+<h4 id="select-type"><a href="#select-type" class="headerlink" title=" select_type "></a><strong> select_type </strong></h4><table>
+<thead>
+<tr>
+<th style="text-align:center">查询类型值</th>
+<th style="text-align:center">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">SIMPLE</td>
+<td style="text-align:center">简单select(不使用union或子查询)</td>
+</tr>
+<tr>
+<td style="text-align:center">PRIMARY</td>
+<td style="text-align:center">最外面的select</td>
+</tr>
+<tr>
+<td style="text-align:center">UNION</td>
+<td style="text-align:center">union中的第二个或后面的select</td>
+</tr>
+<tr>
+<td style="text-align:center">DEPENDENT UNION</td>
+<td style="text-align:center">union union中的第二个或后面的select语句,取决于外面的查询</td>
+</tr>
+<tr>
+<td style="text-align:center">UNION RESULT</td>
+<td style="text-align:center">result union的结果</td>
+</tr>
+<tr>
+<td style="text-align:center">SUBQUERY</td>
+<td style="text-align:center">子查询中的第一个select</td>
+</tr>
+<tr>
+<td style="text-align:center">DEPENDENT SUBQUERY</td>
+<td style="text-align:center">subquery 子查询中的第一个select,取决于外面的查询</td>
+</tr>
+<tr>
+<td style="text-align:center">UNCACHEABLE SUBQUERY</td>
+<td style="text-align:center">不可缓存的子查询,必须重新评估外部查询的每一行</td>
+</tr>
+<tr>
+<td style="text-align:center">UNCACHEABLE UNION</td>
+<td style="text-align:center">union中的第二个或后面的select,且属于UNCACHEABLE SUBQUERY</td>
+</tr>
+</tbody>
+</table>
+<h4 id="type"><a href="#type" class="headerlink" title=" type "></a><strong> type </strong></h4><p>从最好到最差的连接类型:</p>
+<p><code>system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL</code></p>
+<p>ALL代表扫描了全表才确定结果。一般来说,得保证查询至少达到range级别,最好能达到ref。可以通过加索引等方法来优化。</p>
+<hr>
+<h3 id="PROFILE"><a href="#PROFILE" class="headerlink" title=" PROFILE "></a><strong> PROFILE </strong></h3><p>当我们要对某一条sql的性能进行分析时,可以使用PROFILE来分析SQL语句的执行过程。</p>
+<p>这个我用得还不多,推荐阅读<a href="http://www.ywnds.com/?p=8677" target="_blank" rel="noopener">MySQL使用profile分析SQL语句执行过程</a></p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="https://dev.mysql.com/doc/refman/5.5/en/explain-output.html" target="_blank" rel="noopener">EXPLAIN Output Format</a><br><a href="https://tech.meituan.com/mysql-index.html" target="_blank" rel="noopener">MySQL索引原理及慢查询优化</a><br><a href="http://www.imooc.com/article/1204" target="_blank" rel="noopener">Mysql处理海量数据时的一些优化查询速度方法</a><br><a href="http://www.cnblogs.com/nixi8/p/4574709.html" target="_blank" rel="noopener">【mysql的设计与优化专题(6)】mysql索引攻略</a><br><a href="https://blog.csdn.net/u012410733/article/details/66472157" target="_blank" rel="noopener">mysql 执行计划explain详解</a><br><a href="http://www.ywnds.com/?p=8677" target="_blank" rel="noopener">MySQL使用profile分析SQL语句执行过程</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

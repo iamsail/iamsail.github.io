@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      MySQL字符编码相关设置 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content="Preface 最近开发的时候,因为数据库相关字段编码设置的问题,出现了bug。本文是对MySQL字符编码相关设置的记录。 本文较多参考了鸟哥的 深入Mysql字符集设置 一文,更多参考链接均在文末。   基本概念 •  字符(Character) 是指人类语言中最小的表义符号。例如’A’、’B’等； • 给定一系列字符，对每个字符赋予一个数值，用数值来代表对应的字符，这一数值就是 字符的编码">
+<meta name="keywords" content="MySQL,SQL,字符编码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL字符编码相关设置 | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/03/03/the-setting-of-Character-encoding-format-about-mysql/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 最近开发的时候,因为数据库相关字段编码设置的问题,出现了bug。本文是对MySQL字符编码相关设置的记录。 本文较多参考了鸟哥的 深入Mysql字符集设置 一文,更多参考链接均在文末。   基本概念 •  字符(Character) 是指人类语言中最小的表义符号。例如’A’、’B’等； • 给定一系列字符，对每个字符赋予一个数值，用数值来代表对应的字符，这一数值就是 字符的编码">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.sail.name/img/database/the-setting-of-Character-encoding-format-about-mysql/1.jpg">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL字符编码相关设置 | Sail">
+<meta name="twitter:description" content="Preface 最近开发的时候,因为数据库相关字段编码设置的问题,出现了bug。本文是对MySQL字符编码相关设置的记录。 本文较多参考了鸟哥的 深入Mysql字符集设置 一文,更多参考链接均在文末。   基本概念 •  字符(Character) 是指人类语言中最小的表义符号。例如’A’、’B’等； • 给定一系列字符，对每个字符赋予一个数值，用数值来代表对应的字符，这一数值就是 字符的编码">
+<meta name="twitter:image" content="http://www.sail.name/img/database/the-setting-of-Character-encoding-format-about-mysql/1.jpg">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">MySQL字符编码相关设置</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-03-03" class="post-meta__date date">2018-03-03</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/数据库/">数据库</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/MySQL/">MySQL</a>, <a class="tags-link" href="/tags/SQL/">SQL</a>, <a class="tags-link" href="/tags/字符编码/">字符编码</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title="  Preface "></a><strong>  Preface </strong></h3><p>最近开发的时候,因为数据库相关字段编码设置的问题,出现了bug。本文是对MySQL字符编码相关设置的记录。</p>
+<p>本文较多参考了鸟哥的<a href="http://www.laruence.com/2008/01/05/12.html" target="_blank" rel="noopener"> 深入Mysql字符集设置 </a>一文,更多参考链接均在文末。</p>
+<hr>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title=" 基本概念 "></a><strong> 基本概念 </strong></h3><p>• <strong> 字符(Character) </strong>是指人类语言中最小的表义符号。例如’A’、’B’等；</p>
+<p>• 给定一系列字符，对每个字符赋予一个数值，用数值来代表对应的字符，这一数值就是<strong> 字符的编码(Encoding) </strong>。例如，我们给字符’A’赋予数值0，给字符’B’赋予数值1，则0就是字符’A’的编码；</p>
+<p>• 给定一系列字符并赋予对应的编码后，所有这些字符和编码对组成的集合就是<strong> 字符集(Character Set) </strong>。例如，给定字符列表为{‘A’,’B’}时，{‘A’=&gt;0, ‘B’=&gt;1}就是一个字符集；</p>
+<p>• <strong> 字符序(Collation) </strong>是指在同一字符集内字符之间的比较规则；</p>
+<p>• 确定字符序后，才能在一个字符集上定义什么是等价的字符，以及字符之间的大小关系；</p>
+<p>• <strong> 每个字符序唯一对应一种字符集，但一个字符集可以对应多种字符序，其中有一个是默认字符序(Default Collation)；</strong></p>
+<p>• MySQL中的字符序名称遵从命名惯例：以字符序对应的字符集名称开头；以_ci(表示大小写不敏感)、_cs(表示大小写敏感)或_bin(表示按编码值比较)结尾。例如：在字符序“utf8_general_ci”下，字符“a”和“A”是等价的；</p>
+<hr>
+<h3 id="查看编码"><a href="#查看编码" class="headerlink" title=" 查看编码 "></a><strong> 查看编码 </strong></h3><h4 id="查看数据库编码"><a href="#查看数据库编码" class="headerlink" title=" 查看数据库编码 "></a><strong> 查看数据库编码 </strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; show variables like '%char%'; | show variables like 'character%';</span><br><span class="line"></span><br><span class="line">+<span class="comment">--------------------------+------------------------------------------------------------+</span></span><br><span class="line">| Variable_name            | Value                                                      |</span><br><span class="line">+<span class="comment">--------------------------+------------------------------------------------------------+</span></span><br><span class="line">| character_set_client     | gbk                                                        |</span><br><span class="line">| character_set_connection | gbk                                                        |</span><br><span class="line">| character_set_database   | utf8mb4                                                    |</span><br><span class="line">| character_set_filesystem | binary                                                     |</span><br><span class="line">| character_set_results    | gbk                                                        |</span><br><span class="line">| character_set_server     | latin1                                                     |</span><br><span class="line">| character_set_system     | utf8                                                       |</span><br><span class="line">| character_sets_dir       | D:\tools\wamp\wamp64\bin\mysql\mysql5.7.19\share\charsets\ |</span><br><span class="line">+<span class="comment">--------------------------+------------------------------------------------------------+</span></span><br></pre></td></tr></table></figure>
+<h4 id="系统变量介绍"><a href="#系统变量介绍" class="headerlink" title=" 系统变量介绍 "></a><strong> 系统变量介绍 </strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">character_set_client        客户端来源数据使用的字符集</span><br><span class="line">character_set_connection    连接层字符集(从客户端接收到数据，然后传输的字符集)</span><br><span class="line">character_set_database      当前选中数据库的默认字符集</span><br><span class="line">character_set_filesystem    把os上文件名转化成此字符集，即把 character_set_client转换character_set_filesystem， 默认binary是不做任何转换的</span><br><span class="line">character_set_results       查询结果字符集</span><br><span class="line">character_set_server        默认的内部操作字符集</span><br><span class="line">character_set_system        系统元数据(字段名等)字符集</span><br><span class="line">character_sets_dir          该目录保存配置文件，使MySQL可以使用不同的字符集。</span><br></pre></td></tr></table></figure>
+<h4 id="MySQL中的字符集转换过程"><a href="#MySQL中的字符集转换过程" class="headerlink" title=" MySQL中的字符集转换过程 "></a><strong> MySQL中的字符集转换过程 </strong></h4><p>A. MySQL Server收到请求时将请求数据从<code>character_set_client</code>转换为<code>character_set_connection</code>；</p>
+<p>B. 进行内部操作前将请求数据从<code>character_set_connection</code>转换为内部操作字符集，其确定方法如下：</p>
+<p>• 使用每个数据字段的<code>CHARACTER SET</code>设定值；</p>
+<p>• 若上述值不存在，则使用对应数据表的<code>DEFAULT CHARACTER SET</code>设定值(MySQL扩展，非SQL标准)；</p>
+<p>• 若上述值不存在，则使用对应数据库的<code>DEFAULT CHARACTER SET</code>设定值；</p>
+<p>• 若上述值不存在，则使用<code>character_set_server</code>设定值。</p>
+<p>C. 将操作结果从内部操作字符集转换为<code>character_set_results</code>。</p>
+<p><img src="/img/database/the-setting-of-Character-encoding-format-about-mysql/1.jpg" alt="MySQL中的字符集转换过程"></p>
+<h4 id="查看所有数据库的编码"><a href="#查看所有数据库的编码" class="headerlink" title=" 查看所有数据库的编码 "></a><strong> 查看所有数据库的编码 </strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SELECT SCHEMA_NAME 'database', default_character_set_name 'charset', DEFAULT_COLLATION_NAME 'collation' FROM information_schema.SCHEMATA;</span><br></pre></td></tr></table></figure>
+<h4 id="查看单个数据库的编码"><a href="#查看单个数据库的编码" class="headerlink" title=" 查看单个数据库的编码 "></a><strong> 查看单个数据库的编码 </strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; USE my_database;</span><br><span class="line">&gt; show variables like "character_set_database";</span><br></pre></td></tr></table></figure>
+<h4 id="查看表编码"><a href="#查看表编码" class="headerlink" title=" 查看表编码 "></a><strong> 查看表编码 </strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> &lt;表名&gt;;</span><br></pre></td></tr></table></figure>
+<h4 id="查看数据表中字符集设置"><a href="#查看数据表中字符集设置" class="headerlink" title=" 查看数据表中字符集设置  "></a><strong> 查看数据表中字符集设置  </strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; show full columns from &lt;表名&gt;;</span><br><span class="line"></span><br><span class="line">+<span class="comment">----------------+------------------+--------------------+------+-----+---------+----------------+---------------------------------+---------+</span></span><br><span class="line">| Field          | Type             | Collation          | Null | Key | Default | Extra          | Privileges                      | <span class="keyword">Comment</span> |</span><br><span class="line">+<span class="comment">----------------+------------------+--------------------+------+-----+---------+----------------+---------------------------------+---------+</span></span><br><span class="line">| <span class="keyword">id</span>             | <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> | <span class="literal">NULL</span>               | <span class="keyword">NO</span>   | PRI | <span class="literal">NULL</span>    | auto_increment | <span class="keyword">select</span>,<span class="keyword">insert</span>,<span class="keyword">update</span>,<span class="keyword">references</span> |         |</span><br><span class="line">| <span class="keyword">name</span>           | <span class="built_in">varchar</span>(<span class="number">191</span>)     | utf8mb4_unicode_ci | <span class="keyword">NO</span>   |     | <span class="literal">NULL</span>    |                | <span class="keyword">select</span>,<span class="keyword">insert</span>,<span class="keyword">update</span>,<span class="keyword">references</span> |         |</span><br><span class="line">| email          | <span class="built_in">varchar</span>(<span class="number">191</span>)     | utf8mb4_unicode_ci | <span class="keyword">NO</span>   | UNI | <span class="literal">NULL</span>    |                | <span class="keyword">select</span>,<span class="keyword">insert</span>,<span class="keyword">update</span>,<span class="keyword">references</span> |         |</span><br><span class="line">| <span class="keyword">password</span>       | <span class="built_in">varchar</span>(<span class="number">191</span>)     | utf8mb4_unicode_ci | <span class="keyword">NO</span>   |     | <span class="literal">NULL</span>    |                | <span class="keyword">select</span>,<span class="keyword">insert</span>,<span class="keyword">update</span>,<span class="keyword">references</span> |         |</span><br><span class="line">| remember_token | <span class="built_in">varchar</span>(<span class="number">100</span>)     | utf8mb4_unicode_ci | YES  |     | <span class="literal">NULL</span>    |                | <span class="keyword">select</span>,<span class="keyword">insert</span>,<span class="keyword">update</span>,<span class="keyword">references</span> |         |</span><br><span class="line">| created_at     | <span class="built_in">timestamp</span>        | <span class="literal">NULL</span>               | YES  |     | <span class="literal">NULL</span>    |                | <span class="keyword">select</span>,<span class="keyword">insert</span>,<span class="keyword">update</span>,<span class="keyword">references</span> |         |</span><br><span class="line">| updated_at     | <span class="built_in">timestamp</span>        | <span class="literal">NULL</span>               | YES  |     | <span class="literal">NULL</span>    |                | <span class="keyword">select</span>,<span class="keyword">insert</span>,<span class="keyword">update</span>,<span class="keyword">references</span> |         |</span><br><span class="line">+<span class="comment">----------------+------------------+--------------------+------+-----+---------+----------------+---------------------------------+---------+</span></span><br></pre></td></tr></table></figure>
+<p><span class="under0"><strong>这里要特别说明</strong></span>,网上的很多文章都是将 <code>show full columns from &lt;表名&gt;</code> 这个命令写为查看字段的编码。这个确切的说来是错误的。</p>
+<p><span class="under0"><strong>从上面的查询结果可以看到实际查询出来的是Collation(字符序),而不是字段的编码,但是我们可以通过Collation(字符序)的前缀得知字段的编码。</strong></span></p>
+<p>在stackoverflow上找到这样一段命令</p>
+<h4 id="查询当前数据库所有表的所有字段的字符编码"><a href="#查询当前数据库所有表的所有字段的字符编码" class="headerlink" title=" 查询当前数据库所有表的所有字段的字符编码 "></a><strong> 查询当前数据库所有表的所有字段的字符编码 </strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TABLE_SCHEMA,</span><br><span class="line">       TABLE_NAME,</span><br><span class="line">       CCSA.CHARACTER_SET_NAME <span class="keyword">AS</span> DEFAULT_CHAR_SET,</span><br><span class="line">       COLUMN_NAME,</span><br><span class="line">       COLUMN_TYPE,</span><br><span class="line">       C.CHARACTER_SET_NAME</span><br><span class="line">  <span class="keyword">FROM</span> information_schema.TABLES <span class="keyword">AS</span> T</span><br><span class="line">  <span class="keyword">JOIN</span> information_schema.COLUMNS <span class="keyword">AS</span> C <span class="keyword">USING</span> (TABLE_SCHEMA, TABLE_NAME)</span><br><span class="line">  <span class="keyword">JOIN</span> information_schema.COLLATION_CHARACTER_SET_APPLICABILITY <span class="keyword">AS</span> CCSA</span><br><span class="line">       <span class="keyword">ON</span> (T.TABLE_COLLATION = CCSA.COLLATION_NAME)</span><br><span class="line"> <span class="keyword">WHERE</span> TABLE_SCHEMA=<span class="keyword">SCHEMA</span>()</span><br><span class="line">   <span class="keyword">AND</span> C.DATA_TYPE <span class="keyword">IN</span> (<span class="string">'enum'</span>, <span class="string">'varchar'</span>, <span class="string">'char'</span>, <span class="string">'text'</span>, <span class="string">'mediumtext'</span>, <span class="string">'longtext'</span>)</span><br><span class="line"> <span class="keyword">ORDER</span> <span class="keyword">BY</span> TABLE_SCHEMA,</span><br><span class="line">          TABLE_NAME,</span><br><span class="line">          COLUMN_NAME</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
+<p>这里推荐阅读<a href="http://blog.useasp.net/archive/2013/05/21/The-difference-between-create-database-and-create-schema-in-mysql.aspx" target="_blank" rel="noopener">MySQL中CREATE DATABASE和CREATE SCHEMA区别</a></p>
+<h4 id="查询所有表的信息"><a href="#查询所有表的信息" class="headerlink" title=" 查询所有表的信息 "></a><strong> 查询所有表的信息 </strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; SHOW TABLE STATUS</span><br></pre></td></tr></table></figure>
+<h4 id="查询单张数据表的信息"><a href="#查询单张数据表的信息" class="headerlink" title=" 查询单张数据表的信息 "></a><strong> 查询单张数据表的信息 </strong></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; SHOW TABLE STATUS where name like 'table_123'; |</span><br><span class="line">&gt; SHOW TABLE STATUS where name = 'table_name';</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="修改编码"><a href="#修改编码" class="headerlink" title=" 修改编码 "></a><strong> 修改编码 </strong></h3><h4 id="修改数据库编码格式"><a href="#修改数据库编码格式" class="headerlink" title=" 修改数据库编码格式 "></a><strong> 修改数据库编码格式 </strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> &lt;表名&gt; <span class="built_in">character</span> <span class="keyword">set</span> utf8;</span><br></pre></td></tr></table></figure>
+<h4 id="修改一张表的所有字段的编码格式"><a href="#修改一张表的所有字段的编码格式" class="headerlink" title=" 修改一张表的所有字段的编码格式 "></a><strong> 修改一张表的所有字段的编码格式 </strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="string">`tablename`</span> <span class="keyword">convert</span> <span class="keyword">to</span> <span class="built_in">character</span> <span class="keyword">set</span> utf8;</span><br></pre></td></tr></table></figure>
+<h4 id="修改数据表编码格式"><a href="#修改数据表编码格式" class="headerlink" title=" 修改数据表编码格式 "></a><strong> 修改数据表编码格式 </strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> &lt;表名&gt; <span class="built_in">character</span> <span class="keyword">set</span> utf8;</span><br></pre></td></tr></table></figure>
+<h4 id="修改字段编码格式"><a href="#修改字段编码格式" class="headerlink" title=" 修改字段编码格式 "></a><strong> 修改字段编码格式 </strong></h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> &lt;表名&gt; <span class="keyword">change</span> &lt;字段名&gt; &lt;字段名&gt; &lt;类型&gt; <span class="built_in">character</span> <span class="keyword">set</span> utf8;</span><br></pre></td></tr></table></figure>
+<p>注意字段名要输入两次</p>
+<hr>
+<h3 id="存emoji表情"><a href="#存emoji表情" class="headerlink" title=" 存emoji表情 "></a><strong> 存emoji表情 </strong></h3><p>mysql的<code>utf8</code>编码的一个字符最多3个字节，但是一个emoji表情为4个字节，所以utf8不支持存储emoji表情。但是<code>utf8</code>的超集<code>utf8mb4</code>一个字符最多能有4字节，所以能支持emoji表情的存储。</p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="http://blog.csdn.net/springsunss/article/details/70337915" target="_blank" rel="noopener">整理 ： 查看和修改 mysql库、表、字段编码</a><br><a href="http://www.laruence.com/2008/01/05/12.html" target="_blank" rel="noopener">深入Mysql字符集设置</a><br><a href="http://blog.csdn.net/wyzxg/article/details/8779682" target="_blank" rel="noopener">mysql字符集小结</a><br><a href="https://stackoverflow.com/questions/1049728/how-do-i-see-what-character-set-a-mysql-database-table-column-is" target="_blank" rel="noopener">How do I see what character set a MySQL database / table / column is?</a><br><a href="http://blog.csdn.net/netcome/article/details/2048296" target="_blank" rel="noopener">数据库 schema含义</a><br><a href="http://blog.useasp.net/archive/2013/05/21/The-difference-between-create-database-and-create-schema-in-mysql.aspx" target="_blank" rel="noopener">MySQL中CREATE DATABASE和CREATE SCHEMA区别</a><br><a href="http://blog.csdn.net/luo4105/article/details/50804148" target="_blank" rel="noopener">mysql修改数据库表和表中的字段的编码格式的修改</a><br><a href="http://blog.xieyc.com/utf8-and-utf8mb4/" target="_blank" rel="noopener">浅谈MySQL中utf8和utf8mb4的区别</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

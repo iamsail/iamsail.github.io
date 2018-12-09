@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      docker搭建nginx+php+mysql开发环境 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content="写在前面 本文是对docker搭建nginx+php+mysql开发环境的记录。 主要都是参考了这篇文章。 因为这篇博客写得特别好,特意搬迁到自己的博客,当然在原文基础上增加了一些内容。  主要使用了两种方式搭建环境。分别是自己写shell和利用docker-compose。  第一种  MySQL 获取MySQL 直接使用官方镜像,输入以下命令1docker pull mysql:5.6 运行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker搭建nginx+php+mysql开发环境 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/09/23/use-docker-to-build-development-environment-of-php-mysql-nginx/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="写在前面 本文是对docker搭建nginx+php+mysql开发环境的记录。 主要都是参考了这篇文章。 因为这篇博客写得特别好,特意搬迁到自己的博客,当然在原文基础上增加了一些内容。  主要使用了两种方式搭建环境。分别是自己写shell和利用docker-compose。  第一种  MySQL 获取MySQL 直接使用官方镜像,输入以下命令1docker pull mysql:5.6 运行">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker搭建nginx+php+mysql开发环境 | Sail">
+<meta name="twitter:description" content="写在前面 本文是对docker搭建nginx+php+mysql开发环境的记录。 主要都是参考了这篇文章。 因为这篇博客写得特别好,特意搬迁到自己的博客,当然在原文基础上增加了一些内容。  主要使用了两种方式搭建环境。分别是自己写shell和利用docker-compose。  第一种  MySQL 获取MySQL 直接使用官方镜像,输入以下命令1docker pull mysql:5.6 运行">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">docker搭建nginx+php+mysql开发环境</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-09-23" class="post-meta__date date">2017-09-23</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Docker/">Docker</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="写在前面"><a href="#写在前面" class="headerlink" title=" 写在前面 "></a><strong> 写在前面 </strong></h3><p>本文是对<code>docker</code>搭建<code>nginx+php+mysql</code>开发环境的记录。</p>
+<p>主要都是参考了<a href="http://www.tanhui.bid/docker/2016/10/19/%E4%BD%BF%E7%94%A8Docker-docker-compose-%E6%90%AD%E5%BB%BAnginx+php+mysql-%E7%8E%AF%E5%A2%83" target="_blank" rel="noopener">这篇文章</a>。</p>
+<p>因为这篇博客写得特别好,特意搬迁到自己的博客,当然在原文基础上增加了一些内容。</p>
+<hr>
+<p>主要使用了两种方式搭建环境。分别是自己写<code>shell</code>和利用<code>docker-compose</code>。</p>
+<h3 id="第一种"><a href="#第一种" class="headerlink" title=" 第一种 "></a><strong> 第一种 </strong></h3><h4 id="MySQL"><a href="#MySQL" class="headerlink" title=" MySQL "></a><strong> MySQL </strong></h4><p>获取MySQL 直接使用官方镜像,输入以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.6</span><br></pre></td></tr></table></figure></p>
+<p>运行MySQL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name test_mysql -v $PWD/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d --privileged=true mysql:5.6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 命令说明：</span><br><span class="line"></span><br><span class="line">-p 3306:3306：将容器的3306端口映射到主机的3306端口</span><br><span class="line">-v PWD/mysql/data:/var/lib/mysql：将主机当前目录下的mysql/data文件夹挂载到容器的/var/lib/mysql 下，在mysql容器中产生的数据就会保存在本机mysql/data目录下</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456：初始化root用户的密码</span><br><span class="line">-d 后台运行容器</span><br><span class="line">--name 给容器指定别名</span><br><span class="line">--privileged=true  可能会碰到权限问题，需要加参数</span><br></pre></td></tr></table></figure></p>
+<p>执行以下命令进入mysql 运行环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it test_mysql bash</span><br><span class="line"></span><br><span class="line">这样就进入mysql容器了，可以查看mysql 命令</span><br><span class="line">mysql －u root -p</span><br><span class="line">输入密码就可以操作数据库</span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">+--------------------+</span><br><span class="line">4 rows in set (0.07 sec)</span><br><span class="line">mysql&gt; create database if not exists test_db;</span><br><span class="line">Query OK, 1 row affected, 1 warning (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; use test_db</span><br><span class="line">Reading table information for completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; create table people (name varchar(10), age int);</span><br><span class="line">Query OK, 0 rows affected (0.13 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; insert into people values(&apos;liming&apos;,10);</span><br><span class="line">Query OK, 1 row affected (0.03 sec)</span><br></pre></td></tr></table></figure>
+<h4 id="PHP"><a href="#PHP" class="headerlink" title=" PHP "></a><strong> PHP </strong></h4><p>PHP 同样使用官方的php镜像，不过需要支持mysql扩展。所以我们这次用Dockerfile 来构建一个镜像，以下是Dockerfile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FROM  php:5.6-fpm</span><br><span class="line">RUN apt-get update &amp;&amp; apt-get install -y \</span><br><span class="line">libfreetype6-dev \</span><br><span class="line">libjpeg62-turbo-dev \</span><br><span class="line">libpng12-dev \</span><br><span class="line">vim \</span><br><span class="line">&amp;&amp; docker-php-ext-install pdo_mysql \</span><br><span class="line">&amp;&amp; docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \</span><br><span class="line">&amp;&amp; docker-php-ext-install gd \</span><br></pre></td></tr></table></figure></p>
+<p>我们在原本的php5.6上安装了一些工具以及扩展。</p>
+<p>build 我们新建的镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t=&quot;php-fpm5.6/v2&quot; .</span><br></pre></td></tr></table></figure></p>
+<p>然后用这个镜像跑一个php环境的容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 9000:9000 -v /home/sail/codelife/code/be/php/:/var/www/html/ --name php-with-mysql --link test_mysql:mysql  --volumes-from test_mysql --privileged=true php-fpm5.6/v2</span><br><span class="line"></span><br><span class="line">### 参数解析</span><br><span class="line"></span><br><span class="line">－v 将本地磁盘上的php代码挂载到docker 环境中，对应docker的目录是 /var/www/html/</span><br><span class="line">--name 新建的容器名称 php-with-mysql</span><br><span class="line">--link 链接的容器，链接的容器名称：在该容器中的别名，运行这个容器是，docker中会自动添加一个host识别被链接的容器ip</span><br><span class="line">--privileged=true 权限问题</span><br></pre></td></tr></table></figure></p>
+<p>进入容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it php-with-mysql bash</span><br><span class="line">cd /var/www/html &amp;&amp; ls</span><br></pre></td></tr></table></figure></p>
+<p>这里就会看到你本地磁盘下所挂载的文件,在该目录下可以添加一个 <code>mysql.php</code> 文件，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    $dbh = new PDO(&apos;mysql:host=mysql;dbname=test_db&apos;, &apos;root&apos;,&apos;12</span><br><span class="line">3456&apos;);</span><br><span class="line">    foreach($dbh-&gt;query(&apos;SELECT * from people&apos;) as $row) &#123;</span><br><span class="line">        print_r($row);</span><br><span class="line">    &#125;</span><br><span class="line">    $dbh = null;</span><br><span class="line">&#125; catch (PDOException $e) &#123;</span><br><span class="line">    print &quot;Error!: &quot; . $e-&gt;getMessage() . &quot;&lt;br/&gt;&quot;;</span><br><span class="line">    die();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>退出编辑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@f5c9b982690a:/var/www/html# php mysql.php</span><br><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [name] =&gt; liming</span><br><span class="line">    [0] =&gt; liming</span><br><span class="line">    [age] =&gt; 10</span><br><span class="line">    [1] =&gt; 10</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>输出结果如上，这样我们php链接mysql就成功了。</p>
+<h4 id="Nginx"><a href="#Nginx" class="headerlink" title=" Nginx "></a><strong> Nginx </strong></h4><p>安装Nginx镜像</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull nginx</span><br></pre></td></tr></table></figure>
+<p>本地编辑nginx配置文件 default.conf 绝对路径为（/home/tanhui/composeTest/nginx/conf/default.conf） 文件内容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /var/www/html;</span><br><span class="line">        index  index.html index.htm index.php; # 增加index.php</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #error_page  404              /404.html;</span><br><span class="line"></span><br><span class="line">    # redirect server error pages to the static page /50x.html</span><br><span class="line">    #</span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /var/www/html;</span><br><span class="line">    &#125;</span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">        root           /var/www/html; # 代码目录</span><br><span class="line">        fastcgi_pass   phpfpm:9000;    # 修改为phpfpm容器</span><br><span class="line">        fastcgi_index  index.php;</span><br><span class="line">        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name; # 修改为$document_root</span><br><span class="line">        include        fastcgi_params;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --link php-with-mysql:phpfpm --volumes-from php-with-mysql -p 81:80 -v /home/sail/codelife/code/be/nginx/conf/default.conf:/etc/nginx/conf.d/default.conf --name nginx-php --privileged=true</span><br><span class="line"></span><br><span class="line">### 参数解析</span><br><span class="line">--link php-with-mysql:phpfpm 将php容器链接到nginx容器里来，phpfpm是nginx容器里的别名。</span><br><span class="line">--volumes-from php-with-mysql 将php-with-mysql 容器挂载的文件也同样挂载到nginx容器中</span><br><span class="line">-v /home/sail/codelife/code/be/nginx/conf/default.conf:/etc/nginx/conf.d/default.conf  将nginx 的配置文件替换，挂载本地编写的配置文件</span><br><span class="line"></span><br><span class="line">docker exec -it nginx-php bash</span><br><span class="line">root@32de01dbee49:/# cd /var/www/html/&amp;&amp;ls</span><br><span class="line">  mysql.php</span><br></pre></td></tr></table></figure>
+<p>我们可以看到挂载在php－mysql容器里的文件夹同样也被挂载在nginx容器里，这时在本机方案127.0.0.1：81/mysql.php,数据库中的数据就在浏览器上输出了。 这样 nginx＋php＋mysql 的连接就基本完成了。</p>
+<hr>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title=" 方法二 "></a><strong> 方法二 </strong></h3><p>上面介绍了用纯docker 命令启动容器，链接容器，但是每次启动容器时都要填写一堆参数，难免容易出错，出错了之后还要删除该容器才能重新跑。接下来就介绍一下 <code>docker-compose.</code></p>
+<h3 id="Docker-Compose"><a href="#Docker-Compose" class="headerlink" title=" Docker Compose "></a><strong> Docker Compose </strong></h3><p>`Docker Compose 是 Docker 官方编排（Orchestration）项目之一，负责快速在集群中部署分布式应用。</p>
+<p><code>Compose</code> 定位是 “定义和运行多个 Docker 容器的应用<code>（Defining and running multi-container Docker applications）</code>”，其前身是开源项目 Fig，目前仍然兼容 Fig 格式的模板文件。</p>
+<p>在日常工作中，经常会碰到需要多个容器相互配合来完成某项任务的情况。例如要实现一个 Web 项目，除了 Web 服务容器本身，往往还需要再加上后端的数据库服务容器，甚至还包括负载均衡容器等。</p>
+<p><code>Compose</code> 恰好满足了这样的需求。它允许用户通过一个单独的 <code>docker-compose.yml</code> 模板文件（YAML 格式）来定义一组相关联的应用容器为一个项目<code>（project）</code>。</p>
+<p><code>Compose</code> 中有两个重要的概念：</p>
+<p><code>服务（service）</code>：一个应用的容器，实际上可以包括若干运行相同镜像的容器实例。<br>项目(project)：由一组关联的应用容器组成的一个完整业务单元，在 <code>docker-compose.yml</code> 文件中定义。<br><code>Compose</code> 的默认管理对象是项目，通过子命令对项目中的一组容器进行便捷地生命周期管理。</p>
+<p><code>Compose</code> 项目由 <code>Python</code> 编写，实现上调用了 Docker 服务提供的 API 来对容器进行管理。因此，只要所操作的平台支持<code>Docker API</code>，就可以在其上利用 Compose 来进行编排管理。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title=" 安装 "></a><strong> 安装 </strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install -U docker-compose</span><br></pre></td></tr></table></figure>
+<p>可以看到类似如下输出，说明安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Collecting docker-compose</span><br><span class="line">  Downloading docker-compose-1.8.0.tar.gz (149kB): 149kB downloaded</span><br><span class="line">...</span><br><span class="line">Successfully installed docker-compose cached-property requests texttable websocket-client docker-py dockerpty six enum34 backports.ssl-match-hostname ipaddress</span><br></pre></td></tr></table></figure>
+<p>安装成功后，可以查看 <code>docker-compose</code> 命令的用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">$ docker-compose -h</span><br><span class="line">Define and run multi-container applications with Docker.</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  docker-compose [-f=&lt;arg&gt;...] [options] [COMMAND] [ARGS...]</span><br><span class="line">  docker-compose -h|--help</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -f, --file FILE           Specify an alternate compose file (default: docker-compose.yml)</span><br><span class="line">  -p, --project-name NAME   Specify an alternate project name (default: directory name)</span><br><span class="line">  --x-networking            (EXPERIMENTAL) Use new Docker networking functionality.</span><br><span class="line">                            Requires Docker 1.9 or later.</span><br><span class="line">  --x-network-driver DRIVER (EXPERIMENTAL) Specify a network driver (default: &quot;bridge&quot;).</span><br><span class="line">                            Requires Docker 1.9 or later.</span><br><span class="line">  --verbose                 Show more output</span><br><span class="line">  -v, --version             Print version and exit</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  build              Build or rebuild services</span><br><span class="line">  help               Get help on a command</span><br><span class="line">  kill               Kill containers</span><br><span class="line">  logs               View output from containers</span><br><span class="line">  pause              Pause services</span><br><span class="line">  port               Print the public port for a port binding</span><br><span class="line">  ps                 List containers</span><br><span class="line">  pull               Pulls service images</span><br><span class="line">  restart            Restart services</span><br><span class="line">  rm                 Remove stopped containers</span><br><span class="line">  run                Run a one-off command</span><br><span class="line">  scale              Set number of containers for a service</span><br><span class="line">  start              Start services</span><br><span class="line">  stop               Stop services</span><br><span class="line">  unpause            Unpause services</span><br><span class="line">  up                 Create and start containers</span><br><span class="line">  migrate-to-labels  Recreate containers to add labels</span><br><span class="line">  version            Show the Docker-Compose version information</span><br></pre></td></tr></table></figure></p>
+<p><code>Compose</code>的默认配置文件是<code>docker-compose.yml</code>。让我们看看下面这个文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">nginx:</span><br><span class="line">  build: ./nginx</span><br><span class="line">  ports:</span><br><span class="line">    - &quot;81:80&quot;</span><br><span class="line">  links:</span><br><span class="line">    - &quot;phpfpm&quot;</span><br><span class="line">  volumes:</span><br><span class="line">    - /home/sail/codelife/code/be/php:/var/www/html/</span><br><span class="line">    - /home/sail/codelife/code/be/nginx/conf/default.conf:/etc/nginx/conf.d/default.conf</span><br><span class="line">phpfpm:</span><br><span class="line">  build: ./phpfpm</span><br><span class="line">  ports:</span><br><span class="line">    - &quot;9000:9000&quot;</span><br><span class="line">  volumes:</span><br><span class="line">    - ./code/:/var/www/html/</span><br><span class="line">  links:</span><br><span class="line">    - &quot;mysql&quot;</span><br><span class="line">mysql:</span><br><span class="line">  build: ./mysql</span><br><span class="line">  ports:</span><br><span class="line">    - &quot;3306:3306&quot;</span><br><span class="line">  volumes:</span><br><span class="line">    - /home/sail/mysql/data/:/var/lib/mysql/</span><br><span class="line">  environment:</span><br><span class="line">    MYSQL_ROOT_PASSWORD : 123456</span><br></pre></td></tr></table></figure>
+<p>以上的配置文件路径有绝对路径,有相对路径,<code>build</code>参数代表该路径下的<code>Dockerfile</code>先看一下大概的目录结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">$ tree composeTest</span><br><span class="line">composeTest</span><br><span class="line">├── code</span><br><span class="line">│   ├── index.php</span><br><span class="line">│   ├── mysql.php</span><br><span class="line">│   └── testmysql.php</span><br><span class="line">│</span><br><span class="line">├── docker-compose.yml</span><br><span class="line">├── index.php</span><br><span class="line">├── mysql</span><br><span class="line">│   ├── data</span><br><span class="line">│   │   ├── auto.cnf</span><br><span class="line">│   │   ├── ibdata1</span><br><span class="line">│   │   ├── ib_logfile0</span><br><span class="line">│   │   ├── ib_logfile1</span><br><span class="line">│   │   ├── mysql [error opening dir]</span><br><span class="line">│   │   ├── performance_schema [error opening dir]</span><br><span class="line">│   │   └── test_db [error opening dir]</span><br><span class="line">│   └── Dockerfile</span><br><span class="line">├── nginx</span><br><span class="line">│   ├── conf</span><br><span class="line">│   │   └── default.conf</span><br><span class="line">│   └── Dockerfile</span><br><span class="line">└── phpfpm</span><br><span class="line">    └── Dockerfile</span><br><span class="line"></span><br><span class="line">10 directories, 23 files</span><br><span class="line"></span><br><span class="line">// Dockerfile 如下</span><br><span class="line">$ cat composeTest/mysql/Dockerfile</span><br><span class="line">FROM mysql:5.6</span><br><span class="line"></span><br><span class="line"># tanhui @ localhost in ~ [20:57:51]</span><br><span class="line">$ cat composeTest/phpfpm/Dockerfile</span><br><span class="line"> FROM  php:5.6-fpm</span><br><span class="line"> RUN apt-get update &amp;&amp; apt-get install -y \</span><br><span class="line"> libfreetype6-dev \</span><br><span class="line"> libjpeg62-turbo-dev \</span><br><span class="line"> libpng12-dev \</span><br><span class="line"> vim \</span><br><span class="line"> &amp;&amp; docker-php-ext-install pdo_mysql \</span><br><span class="line"> &amp;&amp; docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \</span><br><span class="line"> &amp;&amp; docker-php-ext-install gd \</span><br><span class="line"></span><br><span class="line"># tanhui @ localhost in ~ [20:58:19]</span><br><span class="line">$ cat composeTest/nginx/Dockerfile</span><br><span class="line">FROM nginx:latest</span><br><span class="line">RUN apt-get update &amp;&amp; apt-get install -y vim</span><br></pre></td></tr></table></figure>
+<p>现在运行这三个容器只要使用命令 <code>docker-compose up -d</code></p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="http://www.jianshu.com/p/2217cfed29d7" target="_blank" rel="noopener">Docker Compose 配置文件详解</a><br><a href="http://www.tanhui.bid/docker/2016/10/19/%E4%BD%BF%E7%94%A8Docker-docker-compose-%E6%90%AD%E5%BB%BAnginx+php+mysql-%E7%8E%AF%E5%A2%83" target="_blank" rel="noopener">Docker docker-compose 配置Nginx+Php+Mysql开发环境</a><br><a href="https://www.gitbook.com/book/yeasy/docker_practice/details" target="_blank" rel="noopener">Docker —— 从入门到实践</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

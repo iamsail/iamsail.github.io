@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      机器学习(coursera 斯坦福)第五周编程作业 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content="Preface 本文是机器学习第五周的编程作业答案记录,完整题目以及代码见github 此外还记录我在人工智能吧看到的一篇讲解神经网络的精品帖子的部分搬运。贴吧真是大佬多啊orz     作业答案  nnCostFunction.m        123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta name="keywords" content="Neural Networks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习(coursera 斯坦福)第五周编程作业 | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/06/06/the-fifth-week-homework-of-ML-Stanford/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 本文是机器学习第五周的编程作业答案记录,完整题目以及代码见github 此外还记录我在人工智能吧看到的一篇讲解神经网络的精品帖子的部分搬运。贴吧真是大佬多啊orz     作业答案  nnCostFunction.m        123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/6.png">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/1.png">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/2.png">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/4.png">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/5.png">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/3.png">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/7.jpg">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/8.jpg">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/9.jpg">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/10.jpg">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/11.jpg">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/12.jpg">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习(coursera 斯坦福)第五周编程作业 | Sail">
+<meta name="twitter:description" content="Preface 本文是机器学习第五周的编程作业答案记录,完整题目以及代码见github 此外还记录我在人工智能吧看到的一篇讲解神经网络的精品帖子的部分搬运。贴吧真是大佬多啊orz     作业答案  nnCostFunction.m        123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta name="twitter:image" content="http://www.sail.name/img/机器学习/the-fifth-week-homework-of-ML-Stanford/6.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">机器学习(coursera 斯坦福)第五周编程作业</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-06-06" class="post-meta__date date">2018-06-06</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/机器学习/">机器学习</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Neural-Networks/">Neural Networks</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>本文是机器学习第五周的编程作业答案记录,完整题目以及代码见<a href="https://github.com/iamsail/ML-Stanford/tree/master/homework/fif-week" target="_blank" rel="noopener">github</a></p>
+<p>此外还记录我在人工智能吧看到的<a href="http://tieba.baidu.com/p/3013551686?see_lz=1" target="_blank" rel="noopener">一篇讲解神经网络的精品帖子</a>的部分搬运。贴吧真是大佬多啊orz</p>
+<hr>
+<p><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/6.png" alt="6.png"></p>
+<hr>
+<h3 id="作业答案"><a href="#作业答案" class="headerlink" title=" 作业答案 "></a><strong> 作业答案 </strong></h3><h4 id="nnCostFunction-m"><a href="#nnCostFunction-m" class="headerlink" title=" nnCostFunction.m "></a><strong> nnCostFunction.m </strong></h4><p><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/1.png" alt="1.png"></p>
+<hr>
+<p><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/2.png" alt="2.png"></p>
+<hr>
+<p><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/4.png" alt="4.png"></p>
+<hr>
+<p><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/5.png" alt="5.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line">function [J grad] = nnCostFunction(nn_params, ...</span><br><span class="line">                                   input_layer_size, ...</span><br><span class="line">                                   hidden_layer_size, ...</span><br><span class="line">                                   num_labels, ...</span><br><span class="line">                                   X, y, lambda)</span><br><span class="line">%NNCOSTFUNCTION Implements the neural network cost function for a two layer</span><br><span class="line">%neural network which performs classification</span><br><span class="line">%   [J grad] = NNCOSTFUNCTON(nn_params, hidden_layer_size, num_labels, ...</span><br><span class="line">%   X, y, lambda) computes the cost and gradient of the neural network. The</span><br><span class="line">%   parameters for the neural network are &quot;unrolled&quot; into the vector</span><br><span class="line">%   nn_params and need to be converted back into the weight matrices. </span><br><span class="line">% </span><br><span class="line">%   The returned parameter grad should be a &quot;unrolled&quot; vector of the</span><br><span class="line">%   partial derivatives of the neural network.</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">% Reshape nn_params back into the parameters Theta1 and Theta2, the weight matrices</span><br><span class="line">% for our 2 layer neural network</span><br><span class="line">Theta1 = reshape(nn_params(1:hidden_layer_size * (input_layer_size + 1)), ...</span><br><span class="line">                 hidden_layer_size, (input_layer_size + 1));</span><br><span class="line"></span><br><span class="line">Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):end), ...</span><br><span class="line">                 num_labels, (hidden_layer_size + 1));</span><br><span class="line"></span><br><span class="line">% Setup some useful variables</span><br><span class="line">m = size(X, 1);</span><br><span class="line">         </span><br><span class="line">% You need to return the following variables correctly </span><br><span class="line">J = 0;</span><br><span class="line">Theta1_grad = zeros(size(Theta1));</span><br><span class="line">Theta2_grad = zeros(size(Theta2));</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: You should complete the code by working through the</span><br><span class="line">%               following parts.</span><br><span class="line">%</span><br><span class="line">% Part 1: Feedforward the neural network and return the cost in the</span><br><span class="line">%         variable J. After implementing Part 1, you can verify that your</span><br><span class="line">%         cost function computation is correct by verifying the cost</span><br><span class="line">%         computed in ex4.m</span><br><span class="line">%</span><br><span class="line">% Part 2: Implement the backpropagation algorithm to compute the gradients</span><br><span class="line">%         Theta1_grad and Theta2_grad. You should return the partial derivatives of</span><br><span class="line">%         the cost function with respect to Theta1 and Theta2 in Theta1_grad and</span><br><span class="line">%         Theta2_grad, respectively. After implementing Part 2, you can check</span><br><span class="line">%         that your implementation is correct by running checkNNGradients</span><br><span class="line">%</span><br><span class="line">%         Note: The vector y passed into the function is a vector of labels</span><br><span class="line">%               containing values from 1..K. You need to map this vector into a </span><br><span class="line">%               binary vector of 1&apos;s and 0&apos;s to be used with the neural network</span><br><span class="line">%               cost function.</span><br><span class="line">%</span><br><span class="line">%         Hint: We recommend implementing backpropagation using a for-loop</span><br><span class="line">%               over the training examples if you are implementing it for the </span><br><span class="line">%               first time.</span><br><span class="line">%</span><br><span class="line">% Part 3: Implement regularization with the cost function and gradients.</span><br><span class="line">%</span><br><span class="line">%         Hint: You can implement this around the code for</span><br><span class="line">%               backpropagation. That is, you can compute the gradients for</span><br><span class="line">%               the regularization separately and then add them to Theta1_grad</span><br><span class="line">%               and Theta2_grad from Part 2.</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">ylable = eye(num_labels)(y,:);</span><br><span class="line"></span><br><span class="line">a1 = [ones(m,1) X];</span><br><span class="line">z2 = a1 * Theta1&apos;;</span><br><span class="line">a2 = sigmoid(z2);</span><br><span class="line">a2 = [ones(m,1) a2];</span><br><span class="line">a3 = sigmoid(a2 * Theta2&apos;);</span><br><span class="line"></span><br><span class="line">% 这里不知道为什么用向量的形式写出来是不对的?</span><br><span class="line">%J = 1 / m * (-ylable&apos; * log(a3) - (1 - ylable&apos;) * log(1 - a3));</span><br><span class="line">J = 1 / m * sum( sum( -ylable.* log(a3) -  (1-ylable).*log(1-a3) )); </span><br><span class="line"></span><br><span class="line">% pay attention :&quot; Theta1(:,2:end) &quot; , no &quot;Theta1&quot; .  </span><br><span class="line">regularized = lambda/(2*m) * (sum(sum(Theta1(:,2:end).^2)) + sum(sum(Theta2(:,2:end).^2)) );  </span><br><span class="line">  </span><br><span class="line">J = J + regularized;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">delta3 = a3-ylable;            %5000x10  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">delta2 = delta3 * Theta2 ;  </span><br><span class="line">delta2 = delta2(:,2:end);     </span><br><span class="line">  </span><br><span class="line">delta2 = delta2 .* sigmoidGradient(z2);  %5000x25  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">Delta_1 = zeros(size(Theta1));  </span><br><span class="line">Delta_2 = zeros(size(Theta2));  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">Delta_1 = Delta_1 + delta2&apos; * a1 ;    </span><br><span class="line">  </span><br><span class="line">Delta_2 = Delta_2 + delta3&apos; * a2 ;    </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">Theta1_grad = 1/m * Delta_1;   </span><br><span class="line">Theta2_grad = 1/m * Delta_2;   </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">regularized_1 = lambda/m * Theta1;  </span><br><span class="line">regularized_2 = lambda/m * Theta2;  </span><br><span class="line">  </span><br><span class="line">% j = 0是不需要正则化的</span><br><span class="line">regularized_1(:,1) = zeros(size(regularized_1,1),1);  </span><br><span class="line">regularized_2(:,1) = zeros(size(regularized_2,1),1);  </span><br><span class="line">  </span><br><span class="line">Theta1_grad = Theta1_grad + regularized_1;  </span><br><span class="line">Theta2_grad = Theta2_grad + regularized_2;  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% =========================================================================</span><br><span class="line"></span><br><span class="line">% Unroll gradients</span><br><span class="line">grad = [Theta1_grad(:) ; Theta2_grad(:)];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="sigmoidGradient-m"><a href="#sigmoidGradient-m" class="headerlink" title=" sigmoidGradient.m "></a><strong> sigmoidGradient.m </strong></h4><p><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/3.png" alt="3.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function g = sigmoidGradient(z)</span><br><span class="line">%SIGMOIDGRADIENT returns the gradient of the sigmoid function</span><br><span class="line">%evaluated at z</span><br><span class="line">%   g = SIGMOIDGRADIENT(z) computes the gradient of the sigmoid function</span><br><span class="line">%   evaluated at z. This should work regardless if z is a matrix or a</span><br><span class="line">%   vector. In particular, if z is a vector or matrix, you should return</span><br><span class="line">%   the gradient for each element.</span><br><span class="line"></span><br><span class="line">g = zeros(size(z));</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: Compute the gradient of the sigmoid function evaluated at</span><br><span class="line">%               each value of z (z can be a matrix, vector or scalar).</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">g = sigmoid(z).*(1 - sigmoid(z));</span><br><span class="line"></span><br><span class="line">% =============================================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="randInitializeWeights-m"><a href="#randInitializeWeights-m" class="headerlink" title=" randInitializeWeights.m "></a><strong> randInitializeWeights.m </strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">function W = randInitializeWeights(L_in, L_out)</span><br><span class="line">%RANDINITIALIZEWEIGHTS Randomly initialize the weights of a layer with L_in</span><br><span class="line">%incoming connections and L_out outgoing connections</span><br><span class="line">%   W = RANDINITIALIZEWEIGHTS(L_in, L_out) randomly initializes the weights </span><br><span class="line">%   of a layer with L_in incoming connections and L_out outgoing </span><br><span class="line">%   connections. </span><br><span class="line">%</span><br><span class="line">%   Note that W should be set to a matrix of size(L_out, 1 + L_in) as</span><br><span class="line">%   the first column of W handles the &quot;bias&quot; terms</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">% You need to return the following variables correctly </span><br><span class="line">W = zeros(L_out, 1 + L_in);</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: Initialize W randomly so that we break the symmetry while</span><br><span class="line">%               training the neural network.</span><br><span class="line">%</span><br><span class="line">% Note: The first column of W corresponds to the parameters for the bias unit</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">epsilon_init = 0.12;</span><br><span class="line">W = rand(L_out, 1 + L_in) * 2 * epsilon_init − epsilon_init;</span><br><span class="line"></span><br><span class="line">% =========================================================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="贴吧搬运"><a href="#贴吧搬运" class="headerlink" title=" 贴吧搬运　"></a><strong> 贴吧搬运　</strong></h3><p>参考这个帖子,仅供参考<a href="http://tieba.baidu.com/p/3013551686?see_lz=1" target="_blank" rel="noopener">机器学习入门——浅谈神经网络</a></p>
+<p><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/7.jpg" alt="7.jpg"><br><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/8.jpg" alt="8.jpg"><br><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/9.jpg" alt="9.jpg"><br><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/10.jpg" alt="10.jpg"><br><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/11.jpg" alt="11.jpg"><br><img src="/img/机器学习/the-fifth-week-homework-of-ML-Stanford/12.jpg" alt="12.jpg"></p>
+<p>这里介绍的是计算完一条记录，就马上更新权重，以后每计算完一条都即时更新权重。实际上批量更新的效果会更好，方法是在不更新权重的情况下，把记录集的每条记录都算过一遍，把要更新的增值全部累加起来求平均值，然后利用这个平均值来更新一次权重，然后利用更新后的权重进行下一轮的计算，这种方法叫批量梯度下降(Batch Gradient Descent)。</p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="http://tieba.baidu.com/p/3013551686?see_lz=1" target="_blank" rel="noopener">机器学习入门——浅谈神经网络</a><br><a href="https://blog.csdn.net/dialoal/article/details/50562244" target="_blank" rel="noopener">machine-learning第五周 上机作业</a><br><a href="https://blog.csdn.net/qq_27008079/article/details/71833370" target="_blank" rel="noopener">Coursera吴恩达机器学习课程 总结笔记及作业代码——第5周神经网络续</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      kill不掉mysqld | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content="Preface 以前想停止mysql服务,都是执行类似如此的命令service mysql stop。前阵子某次操作我试图kill -9 掉mysqld,但是mysqld始终都是存在的。 经过一番搜索,在这儿找到了答案: The mysql Upstart configuration has the respawn option: 12345grep respawn /etc/init/mysq">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kill不掉mysqld | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/05/19/cannot-kill-mysql/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 以前想停止mysql服务,都是执行类似如此的命令service mysql stop。前阵子某次操作我试图kill -9 掉mysqld,但是mysqld始终都是存在的。 经过一番搜索,在这儿找到了答案: The mysql Upstart configuration has the respawn option: 12345grep respawn /etc/init/mysq">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kill不掉mysqld | Sail">
+<meta name="twitter:description" content="Preface 以前想停止mysql服务,都是执行类似如此的命令service mysql stop。前阵子某次操作我试图kill -9 掉mysqld,但是mysqld始终都是存在的。 经过一番搜索,在这儿找到了答案: The mysql Upstart configuration has the respawn option: 12345grep respawn /etc/init/mysq">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">kill不掉mysqld</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-05-19" class="post-meta__date date">2018-05-19</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/数据库/">数据库</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/MySQL/">MySQL</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>以前想停止mysql服务,都是执行类似如此的命令<code>service mysql stop</code>。前阵子某次操作我试图kill -9 掉mysqld,但是<code>mysqld</code>始终都是存在的。</p>
+<p>经过一番搜索,在<a href="https://askubuntu.com/questions/529302/how-to-stop-mysqld-process" target="_blank" rel="noopener">这儿</a>找到了答案:</p>
+<p>The mysql Upstart configuration has the respawn option:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grep respawn /etc/init/mysql.conf</span><br><span class="line"></span><br><span class="line">respawn</span><br><span class="line">respawn limit 2 5</span><br><span class="line">        elif echo $statusnow | grep -q &apos;respawn/&apos; ; then</span><br></pre></td></tr></table></figure>
+<p>The respawn option tells Upstart to restart the process if it exits or is killed. The limit is 2, so you can try killing of the processes twice, which will tell Upstart not to start them again, or use: <code>sudo service mysql stop</code></p>
+<p>respawn会告诉upstart重启mysqld进程当它退出或者被kill掉。这个限制是2,所以可以通过连续的两次kill或者使用<code>sudo service mysql stop</code></p>
+<p>不过我连续两次的kill或者更多次,是没有kill掉mysqld的。</p>
+<p>另外在<a href="https://serverfault.com/questions/526554/mysql-process-wont-die" target="_blank" rel="noopener">这个帖子</a>看到了另一个回答,贴下</p>
+<p>The mysql server runs with 2 processes, mysqld and mysqld_safe. If you kill mysqld with the SIGKILL signal (9), mysqld_safe will respawn mysqld. If you stop mysqld in the standard way, or kill it with the sigint(15) signal, mysqld_safe notices it and ends. If there is an emergency, remember always to kill -9 mysqld_safe first.</p>
+<p>In this case, it seems that mysqld_safe is restarting just after shutdown. How are you exactly killing mysql?</p>
+<p><code>mysql</code>服务运行的时候有两个进程分别是<code>mysqld</code>和<code>mysqld_safe</code>。当你9杀的时候,<code>mysqld_safe</code>会重启<code>mysqld</code>.如果你以一种标准的方式来停止<code>mysqld</code>,或者以信号量15(SIGTERM)来kill,mysqld_safe将会退出。紧急情况下,记得要先9杀掉<code>mysqld_safe</code>。</p>
+<hr>
+<h3 id="Linux信号"><a href="#Linux信号" class="headerlink" title=" Linux信号 "></a><strong> Linux信号 </strong></h3><h4 id="信号本质"><a href="#信号本质" class="headerlink" title=" 信号本质 "></a><strong> 信号本质 </strong></h4><p>软中断信号（signal，又简称为信号）用来通知进程发生了异步事件。在软件层次上是对中断机制的一种模拟，在原理上，一个进程收到一个信号与处理器收到一个中断请求可以说是一样的。信号是进程间通信机制中唯一的异步通信机制，一个进程不必通过任何操作来等待信号的到达，事实上，进程也不知道信号到底什么时候到达。进程之间可以互相通过系统调用kill发送软中断信号。内核也可以因为内部事件而给进程发送信号，通知进程发生了某个事件。信号机制除了基本通知功能外，还可以传递附加信息。</p>
+<p>每种信号用一个整型常量宏表示，以<code>SIG</code>开头，比如<code>SIGCHLD</code>、<code>SIGINT</code>等，它们在系统头文件中定义。</p>
+<hr>
+<p>通过<code>kill -l</code>命令可以查看系统支持的所有信号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; kill -l</span><br><span class="line"></span><br><span class="line">HUP INT QUIT ILL TRAP ABRT BUS FPE KILL USR1 SEGV USR2 PIPE ALRM TERM STKFLT CHLD CONT STOP TSTP TTIN TTOU URG XCPU XFSZ VTALRM PROF WINCH POLL PWR SYS</span><br></pre></td></tr></table></figure></p>
+<p><code>SIGTERM</code>(15)和<code>SIGKILL</code>(9)。 <code>SIGTERM</code>比较友好，进程能捕捉这个信号， 根据您的需要来关闭程序。在关闭程序之前，您可以结束打开的记录文件和完成正在做的任务。 在某些情况下， 假如进程正在进行作业而且不能中断，那么进程可以忽略这个<code>SIGTERM</code>信号。</p>
+<p>对于<code>SIGKILL</code>信号，进程是不能忽略的。 这是一个 ‘“我不管您在做什么,立刻停止”’的信号。</p>
+<p>更多可以看下这篇文章<a href="https://major.io/2010/03/18/sigterm-vs-sigkill/" target="_blank" rel="noopener">SIGTERM vs. SIGKILL</a></p>
+<hr>
+<h3 id="守护进程"><a href="#守护进程" class="headerlink" title=" 守护进程 "></a><strong> 守护进程 </strong></h3><p>守护进程一般在系统启动时开始运行，除非强行终止，否则直到系统关机都保持运行。守护进程经常以超级用户（root）权限运行，因为它们要使用特殊的端口（1-1024）或访问某些特殊的资源。</p>
+<p>一个守护进程的父进程是init进程，因为它真正的父进程在fork出子进程后就先于子进程exit退出了，所以它是一个由init继承的孤儿进程。守护进程是非交互式程序，没有控制终端，所以任何输出，无论是向标准输出设备stdout还是标准出错设备stderr的输出都需要特殊处理。</p>
+<p>守护进程的程序命名通常在最后加一个 “d”。 BIND 是伯克利互联网域名服务 (而实际执行的程序名称则是 named)， Apache web系统的程序就叫 httpd， 在行式打印机上的打印守护进程就是 lpd。 这只是一种惯例，不是标准或硬性规定。 例如，为Sendmail而应用的主要mail守护进程就叫sendmail， 却不叫maild，这和您推测的一样。</p>
+<p>查看守护进程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -eo ppid,pid,sid,stat,tty,comm  | awk &apos;&#123; if ($2 == $3 &amp;&amp; $5 == &quot;?&quot;) &#123;print $0&#125;; &#125;&apos;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="mysqld-safe"><a href="#mysqld-safe" class="headerlink" title=" mysqld_safe "></a><strong> mysqld_safe </strong></h3><p><code>cat /usr/bin/mysqld_safe</code> </p>
+<p>Script to start the MySQL daemon and restart it if it dies unexpectedly</p>
+<p><code>mysqld_safe</code> 是mysqld 启动脚本,当<code>mysqld</code>不正常死亡,重启它 。</p>
+<hr>
+<h3 id="MySQL-的四种启动方式"><a href="#MySQL-的四种启动方式" class="headerlink" title=" MySQL 的四种启动方式 "></a><strong> MySQL 的四种启动方式 </strong></h3><p>这部分主要参考了以下几篇文章,贴在这里</p>
+<p><a href="https://blog.csdn.net/leshami/article/details/40749935" target="_blank" rel="noopener">MySQL 数据库的启动与关闭</a><br><a href="https://blog.csdn.net/alexdamiao/article/details/51498684" target="_blank" rel="noopener">MySql在Linux的启动方式</a></p>
+<p>在Linux系统下，MySQL服务器通常有四种启动方式：mysqld守护进程启动，mysqld_safe启动，mysql.server启动，mysqld_multi多实例启动。</p>
+<h4 id="mysqld守护进程启动"><a href="#mysqld守护进程启动" class="headerlink" title=" mysqld守护进程启动 "></a><strong> mysqld守护进程启动 </strong></h4><p>mysqld是mysql的守护进程，这种方式启动的时候会读取my.cnf文件中的[mysqld]和[server]组中的配置参数。一般的，我们通过这种方式手动的调用mysqld，如果不是出去调试的目的，我们一般都不这样做。这种方式如果启动失败的话，错误信息只会从终端输出，而不是记录在错误日志文件中，这样，如果mysql崩溃的话我们也不知道原因，所以这种启动方式一般不用在生产环境中，而一般在调试（debug）系统的时候用到。<br>启动方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mysqld</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="mysqld-safe启动"><a href="#mysqld-safe启动" class="headerlink" title=" mysqld_safe启动 "></a><strong> mysqld_safe启动 </strong></h4><p>这种方式启动的时候会读取my.cnf文件中的[mysqld],[server]和[mysqld_safe]组的配置文件,为了兼容，也会读取[safe_mysqld]这个组内的配置文件。<br>mysqld_safe是一个启动脚本，该脚本会调用mysqld启动，如果启动出错，会将错误信息记录到错误日志中，mysqld_safe启动mysqld和monitor mysqld两个进程，这样如果出现mysqld进程异常终止的情况，mysqld_safe会重启mysqld进程。<br>启动方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mysqld_safe</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="mysql-server启动"><a href="#mysql-server启动" class="headerlink" title=" mysql.server启动 "></a><strong> mysql.server启动 </strong></h4><p>mysql.server同样是一个启动脚本，调用mysqld_safe脚本。它的执行文件在$MYSQL_BASE/share/mysql/mysql.server 和 support-files/mysql.server。</p>
+<hr>
+<h4 id="mysqld-multi多实例启动"><a href="#mysqld-multi多实例启动" class="headerlink" title=" mysqld_multi多实例启动 "></a><strong> mysqld_multi多实例启动 </strong></h4><p><a href="http://blog.51cto.com/wolfword/1241304" target="_blank" rel="noopener">mysql dba系统学习（4）mysql的多实例multi启动停止</a></p>
+<hr>
+<h3 id="其他"><a href="#其他" class="headerlink" title=" 其他 "></a><strong> 其他 </strong></h3><p>#查看mysqld启动配置文件的优先级<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --verbose --help |grep -A 1 &quot;Default options&quot;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>当MySQL实例启动时，会将自己的进程ID写入一个文件中——该文件即为pid文件。该文件可由参数pid_file控制，默认位于数据库目录下，文件名为主机名.pid：</p>
+<p>mysql&gt; show variables like ‘pid_file’\G;</p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="https://www.cnblogs.com/hoys/archive/2012/08/19/2646377.html" target="_blank" rel="noopener">Linux信号（signal) 机制分析</a><br><a href="http://www.cnblogs.com/yucongblog/p/6568374.html" target="_blank" rel="noopener">Linux kill -9 和 kill -15 的区别</a><br><a href="https://www.jianshu.com/p/9c9b74f6a222" target="_blank" rel="noopener">Linux信号机制与信号处理</a><br><a href="https://blog.csdn.net/hlf1203/article/details/52789685" target="_blank" rel="noopener">MySQL使用kill杀不死</a><br><a href="https://serverfault.com/questions/526554/mysql-process-wont-die" target="_blank" rel="noopener">Mysql Process wont die</a><br><a href="https://blog.csdn.net/leshami/article/details/40749935" target="_blank" rel="noopener">MySQL 数据库的启动与关闭</a><br><a href="https://zh.wikipedia.org/wiki/%E8%BF%9B%E7%A8%8BID" target="_blank" rel="noopener">进程ID</a><br><a href="https://blog.csdn.net/u010098331/article/details/50786269" target="_blank" rel="noopener">怎样查看mysql pid文件路径 文件位置</a><br><a href="https://my.oschina.net/u/158589/blog/351890" target="_blank" rel="noopener">Linux查找所有正在运行的守护进程（daemon）</a><br><a href="https://my.oschina.net/u/556678/blog/183780" target="_blank" rel="noopener">守护进程daemon的创建和使用</a><br><a href="https://my.oschina.net/shou1156226/blog/802931" target="_blank" rel="noopener">Linux 守护进程</a><br><a href="https://blog.csdn.net/dlutbrucezhang/article/details/8656680" target="_blank" rel="noopener">UNIX中后台进程与守护进程</a><br><a href="https://www.jianshu.com/p/2f4ef40020aa" target="_blank" rel="noopener">mysqld_safe</a><br><a href="https://blog.csdn.net/liukun321/article/details/6918233" target="_blank" rel="noopener">进程kill 失败</a><br><a href="https://my.oschina.net/sallency/blog/827737" target="_blank" rel="noopener">linux：nohup 命令实现守护进程（屏蔽 SIGHUP 信号）</a><br><a href="https://zh.wikipedia.org/wiki/SIGKILL" target="_blank" rel="noopener">SIGKILL</a><br><a href="https://askubuntu.com/questions/529302/how-to-stop-mysqld-process" target="_blank" rel="noopener">How to stop mysqld process?</a><br><a href="https://www.freebsd.org/doc/zh_CN/books/handbook/basics-daemons.html" target="_blank" rel="noopener">4.8. 守护进程，信号和杀死进程</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

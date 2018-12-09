@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      机器学习(coursera 斯坦福)第八周编程作业 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content="Preface 本文是机器学习第八周部分课程内容,以及编程作业答案记录,完整题目以及代码见github   findClosestCentroids.m 1234567891011121314151617181920212223242526272829303132function idx = findClosestCentroids(X, centroids)%FINDCLOSESTCENTRO">
+<meta name="keywords" content="Unsupervised Learning,Dimensionality Reduction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习(coursera 斯坦福)第八周编程作业 | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/06/14/the-eighth-week-homework-of-ML-Stanford/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 本文是机器学习第八周部分课程内容,以及编程作业答案记录,完整题目以及代码见github   findClosestCentroids.m 1234567891011121314151617181920212223242526272829303132function idx = findClosestCentroids(X, centroids)%FINDCLOSESTCENTRO">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习(coursera 斯坦福)第八周编程作业 | Sail">
+<meta name="twitter:description" content="Preface 本文是机器学习第八周部分课程内容,以及编程作业答案记录,完整题目以及代码见github   findClosestCentroids.m 1234567891011121314151617181920212223242526272829303132function idx = findClosestCentroids(X, centroids)%FINDCLOSESTCENTRO">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">机器学习(coursera 斯坦福)第八周编程作业</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-06-14" class="post-meta__date date">2018-06-14</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/机器学习/">机器学习</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Dimensionality-Reduction/">Dimensionality Reduction</a>, <a class="tags-link" href="/tags/Unsupervised-Learning/">Unsupervised Learning</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>本文是机器学习第八周部分课程内容,以及编程作业答案记录,完整题目以及代码见<a href="https://github.com/iamsail/ML-Stanford/tree/master/homework/eighth-week" target="_blank" rel="noopener">github</a></p>
+<hr>
+<h3 id="findClosestCentroids-m"><a href="#findClosestCentroids-m" class="headerlink" title=" findClosestCentroids.m "></a><strong> findClosestCentroids.m </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">function idx = findClosestCentroids(X, centroids)</span><br><span class="line">%FINDCLOSESTCENTROIDS computes the centroid memberships for every example</span><br><span class="line">%   idx = FINDCLOSESTCENTROIDS (X, centroids) returns the closest centroids</span><br><span class="line">%   in idx for a dataset X where each row is a single example. idx = m x 1 </span><br><span class="line">%   vector of centroid assignments (i.e. each entry in range [1..K])</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">% Set K</span><br><span class="line">K = size(centroids, 1);</span><br><span class="line"></span><br><span class="line">% You need to return the following variables correctly.</span><br><span class="line">idx = zeros(size(X,1), 1);</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: Go over every example, find its closest centroid, and store</span><br><span class="line">%               the index inside idx at the appropriate location.</span><br><span class="line">%               Concretely, idx(i) should contain the index of the centroid</span><br><span class="line">%               closest to example i. Hence, it should be a value in the </span><br><span class="line">%               range 1..K</span><br><span class="line">%</span><br><span class="line">% Note: You can use a for-loop over the examples to compute this.</span><br><span class="line">%</span><br><span class="line">for i = 1 : size(X, 1)  </span><br><span class="line">    for j = 1 : K  </span><br><span class="line">    dis(j) = sum((centroids(j, :) - X(i, :)) .^ 2, 2);  </span><br><span class="line">    end  </span><br><span class="line">    [t, idx(i)] = min(dis);    %t存储的最小值， idx存储的最小值的索引  </span><br><span class="line">end  </span><br><span class="line"></span><br><span class="line">% =============================================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="computeCentroids-m"><a href="#computeCentroids-m" class="headerlink" title=" computeCentroids.m "></a><strong> computeCentroids.m </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">function centroids = computeCentroids(X, idx, K)</span><br><span class="line">%COMPUTECENTROIDS returns the new centroids by computing the means of the </span><br><span class="line">%data points assigned to each centroid.</span><br><span class="line">%   centroids = COMPUTECENTROIDS(X, idx, K) returns the new centroids by </span><br><span class="line">%   computing the means of the data points assigned to each centroid. It is</span><br><span class="line">%   given a dataset X where each row is a single data point, a vector</span><br><span class="line">%   idx of centroid assignments (i.e. each entry in range [1..K]) for each</span><br><span class="line">%   example, and K, the number of centroids. You should return a matrix</span><br><span class="line">%   centroids, where each row of centroids is the mean of the data points</span><br><span class="line">%   assigned to it.</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">% Useful variables</span><br><span class="line">[m n] = size(X);</span><br><span class="line"></span><br><span class="line">% You need to return the following variables correctly.</span><br><span class="line">centroids = zeros(K, n);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: Go over every centroid and compute mean of all points that</span><br><span class="line">%               belong to it. Concretely, the row vector centroids(i, :)</span><br><span class="line">%               should contain the mean of the data points assigned to</span><br><span class="line">%               centroid i.</span><br><span class="line">%</span><br><span class="line">% Note: You can use a for-loop over the centroids to compute this.</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">for i = 1 : K  </span><br><span class="line">    all_K = 0;    %用于存储x的和  </span><br><span class="line">    count = sum(idx == i);    %用于存储分配到centroids(i, :)中元素的个数  </span><br><span class="line">    temp_meet = find(idx == i);    %找出分配到centroids(i, :)中所有元素的行索引  </span><br><span class="line">    for j = 1 : numel(temp_meet)     </span><br><span class="line">        all_K = all_K + X(temp_meet(j), :);  </span><br><span class="line">    end  </span><br><span class="line">    centroids(i, :) = all_K / count;  </span><br><span class="line">end  </span><br><span class="line">  </span><br><span class="line">%第二种方法（向量化表示）  </span><br><span class="line">% for i = 1 : K  </span><br><span class="line">%     centroids(i, :) = (X&apos; * (idx == i)) / sum(idx == i);      </span><br><span class="line">%     (idx ==i)目的是将不是i值的X中对应数据变为0.  </span><br><span class="line">% end  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% =============================================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="kMeansInitCentroids-m"><a href="#kMeansInitCentroids-m" class="headerlink" title=" kMeansInitCentroids.m "></a><strong> kMeansInitCentroids.m </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function centroids = kMeansInitCentroids(X, K)</span><br><span class="line">%KMEANSINITCENTROIDS This function initializes K centroids that are to be </span><br><span class="line">%used in K-Means on the dataset X</span><br><span class="line">%   centroids = KMEANSINITCENTROIDS(X, K) returns K initial centroids to be</span><br><span class="line">%   used with the K-Means on the dataset X</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">% You should return this values correctly</span><br><span class="line">centroids = zeros(K, size(X, 2));</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: You should set centroids to randomly chosen examples from</span><br><span class="line">%               the dataset X</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">% Randomly reorder the indices of examples</span><br><span class="line">randidx = randperm(size(X, 1));</span><br><span class="line">% Take the first K examples as centroids</span><br><span class="line">centroids = X(randidx(1:K), :);</span><br><span class="line"></span><br><span class="line">% =============================================================</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="pca-m"><a href="#pca-m" class="headerlink" title=" pca.m "></a><strong> pca.m </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">function [U, S] = pca(X)</span><br><span class="line">%PCA Run principal component analysis on the dataset X</span><br><span class="line">%   [U, S, X] = pca(X) computes eigenvectors of the covariance matrix of X</span><br><span class="line">%   Returns the eigenvectors U, the eigenvalues (on diagonal) in S</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">% Useful values</span><br><span class="line">[m, n] = size(X);</span><br><span class="line"></span><br><span class="line">% You need to return the following variables correctly.</span><br><span class="line">U = zeros(n);</span><br><span class="line">S = zeros(n);</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: You should first compute the covariance matrix. Then, you</span><br><span class="line">%               should use the &quot;svd&quot; function to compute the eigenvectors</span><br><span class="line">%               and eigenvalues of the covariance matrix. </span><br><span class="line">%</span><br><span class="line">% Note: When computing the covariance matrix, remember to divide by m (the</span><br><span class="line">%       number of examples).</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">sigma = (X&apos; * X) ./ m;  </span><br><span class="line">[U, S, V] = svd(sigma);  </span><br><span class="line"></span><br><span class="line">% =========================================================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="projectData-m"><a href="#projectData-m" class="headerlink" title=" projectData.m "></a><strong> projectData.m </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">function Z = projectData(X, U, K)</span><br><span class="line">%PROJECTDATA Computes the reduced data representation when projecting only </span><br><span class="line">%on to the top k eigenvectors</span><br><span class="line">%   Z = projectData(X, U, K) computes the projection of </span><br><span class="line">%   the normalized inputs X into the reduced dimensional space spanned by</span><br><span class="line">%   the first K columns of U. It returns the projected examples in Z.</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">% You need to return the following variables correctly.</span><br><span class="line">Z = zeros(size(X, 1), K);</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: Compute the projection of the data using only the top K </span><br><span class="line">%               eigenvectors in U (first K columns). </span><br><span class="line">%               For the i-th example X(i,:), the projection on to the k-th </span><br><span class="line">%               eigenvector is given as follows:</span><br><span class="line">%                    x = X(i, :)&apos;;</span><br><span class="line">%                    projection_k = x&apos; * U(:, k);</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">Z = X * U(:, 1 : K);  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% =============================================================</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">******************</span><br><span class="line"></span><br><span class="line">### ** recoverData.m **</span><br><span class="line"></span><br><span class="line">```regexp</span><br><span class="line">function X_rec = recoverData(Z, U, K)</span><br><span class="line">%RECOVERDATA Recovers an approximation of the original data when using the </span><br><span class="line">%projected data</span><br><span class="line">%   X_rec = RECOVERDATA(Z, U, K) recovers an approximation the </span><br><span class="line">%   original data that has been reduced to K dimensions. It returns the</span><br><span class="line">%   approximate reconstruction in X_rec.</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">% You need to return the following variables correctly.</span><br><span class="line">X_rec = zeros(size(Z, 1), size(U, 1));</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: Compute the approximation of the data by projecting back</span><br><span class="line">%               onto the original space using the top K eigenvectors in U.</span><br><span class="line">%</span><br><span class="line">%               For the i-th example Z(i,:), the (approximate)</span><br><span class="line">%               recovered data for dimension j is given as follows:</span><br><span class="line">%                    v = Z(i, :)&apos;;</span><br><span class="line">%                    recovered_j = v&apos; * U(j, 1:K)&apos;;</span><br><span class="line">%</span><br><span class="line">%               Notice that U(j, 1:K) is a row vector.</span><br><span class="line">%               </span><br><span class="line"></span><br><span class="line">X_rec =  Z * U(:, 1 : K)&apos; </span><br><span class="line"></span><br><span class="line">% =============================================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="https://blog.csdn.net/ccblogger/article/details/78754061" target="_blank" rel="noopener">Coursera—machine learning(Andrew Ng)第八周编程作业</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

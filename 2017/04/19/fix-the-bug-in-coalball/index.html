@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      煤球踩坑记 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+
+
+
+    <meta name="description" content="最近不少心思都花在coalball的推进和优化上。    记录遇到的几个bug。  有的花费了我不少(很多)时间。想想很是痛心,呜呼！  会陆续写成文档，放在工作室wiki。 项目完成后,亦会迁移到工作室github。  路径问题 我在PC和chrome的模拟器上都是能够看到图片加载的,在移动端却看不到图片。 其实这本不是什么大问题，控制台看看就能发现了。 问题在于,服务器上的文件都是从我本机传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="煤球踩坑记 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/04/19/fix-the-bug-in-coalball/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="最近不少心思都花在coalball的推进和优化上。    记录遇到的几个bug。  有的花费了我不少(很多)时间。想想很是痛心,呜呼！  会陆续写成文档，放在工作室wiki。 项目完成后,亦会迁移到工作室github。  路径问题 我在PC和chrome的模拟器上都是能够看到图片加载的,在移动端却看不到图片。 其实这本不是什么大问题，控制台看看就能发现了。 问题在于,服务器上的文件都是从我本机传">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.sail.name/img/codelife/coalball-mobile-1.png">
+<meta property="og:image" content="http://www.sail.name/img/codelife/coalball-mobile-2.png">
+<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="煤球踩坑记 | Sail">
+<meta name="twitter:description" content="最近不少心思都花在coalball的推进和优化上。    记录遇到的几个bug。  有的花费了我不少(很多)时间。想想很是痛心,呜呼！  会陆续写成文档，放在工作室wiki。 项目完成后,亦会迁移到工作室github。  路径问题 我在PC和chrome的模拟器上都是能够看到图片加载的,在移动端却看不到图片。 其实这本不是什么大问题，控制台看看就能发现了。 问题在于,服务器上的文件都是从我本机传">
+<meta name="twitter:image" content="http://www.sail.name/img/codelife/coalball-mobile-1.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/source/" title="个人资源分享">Source</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">煤球踩坑记</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-04-19" class="post-meta__date date">2017-04-19</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/代码人生/">代码人生</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p><strong> 最近不少心思都花在<a href="https://github.com/iamsail/coalball" target="_blank" rel="noopener">coalball</a>的推进和优化上。 </strong></p>
+<p><img src="/img/codelife/coalball-mobile-1.png" alt="coalball-mobile-1"></p>
+<p><img src="/img/codelife/coalball-mobile-2.png" alt="coalball-mobile-1"></p>
+<p>记录遇到的几个bug。</p>
+<p><strong> 有的花费了我不少(很多)时间。想想很是痛心,呜呼！ </strong></p>
+<p>会陆续写成文档，放在工作室wiki。</p>
+<p>项目完成后,亦会迁移到<a href="https://github.com/cumtflyingstudio" target="_blank" rel="noopener">工作室github</a>。</p>
+<h3 id="路径问题"><a href="#路径问题" class="headerlink" title=" 路径问题 "></a><strong> 路径问题 </strong></h3><p>我在PC和chrome的模拟器上都是能够看到图片加载的,在移动端却看不到图片。</p>
+<p>其实这本不是什么大问题，控制台看看就能发现了。</p>
+<p>问题在于,服务器上的文件都是从我本机传上去的,所以本来我在自己电脑上是不能看到图片,不过因为本地有份代码，以及对应的图片文件。所以我控制台没有给出报错信息。</p>
+<p><strong> 最后还是在他人电脑上看了看，才定位了bug所在。重新修改了路径。 </strong></p>
+<p>那可能会想,从网站上传图片,这样本地不就没有对应的文件了吗。</p>
+<p>看下一个问题</p>
+<h3 id="网站上传图片失败"><a href="#网站上传图片失败" class="headerlink" title=" 网站上传图片失败 "></a><strong> 网站上传图片失败 </strong></h3><p>在线上传文件失败。这个问题困惑了两三天。</p>
+<p>因为本地测试是一切ok的。路径也没有问题。</p>
+<p>今早睡醒,猛然意识到,是用户对存放文件的目录只有读权限。</p>
+<p>更改了权限就好了。</p>
+<p><strong> 如何更改权限,<a href="http://man.linuxde.net/chmod" target="_blank" rel="noopener">轻戳这儿</a> </strong></p>
+<h3 id="天坑"><a href="#天坑" class="headerlink" title=" 天坑 "></a><strong> 天坑 </strong></h3><p>这个就是天坑了。血泪史。</p>
+<p>在移动端,QQ,chrome浏览器上看,一切正常。可是在手机自带,UC,手机百度之类的浏览器,没有数据。</p>
+<p>最后在<a href="https://blog.xgy666.cn/" target="_blank" rel="noopener">肖神</a>的帮助下定位了BUG。</p>
+<p><strong> 原来是前端开发人员写JS脚本的时候,定义变量用的let,而不是var。且没有转成ES5。</strong></p>
+<p>目前还有不少浏览器不支持ES6。</p>
+<p>肖神是在PC上从360浏览器定位到bug的。</p>
+<p>不得不感慨一下,有的浏览器虽然不好用,并且对标准的支持也很缓慢,但不是毫无用处,比如用来定位下BUG。</p>
+<p>最后使用<a href="https://babeljs.io/" target="_blank" rel="noopener">BABEL</a>将ES6的代码转成了ES5,就可以了。</p>
+<hr>
+<h4 id="总结"><a href="#总结" class="headerlink" title=" 总结 "></a><strong> 总结 </strong></h4><ul>
+<li><p>定位BUG,比修改BUG更重要</p>
+</li>
+<li><p>有时候或许要换个设备看看情况</p>
+</li>
+<li><p>多装几个浏览器总是好的,哪怕你不用。毕竟很多用户用的不是最新的浏览器，也不是人人都用chrome,firefox。</p>
+</li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2018. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+function find(str, aim, num) {
+   var resultIndex = str.indexOf(aim);
+   for(var i = 0; i < num - 1; i++){
+       resultIndex = str.indexOf(aim, resultIndex + 1);
+   }
+   return resultIndex;
+ }
+
+var __one = document.querySelector("#__one");
+var __tow = document.querySelector("#__tow");
+var __three = document.querySelector("#__three");
+var __threeIndex  = find(location.href, '/', 3);
+var __fourthIndex = find(location.href, '/', 4);
+var aimStr = '';
+
+if (__fourthIndex !== -1) {
+    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+} else if (__fourthIndex === -1) {
+    aimStr = location.href.substring(__threeIndex + 1);
+}
+
+switch (aimStr) {
+  case "":
+  case "#blog":
+  case "about":
+  case "archive":
+  case "categories":
+  case "tags":
+  case "page":
+    __one.style.display = "none";
+    __tow.style.display = "none";
+    __three.style.display = "none";
+    break;
+}
+
+</script>
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
