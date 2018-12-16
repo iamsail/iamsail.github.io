@@ -2,6 +2,7 @@
 title: ssh连接服务器
 date: 2017-11-03 12:35:00
 categories: Linux 
+tags: [ssh]
 ---
 
 以前我在windows是通过xsell连接服务器的,在linux下可以通过`PuTTT SSH Client`就行连接。
