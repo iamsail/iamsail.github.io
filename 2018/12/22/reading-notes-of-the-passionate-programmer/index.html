@@ -33,7 +33,7 @@
 <meta property="og:description" content="Preface 最近读了《我编程，我快乐》，里面有一些观点给我了不少启发，特别是一些职业规划的方面的内容。 不由得想到了《重构》这本书。第一次读《重构》，是在三年前，那时候我大一。虽然早已听闻这本书的大名，但是受限于自己只有少得可怜的编码经验，读了小几十页不到，觉得太过晦涩，就读不下去了。年初在百度实习期间，因为提交代码需要被同事review，开始有意识的思考怎么改进自己的代码，再次阅读了《重构">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.sail.name/img/read/reading-notes-of-the-passionate-programmer/1.png">
-<meta property="og:updated_time" content="2018-12-22T11:43:58.000Z">
+<meta property="og:updated_time" content="2018-12-22T11:59:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读《我编程，我快乐》 | Sail">
 <meta name="twitter:description" content="Preface 最近读了《我编程，我快乐》，里面有一些观点给我了不少启发，特别是一些职业规划的方面的内容。 不由得想到了《重构》这本书。第一次读《重构》，是在三年前，那时候我大一。虽然早已听闻这本书的大名，但是受限于自己只有少得可怜的编码经验，读了小几十页不到，觉得太过晦涩，就读不下去了。年初在百度实习期间，因为提交代码需要被同事review，开始有意识的思考怎么改进自己的代码，再次阅读了《重构">
@@ -243,7 +243,7 @@ classes that you can use:
 </li>
 <li><p>我们最终的目标是追求快乐。一旦满足生存的基本需求，人们就会转而去追求快乐。然而，我们的行动往往与此目标相悖。这是因为人们往往纠缠于做某事的方法，而忘记了最终的目的。</p>
 </li>
-<li><p>或许我不会快乐。但可以肯定的是，当我们以追求快乐为核心目标，并且以此作为首要的推动手段时，那在追求目标的过程中，就会更正确地做出每一步的选择。更高的薪水或许是值得追求的，或许能带给你快乐。<strong> <span class="under0">但是如果你把目光放远一些，你就会发现自己为了追求更高的薪水，或许就会失去了快乐。这听起来有些荒谬，但是我经历过，你也一样可能会经</span> </strong></p>
+<li><p>或许我不会快乐。但可以肯定的是，当我们以追求快乐为核心目标，并且以此作为首要的推动手段时，那在追求目标的过程中，就会更正确地做出每一步的选择。更高的薪水或许是值得追求的，或许能带给你快乐。<strong> <span class="under0">但是如果你把目光放远一些，你就会发现自己为了追求更高的薪水，或许就会失去了快乐。这听起来有些荒谬，但是我经历过，你也一样可能会经历</span> </strong></p>
 </li>
 <li><p>很多人总是忽略自己的计划，一味地跟随别人的计划。为了有别于他人，你应该停下来仔细审视自己的职业。不要去跟在别人的计划后面跑，你应该按着自己的计划发展。</p>
 </li>
@@ -288,7 +288,7 @@ classes that you can use:
 </li>
 <li><p>你可以用看待金钱的方式来看待时间。当我还是个青年的时候，挣到的钱还没我现在浪费的多呢，但我还是非常开心。现在的我比小时候有钱得多， 花钱也就不再那么精打细算。但那时候，我也可以生存，有地方住、有车开，有东西吃。我现在也有这些东西，也没有过着奢侈的生活。很明显，当没有钱的时候，我的钱花得更加高效，最终结果都是一样的。</p>
 </li>
-<li><p><strong> <span class="under0">上午十点半，你会想反正别人下班回 家之后我还得再加班几个小时，那不如现在就看一会儿最新的技术新闻吧。</span> </strong></p>
+<li><p><strong> <span class="under0">上午十点半，你会想反正别人下班回家之后我还得再加班几个小时，那不如现在就看一会儿最新的技术新闻吧。</span> </strong></p>
 </li>
 <li><p><strong> <span class="under0">当工作时间非常充裕的时候，工作的时间价值就会降低。如果有70个小时，那对你来说，每个小时的价值远比不上你只有40小时的情况。</span> </strong></p>
 </li>
@@ -573,7 +573,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -591,6 +607,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>
