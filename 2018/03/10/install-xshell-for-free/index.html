@@ -265,41 +265,50 @@ classes that you can use:
 
 <script>
 // 对特定页面的footer隐藏
-function find(str, aim, num) {
-   var resultIndex = str.indexOf(aim);
-   for(var i = 0; i < num - 1; i++){
-       resultIndex = str.indexOf(aim, resultIndex + 1);
-   }
-   return resultIndex;
- }
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
 
-var __one = document.querySelector("#__one");
-var __tow = document.querySelector("#__tow");
-var __three = document.querySelector("#__three");
-var __threeIndex  = find(location.href, '/', 3);
-var __fourthIndex = find(location.href, '/', 4);
-var aimStr = '';
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
 
-if (__fourthIndex !== -1) {
-    aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
-} else if (__fourthIndex === -1) {
-    aimStr = location.href.substring(__threeIndex + 1);
-}
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
 
-switch (aimStr) {
-  case "":
-  case "#blog":
-  case "about":
-  case "archive":
-  case "categories":
-  case "tags":
-  case "page":
-    __one.style.display = "none";
-    __tow.style.display = "none";
-    __three.style.display = "none";
-    break;
-}
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
 </script>
         </div>
     </div>
