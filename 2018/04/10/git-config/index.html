@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="Sail">
 <meta property="og:description" content="Preface 本文是对git config部分参数的一点介绍。 最好的教程就是man git config。  123-e, --editOpens an editor to modify the specified config file; either --system, --global, or repository (default). git config -e， 就是对配置文件进行">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta property="og:updated_time" content="2019-04-13T05:04:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git config | Sail">
 <meta name="twitter:description" content="Preface 本文是对git config部分参数的一点介绍。 最好的教程就是man git config。  123-e, --editOpens an editor to modify the specified config file; either --system, --global, or repository (default). git config -e， 就是对配置文件进行">
@@ -240,6 +240,12 @@ classes that you can use:
 <p>简单总结下,<code>--local</code>是修改<code>.git/config</code>,<code>--global</code>是修改 <code>~/.gitconfig</code>,<code>--system</code>是修改 <code>/etc/gitconfig</code>.分别是仓库的配置文件,当前用户的配置文件,本机的配置文件。</p>
 <p><code>git config -e</code> 等同于 <code>git config -e --local</code></p>
 <p><code>优先级是git config &gt; git config --global &gt; git config --system</code>,因为配置文件是就近查找的,如果没有,再向外查找配置文件。</p>
+<hr>
+<p><strong> 如果Github没有记录上你的Contributions,可能就是因为你的用户名或者邮箱跟github没有关联上,github认为不是你提交的,不统计。</strong></p>
+<p>对当前仓库做设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --local user.name &quot;Sail&quot;</span><br><span class="line">git config --local user.email &quot;865605793@qq.com&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title=" 参考链接 "></a><strong> 参考链接 </strong></h3><p><a href="https://www.jianshu.com/p/56cb8a5d7379" target="_blank" rel="noopener">【GIT问题】–为什么Github没有记录你的Contributions - 简书</a></p>
 
   </section>
 
@@ -428,23 +434,7 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -462,5 +452,6 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
+
 </body>
 </html>
