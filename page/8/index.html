@@ -208,6 +208,24 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
+        <a href="/2017/04/24/why-tow-values-in-network-performance/" title="link to 开发者工具网络面板size列有两个值">开发者工具网络面板size列有两个值</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2017-04-24" class="post-list__meta--date date">2017-04-24</time>
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider">
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
         <a href="/2017/04/22/365-contributions-in-the-last-year/" title="link to 365 contributions in the last year">365 contributions in the last year</a>
       </h2>
 
@@ -637,24 +655,6 @@ classes that you can use:
       <hr class="post-list__divider">
     </li>
     
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2017/02/16/rotary-cube/" title="link to 旋转的立方体">旋转的立方体</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2017-02-16" class="post-list__meta--date date">2017-02-16</time>
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider">
-    </li>
-    
   </ol>
 
   <hr class="post-list__divider ">
@@ -845,7 +845,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -863,6 +879,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>
