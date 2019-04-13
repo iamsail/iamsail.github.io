@@ -48,7 +48,19 @@ Opens an editor to modify the specified config file; either --system, --global, 
 
 `优先级是git config > git config --global > git config --system`,因为配置文件是就近查找的,如果没有,再向外查找配置文件。
 
+**********************
+
+** 如果Github没有记录上你的Contributions,可能就是因为你的用户名或者邮箱跟github没有关联上,github认为不是你提交的,不统计。**
+
+对当前仓库做设置
+
+```
+git config --local user.name "Sail"
+git config --local user.email "865605793@qq.com"
+```
 
 
+***********************
+### ** 参考链接 **
 
-
+[【GIT问题】--为什么Github没有记录你的Contributions - 简书](https://www.jianshu.com/p/56cb8a5d7379)
