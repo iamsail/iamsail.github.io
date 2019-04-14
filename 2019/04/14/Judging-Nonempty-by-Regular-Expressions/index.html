@@ -7,7 +7,7 @@
     
 
     <title>
-      配置process.env判断代码运行环境 | Sail 
+      正则表达式判断非空 | Sail 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -25,18 +25,19 @@
 
 
 
-    <meta name="description" content="Preface 在开发一个项目的时候，会涉及到许多环境,比如dev、test、stage、product等,不同的环境需要加载不同的配置,因为后端接口的域名是不同的。   process.env 我们可以通过process.env来配置NODE_ENV来区分开发环境。 process对象是一个全局变量，它提供有关当前Node.js进程的信息并对其进行控制。 作为一个全局变量，它始终可供Node.">
-<meta name="keywords" content="node">
+    <meta name="description" content="用来判断 textarea 是否全为空（不可全为空格和换行，允许字符前面和后面为空）1/^[\s\S]*.*[^\s][\s\S]*$/   参考链接 正则表达式 —判断非空 - 鱿太人cccccciel___ - CSDN博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置process.env判断代码运行环境 | Sail">
-<meta property="og:url" content="http://www.sail.name/2019/04/13/configure-process-env-to-judge-environment/index.html">
+<meta property="og:title" content="正则表达式判断非空 | Sail">
+<meta property="og:url" content="http://www.sail.name/2019/04/14/Judging-Nonempty-by-Regular-Expressions/index.html">
 <meta property="og:site_name" content="Sail">
-<meta property="og:description" content="Preface 在开发一个项目的时候，会涉及到许多环境,比如dev、test、stage、product等,不同的环境需要加载不同的配置,因为后端接口的域名是不同的。   process.env 我们可以通过process.env来配置NODE_ENV来区分开发环境。 process对象是一个全局变量，它提供有关当前Node.js进程的信息并对其进行控制。 作为一个全局变量，它始终可供Node.">
+<meta property="og:description" content="用来判断 textarea 是否全为空（不可全为空格和换行，允许字符前面和后面为空）1/^[\s\S]*.*[^\s][\s\S]*$/   参考链接 正则表达式 —判断非空 - 鱿太人cccccciel___ - CSDN博客">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-13T06:27:29.000Z">
+<meta property="og:image" content="http://www.sail.name/img/正则表达式/Judging-Nonempty-by-Regular-Expressions/1.png">
+<meta property="og:updated_time" content="2019-04-14T00:52:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="配置process.env判断代码运行环境 | Sail">
-<meta name="twitter:description" content="Preface 在开发一个项目的时候，会涉及到许多环境,比如dev、test、stage、product等,不同的环境需要加载不同的配置,因为后端接口的域名是不同的。   process.env 我们可以通过process.env来配置NODE_ENV来区分开发环境。 process对象是一个全局变量，它提供有关当前Node.js进程的信息并对其进行控制。 作为一个全局变量，它始终可供Node.">
+<meta name="twitter:title" content="正则表达式判断非空 | Sail">
+<meta name="twitter:description" content="用来判断 textarea 是否全为空（不可全为空格和换行，允许字符前面和后面为空）1/^[\s\S]*.*[^\s][\s\S]*$/   参考链接 正则表达式 —判断非空 - 鱿太人cccccciel___ - CSDN博客">
+<meta name="twitter:image" content="http://www.sail.name/img/正则表达式/Judging-Nonempty-by-Regular-Expressions/1.png">
     
     
     
@@ -206,27 +207,22 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">配置process.env判断代码运行环境</h1>
+    <h1 class="post-title">正则表达式判断非空</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2019-04-13" class="post-meta__date date">2019-04-13</time> 
+      <time datetime="2019-04-14" class="post-meta__date date">2019-04-14</time> 
 
       <span class="post-meta__tags tags">
 
           
             <font class="categories">
             &#8226; 分类:
-            <a class="categories-link" href="/categories/Vue/">Vue</a>
+            <a class="categories-link" href="/categories/正则表达式/">正则表达式</a>
             </font>
           
 
-          
-             &#8226; 标签:
-            <font class="tags">
-              <a class="tags-link" href="/tags/node/">node</a>
-            </font>
           
 
       </span>
@@ -237,27 +233,9 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>在开发一个项目的时候，会涉及到许多环境,比如dev、test、stage、product等,不同的环境需要加载不同的配置,因为后端接口的域名是不同的。</p>
-<hr>
-<h3 id="process-env"><a href="#process-env" class="headerlink" title=" process.env "></a><strong> process.env </strong></h3><p>我们可以通过<code>process.env</code>来配置<code>NODE_ENV</code>来区分开发环境。</p>
-<p><code>process</code>对象是一个全局变量，它提供有关当前<code>Node.js</code>进程的信息并对其进行控制。 作为一个全局变量，它始终可供<code>Node.js</code>应用程序使用，无需使用<code>require()</code>。<code>process.env</code>属性返回包含用户环境的对象。</p>
-<p>在<code>package.json</code>中进行配置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span>,</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"NODE_ENV=development pm2 --no-daemon start ./bin/www --watch "</span>,</span><br><span class="line">    <span class="string">"stage"</span>: <span class="string">"NODE_ENV=stage pm2 --no-daemon start ./bin/www --watch "</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果是windows环境,执行<code>npm install cross-env</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 因为mac和windows设置命令环境变量的命令不一致, 所以用cross-env来做兼容</span></span><br><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span>,</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"cross-env NODE_ENV=development pm2 --no-daemon start ./bin/www --watch "</span>,</span><br><span class="line">    <span class="string">"stage"</span>: <span class="string">"cross-env NODE_ENV=stage pm2 --no-daemon start ./bin/www --watch "</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在代码中,我们就可以通过<code>process.env.NODE_ENV</code>来判断环境</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> host = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">"development"</span>) &#123;</span><br><span class="line">    <span class="comment">// pass</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">"stage"</span>) &#123;</span><br><span class="line">    <span class="comment">// pass</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="vue-cli创建的项目"><a href="#vue-cli创建的项目" class="headerlink" title=" vue-cli创建的项目 "></a><strong> vue-cli创建的项目 </strong></h3><p>如果我们是<a href="https://cli.vuejs.org/zh/guide/mode-and-env.html#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%92%8C%E6%A8%A1%E5%BC%8F" target="_blank" rel="noopener">vue-cli脚手架来创建的项目</a>:</p>
-<p>模式是 Vue CLI 项目中一个重要的概念。默认情况下，一个 Vue CLI 项目有三个模式：</p>
-<ul>
-<li><code>development</code> 模式用于 <code>vue-cli-service serve</code></li>
-<li><code>production</code> 模式用于 <code>vue-cli-service build 和 vue-cli-service test:e2e</code></li>
-<li>test 模式用于 vue-cli-service test:unit<br>注意模式不同于 NODE_ENV，一个模式可以包含多个环境变量。也就是说，每个模式都会将 NODE_ENV 的值设置为模式的名称——比如在 development 模式下 NODE_ENV 的值会被设置为 “development”。</li>
-</ul>
-<p><strong> 你可以通过为 .env 文件增加后缀来设置某个模式下特有的环境变量。比如，如果你在项目根目录创建一个名为 .env.development 的文件，那么在这个文件里声明过的变量就只会在 development 模式下被载入。</strong></p>
-<p>你可以通过传递 –mode 选项参数为命令行覆写默认的模式。例如，如果你想要在构建命令中使用开发环境变量，请在你的 package.json 脚本中加入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;dev-build&quot;: &quot;vue-cli-service build --mode development&quot;,</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="http://nodejs.cn/api/process.html#process_process_env" target="_blank" rel="noopener">process | Node.js API 文档</a><br><a href="https://segmentfault.com/a/1190000011683741" target="_blank" rel="noopener">Node环境变量 process.env 的那些事儿 - JS那些事儿 - SegmentFault 思否</a><br><a href="https://cli.vuejs.org/zh/guide/mode-and-env.html#%E6%A8%A1%E5%BC%8F" target="_blank" rel="noopener">环境变量和模式 | Vue CLI</a><br><a href="https://segmentfault.com/a/1190000016194069" target="_blank" rel="noopener">业务代码如何判断生产/开发环境 - 我不懂前端 - SegmentFault 思否</a><br><a href="https://segmentfault.com/a/1190000009952845" target="_blank" rel="noopener">React系列—Webpack环境搭建（二）不同环境不同配置 - 朱哥的全栈历险记 - SegmentFault 思否</a></p>
+    <p>用来判断 textarea 是否全为空（不可全为空格和换行，允许字符前面和后面为空）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^[\s\S]*.*[^\s][\s\S]*$/</span><br></pre></td></tr></table></figure></p>
+<p><img src="/img/正则表达式/Judging-Nonempty-by-Regular-Expressions/1.png" alt="1.png"></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title=" 参考链接 "></a><strong> 参考链接 </strong></h3><p><a href="https://blog.csdn.net/qq_31808899/article/details/77966273" target="_blank" rel="noopener">正则表达式 —判断非空 - 鱿太人cccccciel___ - CSDN博客</a></p>
 
   </section>
 
