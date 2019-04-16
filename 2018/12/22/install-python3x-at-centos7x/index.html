@@ -7,7 +7,7 @@
     
 
     <title>
-      在centos7安装python3 | Sail 
+      在centos7安装python3.x | Sail 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -25,18 +25,18 @@
 
 
 
-    <meta name="description" content="Preface 本文是在centos7.1安装python3.x的记录。踩了不少坑，记录下。心酸,docker化势在必行！！！！！！    参考 在 CentOS 7 上安装并配置 Python 3.6 环境python3中pip3安装出错，找不到SSLno acceptable C compiler found in $PATHCentOS 7 安装Python3、pip3">
+    <meta name="description" content="Preface 本文是在centos7.1安装python3.x的记录。踩了不少坑，记录下。心酸,docker化势在必行！！！！！！   安装python3.x  先安装安装几个必须的包，以方便后续的操作 123# wget 用于下载源码包# gcc 和 make 用于编译yum -y install wget gcc make  zlib-devel readline-devel  bzip2">
 <meta name="keywords" content="环境搭建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在centos7安装python3 | Sail">
+<meta property="og:title" content="在centos7安装python3.x | Sail">
 <meta property="og:url" content="http://www.sail.name/2018/12/22/install-python3x-at-centos7x/index.html">
 <meta property="og:site_name" content="Sail">
-<meta property="og:description" content="Preface 本文是在centos7.1安装python3.x的记录。踩了不少坑，记录下。心酸,docker化势在必行！！！！！！    参考 在 CentOS 7 上安装并配置 Python 3.6 环境python3中pip3安装出错，找不到SSLno acceptable C compiler found in $PATHCentOS 7 安装Python3、pip3">
+<meta property="og:description" content="Preface 本文是在centos7.1安装python3.x的记录。踩了不少坑，记录下。心酸,docker化势在必行！！！！！！   安装python3.x  先安装安装几个必须的包，以方便后续的操作 123# wget 用于下载源码包# gcc 和 make 用于编译yum -y install wget gcc make  zlib-devel readline-devel  bzip2">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-21T14:47:38.000Z">
+<meta property="og:updated_time" content="2019-04-16T09:00:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在centos7安装python3 | Sail">
-<meta name="twitter:description" content="Preface 本文是在centos7.1安装python3.x的记录。踩了不少坑，记录下。心酸,docker化势在必行！！！！！！    参考 在 CentOS 7 上安装并配置 Python 3.6 环境python3中pip3安装出错，找不到SSLno acceptable C compiler found in $PATHCentOS 7 安装Python3、pip3">
+<meta name="twitter:title" content="在centos7安装python3.x | Sail">
+<meta name="twitter:description" content="Preface 本文是在centos7.1安装python3.x的记录。踩了不少坑，记录下。心酸,docker化势在必行！！！！！！   安装python3.x  先安装安装几个必须的包，以方便后续的操作 123# wget 用于下载源码包# gcc 和 make 用于编译yum -y install wget gcc make  zlib-devel readline-devel  bzip2">
     
     
     
@@ -206,7 +206,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">在centos7安装python3</h1>
+    <h1 class="post-title">在centos7安装python3.x</h1>
 
     
 
@@ -239,8 +239,44 @@ classes that you can use:
   <section id="post-content" class="article-content post">
     <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>本文是在centos7.1安装python3.x的记录。踩了不少坑，记录下。心酸,docker化势在必行！！！！！！</p>
 <hr>
+<h3 id="安装python3-x"><a href="#安装python3-x" class="headerlink" title=" 安装python3.x "></a><strong> 安装python3.x </strong></h3><p><strong> 先安装安装几个必须的包，以方便后续的操作 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># wget 用于下载源码包</span></span><br><span class="line"><span class="comment"># gcc 和 make 用于编译</span></span><br><span class="line">yum -y install wget gcc make  zlib-devel readline-devel  bzip2-devel ncurses-devel sqlite-devel gdbm-devel xz-devel</span><br></pre></td></tr></table></figure></p>
+<div style="height:12px"></div>
+
+
+<p><strong> 上<a href="https://www.python.org/" target="_blank" rel="noopener">Python的官网</a> 下载源码包 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tar.xz</span><br></pre></td></tr></table></figure></p>
+<div style="height:12px"></div>
+
+
+<p><strong> 解包，解压缩 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xz -d Python-3.6.1.tar.xz</span><br><span class="line">tar -xvf Python-3.6.1.tar</span><br></pre></td></tr></table></figure></p>
+<div style="height:12px"></div>
+
+<p><strong> 编译 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Python-3.6.1</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/python3.6 --<span class="built_in">enable</span>-optimizations</span><br></pre></td></tr></table></figure></p>
+<p>先解释下上面的参数，<code>--prefix</code>是预期安装目录，<code>--enable-optimizations</code>是优化选项（LTO，PGO 等）加上这个 flag 编译后，性能有 10% 左右的优化，但是这会明显的增加编译时间。不过关于 LTO 和 PGO 其实不在今天文章的讨论范围内，感兴趣的可以看看 GCC 中 LTO 的具体实现(<a href="https://gcc.gnu.org/onlinedocs/gccint/LTO-Overview.html" target="_blank" rel="noopener">GNU Compiler Collection (GCC) Internals: LTO Overview</a>)。</p>
+<div style="height:12px"></div>
+
+
+<p><strong> 接下来 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<div style="height:12px"></div>
+
+
+<p><strong> 编译安装完成后，执行 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  /usr/<span class="built_in">local</span>/python3.6/bin/python3 --version</span><br><span class="line">Python 3.6.1</span><br></pre></td></tr></table></figure></p>
+<p>Python 3 也就安装成功了。</p>
+<div style="height:12px"></div>
+
+
+<p><strong> 为了避免每次都输入一大串路径，加个链接 </strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">➜ ln -s /usr/<span class="built_in">local</span>/python3.6/bin/python3 /usr/bin/python3</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="https://segmentfault.com/a/1190000009922582" target="_blank" rel="noopener">在 CentOS 7 上安装并配置 Python 3.6 环境</a><br><a href="https://blog.csdn.net/jeryjeryjery/article/details/77880227" target="_blank" rel="noopener">python3中pip3安装出错，找不到SSL</a><br><a href="https://www.jianshu.com/p/5fbbe1435db2" target="_blank" rel="noopener">no acceptable C compiler found in $PATH</a><br><a href="https://ehlxr.me/2017/01/07/CentOS-7-%E5%AE%89%E8%A3%85-Python3%E3%80%81pip3/" target="_blank" rel="noopener">CentOS 7 安装Python3、pip3</a></p>
+<p>以上的命令整理为如下的shell</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># author: TaoBeier</span></span><br><span class="line"></span><br><span class="line">yum -y install wget gcc make  zlib-devel readline-devel  bzip2-devel ncurses-devel sqlite-devel gdbm-devel xz-devel tk-devel openssl-devel</span><br><span class="line">wget https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tar.xz</span><br><span class="line">xz -d Python-3.6.1.tar.xz</span><br><span class="line">tar -xvf Python-3.6.1.tar</span><br><span class="line"><span class="built_in">cd</span> Python-3.6.1</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span>/python3.6 --<span class="built_in">enable</span>-optimizations</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">ln -s /usr/<span class="built_in">local</span>/python3.6/bin/python3 /usr/bin/python3</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="安装pip3-x"><a href="#安装pip3-x" class="headerlink" title=" 安装pip3.x  "></a><strong> 安装pip3.x  </strong></h3><h4 id="安装pip2-x"><a href="#安装pip2-x" class="headerlink" title=" 安装pip2.x "></a><strong> 安装pip2.x </strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首先安装 epel 扩展源</span></span><br><span class="line">$ sudo yum -y install epel-release</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 python-pip</span></span><br><span class="line">$ sudo yum -y install python-pip</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除 cache</span></span><br><span class="line">$ sudo yum clean all</span><br><span class="line">通过这种方式貌似只能安装 pip2，想要安装 Python 3 的 pip，可以通过以下的源代码安装方式。</span><br></pre></td></tr></table></figure>
+<h4 id="源码安装pip3-x"><a href="#源码安装pip3-x" class="headerlink" title=" 源码安装pip3.x "></a><strong> 源码安装pip3.x </strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载源代码</span></span><br><span class="line">$ wget --no-check-certificate https://github.com/pypa/pip/archive/9.0.1.tar.gz</span><br><span class="line"></span><br><span class="line">$ tar -zvxf 9.0.1.tar.gz</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cd</span> pip-9.0.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 Python 3 安装</span></span><br><span class="line">$ python3 setup.py install</span><br></pre></td></tr></table></figure>
+<h4 id="创建链接"><a href="#创建链接" class="headerlink" title=" 创建链接 "></a><strong> 创建链接 </strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ln -s /usr/<span class="built_in">local</span>/python3.6/bin/pip /usr/bin/pip3</span><br></pre></td></tr></table></figure>
+<h4 id="升级-pip"><a href="#升级-pip" class="headerlink" title=" 升级 pip "></a><strong> 升级 pip </strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+<p>以上的命令整理为如下的shell<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># author: Sail</span><br><span class="line"></span><br><span class="line">yum -y install epel-release python-pip</span><br><span class="line">yum clean all</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate https://github.com/pypa/pip/archive/9.0.1.tar.gz</span><br><span class="line">tar -zvxf 9.0.1.tar.gz</span><br><span class="line">cd pip-9.0.1</span><br><span class="line">python3 setup.py install</span><br><span class="line">ln -s /usr/local/python3.6/bin/pip /usr/bin/pip3</span><br></pre></td></tr></table></figure></p>
+<p><div style="height:12px"></div></p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="https://segmentfault.com/a/1190000009922582" target="_blank" rel="noopener">在 CentOS 7 上安装并配置 Python 3.6 环境</a><br><a href="https://ehlxr.me/2017/01/07/CentOS-7-%E5%AE%89%E8%A3%85-Python3%E3%80%81pip3/" target="_blank" rel="noopener">CentOS 7 安装Python3、pip3</a><br><a href="https://blog.csdn.net/jeryjeryjery/article/details/77880227" target="_blank" rel="noopener">python3中pip3安装出错，找不到SSL</a><br><a href="https://www.jianshu.com/p/5fbbe1435db2" target="_blank" rel="noopener">no acceptable C compiler found in $PATH</a></p>
 
   </section>
 
