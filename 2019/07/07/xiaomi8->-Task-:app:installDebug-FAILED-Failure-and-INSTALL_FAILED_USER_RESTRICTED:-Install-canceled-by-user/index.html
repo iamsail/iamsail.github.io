@@ -40,7 +40,7 @@
 <meta property="og:description" content="Preface 在想把react-native跑在真机上进行开发的时候(模拟器是没有问题的),抛出了这个错:app:installDebug FAILED  我一开始搜索查询的关键词是小米8 &amp;gt; Task :app:installDebug FAILED 这样查找出来的结果,大多数是让关闭启用MIUI优化,还有一些其他的方案,也是没有效果的。 折腾了一两个小时过后,我换了一个query进行">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.sail.name/img/react/INSTALL_FAILED_USER_RESTRICTED/1.jpg">
-<meta property="og:updated_time" content="2019-07-23T14:15:01.000Z">
+<meta property="og:updated_time" content="2019-08-10T02:51:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小米8-&gt;Task :app:installDebug FAILED &amp;&amp; INSTALL_FAILED_USER_RESTRICTED:Install canceled by user | Sail">
 <meta name="twitter:description" content="Preface 在想把react-native跑在真机上进行开发的时候(模拟器是没有问题的),抛出了这个错:app:installDebug FAILED  我一开始搜索查询的关键词是小米8 &amp;gt; Task :app:installDebug FAILED 这样查找出来的结果,大多数是让关闭启用MIUI优化,还有一些其他的方案,也是没有效果的。 折腾了一两个小时过后,我换了一个query进行">
@@ -445,7 +445,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -463,6 +479,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>

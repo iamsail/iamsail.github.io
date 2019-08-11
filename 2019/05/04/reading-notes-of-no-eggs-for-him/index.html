@@ -39,7 +39,7 @@
 <meta property="og:description" content="Preface 最近读了《不吃鸡蛋的人》。 四月初在图书馆借的,因为自己还挺喜欢吃鸡蛋的。读下来发现还写得挺好的。作者钱佳楠是一个八零后。 我看文学类书籍大多时候都是看比较厉害的的作家(他们大多数年纪都比较大或者已经作古了),这样踩坑的几率会小很多,毕竟有的书质量是比较糟糕的。另外,在读的不错的书中,提到的作家或者书籍名我也会记录下来,这些也是我阅读的素材。 但是其实年轻人里面也会有不错的作品,">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.sail.name/img/阅读笔记/reading-notes-of-no-eggs-for-him/1.jpg">
-<meta property="og:updated_time" content="2019-07-27T11:49:52.000Z">
+<meta property="og:updated_time" content="2019-08-10T02:51:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读《不吃鸡蛋的人》 | Sail">
 <meta name="twitter:description" content="Preface 最近读了《不吃鸡蛋的人》。 四月初在图书馆借的,因为自己还挺喜欢吃鸡蛋的。读下来发现还写得挺好的。作者钱佳楠是一个八零后。 我看文学类书籍大多时候都是看比较厉害的的作家(他们大多数年纪都比较大或者已经作古了),这样踩坑的几率会小很多,毕竟有的书质量是比较糟糕的。另外,在读的不错的书中,提到的作家或者书籍名我也会记录下来,这些也是我阅读的素材。 但是其实年轻人里面也会有不错的作品,">
@@ -505,7 +505,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -523,6 +539,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>

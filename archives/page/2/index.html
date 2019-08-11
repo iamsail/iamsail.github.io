@@ -214,6 +214,24 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
+        <a href="/2018/11/07/the-interview-of-MTDP/" title="link to 美团点评面经(秋招)">美团点评面经(秋招)</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2018-11-07" class="post-list__meta--date date">2018-11-07</time>
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider">
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
         <a href="/2018/10/28/Baidu-internship/" title="link to 百度实习总结">百度实习总结</a>
       </h2>
 
@@ -643,24 +661,6 @@ classes that you can use:
       <hr class="post-list__divider">
     </li>
     
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2018/06/29/Maximum-submatrix-sum/" title="link to 最大子矩阵和">最大子矩阵和</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2018-06-29" class="post-list__meta--date date">2018-06-29</time>
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider">
-    </li>
-    
   </ol>
 
   <hr class="post-list__divider ">
@@ -850,7 +850,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -868,6 +884,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>

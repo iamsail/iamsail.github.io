@@ -38,7 +38,7 @@
 <meta property="og:site_name" content="Sail">
 <meta property="og:description" content="Preface 培训期间，看完了《九败一胜》。    过去的长期经验不是最重要的，快速学习能力是决定一个人发展现状以及未来前景的重要因素。   “大家都在往这个行业进入的时候，我们需要做得更好，如果我们不能做得更好，我们就处在一个非常危险的状态。甚至可以毫不夸张地说，美团网这家公司离破产永远只有 6个月时间。我这么说并不是危言耸听，也不是说美团网是个不靠谱的公司，大家不需要担忧这个事情，而是要拥">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T14:15:01.000Z">
+<meta property="og:updated_time" content="2019-08-10T02:51:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读《九败一胜》 | Sail">
 <meta name="twitter:description" content="Preface 培训期间，看完了《九败一胜》。    过去的长期经验不是最重要的，快速学习能力是决定一个人发展现状以及未来前景的重要因素。   “大家都在往这个行业进入的时候，我们需要做得更好，如果我们不能做得更好，我们就处在一个非常危险的状态。甚至可以毫不夸张地说，美团网这家公司离破产永远只有 6个月时间。我这么说并不是危言耸听，也不是说美团网是个不靠谱的公司，大家不需要担忧这个事情，而是要拥">
@@ -545,7 +545,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -563,6 +579,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>

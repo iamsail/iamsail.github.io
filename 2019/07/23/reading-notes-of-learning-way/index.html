@@ -38,7 +38,7 @@
 <meta property="og:site_name" content="Sail">
 <meta property="og:description" content="Preface 最近读了《学习之道》(作者 芭芭拉·奥克利(Barbara Oakley)), 本文做记录。   如果你认为自己天生不是学数理的那块料（或者暂时还这么认为），那这儿有个惊喜：你的大脑生来就配备了非凡的心算能力。我们每一次接球、每一次随节拍舞动、每一次开车绕过路面的坑，都是在做心算的过程。   所以说，努力工作时的放松也是一个重要环节，当然，更是令工作卓有成效的关键。   但学习本">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-27T11:07:17.000Z">
+<meta property="og:updated_time" content="2019-08-10T02:51:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读《学习之道》 | Sail">
 <meta name="twitter:description" content="Preface 最近读了《学习之道》(作者 芭芭拉·奥克利(Barbara Oakley)), 本文做记录。   如果你认为自己天生不是学数理的那块料（或者暂时还这么认为），那这儿有个惊喜：你的大脑生来就配备了非凡的心算能力。我们每一次接球、每一次随节拍舞动、每一次开车绕过路面的坑，都是在做心算的过程。   所以说，努力工作时的放松也是一个重要环节，当然，更是令工作卓有成效的关键。   但学习本">
@@ -613,7 +613,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -631,6 +647,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>

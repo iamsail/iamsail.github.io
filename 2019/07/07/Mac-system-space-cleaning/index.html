@@ -38,7 +38,7 @@
 <meta property="og:site_name" content="Sail">
 <meta property="og:description" content="Preface mac使用了一段时间过后,提示空间不够。在发现很大的磁盘空间都是被系统占用(关于通过本机-&amp;gt;存储空间 进行查看)。在网上查看了一些方案看解决这个问题,目前只找到了一个适用于我的方案，做下记录。   解决办法 我使用的辅助清理的软件是OmniDiskSweeper。 通过该软件分析到,根目录下的.cleverfiles的hlink.ref目录占用空间很大。这个目录存放的是之前">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T14:15:01.000Z">
+<meta property="og:updated_time" content="2019-08-10T02:51:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac系统空间清理 | Sail">
 <meta name="twitter:description" content="Preface mac使用了一段时间过后,提示空间不够。在发现很大的磁盘空间都是被系统占用(关于通过本机-&amp;gt;存储空间 进行查看)。在网上查看了一些方案看解决这个问题,目前只找到了一个适用于我的方案，做下记录。   解决办法 我使用的辅助清理的软件是OmniDiskSweeper。 通过该软件分析到,根目录下的.cleverfiles的hlink.ref目录占用空间很大。这个目录存放的是之前">
@@ -434,7 +434,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -452,6 +468,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>

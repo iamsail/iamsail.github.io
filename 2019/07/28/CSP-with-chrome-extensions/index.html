@@ -41,7 +41,7 @@
 <meta property="og:image" content="http://www.sail.name/img/chrome-extensions/CSP-with-chrome-extensions/1.png">
 <meta property="og:image" content="http://www.sail.name/img/chrome-extensions/CSP-with-chrome-extensions/2.png">
 <meta property="og:image" content="http://www.sail.name/img/chrome-extensions/CSP-with-chrome-extensions/2.png">
-<meta property="og:updated_time" content="2019-07-28T07:03:26.000Z">
+<meta property="og:updated_time" content="2019-08-10T02:51:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开发chrome插件遇到的CSP问题 | Sail">
 <meta name="twitter:description" content="Preface 最近开发chrome插件遇到了一个问题。  我是使用react进行开发的,build过后,点击插件图标,显示了一个白色的方框,如上图所示。最初毫无下手的头绪,直到后来发现,插件卡片处,出现了一个错误按钮,才发现有给出错误信息。 12345# 错误信息Refused to execute inline script because it violates the following">
@@ -522,7 +522,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -540,6 +556,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>
