@@ -39,7 +39,7 @@
 <meta property="og:site_name" content="Sail">
 <meta property="og:description" content="Preface 以前写过一篇移动端真机调试的博客。最近在业务上，做了一个移动端的项目。对调试的手段又多了一种了解，本文做些记录。   调试方法 可以通过配置webpack的devServer的host 123456module.exports = &amp;#123;  //...  devServer: &amp;#123;    host: &amp;apos;0.0.0.0&amp;apos;  &amp;#125;&amp;#125;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-08T06:11:00.000Z">
+<meta property="og:updated_time" content="2019-09-15T09:51:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="再谈移动端真机调试 | Sail">
 <meta name="twitter:description" content="Preface 以前写过一篇移动端真机调试的博客。最近在业务上，做了一个移动端的项目。对调试的手段又多了一种了解，本文做些记录。   调试方法 可以通过配置webpack的devServer的host 123456module.exports = &amp;#123;  //...  devServer: &amp;#123;    host: &amp;apos;0.0.0.0&amp;apos;  &amp;#125;&amp;#125;">
@@ -490,7 +490,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -508,6 +524,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>
