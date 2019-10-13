@@ -1408,6 +1408,8 @@ nav {
       display: block;
       font-size: 1.7em; }
 
+/* 分页样式       */
+/* 
 .pagination {
   display: block;
   margin: 0 0 4em 0; }
@@ -1421,7 +1423,7 @@ nav {
   margin-right: 1em; }
 
 .pagination__older {
-  margin-left: 1em; }
+  margin-left: 1em; } */
 
 i {
   font-family: 'entypo';
@@ -1860,3 +1862,48 @@ input:-webkit-autofill, input:-webkit-autofill:focus {
   background: yellow;
 }
 /*============文章加密样式=============*/
+
+/*============文章展示样式=============*/
+
+.main-post-list .post-list  li {
+  margin: 0;
+}
+
+.main-post-list .post-list .post-list__meta--date {
+  color: #0a0707;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 639px) { 
+  .main-post-list .post-list .post-list__meta--date {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (min-width: 639px) { 
+  .main-post-list .post-list  li  .post-list__post-title, .post-list__meta{
+    display: inline-block
+  }
+}
+
+
+.main-post-list .post-list  li  .post-list__meta{
+  margin: 0;
+}
+
+.main-post-list .post-list  li:nth-child(n+2) .post-list__post-title {
+  margin-top: 20px;
+ }
+
+.main-post-list .post-list li .post-title {
+  font-size: 20px;
+}
+
+.main-post-list .post-list li .post-list__divider {
+  width: 100%;
+  margin: 0;
+  border: none;
+}
+/*============文章展示样式=============*/
+
+
