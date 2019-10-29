@@ -38,7 +38,7 @@
 <meta property="og:site_name" content="Sail">
 <meta property="og:description" content="Preface 在改祖传代码的时候，我发现代码中有的地方，在函数表达式前面加了一个!。其实这个!就是让这个函数变成了自执行函数表达式，从函数声明转换成了函数表达式。  比如我们有这样一个函数 1function() &amp;#123;console.log(&apos;1111&apos;);&amp;#125; 这是一个函数声明,函数是不能执行的。除非将该函数赋值为一个表达式,函数表达式是可以执行的。 12let a = fu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-13T14:48:40.000Z">
+<meta property="og:updated_time" content="2019-10-29T13:33:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS函数前面的一元运算符 | Sail">
 <meta name="twitter:description" content="Preface 在改祖传代码的时候，我发现代码中有的地方，在函数表达式前面加了一个!。其实这个!就是让这个函数变成了自执行函数表达式，从函数声明转换成了函数表达式。  比如我们有这样一个函数 1function() &amp;#123;console.log(&apos;1111&apos;);&amp;#125; 这是一个函数声明,函数是不能执行的。除非将该函数赋值为一个表达式,函数表达式是可以执行的。 12let a = fu">
@@ -444,23 +444,7 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -478,5 +462,6 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
+
 </body>
 </html>
