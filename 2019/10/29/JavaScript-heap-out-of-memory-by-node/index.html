@@ -7,7 +7,7 @@
     
 
     <title>
-      在win10升级npm | Sail 
+      JS内存溢出 | Sail 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,17 +31,18 @@
     </script>
 
 
-    <meta name="description" content="升级npm 以管理员身份运行PowerShell 12npm install -g npm-windows-upgradenpm-windows-upgrade   参考 How do I update node and npm on windows?">
+    <meta name="description" content="Preface 随着项目的越来越大, 最近开始遇到项目在build的时候, 报错JavaScript heap out of memory。   内存溢出 nodejs 默认限制了最大可使用的内存大小,nodejs V8引擎在 64 位机器上默认限制使用内存最大不超过 1.7GB，超过这个限制官方建议尝试优化为多线程方式。  解决办法可以是增加 nodejs 可使用的最大内存大小，也可以从降低程">
+<meta name="keywords" content="node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在win10升级npm | Sail">
-<meta property="og:url" content="http://www.sail.name/2017/08/07/update-npm-in-win10/index.html">
+<meta property="og:title" content="JS内存溢出 | Sail">
+<meta property="og:url" content="http://www.sail.name/2019/10/29/JavaScript-heap-out-of-memory-by-node/index.html">
 <meta property="og:site_name" content="Sail">
-<meta property="og:description" content="升级npm 以管理员身份运行PowerShell 12npm install -g npm-windows-upgradenpm-windows-upgrade   参考 How do I update node and npm on windows?">
+<meta property="og:description" content="Preface 随着项目的越来越大, 最近开始遇到项目在build的时候, 报错JavaScript heap out of memory。   内存溢出 nodejs 默认限制了最大可使用的内存大小,nodejs V8引擎在 64 位机器上默认限制使用内存最大不超过 1.7GB，超过这个限制官方建议尝试优化为多线程方式。  解决办法可以是增加 nodejs 可使用的最大内存大小，也可以从降低程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-09T10:19:58.000Z">
+<meta property="og:updated_time" content="2019-10-29T14:23:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在win10升级npm | Sail">
-<meta name="twitter:description" content="升级npm 以管理员身份运行PowerShell 12npm install -g npm-windows-upgradenpm-windows-upgrade   参考 How do I update node and npm on windows?">
+<meta name="twitter:title" content="JS内存溢出 | Sail">
+<meta name="twitter:description" content="Preface 随着项目的越来越大, 最近开始遇到项目在build的时候, 报错JavaScript heap out of memory。   内存溢出 nodejs 默认限制了最大可使用的内存大小,nodejs V8引擎在 64 位机器上默认限制使用内存最大不超过 1.7GB，超过这个限制官方建议尝试优化为多线程方式。  解决办法可以是增加 nodejs 可使用的最大内存大小，也可以从降低程">
     
     
     
@@ -211,22 +212,22 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">在win10升级npm</h1>
+    <h1 class="post-title">JS内存溢出</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2017-08-07" class="post-meta__date date">2017-08-07</time> 
+      <time datetime="2019-10-29" class="post-meta__date date">2019-10-29</time> 
 
       <span class="post-meta__tags tags">
 
           
-            <font class="categories">
-            &#8226; 分类:
-            <a class="categories-link" href="/categories/npm-yarn/">npm&&yarn</a>
-            </font>
-          
 
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/node/">node</a>
+            </font>
           
 
       </span>
@@ -237,10 +238,18 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="升级npm"><a href="#升级npm" class="headerlink" title=" 升级npm "></a><strong> 升级npm </strong></h3><p><span class="under0">以管理员身份运行PowerShell</span></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g npm-windows-upgrade</span><br><span class="line">npm-windows-upgrade</span><br></pre></td></tr></table></figure>
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>随着项目的越来越大, 最近开始遇到项目在build的时候, 报错<code>JavaScript heap out of memory</code>。</p>
 <hr>
-<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="https://stackoverflow.com/questions/18412129/how-do-i-update-node-and-npm-on-windows" target="_blank" rel="noopener">How do I update node and npm on windows?</a></p>
+<h3 id="内存溢出"><a href="#内存溢出" class="headerlink" title=" 内存溢出 "></a><strong> 内存溢出 </strong></h3><p><code>nodejs</code> 默认限制了最大可使用的内存大小,<code>nodejs V8</code>引擎在 64 位机器上默认限制使用内存最大不超过 1.7GB，超过这个限制官方建议尝试优化为多线程方式。</p>
+<p><span class="under0"><strong> 解决办法可以是增加 nodejs 可使用的最大内存大小，也可以从降低程序内存消耗的角度入手。</strong></span></p>
+<hr>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title=" 解决方法 "></a><strong> 解决方法 </strong></h3><h4 id="修改max-old-space-size"><a href="#修改max-old-space-size" class="headerlink" title=" 修改max_old_space_size "></a><strong> 修改max_old_space_size </strong></h4><p>更改环境变量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># windows</span><br><span class="line">set NODE_OPTIONS=--max_old_space_size=<span class="number">4096</span></span><br><span class="line"></span><br><span class="line"># mac/linux</span><br><span class="line"><span class="keyword">export</span> NODE_OPTIONS=--max_old_space_size=<span class="number">4096</span></span><br></pre></td></tr></table></figure>
+<p>修改<code>package.json</code>的<code>script</code>脚本,如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;dev&quot;: &quot;NODE_ENV=development node --max-old-space-size=4096 index&quot;,</span><br></pre></td></tr></table></figure>
+<h4 id="降低程序内存消耗"><a href="#降低程序内存消耗" class="headerlink" title=" 降低程序内存消耗 "></a><strong> 降低程序内存消耗 </strong></h4><p>比如配置<code>webpack</code>关闭<code>sourceMap</code></p>
+<hr>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title=" 参考链接 "></a><strong> 参考链接 </strong></h3><p><a href="https://lzw.me/a/angular-javascript-heap-out-of-memory.html" target="_blank" rel="noopener">nodejs 执行失败报错 “JavaScript heap out of memory” 的解决办法</a></p>
 
   </section>
 
