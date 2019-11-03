@@ -7,7 +7,7 @@
     
 
     <title>
-      检验中文的正则表达式 | Sail 
+      归档: 2019/11 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,17 +31,13 @@
     </script>
 
 
-    <meta name="description" content="Preface 最近在表单中文检验的时候, 碰到了一个问题，比较诡异。用户名中带有䶮字,检查不是中文。做下记录。  最初正则是这样写的: 1/^([\\u4E00-\\u9FA5]|·)*$/ 但是某个用户名字中带有䶮字, 被认为不是中文。 使用以下的正则即可:1/^([\\u4e00-\\u9fa5\\u4dae\\uE863]|·)*$/  \u4dae\uE863 分别匹配的是 䶮; 因">
-<meta property="og:type" content="article">
-<meta property="og:title" content="检验中文的正则表达式 | Sail">
-<meta property="og:url" content="http://www.sail.name/2019/10/29/all-chinese-regular-expressions/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="归档: 2019&#x2F;11">
+<meta property="og:url" content="http://www.sail.name/archives/2019/11/index.html">
 <meta property="og:site_name" content="Sail">
-<meta property="og:description" content="Preface 最近在表单中文检验的时候, 碰到了一个问题，比较诡异。用户名中带有䶮字,检查不是中文。做下记录。  最初正则是这样写的: 1/^([\\u4E00-\\u9FA5]|·)*$/ 但是某个用户名字中带有䶮字, 被认为不是中文。 使用以下的正则即可:1/^([\\u4e00-\\u9fa5\\u4dae\\uE863]|·)*$/  \u4dae\uE863 分别匹配的是 䶮; 因">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-03T12:26:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="检验中文的正则表达式 | Sail">
-<meta name="twitter:description" content="Preface 最近在表单中文检验的时候, 碰到了一个问题，比较诡异。用户名中带有䶮字,检查不是中文。做下记录。  最初正则是这样写的: 1/^([\\u4E00-\\u9FA5]|·)*$/ 但是某个用户名字中带有䶮字, 被认为不是中文。 使用以下的正则即可:1/^([\\u4e00-\\u9fa5\\u4dae\\uE863]|·)*$/  \u4dae\uE863 分别匹配的是 䶮; 因">
+<meta name="twitter:title" content="归档: 2019&#x2F;11">
     
     
     
@@ -207,53 +203,47 @@ classes that you can use:
         <div class="content-wrapper__inner entry">
             
 
-<article class="post-container post-container--single">
 
-  <header class="post-header">
+  <h1 class="archive-title">归档: 2019/11</h1>
+  <hr class="post-list__divider">
+
+
+<div class="main-post-list">
+    <ol class="post-list">
+
     
-    <h1 class="post-title">检验中文的正则表达式</h1>
+    <li>
 
+      <h2 class="post-list__post-title post-title">
+        <a href="/2019/11/03/reading-notes-of-soft-skills/" title="link to 读《软技能:代码之外的生存指南》">读《软技能:代码之外的生存指南》</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2019-11-03" class="post-list__meta--date date">2019-11-03</time>
+      </div>
+
+      <div class="excerpt">
+        
+      </div>
+
+      <hr class="post-list__divider">
+    </li>
+    
+  </ol>
+
+  <!-- <hr class="post-list__divider " /> -->
+<!-- 
+<nav class="pagination" role="navigation">
     
 
-    <div class="post-meta">
-      <time datetime="2019-10-29" class="post-meta__date date">2019-10-29</time> 
-
-      <span class="post-meta__tags tags">
-
-          
-            <font class="categories">
-            &#8226; 分类:
-            <a class="categories-link" href="/categories/正则表达式/">正则表达式</a>
-            </font>
-          
-
-          
-
-      </span>
-    </div>
+    <span class="pagination__page-number"> 1 / 1</span>
     
     
-
-  </header>
-
-  <section id="post-content" class="article-content post">
-    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>最近在表单中文检验的时候, 碰到了一个问题，比较诡异。用户名中带有<code>䶮</code>字,检查不是中文。做下记录。</p>
-<hr>
-<p>最初正则是这样写的:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^([\\u4E00-\\u9FA5]|·)*$/</span><br></pre></td></tr></table></figure>
-<p>但是某个用户名字中带有<code>䶮</code>字, 被认为不是中文。</p>
-<p>使用以下的正则即可:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^([\\u4e00-\\u9fa5\\u4dae\\uE863]|·)*$/</span><br></pre></td></tr></table></figure></p>
-<p><span class="under0"><strong> \u4dae\uE863 分别匹配的是 䶮; 因为后面的两个字会因为有些编码器的版本问题而无法匹配到. </strong></span></p>
-<hr>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title=" 参考链接 "></a><strong> 参考链接 </strong></h3><p><a href="https://blog.csdn.net/pigaps/article/details/50174571" target="_blank" rel="noopener">匹配全部中文的正则表达式</a></p>
-
-  </section>
-
-  
-  
-</article>
+</nav> -->
 
 
+</div>
             
 
 <footer class="footer">
@@ -418,18 +408,6 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 
 
     
-
-    <script src="/js/awesome-toc.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $.awesome_toc({
-                overlay: true,
-                contentId: "post-content",
-            });
-        });
-    </script>
-
-
     
     
     <!--kill ie6 -->
