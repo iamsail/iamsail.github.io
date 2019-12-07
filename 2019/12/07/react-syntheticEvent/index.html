@@ -39,7 +39,7 @@
 <meta property="og:description" content="Preface 最近在代码中遇到了react合成事件的相关问题，本文做下记录。   合成事件(SyntheticEvent) 在react中,事件处理程序将传递 SyntheticEvent 的实例，这是一个跨浏览器原生事件包装器。 它具有与浏览器原生事件相同的接口，包括 stopPropagation() 和 preventDefault() ，除了事件在所有浏览器中他们工作方式都相同。 如果">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://www.sail.name/img/react/react-syntheticEvent/syntheticEvent.png">
-<meta property="og:updated_time" content="2019-12-07T07:10:08.000Z">
+<meta property="og:updated_time" content="2019-12-07T07:13:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react合成事件 | Sail">
 <meta name="twitter:description" content="Preface 最近在代码中遇到了react合成事件的相关问题，本文做下记录。   合成事件(SyntheticEvent) 在react中,事件处理程序将传递 SyntheticEvent 的实例，这是一个跨浏览器原生事件包装器。 它具有与浏览器原生事件相同的接口，包括 stopPropagation() 和 preventDefault() ，除了事件在所有浏览器中他们工作方式都相同。 如果">
@@ -517,7 +517,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -535,6 +551,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>
