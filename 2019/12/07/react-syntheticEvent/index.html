@@ -7,7 +7,7 @@
     
 
     <title>
-      分类: react 
+      react合成事件 | Sail 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,13 +31,19 @@
     </script>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="分类: react">
-<meta property="og:url" content="http://www.sail.name/categories/react/index.html">
+    <meta name="description" content="Preface 最近在代码中遇到了react合成事件的相关问题，本文做下记录。   合成事件(SyntheticEvent) 在react中,事件处理程序将传递 SyntheticEvent 的实例，这是一个跨浏览器原生事件包装器。 它具有与浏览器原生事件相同的接口，包括 stopPropagation() 和 preventDefault() ，除了事件在所有浏览器中他们工作方式都相同。 如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react合成事件 | Sail">
+<meta property="og:url" content="http://www.sail.name/2019/12/07/react-syntheticEvent/index.html">
 <meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 最近在代码中遇到了react合成事件的相关问题，本文做下记录。   合成事件(SyntheticEvent) 在react中,事件处理程序将传递 SyntheticEvent 的实例，这是一个跨浏览器原生事件包装器。 它具有与浏览器原生事件相同的接口，包括 stopPropagation() 和 preventDefault() ，除了事件在所有浏览器中他们工作方式都相同。 如果">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.sail.name/img/react/react-syntheticEvent/syntheticEvent.png">
+<meta property="og:updated_time" content="2019-12-07T07:10:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类: react">
+<meta name="twitter:title" content="react合成事件 | Sail">
+<meta name="twitter:description" content="Preface 最近在代码中遇到了react合成事件的相关问题，本文做下记录。   合成事件(SyntheticEvent) 在react中,事件处理程序将传递 SyntheticEvent 的实例，这是一个跨浏览器原生事件包装器。 它具有与浏览器原生事件相同的接口，包括 stopPropagation() 和 preventDefault() ，除了事件在所有浏览器中他们工作方式都相同。 如果">
+<meta name="twitter:image" content="http://www.sail.name/img/react/react-syntheticEvent/syntheticEvent.png">
     
     
     
@@ -203,83 +209,133 @@ classes that you can use:
         <div class="content-wrapper__inner entry">
             
 
+<article class="post-container post-container--single">
 
-  <h1 class="archive-title">分类: react</h1>
-  <hr class="post-list__divider">
-
-
-<div class="main-post-list">
-    <ol class="post-list">
+  <header class="post-header">
+    
+    <h1 class="post-title">react合成事件</h1>
 
     
-    <li>
 
-      <h2 class="post-list__post-title post-title">
-        <a href="/2019/12/07/react-syntheticEvent/" title="link to react合成事件">react合成事件</a>
-      </h2>
+    <div class="post-meta">
+      <time datetime="2019-12-07" class="post-meta__date date">2019-12-07</time> 
 
-      <div class="post-list__meta">
+      <span class="post-meta__tags tags">
 
-        <time datetime="2019-12-07" class="post-list__meta--date date">2019-12-07</time>
-      </div>
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/react/">react</a>
+            </font>
+          
 
-      <div class="excerpt">
-        
-      </div>
+          
 
-      <hr class="post-list__divider">
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2019/08/10/about-use-index-as-key/" title="link to 关于使用index作为key的问题">关于使用index作为key的问题</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2019-08-10" class="post-list__meta--date date">2019-08-10</time>
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider">
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2019/07/07/xiaomi8->-Task-:app:installDebug-FAILED-Failure-and-INSTALL_FAILED_USER_RESTRICTED:-Install-canceled-by-user/" title="link to 小米8-&gt;Task :app:installDebug FAILED &amp;&amp; INSTALL_FAILED_USER_RESTRICTED:Install canceled by user">小米8-&gt;Task :app:installDebug FAILED &amp;&amp; INSTALL_FAILED_USER_RESTRICTED:Install canceled by user</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2019-07-07" class="post-list__meta--date date">2019-07-07</time>
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider">
-    </li>
-    
-  </ol>
-
-  <!-- <hr class="post-list__divider " /> -->
-<!-- 
-<nav class="pagination" role="navigation">
-    
-
-    <span class="pagination__page-number"> 1 / 1</span>
+      </span>
+    </div>
     
     
-</nav> -->
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>最近在代码中遇到了react合成事件的相关问题，本文做下记录。</p>
+<hr>
+<h3 id="合成事件-SyntheticEvent"><a href="#合成事件-SyntheticEvent" class="headerlink" title=" 合成事件(SyntheticEvent) "></a><strong> 合成事件(SyntheticEvent) </strong></h3><p>在react中,事件处理程序将传递 <code>SyntheticEvent</code> 的实例，这是一个跨浏览器原生事件包装器。 它具有与浏览器原生事件相同的接口，包括 <code>stopPropagation()</code> 和 <code>preventDefault()</code> ，除了事件在所有浏览器中他们工作方式都相同。</p>
+<p>如果您发现由于某种原因需要底层浏览器事件，只需使用 <code>nativeEvent</code> 属性来获取它。 每个 <code>SyntheticEvent</code>对象都具有以下属性：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>bubbles</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>cancelable</td>
+</tr>
+<tr>
+<td>DOMEventTarget</td>
+<td>currentTarget</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>defaultPrevented</td>
+</tr>
+<tr>
+<td>number</td>
+<td>eventPhase</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>isTrusted</td>
+</tr>
+<tr>
+<td>DOMEvent</td>
+<td>nativeEvent</td>
+</tr>
+<tr>
+<td>void</td>
+<td>preventDefault()</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>isDefaultPrevented()</td>
+</tr>
+<tr>
+<td>void</td>
+<td>stopPropagation()</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>isPropagationStopped()</td>
+</tr>
+<tr>
+<td>DOMEventTarget</td>
+<td>target</td>
+</tr>
+<tr>
+<td>number</td>
+<td>timeStamp</td>
+</tr>
+<tr>
+<td>string</td>
+<td>type</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="异步事件"><a href="#异步事件" class="headerlink" title=" 异步事件 "></a><strong> 异步事件 </strong></h3><p><code>SyntheticEvent</code>对象是通过合并得到的。这意味着在事件回调被调用后，<code>SyntheticEvent</code>对象将被重用并且所有属性都将被取消。 这是出于性能原因。 因此，您无法以异步方式访问该事件。<br><span class="under0"><strong>如果要以异步方式访问事件属性，应该对事件调用 event.persist() ，这将从池中删除合成事件，并允许用户代码保留对事件的引用。</strong></span></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">clickHandle = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    # 这一行必须不可少</span><br><span class="line">    e.persist();</span><br><span class="line">    <span class="built_in">console</span>.log(e);</span><br><span class="line">    <span class="built_in">console</span>.log(e.type);</span><br><span class="line">    # 这里是异步的</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(e);</span><br><span class="line">      <span class="built_in">console</span>.log(e.type);</span><br><span class="line">    &#125;, <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    # 这里也是异步的</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">event</span>:event&#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="合成事件机制"><a href="#合成事件机制" class="headerlink" title=" 合成事件机制 "></a><strong> 合成事件机制 </strong></h3><p><img src="/img/react/react-syntheticEvent/syntheticEvent.png" alt="syntheticEvent.png"></p>
+<p><code>react</code>的所有事件都挂载在<code>document</code>中。当真实<code>dom</code>触发后冒泡到<code>document</code>后才会对<code>react</code>事件进行处理，所以原生的事件会先执行，然后执行<code>react</code>合成事件，最后执行真正在<code>document</code>上挂载的事件。</p>
+<p><code>react</code>事件机制分为三个部分:</p>
+<p><span class="under0"><strong>事件注册部分，</strong></span>所有的事件都会注册到<code>document</code>上，拥有统一的调函数<code>dispatchEvent</code>来执行事件分发。<code>React</code>使用对象池来管理合成事件对象的创建和销毁，这样减少了垃圾的生成和新对象内存的分配，大大提高了性能。也就是说不同的事件，可能会共享一个合成事件对象。</p>
+<p>触发<code>document</code>注册原生事件的回调<code>dispatchEvent</code>,获取到触发这个事件最深一级的元素,遍历这个元素的所有父元素，依次对每一级元素进行处理。构造合成事件。将每一级的合成事件存储在<code>eventQueue</code>事件队列中。遍历<code>eventQueue</code>。通过<code>isPropagationStopped</code>判断当前事件是否执行了阻止冒泡方法。如果阻止了冒泡，停止遍历，否则通过<code>executeDispatch</code>执行合成事件。释放处理完成的事件。</p>
+<p><span class="under0"><strong>事件分发部分，</strong></span>首先生成合成事件，注意同一种事件类型只能生成一个合成事件<code>Event</code>，如<code>onclick</code>这个类型的事件，<code>dom</code>上所有带有通过<code>jsx</code>绑定的<code>onClick</code>的回调函数都会按顺序（冒泡或者捕获）会放到<code>Event._dispatchListeners</code> 这个数组里，后面依次执行它。也就是说，<code>React</code>以队列的方式，从触发事件的组件向父组件回溯，调用它们在JSX中声明的<code>callback</code>，<code>React</code>自身实现了一套事件冒泡机制。</p>
+<p><span class="under0"><strong>事件存储部分，</strong></span>合成事件以对象池的方式实现创建和销毁，大大提高了性能。</p>
+<hr>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title=" 参考链接 "></a><strong> 参考链接 </strong></h3><ul>
+<li><a href="http://cn.voidcc.com/question/p-mvzpkdzm-t.html" target="_blank" rel="noopener">合成事件(SyntheticEvent)</a></li>
+<li><a href="http://cn.voidcc.com/question/p-mvzpkdzm-t.html" target="_blank" rel="noopener">React.js onClick事件返回所有空值</a></li>
+<li><a href="https://segmentfault.com/a/1190000013363525" target="_blank" rel="noopener">揭秘React形成合成事件的过程</a></li>
+<li><a href="http://cycle263.github.io/blogs/framework/React/implement/event.html" target="_blank" rel="noopener">react合成事件</a></li>
+<li><a href="http://www.ptbird.cn/react-syntheticEvent.html" target="_blank" rel="noopener">React 合成事件（SyntheticEvent）</a></li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
 
 
-</div>
             
 
 <footer class="footer">
@@ -444,6 +500,18 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 
 
     
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
     
     
     <!--kill ie6 -->
