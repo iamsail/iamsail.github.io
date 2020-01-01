@@ -1216,9 +1216,9 @@ hr {
   width: 100%;
   max-width: none;
   height: 100%;
-  background: url(../images/background-cover.jpeg) top left no-repeat #666666;
+  /* background: url(../images/background-cover.jpeg) top left no-repeat #666666; */
   /* background: url(../images/background-cover.jpg) top right no-repeat #666666; */
-  /* background: linear-gradient(90deg,black,black 49%,white 50%,black 51%,black); */
+  background: linear-gradient(90deg,black,black 49%,white 50%,black 51%,black);
   background-size: cover; 
 }
 
