@@ -1,7 +1,7 @@
 ---
 title: JS中的数字类型
 date: 2020-01-22 11:06:01
-tags: [Javascript]
+categories: Javascript
 ---
 ### ** Preface **
 在JavaScript中，一个数字过大，会导致数字不准确。比如在浏览器中输入下图中的数字，输出的却是另外一个数字。
