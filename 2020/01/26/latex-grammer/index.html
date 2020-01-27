@@ -39,7 +39,7 @@
 <meta property="og:site_name" content="Sail">
 <meta property="og:description" content="Preface 本文是对Latex语法的部分记录。因为我在平时写blog的时候,偶尔还是会需要写一些公式的，为了避免下次又去网上查找，直接记录在本文。 关于Hexo中如何使用Latex,之前已经写了一篇博客做介绍,在hexo使用mathjax。   实践 在输入数学公式的时候，需要在数学公式的前后加入$$或$符号，将需要输入的公式加入到$$或$中间。 $$会使公式居中,$不会。 123$h(\t">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-26T12:36:16.000Z">
+<meta property="og:updated_time" content="2020-01-26T12:37:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Latex语法 | Sail">
 <meta name="twitter:description" content="Preface 本文是对Latex语法的部分记录。因为我在平时写blog的时候,偶尔还是会需要写一些公式的，为了避免下次又去网上查找，直接记录在本文。 关于Hexo中如何使用Latex,之前已经写了一篇博客做介绍,在hexo使用mathjax。   实践 在输入数学公式的时候，需要在数学公式的前后加入$$或$符号，将需要输入的公式加入到$$或$中间。 $$会使公式居中,$不会。 123$h(\t">
@@ -468,7 +468,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -486,6 +502,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>
