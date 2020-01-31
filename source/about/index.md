@@ -13,7 +13,7 @@ title: About
 
 微信公众号: 李一二
 
-![wx.jpg](/img/self-media/wx2.jpg)
+![wx.jpg](/img/self-media/brand.png)
 
 
 
