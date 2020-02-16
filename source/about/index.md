@@ -11,9 +11,10 @@ title: About
 
 *************
 
+微信号: sail19971026。 可加我微信，进入编程交流群。
 微信公众号: 李一二
 
-![wx.jpg](/img/self-media/wx2.jpg)
+![wx.jpg](/img/self-media/brand.png)
 
 
 
