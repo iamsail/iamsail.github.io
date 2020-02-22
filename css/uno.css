@@ -1892,11 +1892,13 @@ input:-webkit-autofill, input:-webkit-autofill:focus {
 }
 
 .main-post-list .post-list  li:nth-child(n+2) .post-list__post-title {
-  margin-top: 20px;
+  margin-top: 6px;
+  font-weight: 600;
  }
 
 .main-post-list .post-list li .post-title {
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: 16px;
 }
 
 .main-post-list .post-list li .post-list__divider {
