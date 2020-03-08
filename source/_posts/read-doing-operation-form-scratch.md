@@ -1,7 +1,7 @@
 ---
 title: 读《从零开始做运营》
 date: 2020-02-22 21:20:01
-categories: [运营]
+categories: [阅读笔记]
 password: 1369a
 ---
 
