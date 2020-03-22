@@ -7,7 +7,7 @@
     
 
     <title>
-      macOS安装labelImg踩坑汇总 | Sail 
+      leetcode191-位1的个数 | Sail 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,18 +31,18 @@
     </script>
 
 
-    <meta name="description" content="Preface 最近有一个涉及到计算机视觉相关的项目，网上没有合适的数据集，需要自己整理一个数据集出来。LabelImg作为图片标注工具，是在进行图片识别和视频分类等机器学习任务的训练集准备，不可少的工具。这里我也使用了LabelImg来做数据的标注。   如何安装labelImg 这里推荐看github官方文档，根据自己所使用的操作系统，进行安装。因为我的系统是Mac OS X，所以执行如下命">
-<meta name="keywords" content="前端智能化,数据集">
+    <meta name="description" content="题目 这是一道easy难度的题，先看看题目 编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。 示例 1：  输入：00000000000000000000000000001011输出：3解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 ‘1’。  示例 2：  输入：0000000000">
+<meta name="keywords" content="位运算">
 <meta property="og:type" content="article">
-<meta property="og:title" content="macOS安装labelImg踩坑汇总 | Sail">
-<meta property="og:url" content="http://www.sail.name/2020/03/15/macOS-install-labelimg-step-pit-summary/index.html">
+<meta property="og:title" content="leetcode191-位1的个数 | Sail">
+<meta property="og:url" content="http://www.sail.name/2020/03/22/leetcode-191/index.html">
 <meta property="og:site_name" content="Sail">
-<meta property="og:description" content="Preface 最近有一个涉及到计算机视觉相关的项目，网上没有合适的数据集，需要自己整理一个数据集出来。LabelImg作为图片标注工具，是在进行图片识别和视频分类等机器学习任务的训练集准备，不可少的工具。这里我也使用了LabelImg来做数据的标注。   如何安装labelImg 这里推荐看github官方文档，根据自己所使用的操作系统，进行安装。因为我的系统是Mac OS X，所以执行如下命">
+<meta property="og:description" content="题目 这是一道easy难度的题，先看看题目 编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。 示例 1：  输入：00000000000000000000000000001011输出：3解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 ‘1’。  示例 2：  输入：0000000000">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-21T13:52:44.000Z">
+<meta property="og:updated_time" content="2020-03-22T03:11:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="macOS安装labelImg踩坑汇总 | Sail">
-<meta name="twitter:description" content="Preface 最近有一个涉及到计算机视觉相关的项目，网上没有合适的数据集，需要自己整理一个数据集出来。LabelImg作为图片标注工具，是在进行图片识别和视频分类等机器学习任务的训练集准备，不可少的工具。这里我也使用了LabelImg来做数据的标注。   如何安装labelImg 这里推荐看github官方文档，根据自己所使用的操作系统，进行安装。因为我的系统是Mac OS X，所以执行如下命">
+<meta name="twitter:title" content="leetcode191-位1的个数 | Sail">
+<meta name="twitter:description" content="题目 这是一道easy难度的题，先看看题目 编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。 示例 1：  输入：00000000000000000000000000001011输出：3解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 ‘1’。  示例 2：  输入：0000000000">
     
     
     
@@ -212,26 +212,26 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">macOS安装labelImg踩坑汇总</h1>
+    <h1 class="post-title">leetcode191-位1的个数</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2020-03-15" class="post-meta__date date">2020-03-15</time> 
+      <time datetime="2020-03-22" class="post-meta__date date">2020-03-22</time> 
 
       <span class="post-meta__tags tags">
 
           
             <font class="categories">
             &#8226; 分类:
-            <a class="categories-link" href="/categories/深度学习/">深度学习</a>
+            <a class="categories-link" href="/categories/leetcode/">leetcode</a>
             </font>
           
 
           
              &#8226; 标签:
             <font class="tags">
-              <a class="tags-link" href="/tags/前端智能化/">前端智能化</a>, <a class="tags-link" href="/tags/数据集/">数据集</a>
+              <a class="tags-link" href="/tags/位运算/">位运算</a>
             </font>
           
 
@@ -243,44 +243,44 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>最近有一个涉及到计算机视觉相关的项目，网上没有合适的数据集，需要自己整理一个数据集出来。<br><code>LabelImg</code>作为图片标注工具，是在进行图片识别和视频分类等机器学习任务的训练集准备，不可少的工具。这里我也使用了<code>LabelImg</code>来做数据的标注。</p>
-<hr>
-<h3 id="如何安装labelImg"><a href="#如何安装labelImg" class="headerlink" title=" 如何安装labelImg "></a><strong> 如何安装labelImg </strong></h3><p>这里推荐看github官方文档，根据自己所使用的操作系统，进行安装。<br>因为我的系统是Mac OS X，所以执行如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">brew install python3</span><br><span class="line">pip3 install pipenv</span><br><span class="line">pipenv run pip install pyqt5==5.13.2 lxml</span><br><span class="line">pipenv run make qt5py3</span><br><span class="line">python3 labelImg.py</span><br><span class="line">[Optional] rm -rf build dist; python setup.py py2app -A;mv &quot;dist/labelImg.app&quot; /Applications</span><br></pre></td></tr></table></figure></p>
-<p>但是在上面的命令执行过程中，可能会遇到一些问题，导致安装失败。我将整个安装过程所踩的坑整理在下方。</p>
-<hr>
-<h3 id="问题汇总"><a href="#问题汇总" class="headerlink" title=" 问题汇总 "></a><strong> 问题汇总 </strong></h3><h3 id="需要先将labelImg的代码仓库克隆到本地"><a href="#需要先将labelImg的代码仓库克隆到本地" class="headerlink" title=" 需要先将labelImg的代码仓库克隆到本地 "></a><strong> 需要先将labelImg的代码仓库克隆到本地 </strong></h3><p>上面提到的安装命令有一个是<code>python3 labelImg.py</code>,所以需要先有这个文件。</p>
-<p>执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:tzutalin/labelImg.git</span><br><span class="line">cd /labelImg-master</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="指定镜像源"><a href="#指定镜像源" class="headerlink" title=" 指定镜像源 "></a><strong> 指定镜像源 </strong></h3><p>没有指定镜像源，使用官方的镜像源，可能网速会很慢。这里推荐使用清华的镜像源，示例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lxml -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="安装pyQt5"><a href="#安装pyQt5" class="headerlink" title=" 安装pyQt5 "></a><strong> 安装pyQt5 </strong></h3><p>安装pyQt5,会报错。最终发现是因为python安装没有带openssl这个库。<br><code>macOS High Sierra: ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib?</code></p>
-<p>解决办法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">执行如下命令</span><br><span class="line"></span><br><span class="line">brew uninstall openssl &amp;&amp; brew install openssl &amp;&amp; CFLAGS=&quot;-I$(brew --prefix openssl)/include&quot; LDFLAGS=&quot;-L$(brew --prefix openssl)/lib&quot; pyenv install 3.7.0</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line"></span><br><span class="line">brew uninstall --ignore-dependencies openssl &amp;&amp; brew install openssl &amp;&amp; CFLAGS=&quot;-I$(brew --prefix openssl)/include&quot; LDFLAGS=&quot;-L$(brew --prefix openssl)/lib&quot; pyenv install 3.7.0</span><br><span class="line"></span><br><span class="line"># 然后再安装 PyQt5</span><br><span class="line">pip3 install PyQt5 --default-timeout=1000 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="RFE-pyenv-update-should-regenerate-shims-unconditionally"><a href="#RFE-pyenv-update-should-regenerate-shims-unconditionally" class="headerlink" title=" RFE: pyenv update should regenerate shims unconditionally "></a><strong> RFE: pyenv update should regenerate shims unconditionally </strong></h3><p>执行如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv rehash</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h3 id="ReadTimeoutError"><a href="#ReadTimeoutError" class="headerlink" title=" ReadTimeoutError "></a><strong> ReadTimeoutError </strong></h3><p>下载python库的时候，由于国内网络原因，python包的下载速度非常慢。会因为抛出错误<code>ReadTimeoutError</code>,而报错。</p>
-<p>解决办法添加参数<code>--default-timeout=1000</code>即可，示例如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install PyQt5 --default-timeout=1000</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="xcrun-error-active-developer-path-“-Applications-Xcode-app-Contents-Developer”-does-not-exist"><a href="#xcrun-error-active-developer-path-“-Applications-Xcode-app-Contents-Developer”-does-not-exist" class="headerlink" title=" xcrun: error: active developer path (“/Applications/Xcode.app/Contents/Developer”) does not exist "></a><strong> xcrun: error: active developer path (“/Applications/Xcode.app/Contents/Developer”) does not exist </strong></h3><p>如果报了这个错，执行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xcode-select --reset</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="如果某一个包，安装过后，还是提示没有"><a href="#如果某一个包，安装过后，还是提示没有" class="headerlink" title=" 如果某一个包，安装过后，还是提示没有 "></a><strong> 如果某一个包，安装过后，还是提示没有 </strong></h3><p>上面的安装命令中，有的使用<code>pipenv</code>进行安装的。如果安装过后执行命令还是提示找不到的话，可以使用pip/pip3再安装一次。</p>
-<hr>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title=" 参考资料 "></a><strong> 参考资料 </strong></h3><ul>
-<li><a href="https://github.com/tzutalin/labelImg" target="_blank" rel="noopener">tzutalin/labelImg</a></li>
-<li><a href="https://github.com/pyenv/pyenv/issues/993" target="_blank" rel="noopener">macOS High Sierra: ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib? #993</a></li>
-<li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/" target="_blank" rel="noopener">清华大学开源软件镜像站</a></li>
-<li><a href="https://blog.csdn.net/lambert310/article/details/52412059" target="_blank" rel="noopener">更改pip源至国内镜像，显著提升下载速度</a></li>
-<li><a href="https://yq.aliyun.com/articles/619208" target="_blank" rel="noopener">解决pip._vendor.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host=’files.pythonhosted.org’, port=443): Read timed out.</a></li>
-<li><a href="http://einverne.github.io/post/2017/04/pyenv.html" target="_blank" rel="noopener">使用 pyenv 管理 Python 版本</a></li>
-<li><a href="xcrun: error: active developer path (“/Applications/Xcode.app/Contents/Developer”does not exist
-Ask" target="_blank" rel="noopener">https://stackoverflow.com/questions/35009531/xcrun-error-active-developer-path-applications-xcode-app-contents-developer/35009644</a></li>
-<li><a href="https://imyong.top/2018/05/25/%E5%A6%82%E4%BD%95%E7%94%A8Paython%E5%88%B6%E4%BD%9C%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E7%89%87%E6%95%B0%E6%8D%AE%E9%9B%86/" target="_blank" rel="noopener">如何用Paython制作自己的图片数据集
-</a></li>
-<li><a href="https://blog.csdn.net/mbytes/article/details/104102814" target="_blank" rel="noopener">You are using pip version 19.0.3, however version 20.0.2 is available.You should consider upgrading via the ‘pip install –upgrade pip’ command. 的解决办法</a></li>
-<li><a href="https://github.com/pyenv/pyenv/issues/1068" target="_blank" rel="noopener">RFE: pyenv update should regenerate shims unconditionally</a></li>
+    <h3 id="题目"><a href="#题目" class="headerlink" title=" 题目 "></a><strong> 题目 </strong></h3><p>这是一道<code>easy</code>难度的题，先看看题目</p>
+<p>编写一个函数，输入是一个无符号整数，返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为汉明重量）。</p>
+<p>示例 1：</p>
+<blockquote>
+<p>输入：00000000000000000000000000001011<br>输出：3<br>解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 ‘1’。</p>
+</blockquote>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：00000000000000000000000010000000<br>输出：1<br>解释：输入的二进制串 00000000000000000000000010000000 中，共有一位为 ‘1’。</p>
+</blockquote>
+<p>示例 3：</p>
+<blockquote>
+<p>输入：11111111111111111111111111111101<br>输出：31<br>解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为 ‘1’。</p>
+</blockquote>
+<p>提示：</p>
+<blockquote>
+<ul>
+<li>请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。</li>
+<li>在 Java 中，编译器使用二进制补码记法来表示有符号整数。因此，在上面的 示例 3 中，输入表示有符号整数 -3。</li>
 </ul>
+</blockquote>
+<hr>
+<h3 id="解答"><a href="#解答" class="headerlink" title=" 解答 "></a><strong> 解答 </strong></h3><p>当然在JavaScript中，也是没有无符号整数类型的，都是32位有符号整数类型。所以这里我们的输入都是有符号整数类型。那么我们的问题就转换成了<strong>输入一个整数，返回其二进制表达式中数字位数为‘1’的个数 </strong></p>
+<h3 id="十进制转二进制"><a href="#十进制转二进制" class="headerlink" title=" 十进制转二进制 "></a><strong> 十进制转二进制 </strong></h3><p>这里我们很容易想到，将数字处理成二进制，然后统计其1的个数。从十进制转成二进制，不断除以2，直到为0。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; n - a positive integer</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> hammingWeight = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (n) &#123;</span><br><span class="line">        count += n % <span class="number">2</span>; </span><br><span class="line">        n = n &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// n = Math.floor(n / 2);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="位运算"><a href="#位运算" class="headerlink" title=" 位运算 "></a><strong> 位运算 </strong></h3><p>循环和位移动</p>
+<p>将输入的数字n与位掩码(初始值为1)的二进制做与运算，即可以得到n的最低位。举个例子</p>
+<p>已知 <code>0 &amp; 1 = 0</code>, <code>1 &amp; 1 = 1</code></p>
+<p>1的二进制表示是<code>0000 0000 0000 0000 0000 0000 0000 0001</code><br>3的二进制表示是<code>0000 0000 0000 0000 0000 0000 0000 0011</code></p>
+<p>则 1 &amp; 3，<br>结果二进制表示是<code>0000 0000 0000 0000 0000 0000 0000 0001</code>，即为1,得到了3的最低位。</p>
+<p>检查下一位时，我们将掩码左移一位。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; n - a positive integer</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> hammingWeight = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> counts = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> mask = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((n &amp; mask) !== <span class="number">0</span>) &#123;</span><br><span class="line">            counts++;</span><br><span class="line">        &#125;</span><br><span class="line">        mask &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> counts;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="位运算更简洁的做法"><a href="#位运算更简洁的做法" class="headerlink" title=" 位运算更简洁的做法 "></a><strong> 位运算更简洁的做法 </strong></h3><p>前面一种算法，需要检查数组的每一位。接下来的这种做法，不需要检查完每一位。而是通过不断的把数字的最后一个1进行反转。</p>
+<p><strong> 核心思想是想法是对于任意数字 n ，将 n 和 n - 1 做与运算，会把最后一个 1 的位变成 0 </strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n           ..<span class="number">.1110100</span> <span class="comment">// 倒数第3位是1</span></span><br><span class="line">n - <span class="number">1</span>       ..<span class="number">.1110011</span></span><br><span class="line">n &amp; (n <span class="number">-1</span>)  ..<span class="number">.1110000</span> <span class="comment">// 倒数第3位为0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; n - a positive integer</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> hammingWeight = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> counts = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n) &#123;</span><br><span class="line">        counts++;</span><br><span class="line">        n &amp;= n - <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> counts;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="leetcode链接"><a href="#leetcode链接" class="headerlink" title=" leetcode链接 "></a><strong> leetcode链接 </strong></h4><p><a href="https://leetcode-cn.com/problems/number-of-1-bits/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-1-bits/</a></p>
 
   </section>
 
