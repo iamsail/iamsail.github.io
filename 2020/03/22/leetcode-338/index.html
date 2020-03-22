@@ -7,7 +7,7 @@
     
 
     <title>
-      分类: leetcode 
+      leetcode383-比特位计数 | Sail 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,13 +31,18 @@
     </script>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="分类: leetcode">
-<meta property="og:url" content="http://www.sail.name/categories/leetcode/index.html">
+    <meta name="description" content="题目 这是一道medium难度的题，本题是leetcode191-位1的个数的进阶版。 先看看题目 给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回。 示例 1:  输入: 2输出: [0,1,1]  示例 2:  输入: 5输出: [0,1,1,2,1,2]  进阶:  给出时间复杂度为O(n*sizeof(in">
+<meta name="keywords" content="动态规划,位运算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode383-比特位计数 | Sail">
+<meta property="og:url" content="http://www.sail.name/2020/03/22/leetcode-338/index.html">
 <meta property="og:site_name" content="Sail">
+<meta property="og:description" content="题目 这是一道medium难度的题，本题是leetcode191-位1的个数的进阶版。 先看看题目 给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回。 示例 1:  输入: 2输出: [0,1,1]  示例 2:  输入: 5输出: [0,1,1,2,1,2]  进阶:  给出时间复杂度为O(n*sizeof(in">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-22T04:13:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类: leetcode">
+<meta name="twitter:title" content="leetcode383-比特位计数 | Sail">
+<meta name="twitter:description" content="题目 这是一道medium难度的题，本题是leetcode191-位1的个数的进阶版。 先看看题目 给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回。 示例 1:  输入: 2输出: [0,1,1]  示例 2:  输入: 5输出: [0,1,1,2,1,2]  进阶:  给出时间复杂度为O(n*sizeof(in">
     
     
     
@@ -203,65 +208,76 @@ classes that you can use:
         <div class="content-wrapper__inner entry">
             
 
+<article class="post-container post-container--single">
 
-  <h1 class="archive-title">分类: leetcode</h1>
-  <hr class="post-list__divider">
-
-
-<div class="main-post-list">
-    <ol class="post-list">
+  <header class="post-header">
+    
+    <h1 class="post-title">leetcode383-比特位计数</h1>
 
     
-    <li>
 
-      <h2 class="post-list__post-title post-title">
-        <a href="/2020/03/22/leetcode-338/" title="link to leetcode383-比特位计数">leetcode383-比特位计数</a>
-      </h2>
+    <div class="post-meta">
+      <time datetime="2020-03-22" class="post-meta__date date">2020-03-22</time> 
 
-      <div class="post-list__meta">
+      <span class="post-meta__tags tags">
 
-        <time datetime="2020-03-22" class="post-list__meta--date date">2020-03-22</time>
-      </div>
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/leetcode/">leetcode</a>
+            </font>
+          
 
-      <div class="excerpt">
-        
-      </div>
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/位运算/">位运算</a>, <a class="tags-link" href="/tags/动态规划/">动态规划</a>
+            </font>
+          
 
-      <hr class="post-list__divider">
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2020/03/21/leetcode-191/" title="link to leetcode191-位1的个数">leetcode191-位1的个数</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2020-03-21" class="post-list__meta--date date">2020-03-21</time>
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider">
-    </li>
-    
-  </ol>
-
-  <!-- <hr class="post-list__divider " /> -->
-<!-- 
-<nav class="pagination" role="navigation">
-    
-
-    <span class="pagination__page-number"> 1 / 1</span>
+      </span>
+    </div>
     
     
-</nav> -->
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="题目"><a href="#题目" class="headerlink" title=" 题目 "></a><strong> 题目 </strong></h3><p>这是一道<code>medium</code>难度的题，本题是<a href="http://www.sail.name/2020/03/22/leetcode-191/">leetcode191-位1的个数</a>的进阶版。</p>
+<p>先看看题目</p>
+<p>给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回。</p>
+<p>示例 1:</p>
+<blockquote>
+<p>输入: 2<br>输出: [0,1,1]</p>
+</blockquote>
+<p>示例 2:</p>
+<blockquote>
+<p>输入: 5<br>输出: [0,1,1,2,1,2]</p>
+</blockquote>
+<p>进阶:</p>
+<blockquote>
+<p>给出时间复杂度为O(n*sizeof(integer))的解答非常容易。但你可以在线性时间O(n)内用一趟扫描做到吗？<br>要求算法的空间复杂度为O(n)。<br>你能进一步完善解法吗？要求在C++或任何其他语言中不使用任何内置函数（如 C++ 中的 __builtin_popcount）来执行此操作。</p>
+</blockquote>
+<hr>
+<h3 id="解答"><a href="#解答" class="headerlink" title=" 解答 "></a><strong> 解答 </strong></h3><h3 id="十进制转二进制"><a href="#十进制转二进制" class="headerlink" title=" 十进制转二进制 "></a><strong> 十进制转二进制 </strong></h3><p>这是最简单的思路。但是时间复杂度是O(n^2)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; num</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> countBits = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= num; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">let</span> n = i;</span><br><span class="line">        <span class="keyword">while</span> (n) &#123;</span><br><span class="line">            count += n % <span class="number">2</span>; </span><br><span class="line">            n = n &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        result[i] = count;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="动态规划"><a href="#动态规划" class="headerlink" title=" 动态规划 "></a><strong> 动态规划 </strong></h3><p>动态规划最重要的是找出状态转移方程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">十进制  =&gt;    二进制</span><br><span class="line">0      =&gt;    0</span><br><span class="line">1      =&gt;    1</span><br><span class="line">2      =&gt;    10</span><br><span class="line">3      =&gt;    11</span><br><span class="line">4      =&gt;    100</span><br><span class="line">5      =&gt;    101</span><br><span class="line">6      =&gt;    110</span><br><span class="line">7      =&gt;    111</span><br><span class="line">8      =&gt;    1000</span><br><span class="line">9      =&gt;    1001</span><br></pre></td></tr></table></figure>
+<p>可以得出归纳方程，设 dp(n) 为数字n二进制中1的个数</p>
+<p>\begin{cases}<br>dp(n) = dp(n-1) + 1, n为奇数 \\<br>dp(n) = dp(n/2)， n为偶数<br>\end{cases}</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; num</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> countBits = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= num; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &amp; <span class="number">1</span>) &#123;</span><br><span class="line">            result[i] = result[i - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            result[i] = result[i &gt;&gt; <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="更简洁的动态规划"><a href="#更简洁的动态规划" class="headerlink" title=" 更简洁的动态规划 "></a><strong> 更简洁的动态规划 </strong></h3><p>上面的状态转移方程，其实可以转换为下面的方程。本质上还是一样的<br>$dp(n) = dp(n/2) + n%2 $, 即$dp(n) = dp(n>>1) + (n\&amp;1) $</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; num</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> countBits = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= num; i++) &#123;</span><br><span class="line">        result.push(result[i &gt;&gt; <span class="number">1</span>] + (i &amp; <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title=" 参考链接 "></a><strong> 参考链接 </strong></h4><p><a href="https://leetcode-cn.com/problems/counting-bits/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/counting-bits/</a><br><a href="https://www.szdev.com/blog/Hexo/mathjax-config-and-tutorial/" target="_blank" rel="noopener">https://www.szdev.com/blog/Hexo/mathjax-config-and-tutorial/</a></p>
+
+  </section>
+
+  
+  
+</article>
 
 
-</div>
             
 
 <footer class="footer">
@@ -426,6 +442,18 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 
 
     
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
     
     
     <!--kill ie6 -->
