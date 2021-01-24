@@ -376,7 +376,7 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
-        <a href="/2020/03/15/macOS-install-labelimg-step-pit-summary/" title="link to macOS安装labelImg踩坑汇总">macOS安装labelImg踩坑汇总</a>
+        <a href="/2020/03/15/high-frequency-usage-of-moment/" title="link to moment的高频用法总结">moment的高频用法总结</a>
       </h2>
 
       <div class="post-list__meta">
@@ -394,7 +394,7 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
-        <a href="/2020/03/15/high-frequency-usage-of-moment/" title="link to moment的高频用法总结">moment的高频用法总结</a>
+        <a href="/2020/03/15/macOS-install-labelimg-step-pit-summary/" title="link to macOS安装labelImg踩坑汇总">macOS安装labelImg踩坑汇总</a>
       </h2>
 
       <div class="post-list__meta">
@@ -1878,7 +1878,7 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
-        <a href="/2018/06/16/interquartile-range/" title="link to IQR(四分位距)">IQR(四分位距)</a>
+        <a href="/2018/06/16/solve-equation-by-Newton-iterative-method/" title="link to 牛顿迭代法解方程">牛顿迭代法解方程</a>
       </h2>
 
       <div class="post-list__meta">
@@ -1896,7 +1896,7 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
-        <a href="/2018/06/16/solve-equation-by-Newton-iterative-method/" title="link to 牛顿迭代法解方程">牛顿迭代法解方程</a>
+        <a href="/2018/06/16/interquartile-range/" title="link to IQR(四分位距)">IQR(四分位距)</a>
       </h2>
 
       <div class="post-list__meta">
@@ -2906,7 +2906,7 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
-        <a href="/2017/10/22/update-node-version-in-linux/" title="link to linux升级node版本">linux升级node版本</a>
+        <a href="/2017/10/22/use-module-in-nodejs/" title="link to node(v8.5.0+)使用module">node(v8.5.0+)使用module</a>
       </h2>
 
       <div class="post-list__meta">
@@ -2924,7 +2924,7 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
-        <a href="/2017/10/22/use-module-in-nodejs/" title="link to node(v8.5.0+)使用module">node(v8.5.0+)使用module</a>
+        <a href="/2017/10/22/update-node-version-in-linux/" title="link to linux升级node版本">linux升级node版本</a>
       </h2>
 
       <div class="post-list__meta">
@@ -4879,10 +4879,8 @@ classes that you can use:
 
 
 </div>
-            
-
-<footer class="footer">
-    <span class="footer__copyright">&copy; 2016-2020. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | 渝ICP备17002561号 | 不装弱了,我要做大佬</span>
 </footer>
 
 <script>
@@ -5048,7 +5046,23 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -5066,6 +5080,5 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
 </body>
 </html>
