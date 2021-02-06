@@ -1908,4 +1908,13 @@ input:-webkit-autofill, input:-webkit-autofill:focus {
 }
 /*============文章展示样式=============*/
 
+.__share_wrapper {
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.__share_wrapper .text {
+	font-weight: 800;
+	font-style: italic;
+}
 
