@@ -1918,3 +1918,13 @@ input:-webkit-autofill, input:-webkit-autofill:focus {
 	font-style: italic;
 }
 
+
+/*============图表样式处理=============*/
+
+._img0 img{
+    max-width: 10%;
+}
+
+._img4 img{
+    max-width: 40%;
+}
