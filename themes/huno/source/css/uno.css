@@ -1908,4 +1908,23 @@ input:-webkit-autofill, input:-webkit-autofill:focus {
 }
 /*============文章展示样式=============*/
 
+.__share_wrapper {
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
 
+.__share_wrapper .text {
+	font-weight: 800;
+	font-style: italic;
+}
+
+
+/*============图表样式处理=============*/
+
+._img0 img{
+    max-width: 10%;
+}
+
+._img4 img{
+    max-width: 40%;
+}
