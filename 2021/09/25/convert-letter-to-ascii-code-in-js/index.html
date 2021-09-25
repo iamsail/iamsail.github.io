@@ -7,7 +7,7 @@
     
 
     <title>
-      归档: 2021 
+      JS中字符和ASCII码相互转换 | Sail 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,13 +31,17 @@
     </script>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="归档: 2021">
-<meta property="og:url" content="http://www.sail.name/archives/2021/index.html">
+    <meta name="description" content="最近碰到了一个需要把数组和字母相互转换的场景。 在JS中可以通过charCodeAt把字母转换成ASCII码，也可以通过fromCharCode把数字转换成字母 1234567891011121314&apos;A&apos;.charCodeAt()# 65&apos;Z&apos;.charCodeAt()# 90&apos;a&apos;.charCodeAt()# 97&apos;z&apos;.charCodeAt()# 122String.fromCharCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中字符和ASCII码相互转换 | Sail">
+<meta property="og:url" content="http://www.sail.name/2021/09/25/convert-letter-to-ascii-code-in-js/index.html">
 <meta property="og:site_name" content="Sail">
+<meta property="og:description" content="最近碰到了一个需要把数组和字母相互转换的场景。 在JS中可以通过charCodeAt把字母转换成ASCII码，也可以通过fromCharCode把数字转换成字母 1234567891011121314&apos;A&apos;.charCodeAt()# 65&apos;Z&apos;.charCodeAt()# 90&apos;a&apos;.charCodeAt()# 97&apos;z&apos;.charCodeAt()# 122String.fromCharCode">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-09-25T02:07:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="归档: 2021">
+<meta name="twitter:title" content="JS中字符和ASCII码相互转换 | Sail">
+<meta name="twitter:description" content="最近碰到了一个需要把数组和字母相互转换的场景。 在JS中可以通过charCodeAt把字母转换成ASCII码，也可以通过fromCharCode把数字转换成字母 1234567891011121314&apos;A&apos;.charCodeAt()# 65&apos;Z&apos;.charCodeAt()# 90&apos;a&apos;.charCodeAt()# 97&apos;z&apos;.charCodeAt()# 122String.fromCharCode">
     
     
     
@@ -203,101 +207,63 @@ classes that you can use:
         <div class="content-wrapper__inner entry">
             
 
+<article class="post-container post-container--single">
 
-  <h1 class="archive-title">归档: 2021</h1>
-  <hr class="post-list__divider">
-
-
-<div class="main-post-list">
-    <ol class="post-list">
+  <header class="post-header">
+    
+    <h1 class="post-title">JS中字符和ASCII码相互转换</h1>
 
     
-    <li>
 
-      <h2 class="post-list__post-title post-title">
-        <a href="/2021/09/25/convert-letter-to-ascii-code-in-js/" title="link to JS中字符和ASCII码相互转换">JS中字符和ASCII码相互转换</a>
-      </h2>
+    <div class="post-meta">
+      <time datetime="2021-09-25" class="post-meta__date date">2021-09-25</time> 
 
-      <div class="post-list__meta">
+      <span class="post-meta__tags tags">
 
-        <time datetime="2021-09-25" class="post-list__meta--date date">2021-09-25</time>
-      </div>
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Javascript/">Javascript</a>
+            </font>
+          
 
-      <div class="excerpt">
-        
-      </div>
+          
 
-      <hr class="post-list__divider">
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2021/06/15/reading-notes-of-the-learn-startup/" title="link to 读《精益创业》">读《精益创业》</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2021-06-15" class="post-list__meta--date date">2021-06-15</time>
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider">
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2021/02/15/encode-and-decode/" title="link to 深入编码">深入编码</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2021-02-15" class="post-list__meta--date date">2021-02-15</time>
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider">
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2021/01/23/keyboard/" title="link to 键盘">键盘</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2021-01-23" class="post-list__meta--date date">2021-01-23</time>
-      </div>
-
-      <div class="excerpt">
-        
-      </div>
-
-      <hr class="post-list__divider">
-    </li>
-    
-  </ol>
-
-  <!-- <hr class="post-list__divider " /> -->
-<!-- 
-<nav class="pagination" role="navigation">
-    
-
-    <span class="pagination__page-number"> 1 / 1</span>
+      </span>
+    </div>
     
     
-</nav> -->
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>最近碰到了一个需要把数组和字母相互转换的场景。</p>
+<p>在JS中可以通过<code>charCodeAt</code>把字母转换成<code>ASCII码</code>，也可以通过<code>fromCharCode</code>把数字转换成字母</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'A'</span>.charCodeAt()</span><br><span class="line"># 65</span><br><span class="line"></span><br><span class="line"><span class="string">'Z'</span>.charCodeAt()</span><br><span class="line"># 90</span><br><span class="line"></span><br><span class="line"><span class="string">'a'</span>.charCodeAt()</span><br><span class="line"># 97</span><br><span class="line"></span><br><span class="line"><span class="string">'z'</span>.charCodeAt()</span><br><span class="line"># 122</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">65</span>)</span><br><span class="line"># 'A'</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="charCodeAt"><a href="#charCodeAt" class="headerlink" title=" charCodeAt "></a><strong> charCodeAt </strong></h3><p><code>charCodeAt()</code> 方法返回 0 到 65535 之间的整数，表示给定索引处的 UTF-16 代码单元</p>
+<ul>
+<li>语法: <code>str.charCodeAt(index)</code></li>
+<li>参数<code>index</code>: 一个大于等于 0，小于字符串长度的整数。如果不是一个数值，则默认为 0。</li>
+<li>返回值: 指定 <code>index</code> 处字符的 <code>UTF-16</code> 代码单元值的一个数字；如果 <code>index</code> 超出范围，<code>charCodeAt()</code> 返回 <code>NaN</code>。</li>
+</ul>
+<p>举个例子<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'今天你吃了吗'</span>.charCodeAt(<span class="number">1</span>) 返回<span class="string">'天'</span>的UTF<span class="number">-16</span> 代码单元</span><br><span class="line"># 22825</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">22825</span>)</span><br><span class="line"># '天'</span><br></pre></td></tr></table></figure></p>
+<h3 id="charAt"><a href="#charAt" class="headerlink" title=" charAt "></a><strong> charAt </strong></h3><p><code>charAt</code>方法则是返回一个字符串指定位置的字符</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'一个字符串中返回指定的字符'</span>.charAt(<span class="number">3</span>)</span><br><span class="line"># '符'</span><br></pre></td></tr></table></figure>
+<h3 id="fromCharCode"><a href="#fromCharCode" class="headerlink" title=" fromCharCode "></a><strong> fromCharCode </strong></h3><p>静态 <code>String.fromCharCode()</code> 方法返回由指定的 <code>UTF-16</code> 代码单元序列创建的字符串<br>这个<code>fromCharCode</code>方法可以传入多个参数<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">65</span>, <span class="number">66</span>)</span><br><span class="line"># 'AB'</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title=" 参考链接 "></a><strong> 参考链接 </strong></h3><ul>
+<li><a href="https://es6.ruanyifeng.com/#docs/string-methods#String-fromCodePoint" target="_blank" rel="noopener">String.fromCodePoint()</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt" target="_blank" rel="noopener">charCodeAt</a></li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
 
 
-</div>
             <footer class="__share_wrapper">
     <span class="under0">
 		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
@@ -466,6 +432,18 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 
 
     
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
     
     
     <!--kill ie6 -->
