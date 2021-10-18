@@ -7,7 +7,7 @@
     
 
     <title>
-      JS中字符和ASCII码相互转换 | Sail 
+      Ubuntu20中安装MySQL5.7 | Sail 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,17 +31,20 @@
     </script>
 
 
-    <meta name="description" content="最近碰到了一个需要把数组和字母相互转换的场景。 在JS中可以通过charCodeAt把字母转换成ASCII码，也可以通过fromCharCode把数字转换成字母 1234567891011121314&apos;A&apos;.charCodeAt()# 65&apos;Z&apos;.charCodeAt()# 90&apos;a&apos;.charCodeAt()# 97&apos;z&apos;.charCodeAt()# 122String.fromCharCode">
+    <meta name="description" content="Preface 本文是对在Ubuntu20.04中安装MySQL5.7的记录   安装MySQL 首先在MySQL官网根据你的需求找到所需要安装的版本链接  https://dev.mysql.com/downloads/mysql/ https://downloads.mysql.com/archives/community/    下载deb安装包 1wget https://dev.mys">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS中字符和ASCII码相互转换 | Sail">
-<meta property="og:url" content="http://www.sail.name/2021/09/25/convert-letter-to-ascii-code-in-js/index.html">
+<meta property="og:title" content="Ubuntu20中安装MySQL5.7 | Sail">
+<meta property="og:url" content="http://www.sail.name/2021/10/18/install-mysql57-in-ubuntu20/index.html">
 <meta property="og:site_name" content="Sail">
-<meta property="og:description" content="最近碰到了一个需要把数组和字母相互转换的场景。 在JS中可以通过charCodeAt把字母转换成ASCII码，也可以通过fromCharCode把数字转换成字母 1234567891011121314&apos;A&apos;.charCodeAt()# 65&apos;Z&apos;.charCodeAt()# 90&apos;a&apos;.charCodeAt()# 97&apos;z&apos;.charCodeAt()# 122String.fromCharCode">
+<meta property="og:description" content="Preface 本文是对在Ubuntu20.04中安装MySQL5.7的记录   安装MySQL 首先在MySQL官网根据你的需求找到所需要安装的版本链接  https://dev.mysql.com/downloads/mysql/ https://downloads.mysql.com/archives/community/    下载deb安装包 1wget https://dev.mys">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-09-26T15:20:05.000Z">
+<meta property="og:image" content="http://www.sail.name/img/mysql/1.png">
+<meta property="og:updated_time" content="2021-10-18T15:10:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS中字符和ASCII码相互转换 | Sail">
-<meta name="twitter:description" content="最近碰到了一个需要把数组和字母相互转换的场景。 在JS中可以通过charCodeAt把字母转换成ASCII码，也可以通过fromCharCode把数字转换成字母 1234567891011121314&apos;A&apos;.charCodeAt()# 65&apos;Z&apos;.charCodeAt()# 90&apos;a&apos;.charCodeAt()# 97&apos;z&apos;.charCodeAt()# 122String.fromCharCode">
+<meta name="twitter:title" content="Ubuntu20中安装MySQL5.7 | Sail">
+<meta name="twitter:description" content="Preface 本文是对在Ubuntu20.04中安装MySQL5.7的记录   安装MySQL 首先在MySQL官网根据你的需求找到所需要安装的版本链接  https://dev.mysql.com/downloads/mysql/ https://downloads.mysql.com/archives/community/    下载deb安装包 1wget https://dev.mys">
+<meta name="twitter:image" content="http://www.sail.name/img/mysql/1.png">
     
     
     
@@ -211,22 +214,27 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">JS中字符和ASCII码相互转换</h1>
+    <h1 class="post-title">Ubuntu20中安装MySQL5.7</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2021-09-25" class="post-meta__date date">2021-09-25</time> 
+      <time datetime="2021-10-18" class="post-meta__date date">2021-10-18</time> 
 
       <span class="post-meta__tags tags">
 
           
             <font class="categories">
             &#8226; 分类:
-            <a class="categories-link" href="/categories/Javascript/">Javascript</a>
+            <a class="categories-link" href="/categories/数据库/">数据库</a>
             </font>
           
 
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/MySQL/">MySQL</a>
+            </font>
           
 
       </span>
@@ -237,24 +245,29 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>最近碰到了一个需要把数组和字母相互转换的场景。</p>
-<p>在JS中可以通过<code>charCodeAt</code>把字母转换成<code>ASCII码</code>，也可以通过<code>fromCharCode</code>把数字转换成字母</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'A'</span>.charCodeAt()</span><br><span class="line"># 65</span><br><span class="line"></span><br><span class="line"><span class="string">'Z'</span>.charCodeAt()</span><br><span class="line"># 90</span><br><span class="line"></span><br><span class="line"><span class="string">'a'</span>.charCodeAt()</span><br><span class="line"># 97</span><br><span class="line"></span><br><span class="line"><span class="string">'z'</span>.charCodeAt()</span><br><span class="line"># 122</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">65</span>)</span><br><span class="line"># 'A'</span><br></pre></td></tr></table></figure>
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>本文是对在<code>Ubuntu20.04</code>中安装<code>MySQL5.7</code>的记录</p>
 <hr>
-<h3 id="charCodeAt"><a href="#charCodeAt" class="headerlink" title=" charCodeAt "></a><strong> charCodeAt </strong></h3><p><code>charCodeAt()</code> 方法返回 0 到 65535 之间的整数，表示给定索引处的 UTF-16 代码单元</p>
+<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title=" 安装MySQL "></a><strong> 安装MySQL </strong></h3><p>首先在MySQL官网根据你的需求找到所需要安装的版本链接</p>
 <ul>
-<li>语法: <code>str.charCodeAt(index)</code></li>
-<li>参数<code>index</code>: 一个大于等于 0，小于字符串长度的整数。如果不是一个数值，则默认为 0。</li>
-<li>返回值: 指定 <code>index</code> 处字符的 <code>UTF-16</code> 代码单元值的一个数字；如果 <code>index</code> 超出范围，<code>charCodeAt()</code> 返回 <code>NaN</code>。</li>
+<li><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></li>
+<li><a href="https://downloads.mysql.com/archives/community/" target="_blank" rel="noopener">https://downloads.mysql.com/archives/community/</a></li>
 </ul>
-<p>举个例子<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'今天你吃了吗'</span>.charCodeAt(<span class="number">1</span>) 返回<span class="string">'天'</span>的UTF<span class="number">-16</span> 代码单元</span><br><span class="line"># 22825</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">22825</span>)</span><br><span class="line"># '天'</span><br></pre></td></tr></table></figure></p>
-<h3 id="charAt"><a href="#charAt" class="headerlink" title=" charAt "></a><strong> charAt </strong></h3><p><code>charAt</code>方法则是返回一个字符串指定位置的字符</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'一个字符串中返回指定的字符'</span>.charAt(<span class="number">3</span>)</span><br><span class="line"># '符'</span><br></pre></td></tr></table></figure>
-<h3 id="fromCharCode"><a href="#fromCharCode" class="headerlink" title=" fromCharCode "></a><strong> fromCharCode </strong></h3><p>静态 <code>String.fromCharCode()</code> 方法返回由指定的 <code>UTF-16</code> 代码单元序列创建的字符串<br>这个<code>fromCharCode</code>方法可以传入多个参数<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">65</span>, <span class="number">66</span>)</span><br><span class="line"># 'AB'</span><br></pre></td></tr></table></figure></p>
+<p><img src="/img/mysql/1.png" alt="1.png"></p>
+<p><strong> 下载deb安装包 </strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-server_5.7.31-1ubuntu18.04_amd64.deb-bundle.tar</span><br></pre></td></tr></table></figure></p>
+<p><strong> 新建目录 </strong><br><code>mkdir mysql5.7.31</code><br><code>mv mysql-server_5.7.31-1ubuntu18.04_amd64.deb-bundle.tar ./mysql5.7.31</code></p>
+<p><strong> 解压 </strong><br><code>cd mysql5.7.31</code><br><code>sudo tar -vxf mysql-server_5.7.31-1ubuntu18.04_amd64.deb-bundle.tar</code></p>
+<p><strong> 解压出来的deb安装包如下 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">libmysqlclient20_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-client_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-community-source_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-server_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-common_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-testsuite_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">libmysqlclient-dev_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-community-client_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-community-server_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">libmysqld-dev_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-community-test_5.7.31-1ubuntu18.04_amd64.deb</span><br></pre></td></tr></table></figure></p>
+<p><strong> 删除2个测试相关的包 </strong><br><code>sudo rm -f mysql-testsuite_5.7.31-1ubuntu18.04_amd64.deb</code><br><code>sudo rm -f mysql-community-test_5.7.31-1ubuntu18.04_amd64.deb</code></p>
+<p><strong> 安装依赖 </strong><br><code>sudo apt-get install libtinfo5</code><br><code>sudo apt-get install libmecab2</code></p>
+<p><strong> 使用deb安装 </strong><br><code>sudo dpkg -i mysql-*.deb</code></p>
+<hr>
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title=" 基本命令 "></a><strong> 基本命令 </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#启动mysql</span><br><span class="line">sudo service mysql start</span><br><span class="line"></span><br><span class="line">#停止mysql</span><br><span class="line">sudo service mysql stop</span><br><span class="line"></span><br><span class="line">#重启mysql</span><br><span class="line">sudo service mysql restart</span><br><span class="line"></span><br><span class="line">#查看mysql状态</span><br><span class="line">sudo service mysql status</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title=" 参考链接 "></a><strong> 参考链接 </strong></h3><ul>
-<li><a href="https://es6.ruanyifeng.com/#docs/string-methods#String-fromCodePoint" target="_blank" rel="noopener">String.fromCodePoint()</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt" target="_blank" rel="noopener">charCodeAt</a></li>
+<li><a href="https://viencoding.com/article/295" target="_blank" rel="noopener">Ubuntu20安装MySQL5.7</a></li>
+<li><a href="https://www.jianshu.com/p/ba48f1e386f0" target="_blank" rel="noopener">Ubuntu20.04 安装 MySQL5.7</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1655900" target="_blank" rel="noopener">Ubuntu安装mysql5.7（诲人不倦，记点干货）</a></li>
+<li><a href="https://www.cnblogs.com/MaggieForest/p/14868085.html" target="_blank" rel="noopener">ubuntu20.04 安装mysql5.7配置</a></li>
 </ul>
 
   </section>
