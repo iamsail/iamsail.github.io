@@ -38,7 +38,7 @@
 <meta property="og:site_name" content="Sail">
 <meta property="og:description" content="Preface 前阵子在项目开发的时候遇到一个问题：代码在我本地(Mac)跑起来是正常的，丢到github actions跑的时候总是报错。排查了很久，最终发现是因为Git文件名大小写敏感导致的问题，本文做下记录。  当时有个组件命名是test.tsx，然后我改成了Test.tsx。代码文件中引入该组件的地方也变成了../../path/Test.tsx。但是在github actions的机器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-02-09T14:50:36.000Z">
+<meta property="og:updated_time" content="2022-02-09T15:01:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git文件名大小写敏感问题 | Sail">
 <meta name="twitter:description" content="Preface 前阵子在项目开发的时候遇到一个问题：代码在我本地(Mac)跑起来是正常的，丢到github actions跑的时候总是报错。排查了很久，最终发现是因为Git文件名大小写敏感导致的问题，本文做下记录。  当时有个组件命名是test.tsx，然后我改成了Test.tsx。代码文件中引入该组件的地方也变成了../../path/Test.tsx。但是在github actions的机器">
@@ -240,8 +240,8 @@ classes that you can use:
     <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>前阵子在项目开发的时候遇到一个问题：代码在我本地(Mac)跑起来是正常的，丢到<code>github actions</code>跑的时候总是报错。排查了很久，最终发现是因为Git文件名大小写敏感导致的问题，本文做下记录。</p>
 <hr>
 <p>当时有个组件命名是<code>test.tsx</code>，然后我改成了<code>Test.tsx</code>。代码文件中引入该组件的地方也变成了<code>../../path/Test.tsx</code>。但是在<code>github actions</code>的机器上执行的时候却提示找不到文件。</p>
-<p><span class="under0"><strong>因为 mac/windows 环境下 Git在不设置大小写敏感规则的时候默认大小写是不敏感，github actions跑的机器是 Linux 的，而 Linux 下 Git是默认大小写敏感的。</strong></span> 所以我本地机器跑的时候是正常的。</p>
-<p>我本地虽然改了文件名为<code>Test.tsx</code>，但在github仓库中仍然是<code>test.tsx</code>。可是代码中的引用路径已经是<code>../path/Test.tsx</code>了，所以在webpack打包编译的时候就会找不到文件。</p>
+<p><span class="under0"><strong>因为 mac/windows 环境下 Git在不设置大小写敏感规则的时候默认大小写是不敏感，github actions跑的机器是 Linux 的，而 Linux 下 Git是默认大小写敏感的。</strong></span> 所以我本地机器(Mac)跑的时候是正常的。</p>
+<p>我本地虽然改了文件名为<code>Test.tsx</code>，可是mac环境下大小写是不敏感的，所以<code>Test.tsx</code>还是处理成的<code>test.tsx</code>，git(git status)是没有变更的，导致提交在github仓库中的文件名仍然是<code>test.tsx</code>。可是代码中的引用路径已经是<code>../path/Test.tsx</code>了，所以在<code>webpack</code>打包编译的时候(Linux环境)就会找不到文件。</p>
 <hr>
 <h3 id="解决办法"><a href="#解决办法" class="headerlink" title=" 解决办法 "></a><strong> 解决办法 </strong></h3><p>方法一<br>删除文件，重新添加文件。（删除之前记得备份下文件内容）</p>
 <p>方法二<br>设置Git大小写敏感（这个方法我没有实际试过）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.ignorecase false</span><br></pre></td></tr></table></figure></p>
