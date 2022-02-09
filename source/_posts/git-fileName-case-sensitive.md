@@ -13,9 +13,9 @@ categories: Git
 当时有个组件命名是`test.tsx`，然后我改成了`Test.tsx`。代码文件中引入该组件的地方也变成了`../../path/Test.tsx`。但是在`github actions`的机器上执行的时候却提示找不到文件。
 
 
-<span class="under0">**因为 mac/windows 环境下 Git在不设置大小写敏感规则的时候默认大小写是不敏感，github actions跑的机器是 Linux 的，而 Linux 下 Git是默认大小写敏感的。**</span> 所以我本地机器跑的时候是正常的。
+<span class="under0">**因为 mac/windows 环境下 Git在不设置大小写敏感规则的时候默认大小写是不敏感，github actions跑的机器是 Linux 的，而 Linux 下 Git是默认大小写敏感的。**</span> 所以我本地机器(Mac)跑的时候是正常的。
 
-我本地虽然改了文件名为`Test.tsx`，但在github仓库中仍然是`test.tsx `。可是代码中的引用路径已经是`../path/Test.tsx`了，所以在webpack打包编译的时候就会找不到文件。
+我本地虽然改了文件名为`Test.tsx`，可是mac环境下大小写是不敏感的，所以`Test.tsx`还是处理成的`test.tsx`，git(git status)是没有变更的，导致提交在github仓库中的文件名仍然是`test.tsx `。可是代码中的引用路径已经是`../path/Test.tsx`了，所以在`webpack`打包编译的时候(Linux环境)就会找不到文件。
 
 
 *****************
