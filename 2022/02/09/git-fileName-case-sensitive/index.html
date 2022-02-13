@@ -38,7 +38,7 @@
 <meta property="og:site_name" content="Sail">
 <meta property="og:description" content="Preface 前阵子在项目开发的时候遇到一个问题：代码在我本地(Mac)跑起来是正常的，丢到github actions跑的时候总是报错。排查了很久，最终发现是因为Git文件名大小写敏感导致的问题，本文做下记录。  当时有个组件命名是test.tsx，然后我改成了Test.tsx。代码文件中引入该组件的地方也变成了../../path/Test.tsx。但是在github actions的机器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2022-02-09T15:01:21.000Z">
+<meta property="og:updated_time" content="2022-02-09T15:02:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git文件名大小写敏感问题 | Sail">
 <meta name="twitter:description" content="Preface 前阵子在项目开发的时候遇到一个问题：代码在我本地(Mac)跑起来是正常的，丢到github actions跑的时候总是报错。排查了很久，最终发现是因为Git文件名大小写敏感导致的问题，本文做下记录。  当时有个组件命名是test.tsx，然后我改成了Test.tsx。代码文件中引入该组件的地方也变成了../../path/Test.tsx。但是在github actions的机器">
@@ -445,23 +445,7 @@ searchFunc(path, 'local-search-input', 'local-search-result');
     <!--kill ie6 -->
 <!--[if IE 6]>
   <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<![endif]--><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -479,5 +463,6 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
+
 </body>
 </html>
