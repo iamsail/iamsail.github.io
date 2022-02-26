@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      MIME 类型 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="&amp;lt;input&amp;gt; type 类型为 file 的 input 元素使得用户可以选择一个或多个元素以提交表单的方式上传到服务器上，或者通过 Javascript 的 File API 对文件进行操作 . 如果你不希望用户上传任何类型的文件, 你可以使用input的accept属性.accept 属性接受一个逗号分隔的MIME类型字符串, 如: 1234accept=&amp;quot;image/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MIME 类型 | Sail">
+<meta property="og:url" content="http://www.sail.name/2019/04/05/MIME-types/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="&amp;lt;input&amp;gt; type 类型为 file 的 input 元素使得用户可以选择一个或多个元素以提交表单的方式上传到服务器上，或者通过 Javascript 的 File API 对文件进行操作 . 如果你不希望用户上传任何类型的文件, 你可以使用input的accept属性.accept 属性接受一个逗号分隔的MIME类型字符串, 如: 1234accept=&amp;quot;image/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-11-28T08:28:10.957Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MIME 类型 | Sail">
+<meta name="twitter:description" content="&amp;lt;input&amp;gt; type 类型为 file 的 input 元素使得用户可以选择一个或多个元素以提交表单的方式上传到服务器上，或者通过 Javascript 的 File API 对文件进行操作 . 如果你不希望用户上传任何类型的文件, 你可以使用input的accept属性.accept 属性接受一个逗号分隔的MIME类型字符串, 如: 1234accept=&amp;quot;image/">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title class>关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title class>归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">MIME 类型</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-04-05" class="post-meta__date date">2019-04-05</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/HTML-CSS/">HTML&&CSS</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p><code>&lt;input&gt;</code> type 类型为 file 的 input 元素使得用户可以选择一个或多个元素以提交表单的方式上传到服务器上，或者通过 Javascript 的 File API 对文件进行操作 .</p>
+<p>如果你不希望用户上传任何类型的文件, 你可以使用<code>input</code>的<code>accept</code>属性.accept 属性接受一个逗号分隔的<code>MIME</code>类型字符串, 如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">accept=&quot;image/png&quot; or accept=&quot;.png&quot; — 只接受 png 图片.</span><br><span class="line">accept=&quot;image/png, image/jpeg&quot; or accept=&quot;.png, .jpg, .jpeg&quot; — PNG/JPEG 文件.</span><br><span class="line">accept=&quot;image/*&quot; — 接受任何图片文件类型</span><br><span class="line">accept=&quot;.doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot; — 接受任何 MS Doc 文件类型.</span><br></pre></td></tr></table></figure>
+<p><strong> accept 属性并不会验证选中文件的类型. 他只是为开发这提供了一种引导用户做出期望行为的方式而已, 用户还是有办法绕过浏览器的限制.<span class="under0">因此, 在服务器端进行文件类型验证是必不可少的.</span> </strong></p>
+<hr>
+<h3 id="MIME-类型"><a href="#MIME-类型" class="headerlink" title=" MIME 类型 "></a><strong> MIME 类型 </strong></h3><p>多用途Internet邮件扩展（MIME）类型 是一种标准化的方式来表示文档的性质和格式。 浏览器通常使用MIME类型（而不是文件扩展名）来确定如何处理文档；因此服务器设置正确以将正确的MIME类型附加到响应对象的头部是非常重要的。</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title=" 语法 "></a><strong> 语法 </strong></h4><p><code>type/subtype</code></p>
+<p>MIME的组成结构非常简单；由类型与子类型两个字符串中间用’/‘分隔而组成。不允许空格存在。type 表示可以被分多个子类的独立类别。subtype 表示细分后的每个类型。<strong> MIME类型对大小写不敏感，但是传统写法都是小写。</strong></p>
+<p>以下是一些常用的MIME类型和后缀的对应，完整的请戳<a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank" rel="noopener">Media Types</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">后缀名       MIME名称</span><br><span class="line"></span><br><span class="line">*.3gpp    audio/3gpp, video/3gpp</span><br><span class="line">*.ac3     audio/ac3</span><br><span class="line">*.asf     allpication/vnd.ms-asf</span><br><span class="line">*.au      audio/basic</span><br><span class="line">*.css     text/css</span><br><span class="line">*.csv     text/csv</span><br><span class="line">*.doc     application/msword    </span><br><span class="line">*.docx    application/vnd.openxmlformats-officedocument.wordprocessingml.document</span><br><span class="line">*.dot     application/msword    </span><br><span class="line">*.dtd     application/xml-dtd    </span><br><span class="line">*.dwg     image/vnd.dwg    </span><br><span class="line">*.dxf     image/vnd.dxf</span><br><span class="line">*.gif     image/gif    </span><br><span class="line">*.htm     text/html    </span><br><span class="line">*.html    text/html    </span><br><span class="line">*.jp2     image/jp2    </span><br><span class="line">*.jpe     image/jpeg</span><br><span class="line">*.jpeg    image/jpeg</span><br><span class="line">*.jpg     image/jpeg    </span><br><span class="line">*.js      text/javascript, application/javascript    </span><br><span class="line">*.json    application/json    </span><br><span class="line">*.mp2     audio/mpeg, video/mpeg    </span><br><span class="line">*.mp3     audio/mpeg    </span><br><span class="line">*.mp4     audio/mp4, video/mp4    </span><br><span class="line">*.mpeg    video/mpeg    </span><br><span class="line">*.mpg     video/mpeg    </span><br><span class="line">*.mpp     application/vnd.ms-project    </span><br><span class="line">*.ogg     application/ogg, audio/ogg    </span><br><span class="line">*.pdf     application/pdf    </span><br><span class="line">*.png     image/png    </span><br><span class="line">*.pot     application/vnd.ms-powerpoint    </span><br><span class="line">*.pps     application/vnd.ms-powerpoint    </span><br><span class="line">*.ppt     application/vnd.ms-powerpoint    </span><br><span class="line">*.pptx    application/vnd.openxmlformats-officedocument.presentationml.presentation</span><br><span class="line">*.rtf     application/rtf, text/rtf    </span><br><span class="line">*.svf     image/vnd.svf    </span><br><span class="line">*.tif     image/tiff    </span><br><span class="line">*.tiff    image/tiff    </span><br><span class="line">*.txt     text/plain    </span><br><span class="line">*.wdb     application/vnd.ms-works    </span><br><span class="line">*.wps     application/vnd.ms-works    </span><br><span class="line">*.xhtml   application/xhtml+xml    </span><br><span class="line">*.xlc     application/vnd.ms-excel    </span><br><span class="line">*.xlm     application/vnd.ms-excel    </span><br><span class="line">*.xlt     application/vnd.ms-excel    </span><br><span class="line">*.xlw     application/vnd.ms-excel    </span><br><span class="line">*.xml     text/xml, application/xml    </span><br><span class="line">*.zip     aplication/zip    </span><br><span class="line">*.xls     application/vnd.ms-excel    </span><br><span class="line">*.xlsx    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title=" 参考链接 "></a><strong> 参考链接 </strong></h3><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types" target="_blank" rel="noopener">MIME 类型 - HTTP | MDN</a><br><a href="https://www.haorooms.com/post/input_file_leixing" target="_blank" rel="noopener">HTML5的 input:file上传类型控制</a><br><a href="https://blog.csdn.net/zhezhebie/article/details/80513499" target="_blank" rel="noopener">常用文件的mime和mimetype的对应关系 - 阳水平的博客 - CSDN博客</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input/file" target="_blank" rel="noopener"><code>&lt;input type=&quot;file&quot;&gt;</code> - HTML（超文本标记语言） | MDN</a><br><a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank" rel="noopener">Media Types</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2022. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | <a href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 人生苦短，及时行乐</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

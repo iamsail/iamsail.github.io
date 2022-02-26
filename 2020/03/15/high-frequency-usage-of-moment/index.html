@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      moment的高频用法总结 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="Preface 前端很多场景都会涉及到对时间的处理，我所用得最多的库是moment。本文是对moment的高频用法的总结。   用法总结  指定语言；不然可能引起一些不必要的bug。12# 记得指定为对应的语言； moment.locale(&amp;apos;zh-cn&amp;apos;);  获取时间戳 12345678910111213# 精确到毫秒moment().valueOf()## 158418">
+<meta property="og:type" content="article">
+<meta property="og:title" content="moment的高频用法总结 | Sail">
+<meta property="og:url" content="http://www.sail.name/2020/03/15/high-frequency-usage-of-moment/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 前端很多场景都会涉及到对时间的处理，我所用得最多的库是moment。本文是对moment的高频用法的总结。   用法总结  指定语言；不然可能引起一些不必要的bug。12# 记得指定为对应的语言； moment.locale(&amp;apos;zh-cn&amp;apos;);  获取时间戳 12345678910111213# 精确到毫秒moment().valueOf()## 158418">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-11-28T08:28:10.981Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="moment的高频用法总结 | Sail">
+<meta name="twitter:description" content="Preface 前端很多场景都会涉及到对时间的处理，我所用得最多的库是moment。本文是对moment的高频用法的总结。   用法总结  指定语言；不然可能引起一些不必要的bug。12# 记得指定为对应的语言； moment.locale(&amp;apos;zh-cn&amp;apos;);  获取时间戳 12345678910111213# 精确到毫秒moment().valueOf()## 158418">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title class>关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title class>归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">moment的高频用法总结</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-03-15" class="post-meta__date date">2020-03-15</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Javascript/">Javascript</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>前端很多场景都会涉及到对时间的处理，我所用得最多的库是moment。本文是对moment的高频用法的总结。</p>
+<hr>
+<h3 id="用法总结"><a href="#用法总结" class="headerlink" title=" 用法总结 "></a><strong> 用法总结 </strong></h3><h5 id="指定语言；不然可能引起一些不必要的bug。"><a href="#指定语言；不然可能引起一些不必要的bug。" class="headerlink" title=" 指定语言；不然可能引起一些不必要的bug。"></a><strong> 指定语言；不然可能引起一些不必要的bug。</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 记得指定为对应的语言；</span><br><span class="line"> moment.locale(&apos;zh-cn&apos;);</span><br></pre></td></tr></table></figure>
+<h5 id="获取时间戳"><a href="#获取时间戳" class="headerlink" title=" 获取时间戳 "></a><strong> 获取时间戳 </strong></h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 精确到毫秒</span><br><span class="line"></span><br><span class="line">moment().valueOf()</span><br><span class="line">## 1584182611042 ；返回值为数值类型</span><br><span class="line">moment().format(<span class="string">'x'</span>) </span><br><span class="line">## 返回值为字符串类型</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 精确到秒 </span><br><span class="line">moment().unix()</span><br><span class="line">##  1584182618 精确到秒  返回值为数值类型</span><br><span class="line">moment().format(<span class="string">'X'</span>) </span><br><span class="line">##  返回值为字符串类型</span><br></pre></td></tr></table></figure>
+<h5 id="生成指定时间的moment"><a href="#生成指定时间的moment" class="headerlink" title=" 生成指定时间的moment "></a><strong> 生成指定时间的moment </strong></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">moment(<span class="string">"1995-12-25"</span>);</span><br><span class="line"></span><br><span class="line"># 带格式</span><br><span class="line"># 解析器会忽略非字母和数字的字符，因此以下两个都将会返回相同的东西。</span><br><span class="line">moment(<span class="string">"12-25-1995"</span>, <span class="string">"MM-DD-YYYY"</span>);</span><br><span class="line">moment(<span class="string">"12/25/1995"</span>, <span class="string">"MM-DD-YYYY"</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="获取对象"><a href="#获取对象" class="headerlink" title=" 获取对象 "></a><strong> 获取对象 </strong></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">moment().toObject();</span><br><span class="line"># 返回一个包括：年、月、日、时、分、秒、毫秒的对象</span><br><span class="line"># &#123;</span><br><span class="line">    years: <span class="number">2020</span></span><br><span class="line">    months: <span class="number">2</span></span><br><span class="line">    date: <span class="number">14</span></span><br><span class="line">    hours: <span class="number">18</span></span><br><span class="line">    minutes: <span class="number">47</span></span><br><span class="line">    seconds: <span class="number">56</span></span><br><span class="line">    milliseconds: <span class="number">526</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="格式化"><a href="#格式化" class="headerlink" title=" 格式化 "></a><strong> 格式化 </strong></h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">moment().format();</span><br><span class="line"># 2020-03-14T19:14:05+08:00</span><br><span class="line"></span><br><span class="line">moment().format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>);</span><br><span class="line"># 2020-03-14 19:23:29</span><br></pre></td></tr></table></figure>
+<h5 id="获取时间"><a href="#获取时间" class="headerlink" title=" 获取时间 "></a><strong> 获取时间 </strong></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 获取今天0时0分0秒</span><br><span class="line">moment().startOf(<span class="string">'day'</span>)</span><br><span class="line"></span><br><span class="line"># 获取本周第一天(周日)0时0分0秒</span><br><span class="line">moment().startOf(<span class="string">'week'</span>)</span><br><span class="line"></span><br><span class="line"># 获取本周周一0时0分0秒</span><br><span class="line">moment().startOf(<span class="string">'isoWeek'</span>)</span><br><span class="line"></span><br><span class="line"># 获取当前月第一天0时0分0秒</span><br><span class="line">moment().startOf(<span class="string">'month'</span>)</span><br><span class="line"></span><br><span class="line"># 获取指定日期的0时0分0秒</span><br><span class="line">moment(<span class="string">'2019-10-20'</span>).startOf(<span class="string">'day'</span>)</span><br><span class="line"></span><br><span class="line"># 获取今天23时59分59秒</span><br><span class="line">moment().endOf(<span class="string">'day'</span>)</span><br><span class="line"></span><br><span class="line"># 获取本周最后一天(周六)23时59分59秒</span><br><span class="line">moment().endOf(<span class="string">'week'</span>)</span><br><span class="line"></span><br><span class="line"># 获取本周周日23时59分59秒</span><br><span class="line">moment().endOf(<span class="string">'isoWeek'</span>)</span><br><span class="line"></span><br><span class="line"># 获取当前月最后一天23时59分59秒</span><br><span class="line">moment().endOf(<span class="string">'month'</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="获取当月第一天是星期几"><a href="#获取当月第一天是星期几" class="headerlink" title=" 获取当月第一天是星期几  "></a><strong> 获取当月第一天是星期几  </strong></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 用于设置星期几，其中星期日为 0、星期六为 6</span><br><span class="line">moment().startOf(<span class="string">'month'</span>).day()</span><br></pre></td></tr></table></figure>
+<h5 id="获取前n天-后n天"><a href="#获取前n天-后n天" class="headerlink" title=" 获取前n天 / 后n天 "></a><strong> 获取前n天 / 后n天 </strong></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment().add(<span class="number">7</span>, <span class="string">'days'</span>);</span><br><span class="line">moment().subtract(<span class="number">7</span>, <span class="string">'days'</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="比较两个时间的大小"><a href="#比较两个时间的大小" class="headerlink" title=" 比较两个时间的大小 "></a><strong> 比较两个时间的大小 </strong></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 第二个参数用于确定精度，且不仅仅是要检查的单个值，因此使用 day 将会检查年份、月份、日期。</span><br><span class="line"></span><br><span class="line">moment(<span class="string">'2010-10-31'</span>).isBefore(<span class="string">'2010-12-31'</span>, <span class="string">'day'</span>);</span><br><span class="line"># true</span><br><span class="line"></span><br><span class="line">moment(<span class="string">'2010-10-20'</span>).isBefore(<span class="string">'2010-12-31'</span>, <span class="string">'year'</span>);</span><br><span class="line"># false</span><br><span class="line"></span><br><span class="line">moment(<span class="string">'2010-10-20'</span>).isAfter(<span class="string">'2009-12-31'</span>, <span class="string">'year'</span>); </span><br><span class="line"># true</span><br><span class="line"></span><br><span class="line">moment(<span class="string">'2010-10-20'</span>).isSame(<span class="string">'2009-12-31'</span>, <span class="string">'year'</span>); </span><br><span class="line"># 判断两个时间是否相等</span><br><span class="line"></span><br><span class="line"># 需要注意的是， isBefore与isAfter 都是开区间，如果想使用闭区间，应使用</span><br><span class="line">isSameOrBefore</span><br><span class="line">isSameOrAfter</span><br></pre></td></tr></table></figure>
+<h5 id="两个时间的相差几天"><a href="#两个时间的相差几天" class="headerlink" title=" 两个时间的相差几天 "></a><strong> 两个时间的相差几天 </strong></h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">moment([<span class="number">2008</span>, <span class="number">2</span>, <span class="number">27</span>]).diff([<span class="number">2007</span>, <span class="number">0</span>, <span class="number">28</span>], <span class="string">'day'</span>);</span><br><span class="line"># 424</span><br></pre></td></tr></table></figure>
+<h5 id="是否是闰年"><a href="#是否是闰年" class="headerlink" title=" 是否是闰年 "></a><strong> 是否是闰年 </strong></h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">moment().isLeapYear();</span><br><span class="line"># true</span><br><span class="line"></span><br><span class="line">moment([<span class="number">2001</span>]).isLeapYear() </span><br><span class="line"># false</span><br></pre></td></tr></table></figure>
+<h5 id="获取-月份和星期-枚举列表"><a href="#获取-月份和星期-枚举列表" class="headerlink" title=" 获取 月份和星期 枚举列表 "></a><strong> 获取 月份和星期 枚举列表 </strong></h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">moment.months()</span><br><span class="line"></span><br><span class="line"># ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]</span><br><span class="line"></span><br><span class="line">moment.monthsShort()</span><br><span class="line"># ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]</span><br><span class="line"></span><br><span class="line">moment.weekdays()</span><br><span class="line"># ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]</span><br><span class="line"></span><br><span class="line">moment.weekdaysMin()</span><br><span class="line"># ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]</span><br></pre></td></tr></table></figure>
+<h5 id="克隆"><a href="#克隆" class="headerlink" title=" 克隆 "></a><strong> 克隆 </strong></h5><p>所有的 <code>moment</code> 都是可变的。  调用任何一种操作方法都会改变原始的 <code>moment</code>。 如果要创建副本并对其进行操作，则应在操作 <code>moment</code> 之前使用 <code>moment#clone</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 在 moment 上调用 moment() 将会克隆它。</span><br><span class="line">var a = moment([2012]);</span><br><span class="line">var b = moment(a);</span><br><span class="line">a.year(2000);</span><br><span class="line">b.year(); // 2012</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 此外，也可以调用 moment#clone 克隆 moment。</span><br><span class="line">var a = moment([2012]);</span><br><span class="line">var b = a.clone();</span><br><span class="line">a.year(2000);</span><br><span class="line">b.year(); // 2012</span><br></pre></td></tr></table></figure></p>
+<h5 id="获取当月总天数"><a href="#获取当月总天数" class="headerlink" title=" 获取当月总天数 "></a><strong> 获取当月总天数 </strong></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">moment().daysInMonth()</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title=" 参考链接 "></a><strong> 参考链接 </strong></h3><ul>
+<li><a href="http://momentjs.cn/" target="_blank" rel="noopener">官方文档</a></li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2022. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | <a href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 人生苦短，及时行乐</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

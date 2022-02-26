@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      机器学习(coursera 斯坦福)第二周编程作业 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="Preface 本文是机器学习第二周的编程作业答案,完整题目以及代码见github   warmUpExercise.m 12345678910111213141516function A = warmUpExercise()%WARMUPEXERCISE Example function in octave%   A = WARMUPEXERCISE() is an example funct">
+<meta name="keywords" content="Linear Regression">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习(coursera 斯坦福)第二周编程作业 | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/06/02/the-second-week-homework-of-ML-Stanford/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 本文是机器学习第二周的编程作业答案,完整题目以及代码见github   warmUpExercise.m 12345678910111213141516function A = warmUpExercise()%WARMUPEXERCISE Example function in octave%   A = WARMUPEXERCISE() is an example funct">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.sail.name/img/机器学习/the-second-week-homework-of-ML-Stanford/1.png">
+<meta property="og:updated_time" content="2021-11-28T08:28:11.037Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习(coursera 斯坦福)第二周编程作业 | Sail">
+<meta name="twitter:description" content="Preface 本文是机器学习第二周的编程作业答案,完整题目以及代码见github   warmUpExercise.m 12345678910111213141516function A = warmUpExercise()%WARMUPEXERCISE Example function in octave%   A = WARMUPEXERCISE() is an example funct">
+<meta name="twitter:image" content="http://www.sail.name/img/机器学习/the-second-week-homework-of-ML-Stanford/1.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title class>关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title class>归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">机器学习(coursera 斯坦福)第二周编程作业</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-06-02" class="post-meta__date date">2018-06-02</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/机器学习/">机器学习</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Linear-Regression/">Linear Regression</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>本文是机器学习第二周的编程作业答案,完整题目以及代码见<a href="https://github.com/iamsail/ML-Stanford/tree/master/homework/second-week" target="_blank" rel="noopener">github</a></p>
+<hr>
+<h3 id="warmUpExercise-m"><a href="#warmUpExercise-m" class="headerlink" title=" warmUpExercise.m "></a><strong> warmUpExercise.m </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function A = warmUpExercise()</span><br><span class="line">%WARMUPEXERCISE Example function in octave</span><br><span class="line">%   A = WARMUPEXERCISE() is an example function that returns the 5x5 identity matrix</span><br><span class="line"></span><br><span class="line">A = [];</span><br><span class="line">% ============= YOUR CODE HERE ==============</span><br><span class="line">% Instructions: Return the 5x5 identity matrix </span><br><span class="line">%               In octave, we return values by defining which variables</span><br><span class="line">%               represent the return values (at the top of the file)</span><br><span class="line">%               and then set them accordingly. </span><br><span class="line"></span><br><span class="line">A = eye(5);</span><br><span class="line"></span><br><span class="line">% ===========================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="computeCost-m"><a href="#computeCost-m" class="headerlink" title=" computeCost.m　"></a><strong> computeCost.m　</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function J = computeCost(X, y, theta)</span><br><span class="line">%COMPUTECOST Compute cost for linear regression</span><br><span class="line">%   J = COMPUTECOST(X, y, theta) computes the cost of using theta as the</span><br><span class="line">%   parameter for linear regression to fit the data points in X and y</span><br><span class="line"></span><br><span class="line">% Initialize some useful values</span><br><span class="line">m = length(y); % number of training examples</span><br><span class="line"></span><br><span class="line">% You need to return the following variables correctly </span><br><span class="line">J = 0;</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: Compute the cost of a particular choice of theta</span><br><span class="line">%               You should set J to the cost.</span><br><span class="line">J = 1 / (2*m) * sum((X * theta - y).^2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">% =========================================================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="gradientDescent-m"><a href="#gradientDescent-m" class="headerlink" title=" gradientDescent.m　"></a><strong> gradientDescent.m　</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">function [theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters)</span><br><span class="line">%GRADIENTDESCENT Performs gradient descent to learn theta</span><br><span class="line">%   theta = GRADIENTDESCENT(X, y, theta, alpha, num_iters) updates theta by </span><br><span class="line">%   taking num_iters gradient steps with learning rate alpha</span><br><span class="line"></span><br><span class="line">% Initialize some useful values</span><br><span class="line">m = length(y); % number of training examples</span><br><span class="line">J_history = zeros(num_iters, 1);</span><br><span class="line"></span><br><span class="line">for iter = 1:num_iters</span><br><span class="line"></span><br><span class="line">    % ====================== YOUR CODE HERE ======================</span><br><span class="line">    % Instructions: Perform a single gradient step on the parameter vector</span><br><span class="line">    %               theta. </span><br><span class="line">    %</span><br><span class="line">    % Hint: While debugging, it can be useful to print out the values</span><br><span class="line">    %       of the cost function (computeCost) and gradient here.</span><br><span class="line">    %</span><br><span class="line">    temp=X&apos;*(X*theta-y);</span><br><span class="line">    theta=theta-1/m*alpha*temp;</span><br><span class="line"></span><br><span class="line">    % ============================================================</span><br><span class="line"></span><br><span class="line">    % Save the cost J in every iteration    </span><br><span class="line">    J_history(iter) = computeCost(X, y, theta);</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="featureNormalize-m"><a href="#featureNormalize-m" class="headerlink" title=" featureNormalize.m　"></a><strong> featureNormalize.m　</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">function [X_norm, mu, sigma] = featureNormalize(X)</span><br><span class="line">%FEATURENORMALIZE Normalizes the features in X </span><br><span class="line">%   FEATURENORMALIZE(X) returns a normalized version of X where</span><br><span class="line">%   the mean value of each feature is 0 and the standard deviation</span><br><span class="line">%   is 1. This is often a good preprocessing step to do when</span><br><span class="line">%   working with learning algorithms.</span><br><span class="line"></span><br><span class="line">% You need to set these values correctly</span><br><span class="line">X_norm = X;</span><br><span class="line">mu = zeros(1, size(X, 2));</span><br><span class="line">sigma = zeros(1, size(X, 2));</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: First, for each feature dimension, compute the mean</span><br><span class="line">%               of the feature and subtract it from the dataset,</span><br><span class="line">%               storing the mean value in mu. Next, compute the </span><br><span class="line">%               standard deviation of each feature and divide</span><br><span class="line">%               each feature by it&apos;s standard deviation, storing</span><br><span class="line">%               the standard deviation in sigma. </span><br><span class="line">%</span><br><span class="line">%               Note that X is a matrix where each column is a </span><br><span class="line">%               feature and each row is an example. You need </span><br><span class="line">%               to perform the normalization separately for </span><br><span class="line">%               each feature. </span><br><span class="line">%</span><br><span class="line">% Hint: You might find the &apos;mean&apos; and &apos;std&apos; functions useful.</span><br><span class="line">%       </span><br><span class="line"></span><br><span class="line">n = size(X_norm, 2);</span><br><span class="line">for i=1:n</span><br><span class="line">  X_norm(:,i)=(X_norm(:,i)- mean(X_norm(:,i)))/ std(X_norm(:,i));</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">% ============================================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="computeCostMulti-m"><a href="#computeCostMulti-m" class="headerlink" title=" computeCostMulti.m　"></a><strong> computeCostMulti.m　</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function J = computeCostMulti(X, y, theta)</span><br><span class="line">%COMPUTECOSTMULTI Compute cost for linear regression with multiple variables</span><br><span class="line">%   J = COMPUTECOSTMULTI(X, y, theta) computes the cost of using theta as the</span><br><span class="line">%   parameter for linear regression to fit the data points in X and y</span><br><span class="line"></span><br><span class="line">% Initialize some useful values</span><br><span class="line">m = length(y); % number of training examples</span><br><span class="line"></span><br><span class="line">% You need to return the following variables correctly </span><br><span class="line">J = 0;</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: Compute the cost of a particular choice of theta</span><br><span class="line">%               You should set J to the cost.</span><br><span class="line"></span><br><span class="line">J = 1/(2*m)*sum((X*theta-y).^2);</span><br><span class="line"></span><br><span class="line">% =========================================================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="gradientDescentMulti-m"><a href="#gradientDescentMulti-m" class="headerlink" title=" gradientDescentMulti.m　"></a><strong> gradientDescentMulti.m　</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">function [theta, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters)</span><br><span class="line">%GRADIENTDESCENTMULTI Performs gradient descent to learn theta</span><br><span class="line">%   theta = GRADIENTDESCENTMULTI(x, y, theta, alpha, num_iters) updates theta by</span><br><span class="line">%   taking num_iters gradient steps with learning rate alpha</span><br><span class="line"></span><br><span class="line">% Initialize some useful values</span><br><span class="line">m = length(y); % number of training examples</span><br><span class="line">J_history = zeros(num_iters, 1);</span><br><span class="line"></span><br><span class="line">for iter = 1:num_iters</span><br><span class="line"></span><br><span class="line">    % ====================== YOUR CODE HERE ======================</span><br><span class="line">    % Instructions: Perform a single gradient step on the parameter vector</span><br><span class="line">    %               theta. </span><br><span class="line">    %</span><br><span class="line">    % Hint: While debugging, it can be useful to print out the values</span><br><span class="line">    %       of the cost function (computeCostMulti) and gradient here.</span><br><span class="line">    %</span><br><span class="line"></span><br><span class="line">temp=X&apos;*(X*theta-y);</span><br><span class="line">    theta=theta-1/m*alpha*temp;</span><br><span class="line"></span><br><span class="line">    % ============================================================</span><br><span class="line"></span><br><span class="line">    % Save the cost J in every iteration    </span><br><span class="line">    J_history(iter) = computeCostMulti(X, y, theta);</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id><a href="#" class="headerlink" title=" 　"></a><strong> 　</strong></h3><p><img src="/img/机器学习/the-second-week-homework-of-ML-Stanford/1.png" alt="1.png"></p>
+<h3 id="ex1-multi-m"><a href="#ex1-multi-m" class="headerlink" title=" ex1_multi.m "></a><strong> ex1_multi.m </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">% Plot the convergence graph</span><br><span class="line">figure;</span><br><span class="line">plot(1:numel(J_history), J_history, &apos;-b&apos;, &apos;LineWidth&apos;, 2);</span><br><span class="line">xlabel(&apos;Number of iterations&apos;);</span><br><span class="line">ylabel(&apos;Cost J&apos;);</span><br><span class="line"></span><br><span class="line">% Compare learning rate</span><br><span class="line">hold on;</span><br><span class="line">alpha = 0.03;</span><br><span class="line">theta = zeros(3, 1);</span><br><span class="line">[theta, J_history1] = gradientDescentMulti(X, y, theta, alpha, num_iters);</span><br><span class="line">plot(1:100, J_history1(1:100), &apos;r&apos;, &apos;LineWidth&apos;, 2);</span><br><span class="line"></span><br><span class="line">hold on;</span><br><span class="line">alpha = 0.1;</span><br><span class="line">theta = zeros(3, 1);</span><br><span class="line">[theta, J_history2] = gradientDescentMulti(X, y, theta, alpha, num_iters);</span><br><span class="line">plot(1:100, J_history2(1:100), &apos;g&apos;, &apos;LineWidth&apos;, 2);</span><br><span class="line"></span><br><span class="line">% Display gradient descent&apos;s result</span><br><span class="line">fprintf(&apos;Theta computed from gradient descent: \n&apos;);</span><br><span class="line">fprintf(&apos; %f \n&apos;, theta);</span><br><span class="line">fprintf(&apos;\n&apos;);</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="normalEqn-m"><a href="#normalEqn-m" class="headerlink" title=" normalEqn.m "></a><strong> normalEqn.m </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function [theta] = normalEqn(X, y)</span><br><span class="line">%NORMALEQN Computes the closed-form solution to linear regression </span><br><span class="line">%   NORMALEQN(X,y) computes the closed-form solution to linear </span><br><span class="line">%   regression using the normal equations.</span><br><span class="line"></span><br><span class="line">theta = zeros(size(X, 2), 1);</span><br><span class="line"></span><br><span class="line">% ====================== YOUR CODE HERE ======================</span><br><span class="line">% Instructions: Complete the code to compute the closed form solution</span><br><span class="line">%               to linear regression and put the result in theta.</span><br><span class="line">%</span><br><span class="line"></span><br><span class="line">% ---------------------- Sample Solution ----------------------</span><br><span class="line"></span><br><span class="line">theta = pinv(X&apos; * X) * X&apos; * y;</span><br><span class="line"></span><br><span class="line">% -------------------------------------------------------------</span><br><span class="line">% ============================================================</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p><a href="https://www.cnblogs.com/LoganGo/p/8532018.html" target="_blank" rel="noopener">Coursera-AndrewNg(吴恩达)机器学习笔记——第二周编程作业（线性回归）</a><br><a href="http://www.cnblogs.com/douzujun/p/5815357.html" target="_blank" rel="noopener">Linear regression with multiple variables(多特征的线型回归)算法实例_梯度下降解法(Gradient DesentMulti)以及正规方程解法(Normal Equation)</a><br><a href="https://blog.csdn.net/senketh/article/details/52049933" target="_blank" rel="noopener">机器学习第2周编程作业</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2022. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | <a href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 人生苦短，及时行乐</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
