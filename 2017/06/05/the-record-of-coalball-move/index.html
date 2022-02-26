@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      coalball搬迁记录 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="这两天开始部署coalball准备上线。 已经踩了不少坑, 当然现在也还有坑还没解决完。  先做些记录   服务器重启后,因为某些服务还没设置成自动启动,所以还得手动开启。 nodebb项目重启,在目录下执行./nodebb start  node项目之前肖高阳使用的是pm2,而我使用的是forever。需要学习下pm2     搭PHP环境 12345678910111213安装搭建论坛必要的软">
+<meta property="og:type" content="article">
+<meta property="og:title" content="coalball搬迁记录 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/06/05/the-record-of-coalball-move/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="这两天开始部署coalball准备上线。 已经踩了不少坑, 当然现在也还有坑还没解决完。  先做些记录   服务器重启后,因为某些服务还没设置成自动启动,所以还得手动开启。 nodebb项目重启,在目录下执行./nodebb start  node项目之前肖高阳使用的是pm2,而我使用的是forever。需要学习下pm2     搭PHP环境 12345678910111213安装搭建论坛必要的软">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-11-28T08:28:11.036Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="coalball搬迁记录 | Sail">
+<meta name="twitter:description" content="这两天开始部署coalball准备上线。 已经踩了不少坑, 当然现在也还有坑还没解决完。  先做些记录   服务器重启后,因为某些服务还没设置成自动启动,所以还得手动开启。 nodebb项目重启,在目录下执行./nodebb start  node项目之前肖高阳使用的是pm2,而我使用的是forever。需要学习下pm2     搭PHP环境 12345678910111213安装搭建论坛必要的软">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title class>关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title class>归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">coalball搬迁记录</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-06-05" class="post-meta__date date">2017-06-05</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Linux/">Linux</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>这两天开始部署coalball准备上线。</p>
+<p>已经踩了不少坑,<strong> 当然现在也还有坑还没解决完。</strong></p>
+<h3 id="先做些记录"><a href="#先做些记录" class="headerlink" title=" 先做些记录 "></a><strong> 先做些记录 </strong></h3><hr>
+<ul>
+<li><p>服务器重启后,因为某些服务还没设置成自动启动,所以还得手动开启。</p>
+<p>nodebb项目重启,在目录下执行<code>./nodebb start</code></p>
+</li>
+<li><p>node项目之前肖高阳使用的是pm2,而我使用的是forever。需要学习下pm2</p>
+</li>
+</ul>
+<hr>
+<h3 id="搭PHP环境"><a href="#搭PHP环境" class="headerlink" title=" 搭PHP环境 "></a><strong> <a href="http://bbs.qcloud.com/thread-1316-1-1.html" target="_blank" rel="noopener">搭PHP环境</a> </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">安装搭建论坛必要的软件 apache  php  mysql</span><br><span class="line">yum install -y httpd php php-fpm mysql mysql-server php-mysql</span><br><span class="line"></span><br><span class="line">将相应服务启动</span><br><span class="line">service httpd start</span><br><span class="line">service mysqld start</span><br><span class="line">service php-fpm start</span><br><span class="line"></span><br><span class="line">检查服务的运行情况</span><br><span class="line">netstat -tunlp</span><br><span class="line"></span><br><span class="line">【可选？】给mysql设定一个初始的root密码，可以让root用户去访问数据库</span><br><span class="line">mysqladmin -u root password &quot;XXXXXXXX&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Mysql"><a href="#Mysql" class="headerlink" title=" Mysql "></a><strong> Mysql </strong></h3><p><strong> ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES) </strong></p>
+<ul>
+<li><p>背景:我自己的服务器是腾讯云centos7.x,所以数据库是mariadb,更多可以看我的博文<a href="http://www.sail.name/2017/04/15/a-removal/">一次搬迁</a>。而工作室的服务器是centos6.8,所以数据库是Mysql。</p>
+</li>
+<li><p>问题原因,<a href="http://www.cnblogs.com/kerrycode/p/4368312.html" target="_blank" rel="noopener">戳这儿</a></p>
+</li>
+<li><p><a href="https://stackoverflow.com/questions/21944936/error-1045-28000-access-denied-for-user-rootlocalhost-using-password-y" target="_blank" rel="noopener">解决方案</a></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#Stop MySQL</span><br><span class="line">$ service mysqld stop</span><br><span class="line"></span><br><span class="line">#Start it in safe mode:</span><br><span class="line">$ (sudo)mysqld_safe --skip-grant-tables</span><br><span class="line"></span><br><span class="line">#This will be an ongoing command until the process is finished so open another shell/terminal</span><br><span class="line">#window, log in without a password:</span><br><span class="line"></span><br><span class="line">$ mysql -u root</span><br><span class="line">mysql&gt; UPDATE mysql.user SET Password=PASSWORD(&apos;password&apos;) WHERE User=&apos;root&apos;;</span><br><span class="line"></span><br><span class="line">#Start MySQL</span><br><span class="line">$ service mysqld start</span><br><span class="line"></span><br><span class="line">#your new password is &apos;password&apos;.</span><br></pre></td></tr></table></figure>
+<p>后来我在<a href="https://zhidao.baidu.com/question/1603863845338636507.html" target="_blank" rel="noopener">百度知道上看到一个回答</a>,也挺不错,可以参考着看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#1.停止mysql数据库</span><br><span class="line">/etc/init.d/mysqld stop</span><br><span class="line"> </span><br><span class="line">#2.执行如下命令</span><br><span class="line">mysqld_safe --user=mysql --skip-grant-tables --skip-networking &amp;</span><br><span class="line"> </span><br><span class="line">#3.使用root登录mysql数据库</span><br><span class="line">mysql -u root mysql</span><br><span class="line"> </span><br><span class="line">#4.更新root密码</span><br><span class="line">mysql&gt; UPDATE user SET Password=PASSWORD(&apos;newpassword&apos;) where USER=&apos;root&apos;;</span><br><span class="line">#最新版MySQL请采用如下SQL：</span><br><span class="line">mysql&gt; UPDATE user SET authentication_string=PASSWORD(&apos;newpassword&apos;) where USER=&apos;root&apos;;</span><br><span class="line"> </span><br><span class="line">#5.刷新权限 </span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br><span class="line"> </span><br><span class="line">#6.退出mysql</span><br><span class="line">mysql&gt; quit</span><br><span class="line"> </span><br><span class="line">#7.重启mysql</span><br><span class="line">/etc/init.d/mysqld restart</span><br><span class="line"> </span><br><span class="line">#8.使用root用户重新登录mysql</span><br><span class="line">mysql -uroot -p </span><br><span class="line">Enter password: &lt;输入新设的密码newpassword&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Can’t-connect-to-local-MySQL-server-through-socket"><a href="#Can’t-connect-to-local-MySQL-server-through-socket" class="headerlink" title=" Can’t connect to local MySQL server through socket "></a><strong> Can’t connect to local MySQL server through socket </strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-server</span><br><span class="line"></span><br><span class="line">更多[戳这儿](http://www.d5s.cn/archives/9)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="PHP"><a href="#PHP" class="headerlink" title=" PHP "></a><strong> PHP </strong></h3><ul>
+<li><p>ThinkPHP上线记得删除掉<code>Runtime</code>目录</p>
+</li>
+<li><p>要注意权限问题,某些目录需要修改权限,<code>chomd -R</code>才是递归,否则没有递归效果</p>
+</li>
+<li><p>学会看日志,查找问题</p>
+</li>
+<li><p><span class="under0">修改服务器相关配置文件后,要重启服务器</span></p>
+</li>
+</ul>
+<hr>
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx "></a><strong>Nginx </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#nginx重启</span><br><span class="line">$ nginx -s  reload</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="URL重写"><a href="#URL重写" class="headerlink" title=" URL重写 "></a><strong> URL重写 </strong></h3><p><span class="under0">现在是6月20号晚上,折腾了两周服务器(想哭),总算搞定</span></p>
+<p>中途踩了很多坑,试了不少方法,做下记录</p>
+<p><strong> 部署到工作室服务器(Linux和Win),均有一个test接口请求404,然而在自己的腾讯云服务器是正常的 </strong></p>
+<p>解决办法</p>
+<p>最后查看了<strong> ThinkPHP文档中的URL重写 </strong></p>
+<p>可以通过URL重写隐藏应用的入口文件index.php,下面是相关服务器的配置参考：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[ Apache ]</span><br><span class="line"></span><br><span class="line">    httpd.conf配置文件中加载了mod_rewrite.so模块</span><br><span class="line">    AllowOverride None 将None改为 All</span><br><span class="line">    把下面的内容保存为.htaccess文件放到应用入口文件的同级目录下</span><br><span class="line"></span><br><span class="line">&lt;IfModule mod_rewrite.c&gt;</span><br><span class="line"> RewriteEngine on</span><br><span class="line"> RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line"> RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line"> RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="MySQL的乱码"><a href="#MySQL的乱码" class="headerlink" title=" MySQL的乱码 "></a><strong> MySQL的乱码 </strong></h3><p><strong> 默认都是latin编码,需要将各个项设置为utf8 </strong></p>
+<p>网上有很多参考文章</p>
+<hr>
+<h3 id="升级PHP"><a href="#升级PHP" class="headerlink" title=" 升级PHP "></a><strong> 升级PHP </strong></h3><p>centos下升级php5.3到php5.6</p>
+<p><a href="http://blog.csdn.net/na_beginning/article/details/53414122" target="_blank" rel="noopener">戳这儿</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php56w-fpm</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="vim-批量替换"><a href="#vim-批量替换" class="headerlink" title=" vim 批量替换 "></a><strong> vim 批量替换 </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#语法</span><br><span class="line">:[addr]s/源字符串/目的字符串/[option]</span><br><span class="line"></span><br><span class="line">#全局替换命令</span><br><span class="line">:%s/源字符串/目的字符串/g</span><br><span class="line"></span><br><span class="line">[addr] 表示检索范围，省略时表示当前行。</span><br><span class="line">“1,20” ：表示从第1行到20行；</span><br><span class="line">“%” ：表示整个文件，同“1,$”；</span><br><span class="line">“. ,$” ：从当前行到文件尾；</span><br><span class="line"></span><br><span class="line">s : 表示替换操作</span><br><span class="line"></span><br><span class="line">[option] : 表示操作类型</span><br><span class="line">g 表示全局替换;</span><br><span class="line">c 表示进行确认</span><br><span class="line">p 表示替代结果逐行显示（Ctrl + L恢复屏幕）;</span><br><span class="line">省略option时仅对每行第一个匹配串进行替换;</span><br><span class="line">如果在源字符串和目的字符串中出现特殊字符，需要用”\”转义 如 \t</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="上传文件的服务器相关配置"><a href="#上传文件的服务器相关配置" class="headerlink" title=" 上传文件的服务器相关配置 "></a><strong> 上传文件的服务器相关配置 </strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">file_uploads </span><br><span class="line">## 设为On，允许通过HTTP上传文件 </span><br><span class="line"></span><br><span class="line">upload_tmp_dir </span><br><span class="line">## 文件上传至服务器时用于临时存储的目录，如果没指定，系统会使用默认的临时文件夹（我的机器是/tmp）。 </span><br><span class="line"></span><br><span class="line">upload_max_filesize </span><br><span class="line">## 允许上传文件大小的最大值，默认为2M。 </span><br><span class="line"></span><br><span class="line">post_max_size </span><br><span class="line">## Php可接收的post数据的最大值（包括表单里的所有值的总合），默认为8M。 </span><br><span class="line"></span><br><span class="line">memory_limit </span><br><span class="line">## 每个php所最占的最大内存数，这个值要大于允许上传的文件大小。 </span><br><span class="line"></span><br><span class="line">max_execution_time </span><br><span class="line">## 每个php运行的最长时间（秒），默认30秒。 </span><br><span class="line"></span><br><span class="line">## max_input_time </span><br><span class="line">Php解析POST/GET数据的最长时间（秒），默认60秒。This sets the maximum time in seconds a scripts </span><br><span class="line">is allowed to parse input data, like POST and GET.It is measured from the mement of receiving</span><br><span class="line"> all data on the server to the start of script execution.</span><br></pre></td></tr></table></figure>
+<p>如果服务器上有装nginx,也需要对nginx进行配置</p>
+<p>在<code>nginx.conf</code>文件的http模块中,增加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client_max_body_size xxm</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="文件上传保存错误"><a href="#文件上传保存错误" class="headerlink" title=" 文件上传保存错误 "></a><strong> 文件上传保存错误 </strong></h3><p>如果在线上环境遇到这个问题,需要将文件的保存目录重新创建,创建之前记得保存文件。</p>
+<hr>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title=" 写在最后 "></a><strong> 写在最后 </strong></h3><p>这学期学习新技术,巩固基础的时间不是很多。这几天也折腾了四个服务器,仿佛变身运维工程师。</p>
+<p><strong> 解决bug不要太急躁 </strong></p>
+<p>希望在即将到来的暑假,不要颓废。</p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><ul>
+<li><a href="http://www.jianshu.com/p/d2a640b8661c" target="_blank" rel="noopener">使用PM2来部署nodejs项目</a></li>
+<li><a href="http://haoduoshipin.com/v/203.html" target="_blank" rel="noopener">使用 PM2 部署 Nodejs 项目</a></li>
+<li><a href="https://stackoverflow.com/questions/21944936/error-1045-28000-access-denied-for-user-rootlocalhost-using-password-y" target="_blank" rel="noopener">ERROR 1045 (28000): Access denied for user ‘root‘@’localhost’ (using password: YES)</a></li>
+<li><a href="http://www.cnblogs.com/beenoisy/p/4046074.html" target="_blank" rel="noopener">vim批量替换命令实践</a></li>
+<li><a href="https://www.kancloud.cn/manual/thinkphp/1678" target="_blank" rel="noopener">ThinkPHP3.2.3完全开发</a></li>
+<li><a href="http://www.cnblogs.com/52php/p/5665419.html" target="_blank" rel="noopener">配置php.ini实现PHP文件上传功能</a></li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2022. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | <a href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 人生苦短，及时行乐</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

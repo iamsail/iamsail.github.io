@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      策略模式 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control">
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="Preface 策略模式指的是定义一系列的算法,把它们一个个封装起来。将不变的部分和变化的部分隔开是每个设计模式的主题,策略模式也不例外,策略模式的目的就是将算法的使用与算法的实现分离开来。 一个基于策略模式的程序至少由两部分组成。第一个部分是一组策略类,策略类封装了具体的算法,并负责具体的计算过程。第二个部分是环境类Context,Context接受客户的请求,随后把请求委托给某一个策略类。要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="策略模式 | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/09/11/Strategy-Pattern/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="Preface 策略模式指的是定义一系列的算法,把它们一个个封装起来。将不变的部分和变化的部分隔开是每个设计模式的主题,策略模式也不例外,策略模式的目的就是将算法的使用与算法的实现分离开来。 一个基于策略模式的程序至少由两部分组成。第一个部分是一组策略类,策略类封装了具体的算法,并负责具体的计算过程。第二个部分是环境类Context,Context接受客户的请求,随后把请求委托给某一个策略类。要">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-11-28T08:28:10.963Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="策略模式 | Sail">
+<meta name="twitter:description" content="Preface 策略模式指的是定义一系列的算法,把它们一个个封装起来。将不变的部分和变化的部分隔开是每个设计模式的主题,策略模式也不例外,策略模式的目的就是将算法的使用与算法的实现分离开来。 一个基于策略模式的程序至少由两部分组成。第一个部分是一组策略类,策略类封装了具体的算法,并负责具体的计算过程。第二个部分是环境类Context,Context接受客户的请求,随后把请求委托给某一个策略类。要">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title class>关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title class>归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class="icon icon-social-github"></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">策略模式</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-09-11" class="post-meta__date date">2018-09-11</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/设计模式/">设计模式</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title=" Preface "></a><strong> Preface </strong></h3><p>策略模式指的是定义一系列的算法,把它们一个个封装起来。将不变的部分和变化的部分隔开是每个设计模式的主题,策略模式也不例外,策略模式的目的就是将算法的使用与算法的实现分离开来。</p>
+<p>一个基于策略模式的程序至少由两部分组成。第一个部分是一组策略类,策略类封装了具体的算法,并负责具体的计算过程。第二个部分是环境类Context,Context接受客户的请求,随后把请求委托给某一个策略类。要做到这点,说明Context中要维持对某个策略对象的引用</p>
+<hr>
+<h3 id="策略模式实现"><a href="#策略模式实现" class="headerlink" title=" 策略模式实现 "></a><strong> 策略模式实现 </strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> strategies = &#123;</span><br><span class="line">    <span class="string">"S"</span>: <span class="function"><span class="keyword">function</span> (<span class="params">salary</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary * <span class="number">4</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"A"</span>: <span class="function"><span class="keyword">function</span> (<span class="params">salary</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary * <span class="number">3</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"B"</span>: <span class="function"><span class="keyword">function</span> (<span class="params">salary</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary * <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> calculateBonus = <span class="function"><span class="keyword">function</span> (<span class="params">level, salary</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> strategies[level](salary);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(calculateBonus(<span class="string">'S'</span>, <span class="number">2000</span>));</span><br><span class="line"><span class="built_in">console</span>.log(calculateBonus(<span class="string">'A'</span>, <span class="number">1000</span>));</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="使用策略模式实现缓动动画"><a href="#使用策略模式实现缓动动画" class="headerlink" title=" 使用策略模式实现缓动动画 "></a><strong> 使用策略模式实现缓动动画 </strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tween = &#123;</span><br><span class="line">    <span class="comment">// 这4个参数的含义分别是动画已消耗的时间,小球原始位置,小球目标位置,动画持续的总时间</span></span><br><span class="line">    <span class="comment">// 返回的值则是动画元素应该处在的当前位置</span></span><br><span class="line">    linear: <span class="function"><span class="keyword">function</span> (<span class="params">t, b, c, d</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c*t/d + b;</span><br><span class="line">    &#125;,</span><br><span class="line">    easeIn: <span class="function"><span class="keyword">function</span> (<span class="params">t, b, c, d</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c * (t /= d) * t + b;</span><br><span class="line">    &#125;,</span><br><span class="line">    strongEaseIn: <span class="function"><span class="keyword">function</span> (<span class="params">t, b, c, d</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c * (t /= d) * t * t * t * t + b;</span><br><span class="line">    &#125;,</span><br><span class="line">    strongEaseOut: <span class="function"><span class="keyword">function</span> (<span class="params">t, b, c, d</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c * ((t = t / d - <span class="number">1</span>) * t * t * t * t + <span class="number">1</span>) + b;</span><br><span class="line">    &#125;,</span><br><span class="line">    sineaseIn: <span class="function"><span class="keyword">function</span> (<span class="params">t, b, c, d</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c * (t /= d) * t * t + b;</span><br><span class="line">    &#125;,</span><br><span class="line">    sineaseOut: <span class="function"><span class="keyword">function</span> (<span class="params">t, b, c, d</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> c * ((t = t / d - <span class="number">1</span>) * t * t + <span class="number">1</span>) + b;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Animate = <span class="function"><span class="keyword">function</span> (<span class="params">dom</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.dom = dom;     <span class="comment">// 进行运动的dom结点</span></span><br><span class="line">    <span class="keyword">this</span>.startTime = <span class="number">0</span>; <span class="comment">// 动画开始的时间</span></span><br><span class="line">    <span class="keyword">this</span>.startPos = <span class="number">0</span>;  <span class="comment">// dom的初始位置</span></span><br><span class="line">    <span class="keyword">this</span>.endPos = <span class="number">0</span>;    <span class="comment">// dom的目标位置</span></span><br><span class="line">    <span class="keyword">this</span>.propertyName = <span class="literal">null</span>; <span class="comment">// dom节点需要被改变的css属性名</span></span><br><span class="line">    <span class="keyword">this</span>.easing = <span class="literal">null</span>;       <span class="comment">// 缓动算法</span></span><br><span class="line">    <span class="keyword">this</span>.duration = <span class="literal">null</span>;     <span class="comment">// 动画持续时间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animate.prototype.start = <span class="function"><span class="keyword">function</span> (<span class="params">propertyName, endPos, duration, easing</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.startTime = +<span class="keyword">new</span> <span class="built_in">Date</span>; <span class="comment">// 动画启动时间</span></span><br><span class="line">    <span class="keyword">this</span>.startPos = <span class="keyword">this</span>.dom.getBoundingClientRect()[propertyName]; <span class="comment">// dom结点初始位置</span></span><br><span class="line">    <span class="keyword">this</span>.propertyName = propertyName; <span class="comment">// dom节点需要被改变的CSS属性名</span></span><br><span class="line">    <span class="keyword">this</span>.endPos = endPos; <span class="comment">// dom节点目标位置</span></span><br><span class="line">    <span class="keyword">this</span>.duration = duration; <span class="comment">// 动画持续事件</span></span><br><span class="line">    <span class="keyword">this</span>.easing = tween[easing]; <span class="comment">// 缓动算法</span></span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">var</span> timeId = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  <span class="comment">// 启动定时器,开始执行动画</span></span><br><span class="line">        <span class="keyword">if</span> (self.step() === <span class="literal">false</span>) &#123;        <span class="comment">// 如果动画已结束,则清楚定时器</span></span><br><span class="line">            clearInterval(timeId);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">19</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Animate.prototype.step = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> t = +<span class="keyword">new</span> <span class="built_in">Date</span>; <span class="comment">// 取得当前时间</span></span><br><span class="line">    <span class="comment">// 如果当前时间大于动画开始时间加上动画持续时间之和,说明动画已经结束了,此时要修正小球位置</span></span><br><span class="line">    <span class="keyword">if</span> (t &gt;= <span class="keyword">this</span>.startTime + <span class="keyword">this</span>.duration) &#123;</span><br><span class="line">        <span class="keyword">this</span>.update(<span class="keyword">this</span>.endPos);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// pos为小球当前位置</span></span><br><span class="line">    <span class="keyword">var</span> pos = <span class="keyword">this</span>.easing(t - <span class="keyword">this</span>.startTime, <span class="keyword">this</span>.startPos, <span class="keyword">this</span>.endPos - <span class="keyword">this</span>.startPos, <span class="keyword">this</span>.duration);</span><br><span class="line">    <span class="keyword">this</span>.update(pos); <span class="comment">// 更新小球的CSS属性</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Animate.prototype.update = <span class="function"><span class="keyword">function</span> (<span class="params">pos</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.dom.style[<span class="keyword">this</span>.propertyName] = pos + <span class="string">'px'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'div'</span>);</span><br><span class="line"><span class="keyword">var</span> animate = <span class="keyword">new</span> Animate(div);</span><br><span class="line"><span class="comment">// animate.start('top', 1500, 500, 'strongEaseIn');</span></span><br><span class="line">animate.start(<span class="string">'top'</span>, <span class="number">1500</span>, <span class="number">500</span>, <span class="string">'linear'</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title=" 参考 "></a><strong> 参考 </strong></h3><p>《JavaScript设计模式与开发实践》</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2022. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | <a href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 人生苦短，及时行乐</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
