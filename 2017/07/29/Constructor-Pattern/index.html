@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Constructor(构造器)模式 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="** 前言 **之前零星的学了点设计模式,趁着假期,开始看《JavaScript 设计模式》系统的学习下,并写写博文做记录。  ** 分类 **在《JavaScript 设计模式》一书中,讲了以下这三种类别的设计模式 ** 创建型设计模式 **创建型设计模式专注于处理对象创建机制,以适合给定情况的方式来创建对象。 属于这个类别的模式包括:Constructor(构造器)、Factory(工厂)、A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Constructor(构造器)模式 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/07/29/Constructor-Pattern/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** 前言 **之前零星的学了点设计模式,趁着假期,开始看《JavaScript 设计模式》系统的学习下,并写写博文做记录。  ** 分类 **在《JavaScript 设计模式》一书中,讲了以下这三种类别的设计模式 ** 创建型设计模式 **创建型设计模式专注于处理对象创建机制,以适合给定情况的方式来创建对象。 属于这个类别的模式包括:Constructor(构造器)、Factory(工厂)、A">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-07-29T02:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.497Z">
+<meta property="article:author" content="Sail">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Constructor(构造器)模式</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-29" class="post-meta__date date">2017-07-29</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="前言"><a href="#前言" class="headerlink" title="** 前言 **"></a>** 前言 **</h3><p>之前零星的学了点设计模式,趁着假期,开始看《JavaScript 设计模式》系统的学习下,并写写博文做记录。</p>
+<hr>
+<h3 id="分类"><a href="#分类" class="headerlink" title="** 分类 **"></a>** 分类 **</h3><p>在《JavaScript 设计模式》一书中,讲了以下这三种类别的设计模式</p>
+<h4 id="创建型设计模式"><a href="#创建型设计模式" class="headerlink" title="** 创建型设计模式 **"></a>** 创建型设计模式 **</h4><p>创建型设计模式专注于处理对象创建机制,以适合给定情况的方式来创建对象。</p>
+<p>属于这个类别的模式包括:Constructor(构造器)、Factory(工厂)、Abstract(抽象)、Prototype(原型)、Singleton(单例)和Builder(生成器)。</p>
+<h4 id="结构型设计模式"><a href="#结构型设计模式" class="headerlink" title="** 结构型设计模式 **"></a>** 结构型设计模式 **</h4><p>结构型模式与对象组合有关,通常可以用于找出在不同对象之间建立关系的简单方法。</p>
+<p>属于这个类别的模式包括:Decorator(装饰者)、Facade(外观)、Flyweight(享元)、Adapter(适配器)和Proxy(代理)</p>
+<h4 id="行为设计模式"><a href="#行为设计模式" class="headerlink" title="** 行为设计模式 **"></a>** 行为设计模式 **</h4><p>行为设计模式专注于改善或简化系统中不同对象之间的通信</p>
+<p>行为模式包括:Iterator(迭代器模式)、Mediator(中介者)、Observer(观察者)和Visitor(访问者)</p>
+<hr>
+<h3 id="Constructor-构造器-模式"><a href="#Constructor-构造器-模式" class="headerlink" title="** Constructor(构造器) 模式 **"></a>** Constructor(构造器) 模式 **</h3><h4 id="基本Constructor-构造器"><a href="#基本Constructor-构造器" class="headerlink" title="** 基本Constructor(构造器) **"></a>** 基本Constructor(构造器) **</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">model, year, miles</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">year</span> = year;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">miles</span> = miles;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">toString</span> = <span class="keyword">function</span>(<span class="params"></span>)  &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">model</span> + <span class="string">&quot; has done &quot;</span> + <span class="variable language_">this</span>.<span class="property">miles</span> + <span class="string">&quot; miles&quot;</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sail = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;sail&quot;</span>,<span class="number">2017</span>,<span class="number">6666</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="title class_">Sail</span> = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;Sail&quot;</span>,<span class="number">2017</span>,<span class="number">9999</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sail.<span class="title function_">toString</span>());</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Sail</span>.<span class="title function_">toString</span>());</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>该版本存在一定的问题,它使得继承变得困难。另外,这种实现方式,toString()这样的函数是为每个使用Car构造器创建的新对象而分别重新定义的。</p>
+<hr>
+<h4 id="带原型的Constructor-构造器"><a href="#带原型的Constructor-构造器" class="headerlink" title="** 带原型的Constructor(构造器) **"></a>** 带原型的Constructor(构造器) **</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">model, year, miles</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">year</span> = year;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">miles</span> = miles;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Car</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">model</span> + <span class="string">&quot; has done &quot;</span> + <span class="variable language_">this</span>.<span class="property">miles</span> + <span class="string">&quot; miles&quot;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sail = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;sail&quot;</span>,<span class="number">2017</span>,<span class="number">6666</span>);</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Sail</span> = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;Sail&quot;</span>,<span class="number">2017</span>,<span class="number">9999</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sail.<span class="title function_">toString</span>());</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Sail</span>.<span class="title function_">toString</span>());</span><br></pre></td></tr></table></figure>
+
+<p>通过这种方式,可以创建的多个Car对象,并访问相同的原型。</p>
+<hr>
+<p><span class="under0">我用ES6重写了以上两段代码,却出现了一些问题。代码依次如下</span></p>
+<h4 id="基本Constructor-构造器-1"><a href="#基本Constructor-构造器-1" class="headerlink" title="** 基本Constructor(构造器) **"></a>** 基本Constructor(构造器) **</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">model, year, miles</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">year</span> = year;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">miles</span> = miles;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">toString</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">model</span> + <span class="string">&quot; has done &quot;</span> + <span class="variable language_">this</span>.<span class="property">miles</span> + <span class="string">&quot; miles&quot;</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sail = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;sail&quot;</span>,<span class="number">2017</span>,<span class="number">6666</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="title class_">Sail</span> = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;Sail&quot;</span>,<span class="number">2017</span>,<span class="number">9999</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sail.<span class="title function_">toString</span>());</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Sail</span>.<span class="title function_">toString</span>());</span><br></pre></td></tr></table></figure>
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="** 运行结果 **"></a>** 运行结果 **</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sail has done 6666 miles</span><br><span class="line">Sail has done 9999 miles</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="带原型的Constructor-构造器-1"><a href="#带原型的Constructor-构造器-1" class="headerlink" title="** 带原型的Constructor(构造器) **"></a>** 带原型的Constructor(构造器) **</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">model, year, miles</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">year</span> = year;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">miles</span> = miles;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Car</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">model</span> + <span class="string">&quot; has done &quot;</span> + <span class="variable language_">this</span>.<span class="property">miles</span> + <span class="string">&quot; miles&quot;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sail = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;sail&quot;</span>,<span class="number">2017</span>,<span class="number">6666</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="title class_">Sail</span> = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;Sail&quot;</span>,<span class="number">2017</span>,<span class="number">9999</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(sail.<span class="title function_">toString</span>());</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Sail</span>.<span class="title function_">toString</span>());</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="** 运行结果 **"></a>** 运行结果 **</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">undefined has done undefined miles</span><br><span class="line">undefined has done undefined miles</span><br></pre></td></tr></table></figure>
+
+<p><span class="under0">前一段代码能够正常运行,而后一段代码 <code>this.model</code> 、<code>this.miles</code> 皆是 <code>undefined</code></span></p>
+<p>这里就涉及到有关箭头函数的使用问题了。在我的博文<a href="http://www.sail.name/2017/05/15/Array-like-to-Array-in-JavaScript/">JS类数组转数组</a>曾提到过。</p>
+<h4 id="箭头函数有几个使用注意点"><a href="#箭头函数有几个使用注意点" class="headerlink" title="** 箭头函数有几个使用注意点 **"></a>** 箭头函数有几个使用注意点 **</h4><p>（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。</p>
+<p>（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。</p>
+<p>（3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。</p>
+<p>（4）不可以使用yield命令，因此箭头函数不能用作 Generator 函数。</p>
+<hr>
+<p>在基本Constructor(记作A)中的那段代码能够正常运行是因为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">model, year, miles</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">year</span> = year;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">miles</span> = miles;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">toString</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">model</span> + <span class="string">&quot; has done &quot;</span> + <span class="variable language_">this</span>.<span class="property">miles</span> + <span class="string">&quot; miles&quot;</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>toString</code>方法中的this是父级作用域的this,即函数Car的this.</p>
+<p><span class="under0"> ** 箭头函数本身是没有this,arguments的 ** </span> </p>
+<p>而在带原型的Constructor(记作B)中的这段代码undefined是因为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Car</span>(<span class="params">model, year, miles</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">model</span> = model;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">year</span> = year;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">miles</span> = miles;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Car</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">model</span> + <span class="string">&quot; has done &quot;</span> + <span class="variable language_">this</span>.<span class="property">miles</span> + <span class="string">&quot; miles&quot;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><span class="under0">** 箭头函数中的this不是指向Car,而是指向了全局作用域。**</span>普通函数则没这个问题。</p>
+<p>另一个容易犯的错误是使用箭头函数定义对象的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  <span class="attr">foo</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">bar</span>: <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">foo</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a.<span class="title function_">bar</span>()  <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<p>以上代码中,箭头函数中的this并不是指向a这个对象。对象a并不能构成一个作用域,所以再往上到达全局作用域，this就指向全局作用域。如果我们使用普通函数的定义方法，输出结果就符合预期，这是因为a.bar()函数执行时作用域绑定到了a对象。</p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title="** 参考 **"></a>** 参考 **</h3><ul>
+<li>《JavaScript 设计模式》</li>
+<li><a target="_blank" rel="noopener" href="https://cnodejs.org/topic/584a207a3ebad99b336b1ede">少年，不要滥用箭头函数啊</a></li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

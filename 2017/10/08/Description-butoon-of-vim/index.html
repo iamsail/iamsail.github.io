@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      vim按键说明 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="** 写在前面 **本文是vim的按键说明,参考的是《鸟哥的Linux的私房菜》。 ** 之前健勋推荐的Office Lens是真的很好用,搭配上Office全家桶真是极品利器。** ** 再加上正则对转换出的文字进行一下处理,23333333,爽飞了 **  vim的三种模式只有一般模式可以与编辑,命令行模式切换,编辑模式与命令行模式之间并不能切换的。 下面就来谈谈vim中会用到的按键功能 **">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim按键说明 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/10/08/Description-butoon-of-vim/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** 写在前面 **本文是vim的按键说明,参考的是《鸟哥的Linux的私房菜》。 ** 之前健勋推荐的Office Lens是真的很好用,搭配上Office全家桶真是极品利器。** ** 再加上正则对转换出的文字进行一下处理,23333333,爽飞了 **  vim的三种模式只有一般模式可以与编辑,命令行模式切换,编辑模式与命令行模式之间并不能切换的。 下面就来谈谈vim中会用到的按键功能 **">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-10-08T04:14:30.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.497Z">
+<meta property="article:author" content="Sail">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">vim按键说明</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-10-08" class="post-meta__date date">2017-10-08</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Vim/">Vim</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="** 写在前面 **"></a>** 写在前面 **</h3><p>本文是vim的按键说明,参考的是《鸟哥的Linux的私房菜》。</p>
+<p>** <span class="under0">之前<a target="_blank" rel="noopener" href="http://www.wuya00.top/">健勋</a>推荐的Office Lens是真的很好用,搭配上Office全家桶真是极品利器。</span>**</p>
+<p>** <span class="under0">再加上正则对转换出的文字进行一下处理,23333333,爽飞了 </span>**</p>
+<hr>
+<p>vim的三种模式只有一般模式可以与编辑,命令行模式切换,编辑模式与命令行模式之间并不能切换的。</p>
+<p>下面就来谈谈vim中会用到的按键功能</p>
+<h3 id="第一部分：一般模式可用的按钮说明，光标移动、复制粘贴、查找替换等"><a href="#第一部分：一般模式可用的按钮说明，光标移动、复制粘贴、查找替换等" class="headerlink" title="** 第一部分：一般模式可用的按钮说明，光标移动、复制粘贴、查找替换等 **"></a>** 第一部分：一般模式可用的按钮说明，光标移动、复制粘贴、查找替换等 **</h3><table>
+<thead>
+<tr>
+<th>移动光标的方法</th>
+<th>移动光标的方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h或向左箭头键</td>
+<td>光标向左移动一个字符</td>
+</tr>
+<tr>
+<td>j或向下箭头键</td>
+<td>光标向下移动一个字符</td>
+</tr>
+<tr>
+<td>k或向上箭头键</td>
+<td>光标向上移动一个字符</td>
+</tr>
+<tr>
+<td>l或向右箭头键</td>
+<td>光标向右移动一个字符</td>
+</tr>
+<tr>
+<td><strong>如果想进行多次移动的话，例如向下移动30行,可以使用“30j“或”30+向下箭头键”的组合按键，即加上想要进行的次数（数字）后,按下操作即可</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>[Ctrl]+[f]</td>
+<td>屏幕向下移动一页，相当于[Page Down]按键（常用）</td>
+</tr>
+<tr>
+<td>[Ctrl]+[b]</td>
+<td>屏幕向上移动一页，相当于[Page Up]按键（常用）</td>
+</tr>
+<tr>
+<td>[Ctrl]+[d]</td>
+<td>屏幕向下移动半页</td>
+</tr>
+<tr>
+<td>[Ctrl]+[u]</td>
+<td>屏幕向上移动半页</td>
+</tr>
+<tr>
+<td>+</td>
+<td>光标移动到非空格符的下一行</td>
+</tr>
+<tr>
+<td>-</td>
+<td>光标移动到非空格符的上一行</td>
+</tr>
+<tr>
+<td>n<space></td>
+<td>那个n表示“数字”，例如20。按下数字后再按空格键，光标会向右移动这一行的n个字符。例如20<space>,则光标会向后面移动20个字符距离</td>
+</tr>
+<tr>
+<td>0或者功能键[Home]</td>
+<td>这是数字“0’’：移动到这一行的最前面字符处（常用）</td>
+</tr>
+<tr>
+<td>$或功能键[End]</td>
+<td>移动到这一行的最后面字符处（常用）</td>
+</tr>
+<tr>
+<td>H</td>
+<td>光标移动到这个屏幕的最上方那一行的第一个字符</td>
+</tr>
+<tr>
+<td>M</td>
+<td>光标移动到这个屏幕的中央那一行的第一个字符</td>
+</tr>
+<tr>
+<td>L</td>
+<td>光标移动到这个屏幕的最下方那一行的第一个字符</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到这个文件的最后一行 （常用）</td>
+</tr>
+<tr>
+<td>nG</td>
+<td>n为数字。移动到这个文件的第0行。例如20G则会移动到这个文件的第20行（可配合:set nu）</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>移动到这个文件的第一行，相当于1G（常用）</td>
+</tr>
+<tr>
+<td>N(Enter)</td>
+<td>n为数字。光标向下移动n行（常用）</td>
+</tr>
+<tr>
+<td>查找与替换</td>
+<td>查找与替换</td>
+</tr>
+<tr>
+<td>/word</td>
+<td>向下寻找一个名称为word的字符串。例如要在文件内查找vbird这个字符串，就输入/vbird即可（常用）</td>
+</tr>
+<tr>
+<td>?word</td>
+<td>向上寻找一个字符串名称为word的字符串</td>
+</tr>
+<tr>
+<td>n</td>
+<td>这个n是英文按键。代表重复前一个查找的操作。举例来说，如果刚才我们执行/vbird去向下查找vbird这个字符串，则按下n后，会向下继续查找下一个名称为vbird的字符串。如果是执行?vbird的话，那么按下n则会向上继续查找名称为vbird的字符串</td>
+</tr>
+<tr>
+<td>N</td>
+<td>这个N是英文按键。与n刚好相反，为“反向”进行前一个查找操作。例如输入/vbird后，按下N则表示向上查找vbird</td>
+</tr>
+<tr>
+<td>使用/word配合n及N是非常有帮助的。可以让你重复地找到一些关键字</td>
+<td></td>
+</tr>
+<tr>
+<td>：n1,n2s/word1/word2/g</td>
+<td>ni与n2为数字。在第n1与n2行之间寻找word1这个字符串，并将该字符串替换为word2。举例来说，在100到200行之间查找vbird并替换为VBRID则用“:100,200s/vbird/VBRID/g”（常用）</td>
+</tr>
+<tr>
+<td>：1,$s/word1/word2/g</td>
+<td>从第一行到最后一行查找word1字符串，并将该字符串替换为word2（常用）</td>
+</tr>
+<tr>
+<td>：1,$s/word1/word2/gc</td>
+<td>从第一行到最后一行查找word1字符串，并将该字符串替换为word2。且在替换前显示提示字符给用户确认（confirm）是否需要替换〔常用）</td>
+</tr>
+<tr>
+<td>删除、复制与粘贴</td>
+<td></td>
+</tr>
+<tr>
+<td>x;X</td>
+<td>在一行字当中，x为向后删除一个字符（相当于[DeL]按键),X为向前删除一个字符（相当于(Backspace]）（常用）</td>
+</tr>
+<tr>
+<td>nx</td>
+<td>n为数字，连续向后删除n个字符。举例来说，我要连续删除10个字符，“10x”</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>除光标所在的那一整行（常用）</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>n为数字。删除光标所在的向下n行，例如20dd则是删除20行（常用）</td>
+</tr>
+<tr>
+<td>d1G</td>
+<td>删除光标所在到第一行的所有数据</td>
+</tr>
+<tr>
+<td>dG</td>
+<td>删除从光标所在到最后一行的所有数据</td>
+</tr>
+<tr>
+<td>d$</td>
+<td>删除从光标所在处到该行的最后一个字符</td>
+</tr>
+<tr>
+<td>d0</td>
+<td>那个是数字的0，删除从光标所在处到该行的最前面一个字符</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>复制光标所在的那一行（常用）</td>
+</tr>
+<tr>
+<td>nyy</td>
+<td>n为数字。复制光标所在的向下n行，例如20yy则是复制20行（常用）</td>
+</tr>
+<tr>
+<td>y1G</td>
+<td>复制光标所在行到第一行的所有数据</td>
+</tr>
+<tr>
+<td>yG</td>
+<td>复制光标所在行到最后一行的所有数据</td>
+</tr>
+<tr>
+<td>y0</td>
+<td>复制光标所在的那个字符到该行行首的所有数据</td>
+</tr>
+<tr>
+<td>y$</td>
+<td>复制光标所在的那个字符到该行行尾的所有数据</td>
+</tr>
+<tr>
+<td>p,P</td>
+<td>p为将已复制的数据在光标下一行粘贴，p则为粘贴在光标上一行。举例来说，我目前光标在第20行，且已经复制了10行数据。则按下p后，那10行数据会粘贴在原本的20行之后，也即由21行开始粘贴。但如果是按下P呢？那么原本的第20行会被变成30行(常用)</td>
+</tr>
+<tr>
+<td>J</td>
+<td>将光标所在行与下一行的数椐结合成同一行</td>
+</tr>
+<tr>
+<td>c</td>
+<td>重复删除多个数据，例如向下删除10行，[10cj]</td>
+</tr>
+<tr>
+<td>u</td>
+<td>复原前一个操作（常用）</td>
+</tr>
+<tr>
+<td>[Ctrl]+r</td>
+<td>重做上一个操作（常用）</td>
+</tr>
+<tr>
+<td>这个u与[Ctrl]+r很常用的命令。一个复原，另一个则是重做一次，利用它们，你的编辑会更加得心应手。</td>
+<td></td>
+</tr>
+<tr>
+<td>.</td>
+<td>不要怀疑。这就是小数点。意思是重复前一个操作的意思。如果你想要重复删除，重复粘贴等操作，按下小数点”.”就好了（常用）</td>
+</tr>
+</tbody></table>
+<h3 id="第二部分-一般模式切涣到编辑模式的可用的按钮说明"><a href="#第二部分-一般模式切涣到编辑模式的可用的按钮说明" class="headerlink" title="** 第二部分:一般模式切涣到编辑模式的可用的按钮说明 **"></a>** 第二部分:一般模式切涣到编辑模式的可用的按钮说明 **</h3><p>进入插入或替换的编辑模式|<br>-|-<br>i,I|进入插入模式(Insertmode）：i为从目前光标所在处插入，I为在目前所在行的第一个非空格符处开始插入（常用）<br>a,A|进入插入模式(Insertmode）：a为从目前光标所在的下一个字符处开始插入，A为从光标所在行的最后一个字符处开始插入（常用）<br>o,O|进入插入模式(insertmode）：这是英文字母o的大小写。o为在目前光标所在的下一行处插入新的一行；O为在目前光标所在处的上一行插入新的一行（常用）<br>r,R|进入替换模式（Replacemode):r只会替换光标所在的那一个字符一次；R会一直替换光标所在的文字，直到按下[Esc]键为止（常用）<br><strong>上面这些按键中，在vi界面的左下角处会出现”–INSERT–”或”–REPLACE–”的字样。由名称就知道该操作了吧。特别注意的是，我们上面也提过了，你想要在文件里面输入字符时，一定要在左下角处看到INSERT或REPLACE才能输入</strong>|<br>(Esc)|退出编辑模式，回到一般模式中（常用）</p>
+<h3 id="第三部分：一般模式切换到命令行模式的可用的按钮说明"><a href="#第三部分：一般模式切换到命令行模式的可用的按钮说明" class="headerlink" title="** 第三部分：一般模式切换到命令行模式的可用的按钮说明 **"></a>** 第三部分：一般模式切换到命令行模式的可用的按钮说明 **</h3><p>命令行的保存、离开等命令|<br>-|-<br>:w|将编辑的数据写入硬盘文件中（常用）<br>:w!|若文件属性为“只读”时，强制写入该文件。不过，到底能不能写入，还是跟你对该文件的文件权限有关啊<br>:q|离开vi（常用）<br>:q!|若曾修改过文件，又不想存储，使用“！”为强制离开不保存文件<br>** 注意一下啊，那个感叹号(!)在vi当中经常具有“强制”的意思**|<br>:wq|回车后离开，若为“wq!”则为强制保存后离开（常用）<br>ZZ|这是大写的Z。若文件没有更动，则不保存离开，若文件已经被更动过，则保存后离开<br>:w[filename]|将编辑的数据保存成另一个文件（类似于另存文件）<br>:r[filename]|在编辑的数据中，读入另一个文件的数据，即将”filename”这个文件内容加到光标所在行后面<br>:n1,n2 w[filename]|将ni到n2的内容保存成filename这个文件<br>:! command|暫时离开vi到命令行模式下执行command的显示结果。例如”:! ls/home”即可在vi当中查看/home下面以Is输出的文件信息<br><strong>vim环境的更改</strong>|<br>:set nu|显示行号,设置之后,会在每一行的前缀显示该行的行号<br>:set nonu|与set nu相反,为取消行号</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      移动端click事件的300ms延迟 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="** 背景 **近期开发killCube,了解到移动端click事件有一个300ms延迟。本文做些记录。  ** 延迟由来 **这要追溯至 2007 年初。苹果公司在发布首款 iPhone 前夕，遇到一个问题：当时的网站都是为大屏幕设备所设计的。于是苹果的工程师们做了一些约定，应对 iPhone 这种小屏幕浏览桌面端站点的问题。 这当中最出名的，当属双击缩放(double tap to zoom)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端click事件的300ms延迟 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/07/25/click-event-delay-300ms-in-mobile-web/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** 背景 **近期开发killCube,了解到移动端click事件有一个300ms延迟。本文做些记录。  ** 延迟由来 **这要追溯至 2007 年初。苹果公司在发布首款 iPhone 前夕，遇到一个问题：当时的网站都是为大屏幕设备所设计的。于是苹果的工程师们做了一些约定，应对 iPhone 这种小屏幕浏览桌面端站点的问题。 这当中最出名的，当属双击缩放(double tap to zoom)">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-07-25T11:40:17.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.501Z">
+<meta property="article:author" content="Sail">
+<meta property="article:tag" content="移动web">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">移动端click事件的300ms延迟</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-25" class="post-meta__date date">2017-07-25</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Javascript/">Javascript</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-none-link" href="/tags/%E7%A7%BB%E5%8A%A8web/" rel="tag">移动web</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="背景"><a href="#背景" class="headerlink" title="** 背景 **"></a>** 背景 **</h3><p>近期开发<a target="_blank" rel="noopener" href="https://github.com/iamsail/killCube">killCube</a>,了解到移动端click事件有一个300ms延迟。本文做些记录。</p>
+<hr>
+<h3 id="延迟由来"><a href="#延迟由来" class="headerlink" title="** 延迟由来 **"></a>** 延迟由来 **</h3><p>这要追溯至 2007 年初。苹果公司在发布首款 iPhone 前夕，遇到一个问题：当时的网站都是为大屏幕设备所设计的。于是苹果的工程师们做了一些约定，应对 iPhone 这种小屏幕浏览桌面端站点的问题。</p>
+<p>这当中最出名的，当属双击缩放(double tap to zoom)，这也是会有上述 300 毫秒延迟的主要原因。双击缩放，顾名思义，即用手指在屏幕上快速点击两次，iOS 自带的 Safari 浏览器会将网页缩放至原始比例。</p>
+<p>那么这和 300 毫秒延迟有什么联系呢？</p>
+<p>假定这么一个场景。用户在 iOS Safari 里边点击了一个链接。由于用户可以进行双击缩放或者双击滚动的操作，当用户一次点击屏幕之后，浏览器并不能立刻判断用户是确实要打开这个链接，还是想要进行双击操作。因此，iOS Safari 就等待 300 毫秒，以判断用户是否再次点击了屏幕。</p>
+<p>鉴于iPhone的成功，其他移动浏览器都复制了 iPhone Safari 浏览器的多数约定，包括双击缩放，几乎现在所有的移动端浏览器都有这个功能。之前人们刚刚接触移动端的页面，在欣喜的时候往往不会care这个300ms的延时问题，可是如今touch端界面如雨后春笋，用户对体验的要求也更高，这300ms带来的卡顿慢慢变得让人难以接受。</p>
+<p>而touchstart事件虽然响应很快,但如果用户只是想下滑滚动屏幕也会触发。</p>
+<hr>
+<p>这里介绍两种方法</p>
+<h3 id="禁止缩放"><a href="#禁止缩放" class="headerlink" title="** 禁止缩放 **"></a>** 禁止缩放 **</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;user-scalable=no, initial-scale=1.0, </span><br><span class="line">maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>表明这个页面是不可缩放的,双击缩放功能就没有意义,此时浏览器会禁用默认的双击缩放行为并且去掉300ms的延迟。</p>
+<p>当然倘若想让页面能够缩放,那么这个方案就失效了</p>
+<h3 id="更改默认的适口宽度"><a href="#更改默认的适口宽度" class="headerlink" title="** 更改默认的适口宽度 **"></a>** 更改默认的适口宽度 **</h3><p>通过标签设置适口宽度为设备宽度</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>如果能够识别出一个网站是响应式网站,那么移动端浏览器就可以自动禁掉默认的双击缩放行为并且去掉300ms的点击延迟。因此设置了上述标签,浏览器就可以认为改网站对移动端做过了适配和优化,无需双击缩放的操作了。</p>
+<p>至于其它使用第三方库的方法我就不做介绍了</p>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title="** 参考 **"></a>** 参考 **</h3><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/shenjp/p/6433646.html">移动端click事件延迟300ms到底是怎么回事，该如何解决？</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

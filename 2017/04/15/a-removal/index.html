@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      一次搬迁 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="前两日参加了中国大学生计算机设计大赛。 从选出队伍到部署提交作品只有两天，时间很紧。 中途遇到了一些问题，做些记录。  One在Xshell中执行了reboot,再次访问站点，失败。 因为http服务不是自启动。其实机器已经跑起来了。 执行 service httpd start 相关的还有 service mysqld start service mariadb start service ph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一次搬迁 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/04/15/a-removal/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="前两日参加了中国大学生计算机设计大赛。 从选出队伍到部署提交作品只有两天，时间很紧。 中途遇到了一些问题，做些记录。  One在Xshell中执行了reboot,再次访问站点，失败。 因为http服务不是自启动。其实机器已经跑起来了。 执行 service httpd start 相关的还有 service mysqld start service mariadb start service ph">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-04-15T09:15:59.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.500Z">
+<meta property="article:author" content="Sail">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">一次搬迁</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-04-15" class="post-meta__date date">2017-04-15</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Linux/">Linux</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>前两日参加了中国大学生计算机设计大赛。</p>
+<p>从选出队伍到部署提交作品只有两天，时间很紧。</p>
+<p>中途遇到了一些问题，做些记录。</p>
+<hr>
+<h4 id="One"><a href="#One" class="headerlink" title="One"></a>One</h4><p>在Xshell中执行了reboot,再次访问站点，失败。</p>
+<p>因为http服务不是自启动。其实机器已经跑起来了。</p>
+<p>执行 <code>service httpd start</code></p>
+<p>相关的还有</p>
+<p><code>service mysqld start</code></p>
+<p><code>service mariadb start</code></p>
+<p><code>service php-fpm start</code></p>
+<p>可以通过 <code>netstat -tunlp</code> 检查服务的运行情况</p>
+<h4 id="Tow"><a href="#Tow" class="headerlink" title="Tow"></a>Tow</h4><p>紧接One,centos7.x,已经没有MySQL了,而是 MariaDB。centos7.x以下的版本仍然是MySQL。</p>
+<p>MySQL之父Widenius先生离开了Sun之后，觉得依靠Sun/Oracle来发展MySQL，实在很不靠谱，于是决定另开分支，这个分支的名字叫做MariaDB。</p>
+<p>** MariaDB跟MySQL在绝大多数方面是兼容的，对于开发者来说，几乎感觉不到任何不同。 **目前MariaDB是发展最快的MySQL分支版本，新版本发布速度已经超过了Oracle官方的MySQL版本</p>
+<p>更多请看文末的参考</p>
+<h4 id="Three"><a href="#Three" class="headerlink" title="Three"></a>Three</h4><p>** apache的web根目录：/var/www/html , 不是/var/www **</p>
+<p>我本地开发是wamp环境,web根目录是www</p>
+<h4 id="Four"><a href="#Four" class="headerlink" title="Four"></a>Four</h4><p>Linux下导入SQL文件</p>
+<p><code>mysql -u root -p dbname < filename.sql</code></p>
+<p>filename.sql处填写你的sql文件所在的路径</p>
+<p>dbname是数据库名称,需要提前创建</p>
+<h4 id="Five"><a href="#Five" class="headerlink" title="Five"></a>Five</h4><p>JS脚本中的;一开始用的是全角,导致乱码。应该使用半角的;。</p>
+<h4 id="Six"><a href="#Six" class="headerlink" title="Six"></a>Six</h4><p>修改MariaDB的字符编码</p>
+<p><code>vim /etc/my.cnf</code></p>
+<p>在 [mysqld] 下添加：</p>
+<p><code>character-set-server=utf8</code></p>
+<h4 id="Seven"><a href="#Seven" class="headerlink" title="Seven"></a>Seven</h4><p>** <a target="_blank" rel="noopener" href="http://man.linuxde.net/systemctl">systemctl命令</a>是系统服务管理器指令，它实际上将 service 和 chkconfig 这两个命令组合到一起 **</p>
+<h4 id="Eight"><a href="#Eight" class="headerlink" title="Eight"></a>Eight</h4><p>因为需要录制一个作品演示视频,使用了<a target="_blank" rel="noopener" href="http://wander.leanote.com/">嘉明</a>推荐的FSCapture</p>
+<h4 id="Nine"><a href="#Nine" class="headerlink" title="Nine"></a>Nine</h4><p>之前不时会有Win10应用商店不能使用,有道也不能联网的问题。</p>
+<p>前阵子在社区看到一个回答,大概是修改Edge/IE设置中的代理。</p>
+<p>当时试了下,解决了我的问题。</p>
+<p>具体记不清了,链接也忘记了保存。算是一个参考吧。</p>
+<hr>
+<p>** 参考 **</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://bbs.qcloud.com/forum.php?mod=viewthread&tid=2387&extra=page=1">经验分享 腾讯云新手专区</a></li>
+<li><a target="_blank" rel="noopener" href="http://bbs.qcloud.com/thread-1316-1-1.html">经验分享 CentOS 6.3 环境搭建discuz论坛</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.oschina.net/translate/mariadb-vs-mysql-a-comparison">MariaDB 和 MySQL 比较</a></li>
+<li><a target="_blank" rel="noopener" href="http://ask.chinaunix.net/question/556">MySQL和mariadb区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000007092956?_ea=1234141">MariaDB与MySQL官方版本的主要区别</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/wzqnls/article/details/53241183">CentOS7安装MariaDB以及编码注意事项</a></li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

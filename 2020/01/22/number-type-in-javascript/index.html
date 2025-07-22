@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      JS中的数字类型 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="** Preface **在JavaScript中，一个数字过大，会导致数字不准确。比如在浏览器中输入下图中的数字，输出的却是另外一个数字。 这是因为超出了JS中的数字的最大类型。不在双精度浮点数的取值范围内。 超出这个范围，JavaScript 中的数字不再安全了。本文会对JS中的数字类型做些记录。  ** IEEE 754 **IEEE二进制浮点数算术标准（IEEE 754）是20世纪80年代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中的数字类型 | Sail">
+<meta property="og:url" content="http://www.sail.name/2020/01/22/number-type-in-javascript/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** Preface **在JavaScript中，一个数字过大，会导致数字不准确。比如在浏览器中输入下图中的数字，输出的却是另外一个数字。 这是因为超出了JS中的数字的最大类型。不在双精度浮点数的取值范围内。 超出这个范围，JavaScript 中的数字不再安全了。本文会对JS中的数字类型做些记录。  ** IEEE 754 **IEEE二进制浮点数算术标准（IEEE 754）是20世纪80年代">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.sail.name/img/JavaScript/number-type-in-javascript/1.png">
+<meta property="og:image" content="http://www.sail.name/img/JavaScript/number-type-in-javascript/2.png">
+<meta property="article:published_time" content="2020-01-22T03:06:01.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.506Z">
+<meta property="article:author" content="Sail">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.sail.name/img/JavaScript/number-type-in-javascript/1.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">JS中的数字类型</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-01-22" class="post-meta__date date">2020-01-22</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Javascript/">Javascript</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title="** Preface **"></a>** Preface **</h3><p>在JavaScript中，一个数字过大，会导致数字不准确。比如在浏览器中输入下图中的数字，输出的却是另外一个数字。<br><img src="/img/JavaScript/number-type-in-javascript/1.png" alt="1.png"></p>
+<p>这是因为超出了JS中的数字的最大类型。不在双精度浮点数的取值范围内。 超出这个范围，JavaScript 中的数字不再安全了。<br>本文会对JS中的数字类型做些记录。</p>
+<hr>
+<h3 id="IEEE-754"><a href="#IEEE-754" class="headerlink" title="** IEEE 754 **"></a>** IEEE 754 **</h3><p>IEEE二进制浮点数算术标准（IEEE 754）是20世纪80年代以来最广泛使用的浮点数运算标准，为许多CPU与浮点运算器所采用。IEEE 754规定了四种表示浮点数值的方式：单精确度（32位）、双精确度（64位）、延伸单精确度（43比特以上，很少使用）与延伸双精确度（79比特以上，通常以80位实现）。</p>
+<p><img src="/img/JavaScript/number-type-in-javascript/2.png" alt="2.png"></p>
+<h4 id="浮点数剖析"><a href="#浮点数剖析" class="headerlink" title="** 浮点数剖析 **"></a>** 浮点数剖析 **</h4><p>一个浮点数 (Value) 的表示其实可以这样表示：</p>
+<p>$value = sign \times exponent \times fraction$</p>
+<p>也就是浮点数的实际值，等于符号位<code>（sign bit）</code>乘以指数偏移值<code>(exponent bias)</code>再乘以分数值<code>(fraction)</code>。</p>
+<p>以下内文是<code>IEEE 754</code>对浮点数格式的描述。</p>
+<h4 id="32位单精度"><a href="#32位单精度" class="headerlink" title="** 32位单精度 **"></a>** 32位单精度 **</h4><p>单精度二进制小数，使用32个比特存储</p>
+<table>
+<thead>
+<tr>
+<th>S</th>
+<th>Exp</th>
+<th>Fraction</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>8</td>
+<td>23位长</td>
+</tr>
+<tr>
+<td>31</td>
+<td>30至23 偏正值（实际的指数大小+127）</td>
+<td>22至0位编号（从右边开始为0）</td>
+</tr>
+</tbody></table>
+<p>S为符号位，Exp为指数字，Fraction为有效数字。 指数部分即使用所谓的偏正值形式表示，偏正值为实际的指数大小与一个固定值（32位的情况是127）的和。采用这种方式表示的目的是简化比较。因为，指数的值可能为正也可能为负，如果采用补码表示的话，全体符号位S和Exp自身的符号位将导致不能简单的进行大小比较。正因为如此，指数部分通常采用一个无符号的正数值存储。单精度的指数部分是−126～+127加上偏移值127，指数值的大小从1～254（0和255是特殊值）。浮点小数计算时，指数值减去偏正值将是实际的指数大小。</p>
+<h4 id="64位双精度"><a href="#64位双精度" class="headerlink" title="** 64位双精度 **"></a>** 64位双精度 **</h4><p>双精度二进制小数，使用64个比特存储。</p>
+<table>
+<thead>
+<tr>
+<th>S</th>
+<th>Exp</th>
+<th>Fraction</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>11</td>
+<td>52位长</td>
+</tr>
+<tr>
+<td>63</td>
+<td>62至52 偏正值（实际的指数大小+1023）</td>
+<td>51至0位编号（从右边开始为0）</td>
+</tr>
+</tbody></table>
+<p>S为符号位，Exp为指数字，Fraction为有效数字。指数部分即使用所谓的偏正值形式表示，偏正值为实际的指数大小与一个固定值（64位的情况是1023）的和。采用这种方式表示的目的是简化比较。因为，指数的值可能为正也可能为负，如果采用补码表示的话，全体符号位S和Exp自身的符号位将导致不能简单的进行大小比较。正因为如此，指数部分通常采用一个无符号的正数值存储。双精度的指数部分是−1022～+1023加上1023，指数值的大小从1～2046（0（2进位全为0）和2047（2进位全为1）是特殊值）。浮点小数计算时，指数值减去偏正值将是实际的指数大小。</p>
+<hr>
+<h3 id="数字类型"><a href="#数字类型" class="headerlink" title="** 数字类型 **"></a>** 数字类型 **</h3><p>根据 <code>ECMAScript</code> 标准，<code>JavaScript</code> 中只有一种数字类型：基于 <code>IEEE 754</code> 标准的双精度 64 位二进制格式的值（$-2^{53} - 1$   到 $2^{53} - 1$）。它并没有为整数给出一种特定的类型。除了能够表示浮点数外，还有一些带符号的值：<code>+Infinity</code>，<code>-Infinity</code> 和 NaN (非数值，Not-a-Number)。</p>
+<p>要检查值是否大于或小于 <code>+/-Infinity</code>，你可以使用常量 <code>Number.MAX_VALUE</code> 和 <code>Number.MIN_VALUE</code>。另外在 <code>ECMAScript 6</code> 中，你也可以通过 <code>Number.isSafeInteger()</code> 方法还有 <code>Number.MAX_SAFE_INTEGER</code> 和 <code>Number.MIN_SAFE_INTEGER</code> 来检查值是否在双精度浮点数的取值范围内。 超出这个范围，<code>JavaScript</code> 中的数字不再安全了，也就是只有 <code>second mathematical interger</code> 可以在 <code>JavaScript</code> 数字类型中正确表现。</p>
+<p>数字类型中只有一个整数有两种表示方法： 0 可表示为 -0 和 +0（”0” 是 +0 的简写）。 在实践中，这也几乎没有影响。 例如 +0 === -0 为真。 但是，你可能要注意除以0的时候：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">42 / +0; // Infinity</span><br><span class="line">42 / -0; // -Infinity</span><br></pre></td></tr></table></figure>
+<p>尽管一个数字常常仅代表它本身的值，但JavaScript提供了一些位运算符。 这些位运算符和一个单一数字通过位操作可以用来表现一些布尔值。然而自从 <code>JavaScript</code> 提供其他的方式来表示一组布尔值（如一个布尔值数组或一个布尔值分配给命名属性的对象）后，这种方式通常被认为是不好的。位操作也容易使代码难以阅读，理解和维护， 在一些非常受限的情况下，可能需要用到这些技术，比如试图应付本地存储的存储限制。 位操作只应该是用来优化尺寸的最后选择。</p>
+<h4 id="Number-MAX-SAFE-INTEGER"><a href="#Number-MAX-SAFE-INTEGER" class="headerlink" title="** Number.MAX_SAFE_INTEGER  **"></a>** Number.MAX_SAFE_INTEGER  **</h4><p><code>MAX_SAFE_INTEGER</code> 是一个值为 <code>9007199254740991的常量</code>。因为<code>Javascript</code>的数字存储使用了<code>IEEE 754</code>中规定的双精度浮点数数据类型，而这一数据类型能够安全存储 $-2^{53} - 1$  到 $2^{53} - 1$ 之间的数值（包含边界值）。</p>
+<p>这里安全存储的意思是指能够准确区分两个不相同的值，例如 <code>Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2</code> 将得到 true的结果，而这在数学上是错误的，参考<code>Number.isSafeInteger()</code>获取更多信息.</p>
+<p>由于 <code>MAX_SAFE_INTEGER</code> 是<code>Number</code>的一个静态属性，所以你不用自己动手为Number对象创建<code>Number.MAX_SAFE_INTEGER</code>这一属性，就可以直接使用它。</p>
+<hr>
+<h3 id="BigInt-类型"><a href="#BigInt-类型" class="headerlink" title="** BigInt 类型 **"></a>** BigInt 类型 **</h3><p><code>BigInt</code>类型是 <code>JavaScript</code> 中的一个基础的数值类型，可以用任意精度表示整数。使用 BigInt，您可以安全地存储和操作大整数，甚至可以超过数字的安全整数限制。BigInt是通过在整数末尾附加 n 或调用构造函数来创建的。</p>
+<p>通过使用常量<code>Number.MAX_SAFE_INTEGER</code>，您可以获得可以用数字递增的最安全的值。通过引入 BigInt，您可以操作超过Number.MAX_SAFE_INTEGER的数字。您可以在下面的示例中观察到这一点，其中递增<code>Number.MAX_SAFE_INTEGER</code>会返回预期的结果:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const x = 2n ** 53n;</span><br><span class="line">9007199254740992n</span><br><span class="line">const y = x + 1n; </span><br><span class="line">9007199254740993n</span><br></pre></td></tr></table></figure>
+<p>可以对BigInt使用运算符+、*、-、**和%，就像对数字一样。BigInt 严格来说并不等于一个数字，但它是松散的。</p>
+<p>在将BigInt转换为Boolean时，它的行为类似于一个数字：if、||、&amp;&amp;、Boolean 和!。</p>
+<p>BigInt不能与数字互换操作。否则，将抛出TypeError。</p>
+<hr>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="** 参考链接 **"></a>** 参考链接 **</h3><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/IEEE_754">IEEE 754</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures">JavaScript 数据类型和数据结构</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER">Number.MAX_SAFE_INTEGER</a><br><a target="_blank" rel="noopener" href="https://blog.windstone.cc/front-end/js/data-structure/number/js-number-implementation.html#javascript-%E5%85%B3%E4%BA%8E-ieee-754-%E5%8F%8C%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%AE%9E%E7%8E%B0">JavaScript 关于 IEEE 754 双精度浮点数的实现</a><br><a target="_blank" rel="noopener" href="https://github.com/nefe/number-precision">number-precision</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/66949640">前端应该知道的JavaScript浮点数和大数的原理</a><br><a target="_blank" rel="noopener" href="https://github.com/camsong/blog/issues/9">JavaScript 浮点数陷阱及解法 #9</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

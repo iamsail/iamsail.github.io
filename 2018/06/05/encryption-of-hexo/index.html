@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      hexo加密 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="** Preface **本文是对hexo对文章加密以及这个过程中踩的一些坑(包括一些浏览器本身的坑)的记录  ** hexo-blog-encrypt **加密是使用的插件hexo-blog-encrypt ** 安装 **在 hexo 根目录的 package.json 中添加 &quot;hexo-blog-encrypt&quot;: &quot;1.1.*&quot; 依赖。然后执行 n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo加密 | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/06/05/encryption-of-hexo/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** Preface **本文是对hexo对文章加密以及这个过程中踩的一些坑(包括一些浏览器本身的坑)的记录  ** hexo-blog-encrypt **加密是使用的插件hexo-blog-encrypt ** 安装 **在 hexo 根目录的 package.json 中添加 &quot;hexo-blog-encrypt&quot;: &quot;1.1.*&quot; 依赖。然后执行 n">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.sail.name/img/chrome-bugs/encryption-of-hexo/1.png">
+<meta property="article:published_time" content="2018-06-05T13:37:17.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.502Z">
+<meta property="article:author" content="Sail">
+<meta property="article:tag" content="hexo&amp;&amp;博客记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.sail.name/img/chrome-bugs/encryption-of-hexo/1.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">hexo加密</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-06-05" class="post-meta__date date">2018-06-05</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/chrome-bugs/">chrome-bugs</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-none-link" href="/tags/hexo-%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95/" rel="tag">hexo&&博客记录</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title="** Preface **"></a>** Preface **</h3><p>本文是对hexo对文章加密以及这个过程中踩的一些坑(包括一些浏览器本身的坑)的记录</p>
+<hr>
+<h3 id="hexo-blog-encrypt"><a href="#hexo-blog-encrypt" class="headerlink" title="** hexo-blog-encrypt **"></a>** hexo-blog-encrypt **</h3><p>加密是使用的插件<a target="_blank" rel="noopener" href="https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md">hexo-blog-encrypt</a></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="** 安装 **"></a>** 安装 **</h4><p>在 hexo 根目录的 <code>package.json</code> 中添加 <code>&quot;hexo-blog-encrypt&quot;: &quot;1.1.*&quot;</code> 依赖。<br>然后执行 <code>npm install</code> 命令。<br>该插件会自动安装</p>
+<p><span class="under0"> ** 这里一定要注意的是不要直接<code>npm install hexo-blog-encrypt</code>,这样文章是会加密失败的,具体原因不知。 **</span></p>
+<hr>
+<h4 id="快速开始"><a href="#快速开始" class="headerlink" title="** 快速开始 **"></a>** 快速开始 **</h4><p>首先在 <code>_config.yml</code> 中启用该插件:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Security</span><br><span class="line">##</span><br><span class="line">encrypt:</span><br><span class="line">    enable: true</span><br></pre></td></tr></table></figure>
+<p>然后在你的文章的头部添加上对应的字段，如 <code>password</code>, <code>abstract</code>, <code>message</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hello world</span><br><span class="line">date: 2016-03-30 21:18:02</span><br><span class="line">tags:</span><br><span class="line">    - fdsafsdaf</span><br><span class="line">password: Mike</span><br><span class="line">abstract: Welcome to my blog, enter password to read.</span><br><span class="line">message: Welcome to my blog, enter password to read.</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p><code>password</code>: 是该博客加密使用的密码<br><code>abstract</code>: 是该博客的摘要，会显示在博客的列表页<br><code>message</code>: 这个是博客查看时，密码输入框上面的描述性文字</p>
+<p>然后使用 <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code>,来查看效果。</p>
+<p>当然你也可以像我这样写入<code>package.json</code>中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;start&quot;</span>: <span class="string">&quot;hexo g &amp;&amp; hexo s&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build&quot;</span>: <span class="string">&quot;hexo g &amp;&amp; hexo d&quot;</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>hexo clean &amp;&amp; npm start</code>即可</p>
+<hr>
+<h3 id="自定义加密模板"><a href="#自定义加密模板" class="headerlink" title="** 自定义加密模板　**"></a>** 自定义加密模板　**</h3><p>做完前面的工作,就已经对文章加密成功了。不过默认的模板比较丑,官方提供了自定义模板的方法如下:</p>
+<p><span class="under0"> ** 如果你对默认的主题不满意，或者希望修改默认的提示和摘要内容，你可以添加如下配置在 <code>_config.yml</code> 中。**</span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># Security</span><br><span class="line">##</span><br><span class="line">encrypt:</span><br><span class="line">    enable: true</span><br><span class="line">    default_abstract: the content has been encrypted, enter the password to read.&lt;/br&gt;</span><br><span class="line">    default_message: Please enter the password to read.</span><br><span class="line">    default_template:</span><br><span class="line">                    &lt;script src=&quot;//cdn.bootcss.com/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">                    &lt;div id=&quot;security&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;input-container&quot;&gt;</span><br><span class="line">                            &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;pass&quot; placeholder=&quot; &#123;&#123;message&#125;&#125; &quot; /&gt;</span><br><span class="line">                            &lt;label for=&quot;pass&quot;&gt; &#123;&#123;message&#125;&#125; &lt;/label&gt;</span><br><span class="line">                            &lt;div class=&quot;bottom-line&quot;&gt;&lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div id=&quot;encrypt-blog&quot; style=&quot;display:none&quot;&gt;</span><br><span class="line">                        &#123;&#123;content&#125;&#125;</span><br><span class="line">                    &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>以看见，和上面的配置文件对比来看，多了 <code>default_template</code> 和 <code>default_abstract</code> 和 <code>default_message</code> 配置项。</p>
+<blockquote>
+<p><code>default_abstract</code> : 这个是指在文章列表页，我们看到的加密文章描述。当然这是对所有加密文章生效的。<br><code>default_message</code> : 这个在文章详情页的密码输入框上方的描述性文字。<br><code>default_template</code> : 这个是指在文章详情页，我们看到的输入密码阅读的模板，同理，这个也是针对所有文章的。<br>最后的 <code>content</code> 显示 div 的 id 必须 是 <code>&#39;encrypt-blog&#39;</code>，同时为了好看，也希望进行隐藏。<br>同时，必须要有一个 input 输入框，id 必须是”pass”，用来供用户输入密码。<br>输入密码之后，务必要有一个触发器，用来调用 <code>&#39;decryptAES&#39;</code> 函数。样例中以 <code>button</code> 来触发。</p>
+</blockquote>
+<hr>
+<p>这里我给出我自己修改的模板和样式,喜欢的同学可以拿去直接用</p>
+<p><img src="/img/chrome-bugs/encryption-of-hexo/1.png" alt="1.png"></p>
+<p><a href="http://www.sail.name/2018/06/05/atest/">实际效果见我这篇demo</a></p>
+<p>** html **</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># Security</span><br><span class="line">##</span><br><span class="line">encrypt:</span><br><span class="line">    enable: true</span><br><span class="line">    default_abstract: 我的秘密花园</span><br><span class="line">    default_message: 姿势,什么姿势?</span><br><span class="line">    default_template:</span><br><span class="line">                    &lt;div id=&quot;security&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;orz-container&quot;&gt;</span><br><span class="line">                            &lt;input style=&quot;display:none&quot;&gt;</span><br><span class="line">                            &lt;input type=&quot;password&quot; class=&quot;get-key&quot; id=&quot;pass&quot; autocomplete=&quot;new-password&quot;  placeholder=&quot;解锁新知识&quot; /&gt;</span><br><span class="line">				&lt;div class=&quot;input-group-orz&quot;&gt; &lt;button type=&quot;button&quot; class=&quot;final-key&quot; onclick=&quot;decryptAES()&quot;&gt;O.O&lt;/button&gt; &lt;/div&gt;</span><br><span class="line">                            &lt;div class=&quot;bottom-line&quot;&gt;&lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div id=&quot;encrypt-blog&quot; style=&quot;display:none&quot;&gt;</span><br><span class="line">                        &#123;&#123;content&#125;&#125;</span><br><span class="line">                    &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>** css **</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*============文章加密样式=============*/</span></span><br><span class="line"><span class="selector-class">.orz-container</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.orz-container</span> <span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">&quot;password&quot;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-<span class="number">50%</span>);</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border</span>:none;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">  <span class="attribute">text-indent</span>: <span class="number">4px</span>;</span><br><span class="line">  <span class="attribute">color</span>: deepskyblue;</span><br><span class="line">  <span class="attribute">border</span>:<span class="number">2px</span> salmon solid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span>:-webkit-autofill, input:-webkit-autofill:focus &#123;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">4</span>;</span><br><span class="line">  -webkit-<span class="attribute">box-shadow</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">100px</span> white inset; <span class="comment">/* Change the color to your own background color */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.orz-container</span> <span class="selector-class">.final-key</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#FFFFFF</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">3px</span> solid skyblue;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">600</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.orz-container</span> <span class="selector-class">.final-key</span><span class="selector-pseudo">:hover</span>, <span class="selector-class">.final-key</span><span class="selector-pseudo">:focus</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: yellow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*============文章加密样式=============*/</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="意外的bug"><a href="#意外的bug" class="headerlink" title="** 意外的bug **"></a>** 意外的bug **</h3><p>这次写这个加密样式的时候,遭遇了一个chrome存在了八年的问题,官方链接戳这儿</p>
+<p><a target="_blank" rel="noopener" href="https://bugs.chromium.org/p/chromium/issues/detail?id=46543">Auto-filled input text box yellow background highlight cannot be turned off!</a></p>
+<p>就是<code>input</code>自动填充的背景颜色是黄色,不能关上。那个颜色的确很….</p>
+<p>折腾了很久,最终找到了一个hack的解决办法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span>:-webkit-autofill, input:-webkit-autofill:focus &#123;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">4</span>;  <span class="comment">/*  这句可以不要　*/</span></span><br><span class="line">  -webkit-<span class="attribute">box-shadow</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">100px</span> white inset; <span class="comment">/* Change the color to your own background color */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>后来我又找到了一个办法,既然是自动填充会出现这个黄色,那让input不要自动填充不就好了吗</p>
+<p>这里我列出解决方法,具体可以看本文的参考链接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 一、使用隐藏input来接受浏览器自动填充，这样不会影响用户体验，也可以兼容所有浏览器</span><br><span class="line">&lt;input style=&quot;display:none&quot;&gt;</span><br><span class="line">or</span><br><span class="line">&lt;input type=&quot;password&quot; style=&#123;&#123;position: &#x27;absolute&#x27;, top: &#x27;-999px&#x27;&#125;&#125;/&gt;</span><br><span class="line"></span><br><span class="line"># 二、</span><br><span class="line">&lt;input type=&quot;password&quot; class=&quot;get-key&quot; id=&quot;pass&quot; autocomplete=&quot;new-password&quot;  placeholder=&quot;解锁新知识&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title="** 参考 **"></a>** 参考 **</h3><p><a target="_blank" rel="noopener" href="https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md">hexo-blog-encrypt</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000006090445?_ea=1009491">禁止浏览器自动填充到表单</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/368eb18f04cf">不能忍受的屎黄: chrome表单自动填充</a><br><a target="_blank" rel="noopener" href="https://bugs.chromium.org/p/chromium/issues/detail?id=46543">Auto-filled input text box yellow background highlight cannot be turned off!</a><br><a target="_blank" rel="noopener" href="http://webagility.com/posts/the-ultimate-list-of-hacks-for-chromes-forced-yellow-background-on-autocompleted-inputs">The ultimate list of hacks for Chrome’s forced yellow background on autocompleted inputs</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

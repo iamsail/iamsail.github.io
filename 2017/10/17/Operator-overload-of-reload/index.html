@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      C++运算符重载 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="** preface **本文是对一个学弟提问的问题的解释,主要涉及C++运算符重载和运算符优先级别的知识。  ** 问题 **输出34-32||0&amp;&amp;1;结果是2(34-32||0&amp;&amp;1);结果是1为啥😮 即 123456cout&lt;&lt;34-32||0&amp;&amp;1&lt;&lt;endl;cout&lt;&lt;(34-32||0&amp;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++运算符重载 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/10/17/Operator-overload-of-reload/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** preface **本文是对一个学弟提问的问题的解释,主要涉及C++运算符重载和运算符优先级别的知识。  ** 问题 **输出34-32||0&amp;&amp;1;结果是2(34-32||0&amp;&amp;1);结果是1为啥😮 即 123456cout&lt;&lt;34-32||0&amp;&amp;1&lt;&lt;endl;cout&lt;&lt;(34-32||0&amp;&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-10-17T08:35:17.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.499Z">
+<meta property="article:author" content="Sail">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">C++运算符重载</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-10-17" class="post-meta__date date">2017-10-17</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/C/">C++</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h2 id="preface"><a href="#preface" class="headerlink" title="** preface **"></a>** preface **</h2><p>本文是对一个学弟提问的问题的解释,主要涉及C++运算符重载和运算符优先级别的知识。</p>
+<hr>
+<h2 id="问题"><a href="#问题" class="headerlink" title="** 问题 **"></a>** 问题 **</h2><p>输出<br><code>34-32||0&amp;&amp;1;</code>结果是2<br><code>(34-32||0&amp;&amp;1);</code>结果是1<br>为啥😮</p>
+<p>即</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;<span class="number">34</span><span class="number">-32</span>||<span class="number">0</span>&amp;&amp;<span class="number">1</span>&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;(<span class="number">34</span><span class="number">-32</span>||<span class="number">0</span>&amp;&amp;<span class="number">1</span>)&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">## 结果</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>辅助分析示例子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;a=<span class="number">100</span>;</span><br><span class="line">会报错</span><br><span class="line"></span><br><span class="line">cout&lt;&lt;(a=<span class="number">100</span>);</span><br><span class="line">输出<span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="分析"><a href="#分析" class="headerlink" title="** 分析 **"></a>** 分析 **</h2><p>先明确下,以下几个运算符的优先级别</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 优先级别从高到低排列,同行的运算符,优先级别相同</span><br><span class="line">( )(圆括号)</span><br><span class="line">+  (加号)  -   (减号) </span><br><span class="line">&lt;&lt; (左移)  &gt;&gt;  (右移)</span><br><span class="line">&amp;&amp; (逻辑与)</span><br><span class="line">|| (逻辑或)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>这里直接给出解释了</p>
+<p><span class="under0">** 重载运算符不能改变原有运算符的优先级, 结合性和操作数个数. **</span></p>
+<p><code>&lt;&lt; &gt;&gt;</code>  被重载为流提取运算符</p>
+<hr>
+<p><code>cout&lt;&lt;a</code>    </p>
+<p><code>&lt;&lt;</code>左侧<code>cout</code>是一个<code>ostream</code>对象，右侧就是你的表达式之类的，前面说的<code>cout&lt;&lt;a=100;</code>会报错是因为,重载的<code>operator&lt;&lt;()</code>函数返回的是一个指向<code>ostream</code>对象的引用</p>
+<p>比如<code>cout&lt;&lt; a &lt;&lt;b;</code></p>
+<p><code>cout&lt;&lt;a</code>   本身就是<code>ostream</code>对象<code>cout</code>,将一个值直接赋值给一个对象肯定错了。加上括号过后，改变了运算顺序，<code>cout&lt;&lt;100;</code>,也就是对的</p>
+<p>最开始提到的<code>cout&lt;&lt;34-32||0&amp;&amp;1;</code> </p>
+<p> 一开始执行的是<code>cout&lt;&lt;34-32</code>  输出了一个2，然后返回了一个cout对象</p>
+<p>也就是看作 <code>cout || 0 &amp;&amp; 1</code>,但是这个表达式已经和我们无关了，因为没有流提取符 把它们输出了</p>
+<p>如果你执行 <code>cout&lt;&lt;(cout&lt;&lt;34-32||0&amp;&amp;1);</code>  会输出21   ，因为一开始输出了2，  <code>cout || 0 &amp;&amp; 1</code> 这个式子为1(短路)，再输出1，也就是21</p>
+<p>举个例子<br><code>cout&lt;&lt;(cout || 0);</code></p>
+<p>输出就是1</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

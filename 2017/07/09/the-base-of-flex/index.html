@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Flex基础 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="本文是对flex基础知识的一些记录,参考的是阮一峰Flex 布局教程：语法篇 除了传统的 display  + position + float,flex现在也更多被大家用在项目中 先看一下兼容性  算是挺不错了的,如果受众群体都是学生的话,可以大胆使用了  任何一个容器都可以指定为Flex布局,行内元素也可以使用Flex布局。设为Flex布局以后，子元素的float、clear和vertical">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flex基础 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/07/09/the-base-of-flex/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="本文是对flex基础知识的一些记录,参考的是阮一峰Flex 布局教程：语法篇 除了传统的 display  + position + float,flex现在也更多被大家用在项目中 先看一下兼容性  算是挺不错了的,如果受众群体都是学生的话,可以大胆使用了  任何一个容器都可以指定为Flex布局,行内元素也可以使用Flex布局。设为Flex布局以后，子元素的float、clear和vertical">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.sail.name/img/htmlcss/the-base-of-flex-0.png">
+<meta property="og:image" content="http://www.sail.name/img/htmlcss/the-base-of-flex-1.png">
+<meta property="article:published_time" content="2017-07-09T07:38:29.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.513Z">
+<meta property="article:author" content="Sail">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.sail.name/img/htmlcss/the-base-of-flex-0.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Flex基础</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-09" class="post-meta__date date">2017-07-09</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/HTML-CSS/">HTML&&CSS</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>本文是对flex基础知识的一些记录,参考的是阮一峰<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool">Flex 布局教程：语法篇</a></p>
+<p>除了传统的 <code>display  + position + float</code>,flex现在也更多被大家用在项目中</p>
+<p>先看一下兼容性</p>
+<p><img src="/img/htmlcss/the-base-of-flex-0.png" alt="the-base-of-flex-0"></p>
+<p>算是挺不错了的,如果受众群体都是学生的话,可以大胆使用了</p>
+<hr>
+<p>任何一个容器都可以指定为<code>Flex</code>布局,行内元素也可以使用<code>Flex</code>布局。设为<code>Flex</code>布局以后，子元素的<code>float、clear</code>和<code>vertical-align</code>属性将失效。</p>
+<p>** 设置Flex的元素,是Flex容器,子元素称为Flex项目 **</p>
+<p><span class="under0">容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。</span></p>
+<p>主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；<br>交叉轴的开始位置叫做cross start，结束位置叫做cross end。<br><img src="/img/htmlcss/the-base-of-flex-1.png" alt="the-base-of-flex-1"></p>
+<p>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。</p>
+<hr>
+<h3 id="容器属性"><a href="#容器属性" class="headerlink" title="** 容器属性 **"></a>** 容器属性 **</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">flex-direction</span><br><span class="line">flex-wrap</span><br><span class="line">flex-flow</span><br><span class="line">justify-content</span><br><span class="line">align-items</span><br><span class="line">align-content</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="flex-direction"><a href="#flex-direction" class="headerlink" title="** flex-direction **"></a>** flex-direction **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">row | row-reverse | column | column-reverse</span><br><span class="line"></span><br><span class="line">row</span><br><span class="line">flex容器的主轴被定义为与文本方向相同。 主轴起点和主轴终点与内容方向相同。</span><br><span class="line"></span><br><span class="line">row-reverse</span><br><span class="line">表现和row相同，但是置换了主轴起点和主轴终点</span><br><span class="line"></span><br><span class="line">column</span><br><span class="line">flex容器的主轴和块轴相同。主轴起点与主轴终点和书写模式的前后点相同</span><br><span class="line"></span><br><span class="line">column-reverse</span><br><span class="line">表现和column相同，但是置换了主轴起点和主轴终点</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_flex_direction.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/gh-pages/flex/demo_flex_direction.html">demo源码</a></p>
+<hr>
+<h4 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="** flex-wrap **"></a>** flex-wrap **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">nowrap | wrap | wrap-reverse</span><br><span class="line"></span><br><span class="line">nowrap</span><br><span class="line">flex 的元素被摆放到到一行，这可能导致溢出 flex 容器。</span><br><span class="line">cross-start  会根据 flex-direction 的值 相当于 start 或 before。</span><br><span class="line"></span><br><span class="line">wrap</span><br><span class="line">flex 元素 被打断到多个行中。</span><br><span class="line">cross-start 会根据 flex-direction 的值选择等于start 或before。</span><br><span class="line">cross-end 为确定的 cross-start 的另一端。</span><br><span class="line"></span><br><span class="line">wrap-reverse</span><br><span class="line">和 wrap 的行为一样，但是 cross-start 和 cross-end 互换。</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_flex_wrap.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/gh-pages/flex/demo_flex_wrap.html">demo源码</a></p>
+<hr>
+<h4 id="flex-flow"><a href="#flex-flow" class="headerlink" title="** flex-flow **"></a>** flex-flow **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## CSS flex-flow 属性是 flex-direction 和 flex-wrap 的简写。</span><br><span class="line"></span><br><span class="line">Formal syntax: &lt;&#x27;flex-direction&#x27;&gt; || &lt;&#x27;flex-wrap&#x27;&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_flex_flow.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/gh-pages/flex/demo_flex_flow.html">demo源码</a></p>
+<hr>
+<h4 id="justify-content"><a href="#justify-content" class="headerlink" title="** justify-content **"></a>** justify-content **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">flex-start | flex-end | center | space-between | space-around</span><br><span class="line"></span><br><span class="line">flex-start</span><br><span class="line">从行首开始排列。每行第一个弹性元素与行首对齐，同时所有后续的弹性元素与前一个对齐。</span><br><span class="line"></span><br><span class="line">flex-end</span><br><span class="line">从行尾开始排列。每行最后一个弹性元素与行尾对齐，其他元素将与后一个对齐。</span><br><span class="line"></span><br><span class="line">center</span><br><span class="line">伸缩元素向每行中点排列。每行第一个元素到行首的距离将与每行最后一个元素到行尾的距离相同。</span><br><span class="line"></span><br><span class="line">space-between</span><br><span class="line">在每行上均匀分配弹性元素。相邻元素间距离相同。每行第一个元素与行首对齐，每行最后一个元素与行尾对齐。</span><br><span class="line"></span><br><span class="line">space-around</span><br><span class="line">在每行上均匀分配弹性元素。相邻元素间距离相同。</span><br><span class="line">每行第一个元素到行首的距离和每行最后一个元素到行尾的距离将会是相邻元素之间距离的一半。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_justify_content.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/gh-pages/flex/demo_justify_content.html">demo源码</a></p>
+<hr>
+<h4 id="align-items"><a href="#align-items" class="headerlink" title="** align-items **"></a>** align-items **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">flex-start | flex-end | center | baseline | stretch</span><br><span class="line"></span><br><span class="line">flex-start</span><br><span class="line">元素向侧轴起点对齐。</span><br><span class="line"></span><br><span class="line">flex-end</span><br><span class="line">元素向侧轴终点对齐。</span><br><span class="line"></span><br><span class="line">center</span><br><span class="line">元素在侧轴居中。如果元素在侧轴上的高度高于其容器，那么在两个方向上溢出距离相同。</span><br><span class="line"></span><br><span class="line">baseline</span><br><span class="line">项目的第一行文字的基线对齐。</span><br><span class="line"></span><br><span class="line">stretch</span><br><span class="line">弹性元素被在侧轴方向被拉伸到与容器相同的高度或宽度。</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_align_items.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/gh-pages/flex/demo_align_items.html">demo源码</a></p>
+<hr>
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="** align-content **"></a>** align-content **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">flex-start | flex-end | center | space-between | space-around | stretch</span><br><span class="line"></span><br><span class="line">flex-start</span><br><span class="line">所有行从垂直轴起点开始填充。第一行的垂直轴起点边和容器的垂直轴起点边对齐。接下来的每一行紧跟前一行。</span><br><span class="line"></span><br><span class="line">flex-end</span><br><span class="line">所有弹性元素从垂直轴末尾开始填充。最后一个弹性元素的垂直轴终点和容器的垂直轴终点对齐。</span><br><span class="line">同时所有后续元素与前一个对齐。</span><br><span class="line"></span><br><span class="line">center</span><br><span class="line">所有行朝向容器的中心填充。每行互相紧挨，相对于容器居中对齐。</span><br><span class="line">容器的垂直轴起点边和第一行的距离相等于容器的垂直轴终点边和最后一行的距离。</span><br><span class="line"></span><br><span class="line">space-between</span><br><span class="line">所有行在容器中平均分布。相邻两行间距相等。</span><br><span class="line">容器的垂直轴起点边和终点边分别与第一行和最后一行的边对齐。</span><br><span class="line"></span><br><span class="line">space-around</span><br><span class="line">所有行在容器中平均分布，相邻两行间距相等。</span><br><span class="line">容器的垂直轴起点边和终点边分别与第一行和最后一行的距离是相邻两行间距的一半。</span><br><span class="line"></span><br><span class="line">stretch</span><br><span class="line">拉伸所有行来填满剩余空间。剩余空间平均的分配给每一行</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_align_content.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/gh-pages/flex/demo_align_content.html">demo源码</a></p>
+<hr>
+<h3 id="项目属性"><a href="#项目属性" class="headerlink" title="** 项目属性 **"></a>** 项目属性 **</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">order</span><br><span class="line">flex-grow</span><br><span class="line">flex-shrink</span><br><span class="line">flex-basis</span><br><span class="line">flex</span><br><span class="line">align-self</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="order"><a href="#order" class="headerlink" title="** order **"></a>** order **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;integer&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_item_property_order.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/master/flex/demo_item_property_order.html">demo源码</a></p>
+<hr>
+<h4 id="flex-grow"><a href="#flex-grow" class="headerlink" title="** flex-grow **"></a>** flex-grow **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;integer&gt;,负值无效</span><br><span class="line"></span><br><span class="line">默认为0，即如果存在剩余空间，也不放大。</span><br><span class="line">如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。</span><br><span class="line">如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_item_property_flex_grow.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/master/flex/demo_item_property_flex_grow.html">demo源码</a></p>
+<hr>
+<h4 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="** flex-shrink **"></a>** flex-shrink **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;integer&gt;,负值无效</span><br><span class="line"></span><br><span class="line">定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</span><br><span class="line">如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。</span><br><span class="line">如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_item_property_flex_shrink.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/master/flex/demo_item_property_flex_shrink.html">demo源码</a></p>
+<hr>
+<h4 id="flex-basis"><a href="#flex-basis" class="headerlink" title="** flex-basis **"></a>** flex-basis **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;length&gt; | auto; /* default auto */</span><br><span class="line"></span><br><span class="line">定义了在分配多余空间之前，项目占据的主轴空间（main size）。</span><br><span class="line">浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</span><br><span class="line"></span><br><span class="line">它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_item_property_flex_basis.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/master/flex/demo_item_property_flex_basis.html">demo源码</a></p>
+<hr>
+<h4 id="flex"><a href="#flex" class="headerlink" title="** flex **"></a>** flex **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">none | [ &lt;&#x27;flex-grow&#x27;&gt; &lt;&#x27;flex-shrink&#x27;&gt;? || &lt;&#x27;flex-basis&#x27;&gt; ]</span><br><span class="line"></span><br><span class="line">flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</span><br><span class="line"></span><br><span class="line">该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。</span><br><span class="line">建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.sail.name/CSS_Demo/flex/demo_item_property_flex.html">demo</a><br><a target="_blank" rel="noopener" href="https://github.com/iamsail/CSS_Demo/blob/master/flex/demo_item_property_flex.html">demo源码</a></p>
+<hr>
+<h4 id="align-self"><a href="#align-self" class="headerlink" title="** align-self **"></a>** align-self **</h4><p>取值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">auto | flex-start | flex-end | center | baseline | stretch</span><br><span class="line"></span><br><span class="line">auto</span><br><span class="line">设置为父元素的 align-items 值，如果该元素没有父元素的话，就设置为 stretch。</span><br><span class="line"></span><br><span class="line">flex-start</span><br><span class="line">flex 元素会对齐到 cross-axis 的首端。</span><br><span class="line"></span><br><span class="line">flex-end</span><br><span class="line">flex 元素会对齐到 cross-axis 的尾端。</span><br><span class="line"></span><br><span class="line">center</span><br><span class="line">flex 元素会对齐到 cross-axis 的中间，</span><br><span class="line">如果该元素的 cross-size 的尺寸大于 flex 容器，将在两个方向均等溢出。</span><br><span class="line"></span><br><span class="line">baseline</span><br><span class="line">所有的 flex 元素会沿着基线对齐，</span><br><span class="line">The item with the largest distance between its cross-start margin edge and</span><br><span class="line">its baseline is flushed with the cross-start edge of the line。</span><br><span class="line"></span><br><span class="line">stretch</span><br><span class="line">flex 元素将会基于容器的宽和高，按照自身 margin box 的 cross-size 拉伸。</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title="** 参考 **"></a>** 参考 **</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool">Flex 布局教程：语法篇</a></li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

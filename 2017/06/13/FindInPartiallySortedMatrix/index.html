@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      二维数组中的查找 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="** 写在前面 **本文是对《剑指Offer》中的一道题的记录,仅作备忘。  ** 题目 **** 二维数组中的查找 ** 在一个二维数组中,每一行都按照从左到右递增的顺序排序,每一列都按照从上到下递增的顺序排序。请完成一个函数,输入这样的一个二维数组和一个整数,判断数组中是否含有该整数。  ** 思路 **首先选取数组中右上角的数字。如果该数字大于要查找的数字,剔除这个数字所在的列;如果该数字小">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二维数组中的查找 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/06/13/FindInPartiallySortedMatrix/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** 写在前面 **本文是对《剑指Offer》中的一道题的记录,仅作备忘。  ** 题目 **** 二维数组中的查找 ** 在一个二维数组中,每一行都按照从左到右递增的顺序排序,每一列都按照从上到下递增的顺序排序。请完成一个函数,输入这样的一个二维数组和一个整数,判断数组中是否含有该整数。  ** 思路 **首先选取数组中右上角的数字。如果该数字大于要查找的数字,剔除这个数字所在的列;如果该数字小">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-06-13T05:32:40.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.497Z">
+<meta property="article:author" content="Sail">
+<meta property="article:tag" content="剑指Offer">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">二维数组中的查找</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-06-13" class="post-meta__date date">2017-06-13</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-none-link" href="/tags/%E5%89%91%E6%8C%87Offer/" rel="tag">剑指Offer</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="** 写在前面 **"></a>** 写在前面 **</h3><p><span class="under0">本文是对《剑指Offer》中的一道题的记录,仅作备忘。</span></p>
+<hr>
+<h3 id="题目"><a href="#题目" class="headerlink" title="** 题目 **"></a>** 题目 **</h3><p>** 二维数组中的查找 **</p>
+<p>在一个二维数组中,每一行都按照从左到右递增的顺序排序,每一列都按照从上到下递增的顺序排序。请完成一个函数,输入这样的一个二维数组和一个整数,判断数组中是否含有该整数。</p>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="** 思路 **"></a>** 思路 **</h3><p><span class="under2">首先选取数组中右上角的数字。如果该数字大于要查找的数字,剔除这个数字所在的列;如果该数字小于要查找的数字,剔除这个数字所在的行。直到找到要查找的数字,或者查找的范围为空。</span></p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="** 代码 **"></a>** 代码 **</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line">// FindInPartiallySortedMatrix.cpp : Defines the entry point for the console application.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">// 《剑指Offer——名企面试官精讲典型编程题》代码</span><br><span class="line">// 著作权所有者：何海涛</span><br><span class="line"></span><br><span class="line">#include &quot;stdafx.h&quot;</span><br><span class="line"></span><br><span class="line">// 二维数组matrix中，每一行都从左到右递增排序，</span><br><span class="line">// 每一列都从上到下递增排序</span><br><span class="line">bool Find(int* matrix, int rows, int columns, int number)</span><br><span class="line">&#123;</span><br><span class="line">    bool found = false;</span><br><span class="line"></span><br><span class="line">    if(matrix != NULL &amp;&amp; rows &gt; 0 &amp;&amp; columns &gt; 0)</span><br><span class="line">    &#123;</span><br><span class="line">        int row = 0;</span><br><span class="line">        int column = columns - 1;</span><br><span class="line">        while(row &lt; rows &amp;&amp; column &gt;=0)</span><br><span class="line">        &#123;</span><br><span class="line">            if(matrix[row * columns + column] == number)</span><br><span class="line">            &#123;</span><br><span class="line">                found = true;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(matrix[row * columns + column] &gt; number)</span><br><span class="line">                -- column;</span><br><span class="line">            else</span><br><span class="line">                ++ row;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return found;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// ====================测试代码====================</span><br><span class="line">void Test(char* testName, int* matrix, int rows, int columns, int number, bool expected)</span><br><span class="line">&#123;</span><br><span class="line">    if(testName != NULL)</span><br><span class="line">        printf(&quot;%s begins: &quot;, testName);</span><br><span class="line"></span><br><span class="line">    bool result = Find(matrix, rows, columns, number);</span><br><span class="line">    if(result == expected)</span><br><span class="line">        printf(&quot;Passed.\n&quot;);</span><br><span class="line">    else</span><br><span class="line">        printf(&quot;Failed.\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//  1   2   8   9</span><br><span class="line">//  2   4   9   12</span><br><span class="line">//  4   7   10  13</span><br><span class="line">//  6   8   11  15</span><br><span class="line">// 要查找的数在数组中</span><br><span class="line">void Test1()</span><br><span class="line">&#123;</span><br><span class="line">    int matrix[][4] = &#123;&#123;1, 2, 8, 9&#125;, &#123;2, 4, 9, 12&#125;, &#123;4, 7, 10, 13&#125;, &#123;6, 8, 11, 15&#125;&#125;;</span><br><span class="line">    Test(&quot;Test1&quot;, (int*)matrix, 4, 4, 7, true);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//  1   2   8   9</span><br><span class="line">//  2   4   9   12</span><br><span class="line">//  4   7   10  13</span><br><span class="line">//  6   8   11  15</span><br><span class="line">// 要查找的数不在数组中</span><br><span class="line">void Test2()</span><br><span class="line">&#123;</span><br><span class="line">    int matrix[][4] = &#123;&#123;1, 2, 8, 9&#125;, &#123;2, 4, 9, 12&#125;, &#123;4, 7, 10, 13&#125;, &#123;6, 8, 11, 15&#125;&#125;;</span><br><span class="line">    Test(&quot;Test2&quot;, (int*)matrix, 4, 4, 5, false);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//  1   2   8   9</span><br><span class="line">//  2   4   9   12</span><br><span class="line">//  4   7   10  13</span><br><span class="line">//  6   8   11  15</span><br><span class="line">// 要查找的数是数组中最小的数字</span><br><span class="line">void Test3()</span><br><span class="line">&#123;</span><br><span class="line">    int matrix[][4] = &#123;&#123;1, 2, 8, 9&#125;, &#123;2, 4, 9, 12&#125;, &#123;4, 7, 10, 13&#125;, &#123;6, 8, 11, 15&#125;&#125;;</span><br><span class="line">    Test(&quot;Test3&quot;, (int*)matrix, 4, 4, 1, true);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//  1   2   8   9</span><br><span class="line">//  2   4   9   12</span><br><span class="line">//  4   7   10  13</span><br><span class="line">//  6   8   11  15</span><br><span class="line">// 要查找的数是数组中最大的数字</span><br><span class="line">void Test4()</span><br><span class="line">&#123;</span><br><span class="line">    int matrix[][4] = &#123;&#123;1, 2, 8, 9&#125;, &#123;2, 4, 9, 12&#125;, &#123;4, 7, 10, 13&#125;, &#123;6, 8, 11, 15&#125;&#125;;</span><br><span class="line">    Test(&quot;Test4&quot;, (int*)matrix, 4, 4, 15, true);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//  1   2   8   9</span><br><span class="line">//  2   4   9   12</span><br><span class="line">//  4   7   10  13</span><br><span class="line">//  6   8   11  15</span><br><span class="line">// 要查找的数比数组中最小的数字还小</span><br><span class="line">void Test5()</span><br><span class="line">&#123;</span><br><span class="line">    int matrix[][4] = &#123;&#123;1, 2, 8, 9&#125;, &#123;2, 4, 9, 12&#125;, &#123;4, 7, 10, 13&#125;, &#123;6, 8, 11, 15&#125;&#125;;</span><br><span class="line">    Test(&quot;Test5&quot;, (int*)matrix, 4, 4, 0, false);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//  1   2   8   9</span><br><span class="line">//  2   4   9   12</span><br><span class="line">//  4   7   10  13</span><br><span class="line">//  6   8   11  15</span><br><span class="line">// 要查找的数比数组中最大的数字还大</span><br><span class="line">void Test6()</span><br><span class="line">&#123;</span><br><span class="line">    int matrix[][4] = &#123;&#123;1, 2, 8, 9&#125;, &#123;2, 4, 9, 12&#125;, &#123;4, 7, 10, 13&#125;, &#123;6, 8, 11, 15&#125;&#125;;</span><br><span class="line">    Test(&quot;Test6&quot;, (int*)matrix, 4, 4, 16, false);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 鲁棒性测试，输入空指针</span><br><span class="line">void Test7()</span><br><span class="line">&#123;</span><br><span class="line">    Test(&quot;Test7&quot;, NULL, 0, 0, 16, false);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int _tmain(int argc, _TCHAR* argv[])</span><br><span class="line">&#123;</span><br><span class="line">    Test1();</span><br><span class="line">    Test2();</span><br><span class="line">    Test3();</span><br><span class="line">    Test4();</span><br><span class="line">    Test5();</span><br><span class="line">    Test6();</span><br><span class="line">    Test7();</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h4 id="参考"><a href="#参考" class="headerlink" title="** 参考 **"></a>** 参考 **</h4><ul>
+<li>《剑指Offer》</li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

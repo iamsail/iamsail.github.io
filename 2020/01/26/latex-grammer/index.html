@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Latex语法 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="** Preface **本文是对Latex语法的部分记录。因为我在平时写blog的时候,偶尔还是会需要写一些公式的，为了避免下次又去网上查找，直接记录在本文。 关于Hexo中如何使用Latex,之前已经写了一篇博客做介绍,在hexo使用mathjax。  ** 实践 **在输入数学公式的时候，需要在数学公式的前后加入$$或$符号，将需要输入的公式加入到$$或$中间。 $$会使公式居中,$不会。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Latex语法 | Sail">
+<meta property="og:url" content="http://www.sail.name/2020/01/26/latex-grammer/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** Preface **本文是对Latex语法的部分记录。因为我在平时写blog的时候,偶尔还是会需要写一些公式的，为了避免下次又去网上查找，直接记录在本文。 关于Hexo中如何使用Latex,之前已经写了一篇博客做介绍,在hexo使用mathjax。  ** 实践 **在输入数学公式的时候，需要在数学公式的前后加入$$或$符号，将需要输入的公式加入到$$或$中间。 $$会使公式居中,$不会。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-26T08:37:01.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.505Z">
+<meta property="article:author" content="Sail">
+<meta property="article:tag" content="LATEX">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Latex语法</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-01-26" class="post-meta__date date">2020-01-26</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-none-link" href="/tags/LATEX/" rel="tag">LATEX</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title="** Preface **"></a>** Preface **</h3><p>本文是对Latex语法的部分记录。因为我在平时写blog的时候,偶尔还是会需要写一些公式的，为了避免下次又去网上查找，直接记录在本文。</p>
+<p>关于Hexo中如何使用Latex,之前已经写了一篇博客做介绍,<a href="http://www.sail.name/2018/05/31/use-mathjax-in-hexo/">在hexo使用mathjax</a>。</p>
+<hr>
+<h3 id="实践"><a href="#实践" class="headerlink" title="** 实践 **"></a>** 实践 **</h3><p><span class="under0"><strong>在输入数学公式的时候，需要在数学公式的前后加入<code>$$</code>或<code>$</code>符号，将需要输入的公式加入到<code>$$</code>或<code>$</code>中间。</strong></span></p>
+<p><code>$$</code>会使公式居中,<code>$</code>不会。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$h(\theta) =$</span><br><span class="line">$$h(\theta) =$$</span><br><span class="line">$\alpha$</span><br></pre></td></tr></table></figure>
+<p>展示如下</p>
+<p>$h(\theta) =$<br>$$h(\theta)=$$<br>$\alpha$</p>
+<hr>
+<h3 id="语法"><a href="#语法" class="headerlink" title="** 语法 **"></a>** 语法 **</h3><p>LaTeX 能够自动处理公式中的大多数字符之间的空格，但是有时候需要自己手动进行控制。</p>
+<h4 id="公式中的空格"><a href="#公式中的空格" class="headerlink" title="** 公式中的空格 **"></a>** 公式中的空格 **</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">紧贴 $a\!b$</span><br><span class="line">没有空格 $ab$</span><br><span class="line">小空格 a\,b</span><br><span class="line">中等空格 a\;b</span><br><span class="line">大空格 a\ b</span><br><span class="line">quad空格 $a\quad b$</span><br><span class="line">两个quad空格 $a\qquad b$</span><br></pre></td></tr></table></figure>
+
+<h4 id="上标和下标"><a href="#上标和下标" class="headerlink" title="** 上标和下标 **"></a>** 上标和下标 **</h4><p>上标命令是 ^{角标}，下标命令是 _{角标}。当角标是单个字符时可以不用花括号（在 LaTeX 中，花括号是用于分组，即花括号内部文本为一组）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$$x_1$$</span><br><span class="line">$$x_1^2$$</span><br><span class="line">$$x^2_1$$</span><br><span class="line">$$x_&#123;22&#125;^&#123;(n)&#125;$$</span><br><span class="line">$$&#123;&#125;^*\!x^*$$    %（“\!” 表示其前后字符之间无间隙）</span><br><span class="line"></span><br><span class="line"># 下面是示范例子</span><br><span class="line">$x_1 \quad  x_1^2  \quad  x^2_1 \quad  x_&#123;22&#125;^&#123;(n)&#125;$</span><br><span class="line">$x_1 \qquad  x_1^2  \qquad  x^2_1 \qquad  x_&#123;22&#125;^&#123;(n)&#125;$</span><br><span class="line">$x_1 \  x_1^2  \  x^2_1 \  x_&#123;22&#125;^&#123;(n)&#125;$</span><br><span class="line">$x_1 x_1^2 x^2_1 x_&#123;22&#125;^&#123;(n)&#125;$</span><br></pre></td></tr></table></figure>
+<p>$x_1 \quad  x_1^2  \quad  x^2_1 \quad  x_{22}^{(n)}$<br>$x_1 \qquad  x_1^2  \qquad  x^2_1 \qquad  x_{22}^{(n)}$<br>$x_1 \  x_1^2  \  x^2_1 \  x_{22}^{(n)}$<br>$x_1 x_1^2 x^2_1 x_{22}^{(n)}$</p>
+<hr>
+<h4 id="数学模式和文本模式"><a href="#数学模式和文本模式" class="headerlink" title="** 数学模式和文本模式 **"></a>** 数学模式和文本模式 **</h4><p>LATEX可以排版公式与文字，故分为：数学模式和文本模式。如果你想要在公式中排版普通的文本（直立字体和普通字距），那么你必须要把这些文本放在\textrm{…} 命令中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$x_1 \quad \textrm&#123;哈哈哈哈&#125; \quad  x_&#123;22&#125;^&#123;(n)&#125;$</span><br></pre></td></tr></table></figure>
+<p>$x_1 \quad \textrm{哈哈哈哈} \quad  x_{22}^{(n)}$</p>
+<hr>
+<h4 id="分式"><a href="#分式" class="headerlink" title="** 分式 **"></a>** 分式 **</h4><p>输入较短的分式时，最简单的方法是使用斜线，譬如输入 (x+y)/2，可得到(x+y)/2 。<br>要输入带有水平分数线的公式，可用命令：<code>\frac&#123;分子&#125;&#123;分母&#125;</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$\frac&#123;x+y&#125;&#123;2&#125;$</span><br><span class="line">$\frac&#123;1&#125;&#123;1+\frac&#123;1&#125;&#123;2&#125;&#125;$</span><br></pre></td></tr></table></figure>
+<p>$\frac{x+y}{2}$<br>$\frac{1}{1+\frac{1}{2}}$</p>
+<hr>
+<h4 id="根式"><a href="#根式" class="headerlink" title="** 根式 **"></a>** 根式 **</h4><p>排版根式的命令是：开平方：\sqrt{表达式}；开 n 次方：\sqrt[n]{表达式}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$\sqrt&#123;2&#125;&lt;\sqrt[3]&#123;3&#125;$</span><br><span class="line">$\sqrt&#123;1+\sqrt[p]&#123;1+a^2&#125;&#125;$</span><br><span class="line">$\sqrt&#123;1+\sqrt[^p\!]&#123;1+a^2&#125;&#125;$</span><br></pre></td></tr></table></figure>
+<p>$\sqrt{2}&lt;\sqrt[3]{3}$<br>$\sqrt{1+\sqrt[p]{1+a^2}}$<br>$\sqrt{1+\sqrt[^p!]{1+a^2}}$</p>
+<hr>
+<h4 id="求和与积分"><a href="#求和与积分" class="headerlink" title="** 求和与积分 **"></a>** 求和与积分 **</h4><p>排版求和符号与积分符号的命令分别为 \sum 和 \int，它们通常都有上下限，在排版上就是上标和下标。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$\sum_&#123;k=1&#125;^&#123;n&#125;\frac&#123;1&#125;&#123;k&#125;$</span><br><span class="line">$\sum_&#123;k=1&#125;^n\frac&#123;1&#125;&#123;k&#125;$</span><br><span class="line">$\int_a^b f(x)dx$</span><br><span class="line">$\int_a^b f(x)dx$</span><br><span class="line">微分符直体：$\int_a^b f(x)\mathrm&#123;d&#125;x$</span><br></pre></td></tr></table></figure>
+
+<p>$\sum_{k=1}^{n}\frac{1}{k}$<br>$\sum_{k=1}^n\frac{1}{k}$<br>$\int_a^b f(x)dx$<br>$\int_a^b f(x)dx$<br>$\int_a^b f(x)\mathrm{d}x$</p>
+<hr>
+<h4 id="公式中的定界符"><a href="#公式中的定界符" class="headerlink" title="** 公式中的定界符 **"></a>** 公式中的定界符 **</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$($  $x_1$  $)$ </span><br><span class="line">$[$  $x_1$  $]$ </span><br><span class="line">$\|$ $x_1$   $\|$</span><br><span class="line">$$\left(\sum_&#123;k=\frac&#123;1&#125;&#123;2&#125;&#125;^&#123;N^2&#125;\frac&#123;1&#125;&#123;k&#125;\right)$$</span><br><span class="line"></span><br><span class="line"># 花括号</span><br><span class="line">$\lbrace a*b \rbrace$</span><br><span class="line"></span><br><span class="line"># 在上述这些定界符之前冠以 \left（修饰左定界符）或 \right（修饰右定界符），</span><br><span class="line"># 可以得到自适应缩放的定界符，它们会根据定界符所包围的公式大小自适应缩放。</span><br><span class="line">$$\left(\sum_&#123;k=\frac&#123;1&#125;&#123;2&#125;&#125;^&#123;N^2&#125;\frac&#123;1&#125;&#123;k&#125;\right)$$</span><br></pre></td></tr></table></figure>
+
+<p>$($  $x_1$  $)$<br>$[$  $x_1$  $]$<br>$|$ $x_1$   $|$<br>$$\left(\sum_{k=\frac{1}{2}}^{N^2}\frac{1}{k}\right)$$<br>$\lbrace a*b \rbrace$</p>
+<hr>
+<h4 id="字体"><a href="#字体" class="headerlink" title="** 字体 **"></a>** 字体 **</h4><ul>
+<li>使用\mathbb或\Bbb显示黑板粗体字，此字体经常用来表示代表实数、整数、有理数、复数的大写字母。<br><code>$\mathbb&#123;CHNQRZ&#125;$</code><br>$\mathbb{CHNQRZ}$ </li>
+<li>使用\mathbf显示黑体字<br><code>$\mathbf&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125;$</code><br>$\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$</li>
+<li>使用\mathtt显示打印机字体<br><code>$\mathtt&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125;$，$\mathtt&#123;abcdefghijklmnopqrstuvwxyz&#125;$</code><br>$\mathtt{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$，$\mathtt{abcdefghijklmnopqrstuvwxyz}$</li>
+<li>使用\mathrm显示罗马字体<br><code>$\mathrm&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125;$，$\mathrm&#123;abcdefghijklmnopqrstuvwxyz&#125;$</code><br>$\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$，$\mathrm{abcdefghijklmnopqrstuvwxyz}$</li>
+<li>使用\mathscr显示手写体, 无小写<br><code>$\mathscr&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125;, $\mathscr&#123;abcdefghijklmnopqrstuvwxyz&#125;$</code><br>$\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$, $\mathscr{abcdefghijklmnopqrstuvwxyz}$</li>
+<li>使用\mathfrak显示Fraktur字母（一种德国字体）<br><code>$\mathfrak&#123;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#125;$, $\mathfrak&#123;abcdefghijklmnopqrstuvwxyz&#125;$</code><br>$\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$, $\mathfrak{abcdefghijklmnopqrstuvwxyz}$</li>
+</ul>
+<hr>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="** 参考链接 **"></a>** 参考链接 **</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/houkai/p/3399646.html">LATEX数学公式基本语法</a><br><a target="_blank" rel="noopener" href="http://mohu.org/info/symbols/symbols.htm">常用数学符号的 LaTeX 表示方法</a><br><a target="_blank" rel="noopener" href="http://simtalk.cn/2015/12/21/Demo-LaTeX/">Demo LaTeX</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Observer(观察者)模式 | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="** 定义 **一个或多个观察者对目标的状态感兴趣,它们通过将自己依附在目标对象上以便注册感兴趣的内容。目标状态发生改变并且观察者可能对这些改变感兴趣,就会发送一个通知消息,调用每个观察者的更新方法。 当观察者不再对目标状态感兴趣时,它们可以简单地将自己从中分离。 Subject(目标)维护一系列的观察者,方便添加或删除观察者 Observer(观察者)为那些在状态发生改变时需获得通知的对象提供一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Observer(观察者)模式 | Sail">
+<meta property="og:url" content="http://www.sail.name/2017/08/12/Observer-Pattern/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** 定义 **一个或多个观察者对目标的状态感兴趣,它们通过将自己依附在目标对象上以便注册感兴趣的内容。目标状态发生改变并且观察者可能对这些改变感兴趣,就会发送一个通知消息,调用每个观察者的更新方法。 当观察者不再对目标状态感兴趣时,它们可以简单地将自己从中分离。 Subject(目标)维护一系列的观察者,方便添加或删除观察者 Observer(观察者)为那些在状态发生改变时需获得通知的对象提供一">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-08-12T08:29:00.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.499Z">
+<meta property="article:author" content="Sail">
+<meta name="twitter:card" content="summary">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">Observer(观察者)模式</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-08-12" class="post-meta__date date">2017-08-12</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            </font>
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="定义"><a href="#定义" class="headerlink" title="** 定义 **"></a>** 定义 **</h3><p>一个或多个观察者对目标的状态感兴趣,它们通过将自己依附在目标对象上以便注册感兴趣的内容。目标状态发生改变并且观察者可能对这些改变感兴趣,就会发送一个通知消息,调用每个观察者的更新方法。</p>
+<p>当观察者不再对目标状态感兴趣时,它们可以简单地将自己从中分离。</p>
+<p><code>Subject(目标)</code><br>维护一系列的观察者,方便添加或删除观察者</p>
+<p><code>Observer(观察者)</code><br>为那些在状态发生改变时需获得通知的对象提供一个更新接口</p>
+<p><code>ConcreteSubject(具体目标)</code><br>状态发生改变时,向<code>Observer</code>发出通知,储存<code>ConcreteObserver</code>的状态</p>
+<p><code>ConcreteObserver(具体观察者)</code><br>存储一个指向<code>ConcreteSubject</code>的引用,实现<code>Observer</code>的更新接口,以使自身状态与目标的状态保持一致</p>
+<hr>
+<h3 id="实现"><a href="#实现" class="headerlink" title="** 实现 **"></a>** 实现 **</h3><p><span class="under0">以下是ES5和ES6的各自实现</span></p>
+<h4 id="ES5"><a href="#ES5" class="headerlink" title="** ES5 **"></a>** ES5 **</h4><p>模拟一个目标可能拥有的一系列依赖Observer </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">ObserverList</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">observerList</span> = [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ObserverList</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">Add</span> = <span class="keyword">function</span> (<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;666&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="title function_">push</span>(obj);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ObserverList</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">Empty</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">observerList</span> = [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ObserverList</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">Count</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="property">length</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ObserverList</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">Get</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(index &gt; -<span class="number">1</span> &amp;&amp; index &lt; <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="property">length</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">observerList</span>[index];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ObserverList</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">Insert</span> = <span class="keyword">function</span> (<span class="params">obj, index</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> pointer = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(index === <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="title function_">unshift</span>(obj);</span><br><span class="line">    pointer = index;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (index === <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="property">length</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="title function_">push</span>(obj);</span><br><span class="line">    pointer = index;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ObserverList</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">IndexOf</span> = <span class="keyword">function</span> (<span class="params">obj, startIndex</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> i = startIndex, pointer = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(i &lt; <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="property">length</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="property">observerList</span>[i] === obj)&#123;</span><br><span class="line">      pointer = i;</span><br><span class="line">    &#125;</span><br><span class="line">    i++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ObserverList</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">RemoveIndexAt</span> = <span class="keyword">function</span> (<span class="params">index</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(index === <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="title function_">shift</span>();</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(index === <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="property">length</span> - <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="title function_">pop</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">extend</span> (<span class="params">obj, extension</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    extension[key] = obj[key];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>模拟目标(Subject)和在观察者列表上添加、删除或通知观察者的能力</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Subject</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">observers</span> = <span class="keyword">new</span> <span class="title class_">ObserverList</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Subject</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">AddObserver</span> = <span class="keyword">function</span> (<span class="params">observer</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">observers</span>.<span class="title class_">Add</span>(observer);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Subject</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">RemoveObserver</span> = <span class="keyword">function</span> (<span class="params">observer</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">observers</span>.<span class="title class_">RemoveIndexAt</span>(<span class="variable language_">this</span>.<span class="property">observers</span>.<span class="title class_">IndexOf</span>(observer,<span class="number">0</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Subject</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">Notify</span> = <span class="keyword">function</span> (<span class="params">context</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;1111111111111111&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> observerCount = <span class="variable language_">this</span>.<span class="property">observers</span>.<span class="property">Count</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; observerCount; i++)&#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">observers</span>.<span class="title class_">Get</span>(I).<span class="title class_">Update</span>(context);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>创建新的Observer</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Observer</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">Update</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><span class="under0">实例</span></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;addNewObserver&quot;</span>&gt;</span>Add New Observer checkbox<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;mainCheckbox&quot;</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;observersContainer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> controlCheckbox = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;mainCheckbox&quot;</span>),</span><br><span class="line">    addBtn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;addNewObserver&quot;</span>),</span><br><span class="line">    container = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;observersContainer&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">extend</span>(<span class="keyword">new</span> <span class="title class_">Subject</span>(), controlCheckbox);</span><br><span class="line"></span><br><span class="line">controlCheckbox[<span class="string">&quot;onclick&quot;</span>] = <span class="keyword">new</span> <span class="title class_">Function</span>(<span class="string">&quot;controlCheckbox.Notify(controlCheckbox.checked)&quot;</span>);</span><br><span class="line"></span><br><span class="line">addBtn[<span class="string">&quot;onclick&quot;</span>] = <span class="title class_">AddNewObserver</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">AddNewObserver</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> check = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;input&quot;</span>);</span><br><span class="line">    check.<span class="property">type</span> = <span class="string">&quot;checkbox&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">extend</span>(<span class="keyword">new</span> <span class="title class_">Observer</span>(), check);</span><br><span class="line"></span><br><span class="line">    check.<span class="property">Update</span> = <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">checked</span> = value;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    controlCheckbox.<span class="title class_">AddObserver</span>(check);</span><br><span class="line"></span><br><span class="line">    container.<span class="title function_">appendChild</span>(check);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="ES6"><a href="#ES6" class="headerlink" title="** ES6 **"></a>** ES6 **</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = <span class="title function_">observable</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">20</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">print</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;person.name&#125;</span>, <span class="subst">$&#123;person.age&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">observe</span>(print);</span><br><span class="line">person.<span class="property">name</span> = <span class="string">&#x27;李四&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>上面代码中，数据对象<code>person</code>是观察目标，函数<code>print</code>是观察者。一旦数据对象发生变化，<code>print</code>就会自动执行</p>
+<p>下面，使用 <code>Proxy</code> 写一个观察者模式的最简单实现，即实现<code>observable</code>和<code>observe</code>这两个函数。思路是<code>observable</code>函数返回一个原始对象的 <code>Proxy</code> 代理，拦截赋值操作，触发充当观察者的各个函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> queuedObservers = <span class="keyword">new</span> <span class="title class_">Set</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">observe</span> = fn =&gt; queuedObservers.<span class="title function_">add</span>(fn);</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">observable</span> = obj =&gt; <span class="keyword">new</span> <span class="title class_">Proxy</span>(obj, &#123;set&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">set</span>(<span class="params">target, key, value, receiver</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="title class_">Reflect</span>.<span class="title function_">set</span>(target, key, value, receiver);</span><br><span class="line">  queuedObservers.<span class="title function_">forEach</span>(<span class="function"><span class="params">observer</span> =&gt;</span> <span class="title function_">observer</span>());</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，先定义了一个<code>Set</code>集合，所有观察者函数都放进这个集合。然后，<code>observable</code>函数返回原始对象的代理，拦截赋值操作。拦截函数<code>set</code>之中，会自动执行所有观察者。</p>
+<hr>
+<h3 id="以下是18年8月21更新"><a href="#以下是18年8月21更新" class="headerlink" title="** 以下是18年8月21更新 **"></a>** 以下是18年8月21更新 **</h3><h4 id="观察者模式实践"><a href="#观察者模式实践" class="headerlink" title="** 观察者模式实践 **"></a>** 观察者模式实践 **</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>观察者模式<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>观察者模式<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> salesOffices = &#123;&#125;;</span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="property">clientList</span> = []; <span class="comment">//　缓存</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="property">listen</span> = <span class="keyword">function</span> (<span class="params">key, fn</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">clientList</span>[key]) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">clientList</span>[key] = [];</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">this</span>.<span class="property">clientList</span>[key].<span class="title function_">push</span>(fn); <span class="comment">//增加订阅者</span></span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="property">trigger</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> key = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">shift</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>),</span></span><br><span class="line"><span class="language-javascript">            fns = <span class="variable language_">this</span>.<span class="property">clientList</span>[key];</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span> (!fns || fns.<span class="property">length</span> === <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, fn; fn = fns[i++];) &#123;</span></span><br><span class="line"><span class="language-javascript">            fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 小明订阅88平方米房子的消息</span></span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="title function_">listen</span>(<span class="string">&#x27;squareMeter88&#x27;</span>, <span class="keyword">function</span> (<span class="params">price</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;价格= &#x27;</span> + price);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 小红订阅110平方米房子的消息</span></span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="title function_">listen</span>(<span class="string">&#x27;squareMeter110&#x27;</span>, <span class="keyword">function</span> (<span class="params">price</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;价格= &#x27;</span> + price);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="title function_">trigger</span>(<span class="string">&#x27;squareMeter88&#x27;</span>, <span class="number">88</span>);</span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="title function_">trigger</span>(<span class="string">&#x27;squareMeter110&#x27;</span>, <span class="number">110</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>** 把发布–订阅功能提取出来,放在一个独立的对象 **</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>观察者模式<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>观察者模式<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> event = &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">clientList</span>: [],</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">listen</span>: <span class="keyword">function</span> (<span class="params">key, fn</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (!<span class="variable language_">this</span>.<span class="property">clientList</span>[key]) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">clientList</span>[key] = [];</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">this</span>.<span class="property">clientList</span>[key].<span class="title function_">push</span>(fn); <span class="comment">//增加订阅者</span></span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">trigger</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> key = <span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">shift</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>),</span></span><br><span class="line"><span class="language-javascript">                fns = <span class="variable language_">this</span>.<span class="property">clientList</span>[key];</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (!fns || fns.<span class="property">length</span> === <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, fn; fn = fns[i++];) &#123;</span></span><br><span class="line"><span class="language-javascript">                fn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> installEvent = <span class="keyword">function</span> (<span class="params">obj</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> event) &#123;</span></span><br><span class="line"><span class="language-javascript">          obj[i] = event[i];</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> salesOffices = &#123;&#125;;</span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">installEvent</span>(salesOffices); <span class="comment">//　缓存</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 小明订阅88平方米房子的消息</span></span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="title function_">listen</span>(<span class="string">&#x27;squareMeter88&#x27;</span>, <span class="keyword">function</span> (<span class="params">price</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;价格= &#x27;</span> + price);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 小红订阅110平方米房子的消息</span></span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="title function_">listen</span>(<span class="string">&#x27;squareMeter110&#x27;</span>, <span class="keyword">function</span> (<span class="params">price</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;价格= &#x27;</span> + price);</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="title function_">trigger</span>(<span class="string">&#x27;squareMeter88&#x27;</span>, <span class="number">88</span>);</span></span><br><span class="line"><span class="language-javascript">    salesOffices.<span class="title function_">trigger</span>(<span class="string">&#x27;squareMeter110&#x27;</span>, <span class="number">110</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title="** 参考 **"></a>** 参考 **</h3><p>JavaScript设计模式<br>ECMAScript 6 入门</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

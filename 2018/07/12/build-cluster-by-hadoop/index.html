@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      hadoop2.6搭建集群(伪分布式) | Sail 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Sail">
+
+
+    
+    
+
+<div id="site_search">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control"/>
+            <div id="local-search-result"></div>
+    </div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-1345496474366685",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+    <meta name="description" content="** Preface **一直想学学hadoop,不过因为比较忙,一直没开起头。刚好昨天去图书馆还书了,在书架看到了《Hadoop大数据实战权威指南》,就借了下来。也初步搭建了一个集群,后面可以进一步的学习,本文做些记录。 本文不是详细的记录安装细节,主要是为了以后若再次搭建,可以更快些。所以你只看我这篇文章,是比较难搭出来的,具体细节推荐看书或者文档。   ** 我的系统环境 **这本书中介绍的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hadoop2.6搭建集群(伪分布式) | Sail">
+<meta property="og:url" content="http://www.sail.name/2018/07/12/build-cluster-by-hadoop/index.html">
+<meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** Preface **一直想学学hadoop,不过因为比较忙,一直没开起头。刚好昨天去图书馆还书了,在书架看到了《Hadoop大数据实战权威指南》,就借了下来。也初步搭建了一个集群,后面可以进一步的学习,本文做些记录。 本文不是详细的记录安装细节,主要是为了以后若再次搭建,可以更快些。所以你只看我这篇文章,是比较难搭出来的,具体细节推荐看书或者文档。   ** 我的系统环境 **这本书中介绍的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.sail.name/img/%E5%A4%A7%E6%95%B0%E6%8D%AE/build-cluster-by-hadoop/1.jpeg">
+<meta property="article:published_time" content="2018-07-12T10:58:30.000Z">
+<meta property="article:modified_time" content="2025-04-16T10:39:38.501Z">
+<meta property="article:author" content="Sail">
+<meta property="article:tag" content="hadoop">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.sail.name/img/%E5%A4%A7%E6%95%B0%E6%8D%AE/build-cluster-by-hadoop/1.jpeg">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/uno.css">
+
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+    
+<link rel="stylesheet" href="/css/archive.css">
+
+    
+<link rel="stylesheet" href="/css/china-social-icon.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="/custom_css_source.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<body>
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Sail</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          手在键盘敲很轻
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+
+              
+               <li class="navigation__item">
+                    <a href="http://www.sail.name/Resource/" title="个人资源分享">Resource</a></li>
+
+            </ul>
+          </nav>
+          
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a target="_blank" rel="noopener" href="https://github.com/iamsail" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+    
+
+    <!-- China social icon -->
+    <!--
+    
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-douban'></i>
+          <span class="label">Douban</span>
+        </a>
+      </li>
+
+      <li class="navigation__item">
+        <a href="" title="">
+          <i class='icon cs-icon-weibo'></i>
+          <span class="label">Weibo</span>
+        </a>
+      </li>
+
+    -->
+
+
+
+  </ul>
+</nav>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">hadoop2.6搭建集群(伪分布式)</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2018-07-12" class="post-meta__date date">2018-07-12</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-none-link" href="/tags/hadoop/" rel="tag">hadoop</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title="** Preface **"></a>** Preface **</h3><p>一直想学学hadoop,不过因为比较忙,一直没开起头。刚好昨天去图书馆还书了,在书架看到了《Hadoop大数据实战权威指南》,就借了下来。也初步搭建了一个集群,后面可以进一步的学习,本文做些记录。</p>
+<p>本文不是详细的记录安装细节,主要是为了以后若再次搭建,可以更快些。所以你只看我这篇文章,是比较难搭出来的,具体细节推荐看书或者文档。</p>
+<p><img src="/img/%E5%A4%A7%E6%95%B0%E6%8D%AE/build-cluster-by-hadoop/1.jpeg" alt="书展示"></p>
+<hr>
+<h3 id="我的系统环境"><a href="#我的系统环境" class="headerlink" title="** 我的系统环境 **"></a>** 我的系统环境 **</h3><p>这本书中介绍的搭建环境是在windows下通过安装linux(centos)虚拟机搭建集群。因为我的开发系统就是<code>Ubuntu16.04</code>,所以我就是在<code>Ubuntu</code>下搭建的虚拟机(依旧是Ubuntu16),搭的集群。</p>
+<p>说来好笑,一开始还在担心是不是linux也是可以安装虚拟机。其实linux也是可以安装虚拟机,比如VMware,VirtualBox。我选用的是VMware14。直接去<a target="_blank" rel="noopener" href="https://www.vmware.com/">官网</a>下载安装就好了</p>
+<p>怎么安装虚拟机什么的就不记录了。</p>
+<hr>
+<h3 id="虚拟机克隆安装"><a href="#虚拟机克隆安装" class="headerlink" title="** 虚拟机克隆安装 **"></a>** 虚拟机克隆安装 **</h3><p>集群肯定是有多个机器的,对于hadoop,我们最少得有三个机器。如果重复装三次ubuntu肯定是很蠢的,我们安装好第一个(Ubuntu-One)后,就可以通过克隆安装。这里有两种方法</p>
+<p>比如我有三个机器,这里我每个虚拟机分配的是4G内存,35</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu-One</span><br><span class="line">Slave0</span><br><span class="line">Slave1</span><br></pre></td></tr></table></figure>
+<h4 id="方法一"><a href="#方法一" class="headerlink" title="** 方法一 **"></a>** 方法一 **</h4><p>在VMvare的目录下,复制对应系统的整个目录(Ubuntu-One),然后粘贴,将目录改个名Slave0。然后在VMvare的主页选择Slave0这个目录进行一系列操作就好了。</p>
+<h4 id="方法二"><a href="#方法二" class="headerlink" title="** 方法二 **"></a>** 方法二 **</h4><p>在VMvare主页界面,右键点击<code>Ubuntu-One</code>,管理-&gt;克隆(Manage-&gt;Clone),一系列操作即可。</p>
+<hr>
+<h3 id="集群配置"><a href="#集群配置" class="headerlink" title="** 集群配置 **"></a>** 集群配置 **</h3><h4 id="修改主机名"><a href="#修改主机名" class="headerlink" title="** 修改主机名 **"></a>** 修改主机名 **</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ruglcc/article/details/7802077">ubuntu永久修改主机名</a></p>
+<p>这里我三个机器分别命名为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">master</span><br><span class="line">slave0</span><br><span class="line">slave1</span><br></pre></td></tr></table></figure>
+
+<p>如果是centos系统，执行<code>gedit /etc/sysconfig/network</code><br>输入以下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NETWORKING=yes</span><br><span class="line">HOSTNAME=master</span><br></pre></td></tr></table></figure>
+
+<p>如果是ubuntu系统,执行<code>gedit /etc/hostname</code></p>
+<p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">master</span><br></pre></td></tr></table></figure>
+<p>master是用户自己取的主机名,可以根据需要任意命名。</p>
+<p>修改完成后,保存文件。在终端执行<code>hostname master</code>,确认修改生效。关闭终端,再打开一个新的终端,执行<code>hostname</code>，进行确认是否生效。重复以上方法,修改另外两个虚拟机为<code>slave0</code>,<code>slave1</code>.</p>
+<hr>
+<h4 id="网络设置"><a href="#网络设置" class="headerlink" title="** 网络设置 **"></a>** 网络设置 **</h4><p>在终端输入<code>ifconfig</code>命令,<code>inet</code>后面跟的数字就是IP地址。根据IP地址,可以虚拟机之间互相ping,有返回值则说明机器是连通的。</p>
+<p>上面这个只是简单的采用了系统安装时配置的网络IP,实际上，上述地址一般都是DHCP类型的。由于我们目前网络里并没有DHCP服务器,因此,需要将动态主机IP地址修改为静态地址。在虚拟机的设置中找到网络设置,然后将网络状态的ON切换为OFF。注意,修改网络地址需要事先断掉网络连接。</p>
+<p>然后选择IPV4,接着选择Manual,然后增加静态地址信息。这里,设置的地址是192.168.1.100，子网掩码是255.255.255.0，网关地址是192.168.1.1。slave0,1的地址分别是192.168.1.101,192.168.1.102.子网掩码和网关地址相同。</p>
+<p>这样我们就完成了整个集群的网络配置。可以使用ping进行测试。然而,为了用计算机名进行网络访问，我们还需要修改hosts文件中的主机名和IP地址对照裂变。注意,需要在root用户下操作。<br><code>gedit /etc/hosts</code></p>
+<p>然后输入如下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.101 master</span><br><span class="line">192.168.1.102 slave0</span><br><span class="line">192.168.1.101 slave1</span><br></pre></td></tr></table></figure>
+
+<p>以上操作需要在所有主机上进行。然后就可以用主机名代替IP地址了,比如<code>ping slave0</code></p>
+<hr>
+<h4 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="** 关闭防火墙 **"></a>** 关闭防火墙 **</h4><p>大数据应用系统通常部署在linux集群上,一般属于内部网络平台,且计算机之间关系紧密,通信频繁,所以不需要开启防火墙。</p>
+<p>如果是centos系统,防火墙相关操作如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看当前防火墙状态</span><br><span class="line">systemctl status firewalld.service</span><br><span class="line"></span><br><span class="line"># 关闭防火墙</span><br><span class="line">systemctl stop firewalld.service</span><br><span class="line"></span><br><span class="line"># 一般在关闭防火墙过后,还可以执行如下命令,该命令使防火墙在下次启动计算机时取消防火墙服务</span><br><span class="line">systemctl status firewalld.service</span><br></pre></td></tr></table></figure>
+<p>如果是ubuntu系统,防火墙相关操作,看这篇文章<a target="_blank" rel="noopener" href="https://www.cnblogs.com/OnlyDreams/p/7210914.html">ubuntu 默认防火墙安装、启用、查看状态</a></p>
+<hr>
+<h4 id="安装JDK"><a href="#安装JDK" class="headerlink" title="** 安装JDK **"></a>** 安装JDK **</h4><p>hadoop是基于JAVA环境的,所以必须安装JDK.这里我使用的是jdk-7u71-linux-x64.gz压缩包.</p>
+<p>我们在<code>/usr</code>目录下创建java目录,即<code>/usr/java</code>.然后在该目录下进行解压</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-7u71-linux-x64.gz</span><br></pre></td></tr></table></figure>
+
+<p>接着开始配置环境变量,<code>gedit /home/sail/.profile</code>,新增代码如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># set PATH so it includes user&#x27;s private bin directories</span><br><span class="line">PATH=&quot;$HOME/bin:$HOME/.local/bin:$PATH&quot;</span><br><span class="line"></span><br><span class="line"># 以下是新增的代码</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.7.0_71/</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这里的<code>/usr/java/jdk1.7.0_71/</code>就是java安装文件夹。接着执行<code>source .profile</code>使其生效,<code>java -version</code>进行检查。</p>
+<p>这里罗嗦下,<code>source .profile</code>执行后,关闭终端后重新打开,检查版本就是找不到的,要重启计算机才生效。在ubuntu下还有个<code>.bashrc</code>文件，如果是修改这个文件而不是profile,应该不会这种情况。不过我没有测试过。如果是<code>centos</code>系统的话,则应该修改<code>~/.bash_profile</code>文件。</p>
+<p>这里其他两个虚拟机也需要执行以上操作。当然如果是老司机,应该清楚,我们可以配置好一台机器,然后其他机器直接复制就可以了。</p>
+<hr>
+<h4 id="免密钥登录配置"><a href="#免密钥登录配置" class="headerlink" title="** 免密钥登录配置 **"></a>** 免密钥登录配置 **</h4><p>免密钥登录是指两台linux机器之间ssh连接时不需要用户名和密码。下面的配置分为在master和所有slave节点操作。同时是以普通用户,非root进行操作的.</p>
+<h5 id="Master节点的配置"><a href="#Master节点的配置" class="headerlink" title="** Master节点的配置 **"></a>** Master节点的配置 **</h5><p>在终端<code>~/</code>目录下,执行命令<code>ssh-keygen -t rsa</code>,一路回车即可。</p>
+<p><code>ssh-keygen</code>是用来生成private和public的密钥对,将public密钥拷贝到远程机器后,就可以使用ssh到另外一台机器不用密码了。<code>-t</code>是指定加密算法,这里是rsa。生成的密钥在.ssh目录下</p>
+<p>接下来执行 <code>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code>，这是一个复制操作。复制过后是为了便于修改文件权限,接下来执行<code>chmod 600 ~/.ssh/authorized_keys</code>,然后将这个文件复制到所有的slave节点。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp ~/.ssh/authorized_keys sail@slave0:~/</span><br><span class="line"></span><br><span class="line">scp ~/.ssh/authorized_keys sail@slave1:~/</span><br></pre></td></tr></table></figure>
+<p>然后输入yes,就完成了在master节点的配置</p>
+<hr>
+<h5 id="Slave节点的配置"><a href="#Slave节点的配置" class="headerlink" title="** Slave节点的配置 **"></a>** Slave节点的配置 **</h5><p>在<code>~/</code>目录下执行<code>ssh-keygen -t rsa</code>,一路回车</p>
+<p>接着将从master复制过来的authorized_keys复制到.ssh目录,<code>mv authorized_keys ~/.ssh</code></p>
+<p>然后修改权限,<code>chmod 600 ~/.ssh/authorized_keys</code>。以上操作要在两个slave节点均做.至此,配置完毕。</p>
+<p>在master执行<code>ssh slave0</code>，若登录成功，且不需要输入密码,即证明配置成功。<code>exit</code>,回到本地计算机。</p>
+<hr>
+<h3 id="Hadoop-HDFS安装与配置"><a href="#Hadoop-HDFS安装与配置" class="headerlink" title="** Hadoop HDFS安装与配置 **"></a>** Hadoop HDFS安装与配置 **</h3><h4 id="解压"><a href="#解压" class="headerlink" title="** 解压 **"></a>** 解压 **</h4><p>这里我用的是<code>hadoop-2.6.0.tar.gz</code>。先解压到用户目录,<code>tar -zxvf ~/hadoop-2.6.0.tar.gz</code></p>
+<hr>
+<h4 id="配置hadoop环境变量"><a href="#配置hadoop环境变量" class="headerlink" title="** 配置hadoop环境变量 **"></a>** 配置hadoop环境变量 **</h4><p><code>gedit ~/hadoop-2.6.0/etc/hadoop/hadoop-env.sh</code>,修改为如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># The java implementation to use.</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.7.0_71/</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="配置yarn环境变量"><a href="#配置yarn环境变量" class="headerlink" title="** 配置yarn环境变量 **"></a>** 配置yarn环境变量 **</h4><p><code>gedit ~/hadoop-2.6.0/etc/hadoop/yarn-env.sh</code>,修改为如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># some Java parameters</span><br><span class="line"># export JAVA_HOME=/home/y/libexec/jdk1.6.0/</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.7.0_71/</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="配置核心组件文件"><a href="#配置核心组件文件" class="headerlink" title="** 配置核心组件文件 **"></a>** 配置核心组件文件 **</h4><p><code>gedit ~/hadoop-2.6.0/etc/hadoop/core-site.xml</code>,修改为如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line"> &lt;property&gt;</span><br><span class="line">     &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">     &lt;value&gt;hdfs://master:9000&lt;/value&gt;</span><br><span class="line"> &lt;/property&gt;</span><br><span class="line"> &lt;property&gt;</span><br><span class="line">	 &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">	 &lt;value&gt;/home/sail/hadoopdata&lt;/value&gt;</span><br><span class="line"> &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="配置文件系统"><a href="#配置文件系统" class="headerlink" title="** 配置文件系统 **"></a>** 配置文件系统 **</h4><p><code>gedit ~/hadoop-2.6.0/etc/hadoop/hdfs-site.xml</code>,修改为如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line"> &lt;property&gt;</span><br><span class="line">    &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">	&lt;value&gt;1&lt;/value&gt;</span><br><span class="line"> &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="** yarn-site.xml **"></a>** yarn-site.xml **</h4><p><code>gedit ~/hadoop-2.6.0/etc/hadoop/yarn-site.xml</code>,修改为如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">	    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">		&lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;master:18040&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">	    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span><br><span class="line">	    &lt;value&gt;master:18030&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">	    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;master:18025&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">	    &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;master:18141&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">	&lt;property&gt;</span><br><span class="line">	    &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">		&lt;value&gt;master:18088&lt;/value&gt;</span><br><span class="line">	&lt;/property&gt;</span><br><span class="line">    &lt;!-- Site specific YARN configuration properties --&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="配置MapReduce-计算框架文件"><a href="#配置MapReduce-计算框架文件" class="headerlink" title="** 配置MapReduce 计算框架文件 **"></a>** 配置MapReduce 计算框架文件 **</h4><p>先执行如下两行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/hadoop-2.6.0/etc/hadoop/</span><br><span class="line">cp mapred-site.xml.template mapred-site.xml`</span><br></pre></td></tr></table></figure>
+
+<p>然后,<code>gedit mapred-site.xml</code>。修改如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="配置Master的slaves文件"><a href="#配置Master的slaves文件" class="headerlink" title="** 配置Master的slaves文件 **"></a>** 配置Master的slaves文件 **</h4><p>slaves文件给出集群的slave节点。启动hadoop时,根据该文件启动集群,不在列表的slave节点不会被视为计算节点</p>
+<p><code>gedit ~/hadoop-2.6.0/etc/hadoop/slaves</code>,修改为如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slave0</span><br><span class="line">slave1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="复制Master上的hadoop到salve节点"><a href="#复制Master上的hadoop到salve节点" class="headerlink" title="** 复制Master上的hadoop到salve节点 **"></a>** 复制Master上的hadoop到salve节点 **</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r /home/sail/hadoop-2.6.0 sail@slave0:~/</span><br><span class="line">scp -r /home/sail/hadoop-2.6.0 sail@slave1:~/</span><br></pre></td></tr></table></figure>
+<p>至此,我们就完成了hadoop集群的安装与配置</p>
+<hr>
+<h3 id="Hadoop集群的启动"><a href="#Hadoop集群的启动" class="headerlink" title="** Hadoop集群的启动 **"></a>** Hadoop集群的启动 **</h3><h4 id="配置操作系统环境变量"><a href="#配置操作系统环境变量" class="headerlink" title="** 配置操作系统环境变量 **"></a>** 配置操作系统环境变量 **</h4><p>由于是在Linux集群上安装的hadoop集群,所以自然需要配置Linux系统平台的环境变量。注意,这里的配置需要在集群所有计算机上进行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">vim .profifle</span><br><span class="line"></span><br><span class="line">#增加如下代码到文件尾部</span><br><span class="line">export HADOOP_HOME=/home/sail/hadoop-2.6.0</span><br><span class="line">export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH</span><br></pre></td></tr></table></figure>
+<p>执行<code>source .profile</code>,使上述配置生效。没有生效的话重启下计算机就能生效了。</p>
+<hr>
+<h4 id="创建hadoop数据目录"><a href="#创建hadoop数据目录" class="headerlink" title="** 创建hadoop数据目录 **"></a>** 创建hadoop数据目录 **</h4><p>在用户目录下(~),创建数据目录,<code>mkdir /home/sail/hadoopdata</code></p>
+<p>这里的数据目录名<code>hadoopdata</code>，与前面的hadoop核心组件<code>core-site.xml</code>中的配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">	 &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">	 &lt;value&gt;/home/sail/hadoopdata&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>是一致的</p>
+<hr>
+<h4 id="格式化文件系统"><a href="#格式化文件系统" class="headerlink" title="** 格式化文件系统 **"></a>** 格式化文件系统 **</h4><p>该操作只需要在master节点进行,在用户目录下(~)执行即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs namenode -format</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="启动和关闭hadoop"><a href="#启动和关闭hadoop" class="headerlink" title="** 启动和关闭hadoop **"></a>** 启动和关闭hadoop **</h4><p>到此,就可以启动hadoop了,进入hadoop的安装目录,执行<code>sbin/start-all.sh</code>即可以启动。如果要关闭,则执行<code>stop-all.sh</code>命令即可</p>
+<p><code>This script is Deprecated. Instead use start-dfs.sh and start-yarn.sh</code></p>
+<p>会提示<code>start-all.sh</code>这个命令已经被抛弃了,推荐使用<code>start-dfs.sh</code>和<code>start-yarn.sh</code></p>
+<hr>
+<h4 id="验证hadoop是否启动成功"><a href="#验证hadoop是否启动成功" class="headerlink" title="** 验证hadoop是否启动成功 **"></a>** 验证hadoop是否启动成功 **</h4><p>在master节点,执行<code>jps</code>命令,如果显示以下四个进程，则表示主节点(Master)启动成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3202 SecondaryNameNode</span><br><span class="line">3001 NameNode</span><br><span class="line">3344 ResourceManager</span><br><span class="line">3600 Jps</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在从节点(slavex),执行<code>jps</code>,若显示以下三个进程,则表示启动成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2374 Jps</span><br><span class="line">2102 DataNode</span><br><span class="line">2237 NodeManager</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title="** 参考 **"></a>** 参考 **</h3><p><a target="_blank" rel="noopener" href="http://blog.topspeedsnail.com/archives/6649">Ubuntu 16.04 安装 VMware Workstation(虚拟机)</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26954773/article/details/78128662">VMware Workstation 14永久激活密钥</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/oloroso/p/4612935.html">linux下VMware安装出现的问题解决</a><br><a target="_blank" rel="noopener" href="http://blog.topspeedsnail.com/archives/6650">Ubuntu 16.04 安装 qBittorrent－BT下载</a><br><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/861023/how-do-you-get-bittorrent-on-ubuntu">How do you get BitTorrent on Ubuntu?</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ruglcc/article/details/7802077">ubuntu永久修改主机名</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/whaoXYSH/article/details/17755555">从VMware虚拟机安装到hadoop集群环境配置详细说明</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Qiuzhongweiwei/article/details/80172270">子网掩码,如255.255.255.0\24， 24代表什么?</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Bleachswh/article/details/51334661">Ubuntu16.04 配置环境变量的三种方法</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/OnlyDreams/p/7210914.html">ubuntu 默认防火墙安装、启用、查看状态</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010842515/article/details/52484404">关于ssh: connect to host master port 22: Connection timed out问题的总结</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/s646575997/article/details/51227976">ssh: connect to host slave2 port 22: Connection refused</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012146107/article/details/11766797">ubuntu 环境变量 失效的解决办法</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zdw_zoro/article/details/78052600">Ubuntu修改环境变量关掉终端就没了，问题解决办法</a></p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="__share_wrapper">
+    <span class="under0">
+		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
+	</span>
+</footer>
+
+<footer class="footer">
+    <span class="footer__copyright">&copy; 2016-2021. | 由<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a target="_blank" rel="noopener" href="https://github.com/someus/huno">Huno</a> | <a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">渝ICP备17002561号</a> | 不装弱了,我要做大佬</span>
+</footer>
+
+<script>
+// 对特定页面的footer隐藏
+// function find(str, aim, num) {
+//    var resultIndex = str.indexOf(aim);
+//    for(var i = 0; i < num - 1; i++){
+//        resultIndex = str.indexOf(aim, resultIndex + 1);
+//    }
+//    return resultIndex;
+//  }
+
+// var __one = document.querySelector("#__one");
+// var __tow = document.querySelector("#__tow");
+// var __three = document.querySelector("#__three");
+// var __threeIndex  = find(location.href, '/', 3);
+// var __fourthIndex = find(location.href, '/', 4);
+// var aimStr = '';
+
+// if (__fourthIndex !== -1) {
+//     aimStr = location.href.substring(__threeIndex + 1, __fourthIndex);
+// } else if (__fourthIndex === -1) {
+//     aimStr = location.href.substring(__threeIndex + 1);
+// }
+
+// switch (aimStr) {
+//   case "":
+//   case "#blog":
+//   case "about":
+//   case "archive":
+//   case "categories":
+//   case "tags":
+//   case "page":
+//     __one.style.display = "none";
+//     __tow.style.display = "none";
+//     __three.style.display = "none";
+//     break;
+// }
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137711129-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137711129-1');
+</script>
+
+        </div>
+    </div>
+
+
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script>
+
+var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        success: function( xmlResponse ) {
+            // get the contents from search data
+
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "link" , this).attr("href")
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length <= 0) {
+                    return;
+                }
+
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+
+                        str += "<li><a href='"+ data_url  +"' class='search-result-title'>"+ data_title +"</a>";
+                       console.log(data_url);
+                        console.log("=====命中=====", data);
+
+
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 100;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substr(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<em class=\"search-keyword\">"+keyword+"</em>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                });
+                str += "</ul>";
+                $resultContent.innerHTML = str;
+            });
+        }
+    });
+};
+
+var path = "/" + "search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
