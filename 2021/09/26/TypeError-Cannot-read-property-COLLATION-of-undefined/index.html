@@ -7,7 +7,7 @@
     
 
     <title>
-      小米8-&gt;Task :app:installDebug FAILED &amp;&amp; INSTALL_FAILED_USER_RESTRICTED:Install canceled by user | Sail 
+      TypeError:Cannot read property &#39;COLLATION&#39; of undefined | Sail 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,20 +31,17 @@
     </script>
 
 
-    <meta name="description" content="** Preface **在想把react-native跑在真机上进行开发的时候(模拟器是没有问题的),抛出了这个错:app:installDebug FAILED  我一开始搜索查询的关键词是小米8 &gt; Task :app:installDebug FAILED 这样查找出来的结果,大多数是让关闭启用MIUI优化,还有一些其他的方案,也是没有效果的。 折腾了一两个小时过后,我换了一个que">
+    <meta name="description" content="最近用nest写应用的时候，orm用的是typeorm遇到了一个报错。ERROR [TypeOrmModule] Unable to connect to the database. TypeError: Cannot read property &#39;COLLATION&#39; of undefined  折腾了半天，发现是数据库库名首字母大写导致的。最后我将库名从Bookkeeping改">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小米8-&gt;Task :app:installDebug FAILED &amp;&amp; INSTALL_FAILED_USER_RESTRICTED:Install canceled by user | Sail">
-<meta property="og:url" content="http://www.sail.name/2019/07/07/xiaomi8-%3E-Task-:app:installDebug-FAILED-Failure-and-INSTALL_FAILED_USER_RESTRICTED:-Install-canceled-by-user/index.html">
+<meta property="og:title" content="TypeError:Cannot read property &#39;COLLATION&#39; of undefined | Sail">
+<meta property="og:url" content="http://www.sail.name/2021/09/26/TypeError-Cannot-read-property-COLLATION-of-undefined/index.html">
 <meta property="og:site_name" content="Sail">
-<meta property="og:description" content="** Preface **在想把react-native跑在真机上进行开发的时候(模拟器是没有问题的),抛出了这个错:app:installDebug FAILED  我一开始搜索查询的关键词是小米8 &gt; Task :app:installDebug FAILED 这样查找出来的结果,大多数是让关闭启用MIUI优化,还有一些其他的方案,也是没有效果的。 折腾了一两个小时过后,我换了一个que">
+<meta property="og:description" content="最近用nest写应用的时候，orm用的是typeorm遇到了一个报错。ERROR [TypeOrmModule] Unable to connect to the database. TypeError: Cannot read property &#39;COLLATION&#39; of undefined  折腾了半天，发现是数据库库名首字母大写导致的。最后我将库名从Bookkeeping改">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.sail.name/img/react/INSTALL_FAILED_USER_RESTRICTED/1.jpg">
-<meta property="article:published_time" content="2019-07-07T09:05:17.000Z">
-<meta property="article:modified_time" content="2025-04-16T10:39:38.517Z">
+<meta property="article:published_time" content="2021-09-26T15:11:01.000Z">
+<meta property="article:modified_time" content="2024-09-01T11:05:20.000Z">
 <meta property="article:author" content="Sail">
-<meta property="article:tag" content="react native">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.sail.name/img/react/INSTALL_FAILED_USER_RESTRICTED/1.jpg">
     
     
     
@@ -180,27 +177,22 @@
 
   <header class="post-header">
     
-    <h1 class="post-title">小米8-&gt;Task :app:installDebug FAILED &amp;&amp; INSTALL_FAILED_USER_RESTRICTED:Install canceled by user</h1>
+    <h1 class="post-title">TypeError:Cannot read property &#39;COLLATION&#39; of undefined</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2019-07-07" class="post-meta__date date">2019-07-07</time> 
+      <time datetime="2021-09-26" class="post-meta__date date">2021-09-26</time> 
 
       <span class="post-meta__tags tags">
 
           
             <font class="categories">
             &#8226; 分类:
-            <a class="categories-link" href="/categories/react/">react</a>
+            <a class="categories-link" href="/categories/TypeOrm/">TypeOrm</a>, <a class="categories-link" href="/categories/TypeOrm/nest/">nest</a>
             </font>
           
 
-          
-             &#8226; 标签:
-            <font class="tags">
-              <a class="tags-none-link" href="/tags/react-native/" rel="tag">react native</a>
-            </font>
           
 
       </span>
@@ -211,17 +203,13 @@
   </header>
 
   <section id="post-content" class="article-content post">
-    <h3 id="Preface"><a href="#Preface" class="headerlink" title="** Preface **"></a>** Preface **</h3><p>在想把react-native跑在真机上进行开发的时候(模拟器是没有问题的),抛出了这个错:app:installDebug FAILED</p>
-<p><img src="/img/react/INSTALL_FAILED_USER_RESTRICTED/1.jpg" alt="1.jpg"></p>
-<p>我一开始搜索查询的关键词是<code>小米8 &gt; Task :app:installDebug FAILED</code></p>
-<p>这样查找出来的结果,大多数是让关闭<code>启用MIUI优化</code>,还有一些其他的方案,也是没有效果的。</p>
-<p>折腾了一两个小时过后,我换了一个query进行搜索,<code>小米8 Failure [INSTALL_FAILED_USER_RESTRICTED: Install canceled by user]</code>，立马解决</p>
+    <p>最近用nest写应用的时候，orm用的是<code>typeorm</code>遇到了一个报错。<br><code>ERROR [TypeOrmModule] Unable to connect to the database. TypeError: Cannot read property &#39;COLLATION&#39; of undefined </code></p>
+<p>折腾了半天，发现是数据库库名首字母大写导致的。最后我将库名从<code>Bookkeeping</code>改成了<code>bookkeeping</code>就可以了。把这个记录下来了，帮助后面踩坑的朋友。</p>
+<p><strong><span class="under0">日常编码的时候还是要养成良好的习惯，比如不要用中文命名文件夹，数据库/表名，用小写。就可以直接避免类似的问题。</span></strong></p>
 <hr>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="** 解决方案 **"></a>** 解决方案 **</h3><p>小米手机：<br>1）去设置<br>2）点击更多设置<br>3）点击开发者选项<br>4）点击开启”USB安装（允许通过USB安装应用）”</p>
-<hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="** 总结 **"></a>** 总结 **</h3><p><span class="under0">学会换个搜索关键词,重新组织下问题描述。</span></p>
-<hr>
-<h3 id="参考"><a href="#参考" class="headerlink" title="** 参考 **"></a>** 参考 **</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_30552993/article/details/61414620">16、安装APK错误 Failure [INSTALL_CANCELED_BY_USER]</a><br><a target="_blank" rel="noopener" href="https://github.com/facebook/react-native/issues/2720">[Android] Upload package to device fails</a><br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/37641670/adb-install-failure-install-canceled-by-user">Adb install failure: INSTALL_CANCELED_BY_USER</a></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="** 参考链接 **"></a>** 参考链接 **</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/typeorm/typeorm/issues/2403">TypeError: Cannot read property ‘COLLATION’ of undefined</a></li>
+</ul>
 
   </section>
 

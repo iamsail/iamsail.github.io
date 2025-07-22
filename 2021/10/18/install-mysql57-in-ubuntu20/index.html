@@ -7,7 +7,7 @@
     
 
     <title>
-      分类: 不可描述 
+      Ubuntu20中安装MySQL5.7 | Sail 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,13 +31,20 @@
     </script>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="分类: 不可描述">
-<meta property="og:url" content="http://www.sail.name/categories/%E4%B8%8D%E5%8F%AF%E6%8F%8F%E8%BF%B0/index.html">
+    <meta name="description" content="** Preface **本文是对在Ubuntu20.04中安装MySQL5.7的记录  ** 安装MySQL **首先在MySQL官网根据你的需求找到所需要安装的版本链接  https:&#x2F;&#x2F;dev.mysql.com&#x2F;downloads&#x2F;mysql&#x2F; https:&#x2F;&#x2F;downloads.mysql.com&#x2F;archives&#x2F;community&#x2F;   ** 下载deb安装包 ** 1wget ht">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu20中安装MySQL5.7 | Sail">
+<meta property="og:url" content="http://www.sail.name/2021/10/18/install-mysql57-in-ubuntu20/index.html">
 <meta property="og:site_name" content="Sail">
+<meta property="og:description" content="** Preface **本文是对在Ubuntu20.04中安装MySQL5.7的记录  ** 安装MySQL **首先在MySQL官网根据你的需求找到所需要安装的版本链接  https:&#x2F;&#x2F;dev.mysql.com&#x2F;downloads&#x2F;mysql&#x2F; https:&#x2F;&#x2F;downloads.mysql.com&#x2F;archives&#x2F;community&#x2F;   ** 下载deb安装包 ** 1wget ht">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.sail.name/img/mysql/1.png">
+<meta property="article:published_time" content="2021-10-18T14:04:45.000Z">
+<meta property="article:modified_time" content="2024-09-01T11:05:20.000Z">
 <meta property="article:author" content="Sail">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.sail.name/img/mysql/1.png">
     
     
     
@@ -169,49 +176,79 @@
         <div class="content-wrapper__inner entry">
             
 
+<article class="post-container post-container--single">
 
-  <h1 class="archive-title">分类: 不可描述</h1>
-  <hr class="post-list__divider" />
-
-
-<div class="main-post-list">
-    <ol class="post-list">
+  <header class="post-header">
+    
+    <h1 class="post-title">Ubuntu20中安装MySQL5.7</h1>
 
     
-    <li>
 
-      <h2 class="post-list__post-title post-title">
-        <a href="/2018/06/24/Scientific-Internet/" title="link to 不可描述">不可描述</a>
-      </h2>
+    <div class="post-meta">
+      <time datetime="2021-10-18" class="post-meta__date date">2021-10-18</time> 
 
-      <div class="post-list__meta">
+      <span class="post-meta__tags tags">
 
-        <time datetime="2018-06-24" class="post-list__meta--date date">2018-06-24</time>
-      </div>
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            </font>
+          
 
-      <div class="excerpt">
-        
-          不能说的秘密
-        
-      </div>
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-none-link" href="/tags/MySQL/" rel="tag">MySQL</a>
+            </font>
+          
 
-      <hr class="post-list__divider" />
-    </li>
-    
-  </ol>
-
-  <!-- <hr class="post-list__divider " /> -->
-<!-- 
-<nav class="pagination" role="navigation">
-    
-
-    <span class="pagination__page-number"> 1 / 1</span>
+      </span>
+    </div>
     
     
-</nav> -->
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="Preface"><a href="#Preface" class="headerlink" title="** Preface **"></a>** Preface **</h3><p>本文是对在<code>Ubuntu20.04</code>中安装<code>MySQL5.7</code>的记录</p>
+<hr>
+<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="** 安装MySQL **"></a>** 安装MySQL **</h3><p>首先在MySQL官网根据你的需求找到所需要安装的版本链接</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></li>
+<li><a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community/">https://downloads.mysql.com/archives/community/</a></li>
+</ul>
+<p><img src="/img/mysql/1.png" alt="1.png"></p>
+<p>** 下载deb安装包 **</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-server_5.7.31-1ubuntu18.04_amd64.deb-bundle.tar</span><br></pre></td></tr></table></figure>
 
 
-</div>
+<p>** 新建目录 **<br><code>mkdir mysql5.7.31</code><br><code>mv mysql-server_5.7.31-1ubuntu18.04_amd64.deb-bundle.tar ./mysql5.7.31</code></p>
+<p>** 解压 **<br><code>cd mysql5.7.31</code><br><code>sudo tar -vxf mysql-server_5.7.31-1ubuntu18.04_amd64.deb-bundle.tar</code></p>
+<p>** 解压出来的deb安装包如下 **</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">libmysqlclient20_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-client_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-community-source_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-server_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-common_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-testsuite_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">libmysqlclient-dev_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-community-client_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-community-server_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">libmysqld-dev_5.7.31-1ubuntu18.04_amd64.deb</span><br><span class="line">mysql-community-test_5.7.31-1ubuntu18.04_amd64.deb</span><br></pre></td></tr></table></figure>
+
+<p>** 删除2个测试相关的包 **<br><code>sudo rm -f mysql-testsuite_5.7.31-1ubuntu18.04_amd64.deb</code><br><code>sudo rm -f mysql-community-test_5.7.31-1ubuntu18.04_amd64.deb</code></p>
+<p>** 安装依赖 **<br><code>sudo apt-get install libtinfo5</code><br><code>sudo apt-get install libmecab2</code></p>
+<p>** 使用deb安装 **<br><code>sudo dpkg -i mysql-*.deb</code></p>
+<hr>
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="** 基本命令 **"></a>** 基本命令 **</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#启动mysql</span><br><span class="line">sudo service mysql start</span><br><span class="line"></span><br><span class="line">#停止mysql</span><br><span class="line">sudo service mysql stop</span><br><span class="line"></span><br><span class="line">#重启mysql</span><br><span class="line">sudo service mysql restart</span><br><span class="line"></span><br><span class="line">#查看mysql状态</span><br><span class="line">sudo service mysql status</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="** 参考链接 **"></a>** 参考链接 **</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://viencoding.com/article/295">Ubuntu20安装MySQL5.7</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ba48f1e386f0">Ubuntu20.04 安装 MySQL5.7</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1655900">Ubuntu安装mysql5.7（诲人不倦，记点干货）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/MaggieForest/p/14868085.html">ubuntu20.04 安装mysql5.7配置</a></li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
             <footer class="__share_wrapper">
     <span class="under0">
 		<span class="text">关注我的微信公众号[<a href="/about/">李一二</a>]，即时看更多的文章</span>
@@ -380,6 +417,18 @@ searchFunc(path, 'local-search-input', 'local-search-result');
 
 
     
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
     
     
     <!--kill ie6 -->
